@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { Disclaimer } from './Disclaimer';
+import { LanguageSelector } from './LanguageSelector';
 
 const navLinks = [
   { href: '/classify', labelKey: 'classify' as const },
@@ -54,6 +55,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
             })}
           </nav>
 
+          <div className="hidden md:flex items-center">
+            <LanguageSelector />
+          </div>
+
           {/* Mobile menu button */}
           <button
             type="button"
@@ -98,6 +103,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                   </Link>
                 );
               })}
+              <LanguageSelector mobile />
             </div>
           </nav>
         )}

@@ -52,7 +52,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`${dmSans.variable} ${dmSerif.variable}`}>
+    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`${dmSans.variable} ${dmSerif.variable}`}>
       <body className="min-h-screen font-sans antialiased">
         <a href="#main-content" className="skip-to-content">
           Skip to main content
