@@ -172,6 +172,67 @@ npx turbo test           # Run tests
 
 Monorepo managed with [Turborepo](https://turbo.build/). SDK builds with [tsup](https://tsup.egoist.dev/) (ESM + CJS). Web app is [Next.js 14](https://nextjs.org/).
 
+## Agent Integration
+
+This toolkit is designed to be used by AI agents. Three approaches, depending on your setup.
+
+### Agent Skills (recommended)
+
+Install skills into your AI coding agent using [`npx skills`](https://github.com/vercel-labs/skills):
+
+```bash
+npx skills add AbdelStark/eu-ai-act-toolkit
+```
+
+This installs 3 skills into your agent's workspace:
+
+| Skill | What it does |
+|-------|-------------|
+| `classify-ai-system` | Walk through EU AI Act risk classification for any AI system |
+| `compliance-checklist` | Retrieve and track compliance obligations by risk tier |
+| `generate-compliance-docs` | Generate documentation templates (technical docs, risk management, etc.) |
+
+Skills work with Claude Code, Cursor, Copilot, Codex, Windsurf, and [40+ other agents](https://github.com/vercel-labs/skills#supported-agents).
+
+### Claude Code Commands
+
+If you use [Claude Code](https://docs.anthropic.com/en/docs/claude-code), this repo includes slash commands in `.claude/commands/`:
+
+```
+/classify          # Classify an AI system's risk tier
+/checklist         # Show compliance checklist for a tier
+/generate-docs     # Generate compliance documentation
+```
+
+Clone the repo and the commands are available automatically.
+
+### Agent Context Files
+
+For agents working on or with this codebase, we provide context files for all major AI coding tools:
+
+| File | Agent |
+|------|-------|
+| [`AGENTS.md`](AGENTS.md) | Claude Code, Codex, and any agent that reads AGENTS.md |
+| [`.cursorrules`](.cursorrules) | Cursor |
+| [`.github/copilot-instructions.md`](.github/copilot-instructions.md) | GitHub Copilot |
+
+### Programmatic Use by Agents
+
+Agents can use the SDK directly in code or shell out to the CLI:
+
+```bash
+# Quick classification via CLI (no install needed)
+npx eu-ai-act classify --annex-iii employment --json
+
+# Full checklist as JSON
+npx eu-ai-act checklist high-risk --json
+
+# Generate all docs for a tier
+npx eu-ai-act generate --tier high-risk --system "My AI" --provider "Acme" --purpose "Hiring" --output ./docs/
+```
+
+All CLI commands support `--json` for machine-readable output that agents can parse.
+
 ## Documentation
 
 | Document | Description |

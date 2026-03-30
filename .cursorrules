@@ -1,0 +1,50 @@
+EU AI Act Compliance Toolkit - Agent Instructions
+
+PROJECT OVERVIEW
+This is an EU AI Act compliance toolkit monorepo containing three packages:
+- SDK (@eu-ai-act/sdk) in packages/sdk/
+- CLI (eu-ai-act) in packages/cli/
+- Web app in packages/web/
+
+SDK API (packages/sdk/)
+Exported functions:
+- classify(systemDescription) - Determine AI system risk tier
+- getChecklist(riskTier) - Get compliance checklist for a tier
+- getTimeline(riskTier) - Get compliance deadlines
+- generateTemplate(templateName, params) - Generate compliance documents
+- getQuestions() - Get interactive classification questionnaire
+
+CLI COMMANDS (packages/cli/)
+- eu-ai-act classify - Classify an AI system's risk tier
+- eu-ai-act checklist - Get compliance checklist
+- eu-ai-act timeline - Show compliance deadlines
+- eu-ai-act status - Check compliance status
+- eu-ai-act generate - Generate compliance documents
+- eu-ai-act report - Generate full compliance report
+
+RISK TIERS
+Valid risk classifications: prohibited, high-risk, gpai, gpai-systemic, limited, minimal
+
+COMPLIANCE DATA
+- All compliance data lives in data/*.json files
+- Data is validated against JSON Schema (data/schemas/)
+- Every compliance item MUST cite a specific EU AI Act Article (e.g., "Article 6")
+- Run: node scripts/validate-data.js to validate all data files
+
+ARCHITECTURE RULES
+- Classification is deterministic: pure functions, no side effects
+- The web app is fully static: no backend, localStorage only for state
+- Agent skills are in skills/ directory for automated compliance workflows
+
+KEY COMMANDS
+- npm install - Install all dependencies
+- npx turbo build - Build all packages
+- npx turbo test - Run all tests
+- node scripts/validate-data.js - Validate compliance data
+
+IMPORTANT CONSTRAINTS
+- Do NOT provide legal advice in any generated content
+- Always include a disclaimer: "This tool provides general guidance only and does not constitute legal advice"
+- Every compliance requirement must reference a specific EU AI Act Article
+- Keep classification logic deterministic and testable
+- Data changes require schema validation before merge
