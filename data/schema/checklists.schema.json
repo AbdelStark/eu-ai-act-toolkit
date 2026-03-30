@@ -4,30 +4,24 @@
   "type": "object",
   "patternProperties": {
     "^(prohibited|high-risk|gpai|gpai-systemic|limited|minimal)$": {
-      "type": "object",
-      "required": ["items"],
-      "properties": {
-        "items": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["id", "article", "text", "description", "required", "category"],
-            "properties": {
-              "id": { "type": "string", "pattern": "^art\\d+" },
-              "article": { "type": "integer", "minimum": 1 },
-              "paragraph": { "type": ["integer", "null"] },
-              "text": { "type": "string", "minLength": 1 },
-              "description": { "type": "string" },
-              "required": { "type": "boolean" },
-              "category": {
-                "enum": [
-                  "risk-management", "data-governance", "documentation",
-                  "record-keeping", "transparency", "human-oversight",
-                  "accuracy-robustness", "monitoring", "incident-reporting",
-                  "copyright", "training-data-summary"
-                ]
-              }
-            }
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "article", "text", "description", "required", "category"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$" },
+          "article": { "type": ["integer", "null"], "minimum": 1 },
+          "paragraph": { "type": ["integer", "null"] },
+          "text": { "type": "string", "minLength": 1 },
+          "description": { "type": "string" },
+          "required": { "type": "boolean" },
+          "category": {
+            "enum": [
+              "risk-management", "data-governance", "documentation",
+              "record-keeping", "transparency", "human-oversight",
+              "accuracy-robustness", "monitoring", "incident-reporting",
+              "copyright", "training-data-summary"
+            ]
           }
         }
       }

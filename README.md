@@ -172,6 +172,16 @@ npx turbo test           # Run tests
 
 Monorepo managed with [Turborepo](https://turbo.build/). SDK builds with [tsup](https://tsup.egoist.dev/) (ESM + CJS). Web app is [Next.js 14](https://nextjs.org/).
 
+## Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Architecture](docs/architecture.md) | Monorepo structure, data flow, build pipeline |
+| [Data Model](docs/data-model.md) | JSON data format, risk tiers, schema validation |
+| [SDK Guide](docs/sdk-guide.md) | Integration guide for `@eu-ai-act/sdk` |
+| [CLI Guide](docs/cli-guide.md) | Usage guide for the `eu-ai-act` CLI |
+| [AGENTS.md](AGENTS.md) | Guide for AI coding agents working on this codebase |
+
 ## Contributing
 
 Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
