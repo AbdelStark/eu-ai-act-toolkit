@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "system": {
+    "name": "AI System",
+    "provider": "Provider",
+    "classifiedAt": "2026-03-30T17:30:38.825Z"
+  },
+  "classification": {
+    "tier": "gpai",
+    "subTier": null,
+    "conformityAssessment": "none"
+  },
+  "checklist": {}
+}

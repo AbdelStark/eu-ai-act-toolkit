@@ -120,8 +120,17 @@ export function classify(input: ClassificationInput): ClassificationResult {
 }
 
 function validateInput(input: ClassificationInput): void {
-  if (!input || typeof input !== 'object') {
-    throw new TypeError('ClassificationInput must be a non-null object');
+  if (input == null) {
+    throw new TypeError(
+      'classify() requires a ClassificationInput object, but received ' +
+      (input === null ? 'null' : 'undefined'),
+    );
+  }
+
+  if (typeof input !== 'object' || Array.isArray(input)) {
+    throw new TypeError(
+      `classify() requires a ClassificationInput object, but received ${Array.isArray(input) ? 'an array' : typeof input}`,
+    );
   }
 
   const requiredBooleans: (keyof ClassificationInput)[] = [
@@ -133,14 +142,41 @@ function validateInput(input: ClassificationInput): void {
     'emotionRecognition', 'biometricCategorizing',
   ];
 
+  const missing: string[] = [];
+  const wrongType: string[] = [];
+
   for (const field of requiredBooleans) {
-    if (typeof input[field] !== 'boolean') {
-      throw new TypeError(`ClassificationInput.${field} must be a boolean, got ${typeof input[field]}`);
+    if (!(field in input)) {
+      missing.push(field);
+    } else if (typeof input[field] !== 'boolean') {
+      wrongType.push(`${field} (expected boolean, got ${typeof input[field]})`);
     }
   }
 
+  if (missing.length > 0) {
+    throw new TypeError(
+      `ClassificationInput is missing required boolean field(s): ${missing.join(', ')}. ` +
+      'All prohibited-practice, GPAI, high-risk, and limited-risk boolean fields must be explicitly set.',
+    );
+  }
+
+  if (wrongType.length > 0) {
+    throw new TypeError(
+      `ClassificationInput has invalid field type(s): ${wrongType.join('; ')}`,
+    );
+  }
+
   if (!('annexIIICategory' in input)) {
-    throw new TypeError('ClassificationInput.annexIIICategory is required (use null if not applicable)');
+    throw new TypeError(
+      'ClassificationInput.annexIIICategory is required (use null if the system does not fall under any Annex III category)',
+    );
+  }
+
+  // Validate optional numeric fields
+  if (input.gpaiFlops != null && (typeof input.gpaiFlops !== 'number' || !isFinite(input.gpaiFlops) || input.gpaiFlops < 0)) {
+    throw new TypeError(
+      `ClassificationInput.gpaiFlops must be a non-negative finite number, got ${String(input.gpaiFlops)}`,
+    );
   }
 }
 

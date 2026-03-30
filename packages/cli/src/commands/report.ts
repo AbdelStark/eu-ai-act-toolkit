@@ -5,20 +5,46 @@ import { getChecklist, countProgress, getTimeline } from '@eu-ai-act/sdk';
 import { readState } from '../state.js';
 
 export const reportCommand = new Command('report')
-  .description('Export a compliance report')
-  .option('--format <type>', 'Output format: md (default), json', 'md')
-  .option('--output <path>', 'Output file path (default: stdout)')
-  .option('--json', 'Output as JSON (alias for --format json)')
+  .description('Export a compliance report (Markdown or JSON)')
+  .option('--format <type>', 'Output format: md or json (default: md)', 'md')
+  .option('--output <path>', 'Write to file instead of stdout')
+  .option('--json', 'Shorthand for --format json')
+  .addHelpText(
+    'after',
+    `
+${chalk.bold('Description:')}
+  Generate a full compliance report combining your classification,
+  checklist progress, and upcoming deadlines. Useful for audits,
+  stakeholder updates, or compliance reviews.
+
+${chalk.bold('Examples:')}
+  ${chalk.dim('$')} eu-ai-act report                        ${chalk.dim('Print Markdown report')}
+  ${chalk.dim('$')} eu-ai-act report --output report.md      ${chalk.dim('Save to file')}
+  ${chalk.dim('$')} eu-ai-act report --json                  ${chalk.dim('JSON output')}
+  ${chalk.dim('$')} eu-ai-act report --format json -o r.json ${chalk.dim('Save JSON to file')}`,
+  )
   .action((opts) => {
     const state = readState();
 
     if (!state) {
-      console.error(chalk.red('No .eu-ai-act.json found.'));
-      console.error(chalk.dim('Run `eu-ai-act classify` first.'));
+      console.error();
+      console.error(chalk.red('  Error: No .eu-ai-act.json found.'));
+      console.error();
+      console.error(`  Run ${chalk.cyan('eu-ai-act classify')} first to classify your AI system.`);
+      console.error();
       process.exit(1);
     }
 
     const format = opts.json ? 'json' : (opts.format ?? 'md');
+
+    if (format !== 'md' && format !== 'json') {
+      console.error();
+      console.error(chalk.red(`  Error: Invalid format "${format}"`));
+      console.error(chalk.dim('  Valid formats: md, json'));
+      console.error();
+      process.exit(1);
+    }
+
     const checklist = getChecklist(state.classification.tier);
     const { completed, total, percent } = countProgress(checklist.items, state.checklist);
     const timeline = getTimeline();
@@ -77,8 +103,19 @@ export const reportCommand = new Command('report')
     }
 
     if (opts.output) {
-      writeFileSync(opts.output, output, 'utf-8');
-      console.log(chalk.green(`Report written to ${opts.output}`));
+      try {
+        writeFileSync(opts.output, output, 'utf-8');
+        console.log();
+        console.log(chalk.green(`  ✓ Report written to ${opts.output}`));
+        console.log();
+      } catch (err: unknown) {
+        const msg = err instanceof Error ? err.message : String(err);
+        console.error();
+        console.error(chalk.red(`  Error: Failed to write "${opts.output}"`));
+        console.error(chalk.dim(`  ${msg}`));
+        console.error();
+        process.exit(1);
+      }
     } else {
       console.log(output);
     }

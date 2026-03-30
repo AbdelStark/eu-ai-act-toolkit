@@ -22,21 +22,33 @@ const TEMPLATE_SCHEMAS: Record<TemplateName, string[]> = {
  * @throws {RangeError} If template name is invalid
  */
 export function validateTemplateInput(name: TemplateName, input: TemplateInput): void {
-  if (!TEMPLATE_NAMES.includes(name)) {
-    throw new RangeError(
-      `Invalid template name: '${name}'. Must be one of: ${TEMPLATE_NAMES.join(', ')}`,
+  if (name == null) {
+    throw new TypeError(
+      `generateTemplate() requires a template name, but received ${name === null ? 'null' : 'undefined'}`,
     );
   }
 
-  if (!input.systemName || typeof input.systemName !== 'string') {
+  if (typeof name !== 'string' || !TEMPLATE_NAMES.includes(name as TemplateName)) {
+    throw new RangeError(
+      `Invalid template name: '${String(name)}'. Must be one of: ${TEMPLATE_NAMES.join(', ')}`,
+    );
+  }
+
+  if (input == null || typeof input !== 'object') {
+    throw new TypeError(
+      `generateTemplate() requires a TemplateInput object, but received ${input == null ? String(input) : typeof input}`,
+    );
+  }
+
+  if (!input.systemName || typeof input.systemName !== 'string' || input.systemName.trim() === '') {
     throw new TypeError('TemplateInput.systemName is required and must be a non-empty string');
   }
 
-  if (!input.provider || typeof input.provider !== 'string') {
+  if (!input.provider || typeof input.provider !== 'string' || input.provider.trim() === '') {
     throw new TypeError('TemplateInput.provider is required and must be a non-empty string');
   }
 
-  if (!input.intendedPurpose || typeof input.intendedPurpose !== 'string') {
+  if (!input.intendedPurpose || typeof input.intendedPurpose !== 'string' || input.intendedPurpose.trim() === '') {
     throw new TypeError('TemplateInput.intendedPurpose is required and must be a non-empty string');
   }
 

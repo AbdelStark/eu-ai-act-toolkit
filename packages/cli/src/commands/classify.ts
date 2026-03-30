@@ -19,81 +19,127 @@ const TIER_COLORS: Record<string, (s: string) => string> = {
   minimal: chalk.green,
 };
 
+const TIER_ICONS: Record<string, string> = {
+  prohibited: '🚫',
+  'high-risk': '⚠️',
+  gpai: '🤖',
+  'gpai-systemic': '🔴',
+  limited: 'ℹ️',
+  minimal: '✅',
+};
+
 export const classifyCommand = new Command('classify')
   .description('Classify an AI system\'s risk tier under the EU AI Act')
-  .option('--social-scoring', 'Article 5(1)(c) — social scoring')
-  .option('--realtime-biometrics', 'Article 5(1)(h) — real-time biometric ID')
-  .option('--subliminal', 'Article 5(1)(a) — subliminal techniques')
-  .option('--exploits-vulnerabilities', 'Article 5(1)(b) — exploits vulnerabilities')
-  .option('--facial-scraping', 'Article 5(1)(e) — untargeted facial scraping')
-  .option('--emotion-workplace', 'Article 5(1)(f) — emotion in workplace')
-  .option('--biometric-categorization', 'Article 5(1)(g) — biometric categorization')
-  .option('--predictive-policing', 'Article 5(1)(d) — predictive policing')
-  .option('--gpai', 'General-purpose AI model')
-  .option('--flops <number>', 'Training compute in FLOPs', parseFloat)
-  .option('--open-source', 'Open source GPAI model')
-  .option('--systemic-risk', 'Designated systemic risk')
-  .option('--annex-i', 'Safety component (Annex I)')
-  .option('--annex-i-third-party', 'Requires third-party assessment')
-  .option('--annex-iii <category>', 'Annex III category')
-  .option('--interacts-persons', 'Interacts with natural persons')
-  .option('--synthetic-content', 'Generates synthetic content')
-  .option('--emotion-recognition', 'Performs emotion recognition')
-  .option('--biometric-categorizing', 'Biometric categorization')
-  .option('--json', 'Output as JSON')
+  .addHelpText(
+    'after',
+    `
+${chalk.bold('Description:')}
+  Walk through the EU AI Act classification decision tree to determine
+  which risk tier applies to your AI system. Runs an interactive wizard
+  by default, or accepts flags for CI/scripting.
+
+${chalk.bold('Risk Tiers:')}
+  ${chalk.red('prohibited')}       Banned AI practices (Article 5)
+  ${chalk.hex('#ea580c')('high-risk')}        Subject to strict obligations (Annex I/III)
+  ${chalk.yellow('gpai')}              General-purpose AI model
+  ${chalk.hex('#c2410c')('gpai-systemic')}    GPAI with systemic risk
+  ${chalk.blue('limited')}          Transparency obligations only
+  ${chalk.green('minimal')}          No specific obligations
+
+${chalk.bold('Examples:')}
+  ${chalk.dim('$')} eu-ai-act classify                          ${chalk.dim('Interactive wizard')}
+  ${chalk.dim('$')} eu-ai-act classify --gpai --flops 1e25      ${chalk.dim('Classify a GPAI model')}
+  ${chalk.dim('$')} eu-ai-act classify --annex-iii biometrics   ${chalk.dim('High-risk by category')}
+  ${chalk.dim('$')} eu-ai-act classify --json                   ${chalk.dim('JSON output for scripts')}`,
+  )
+  .option('--social-scoring', 'Article 5(1)(c) — social scoring by public authorities')
+  .option('--realtime-biometrics', 'Article 5(1)(h) — real-time biometric identification')
+  .option('--subliminal', 'Article 5(1)(a) — subliminal or manipulative techniques')
+  .option('--exploits-vulnerabilities', 'Article 5(1)(b) — exploits age/disability vulnerabilities')
+  .option('--facial-scraping', 'Article 5(1)(e) — untargeted facial image scraping')
+  .option('--emotion-workplace', 'Article 5(1)(f) — emotion inference in workplace/education')
+  .option('--biometric-categorization', 'Article 5(1)(g) — biometric categorization by sensitive attributes')
+  .option('--predictive-policing', 'Article 5(1)(d) — individual predictive policing')
+  .option('--gpai', 'General-purpose AI model (foundation model, LLM, etc.)')
+  .option('--flops <number>', 'Training compute in FLOPs (e.g., 1e25)', parseFloat)
+  .option('--open-source', 'Model released under an open-source licence')
+  .option('--systemic-risk', 'Designated as posing systemic risk by AI Office')
+  .option('--annex-i', 'Safety component of product under Annex I EU legislation')
+  .option('--annex-i-third-party', 'Product requires third-party conformity assessment')
+  .option('--annex-iii <category>', `Annex III high-risk category`)
+  .option('--interacts-persons', 'System interacts directly with natural persons')
+  .option('--synthetic-content', 'System generates synthetic content (deepfakes, AI media)')
+  .option('--emotion-recognition', 'System performs emotion recognition')
+  .option('--biometric-categorizing', 'System performs biometric categorization')
+  .option('--json', 'Output result as JSON')
   .action(async (opts) => {
-    const hasFlags = Object.keys(opts).some(
-      (k) => k !== 'json' && opts[k] !== undefined,
-    );
+    try {
+      const hasFlags = Object.keys(opts).some(
+        (k) => k !== 'json' && opts[k] !== undefined,
+      );
 
-    let input: ClassificationInput;
+      let input: ClassificationInput;
 
-    if (hasFlags || !process.stdin.isTTY) {
-      input = buildInputFromFlags(opts);
-    } else {
-      input = await runInteractiveWizard();
-    }
-
-    const result = classify(input);
-    const colorFn = TIER_COLORS[result.tier] ?? chalk.white;
-
-    if (opts.json) {
-      console.log(JSON.stringify(result, null, 2));
-    } else {
-      console.log();
-      console.log(`Risk Tier: ${colorFn(formatTierSummary(result))}`);
-      console.log(`Enforcement: ${result.enforcementDate}`);
-      console.log(`Conformity: ${result.conformityAssessment}`);
-      console.log();
-      console.log(`Applicable Articles: ${result.articles.join(', ')}`);
-      console.log();
-      console.log('Reasoning:');
-      result.reasoning.forEach((step, i) => {
-        console.log(`  ${i + 1}. ${step}`);
-      });
-      console.log();
-      if (result.tier !== 'prohibited' && result.tier !== 'minimal') {
-        console.log(
-          chalk.dim(`Next: Run \`eu-ai-act checklist ${result.tier}\` to see your obligations.`),
-        );
+      if (hasFlags || !process.stdin.isTTY) {
+        input = buildInputFromFlags(opts);
+      } else {
+        input = await runInteractiveWizard();
       }
-      console.log();
-      console.log(chalk.dim('This tool does not constitute legal advice.'));
-    }
 
-    // Save state
-    const state = createState(
-      'AI System',
-      'Provider',
-      {
-        tier: result.tier,
-        subTier: result.subTier,
-        conformityAssessment: result.conformityAssessment,
-      },
-    );
-    const path = writeState(state);
-    if (!opts.json) {
-      console.log(chalk.dim(`\nState saved to ${path}`));
+      const result = classify(input);
+      const colorFn = TIER_COLORS[result.tier] ?? chalk.white;
+      const icon = TIER_ICONS[result.tier] ?? '';
+
+      if (opts.json) {
+        console.log(JSON.stringify(result, null, 2));
+      } else {
+        console.log();
+        console.log(chalk.bold('  Classification Result'));
+        console.log(chalk.dim('  ' + '─'.repeat(40)));
+        console.log();
+        console.log(`  ${icon} Risk Tier:    ${colorFn(chalk.bold(formatTierSummary(result)))}`);
+        console.log(`  📅 Enforcement: ${result.enforcementDate}`);
+        console.log(`  📋 Conformity:  ${result.conformityAssessment}`);
+        console.log();
+        console.log(chalk.bold('  Applicable Articles'));
+        console.log(`  ${result.articles.join(', ')}`);
+        console.log();
+        console.log(chalk.bold('  Reasoning'));
+        result.reasoning.forEach((step, i) => {
+          console.log(`  ${chalk.dim(`${i + 1}.`)} ${step}`);
+        });
+
+        if (result.tier !== 'prohibited' && result.tier !== 'minimal') {
+          console.log();
+          console.log(
+            chalk.cyan(`  → Next: Run \`eu-ai-act checklist ${result.tier}\` to see your obligations.`),
+          );
+        }
+        console.log();
+        console.log(chalk.dim('  This tool does not constitute legal advice.'));
+      }
+
+      // Save state
+      const state = createState(
+        'AI System',
+        'Provider',
+        {
+          tier: result.tier,
+          subTier: result.subTier,
+          conformityAssessment: result.conformityAssessment,
+        },
+      );
+      const path = writeState(state);
+      if (!opts.json) {
+        console.log(chalk.dim(`  State saved to ${path}`));
+        console.log();
+      }
+    } catch (err: unknown) {
+      if (err instanceof Error && err.message.includes('User force closed')) {
+        console.log(chalk.dim('\n  Classification cancelled.'));
+        process.exit(0);
+      }
+      throw err;
     }
   });
 
@@ -140,11 +186,16 @@ async function runInteractiveWizard(): Promise<ClassificationInput> {
     biometricCategorizing: false,
   };
 
-  console.log(chalk.bold('\nEU AI Act Risk Classification Wizard\n'));
-  console.log(chalk.dim('Answer the following questions about your AI system.\n'));
+  console.log();
+  console.log(chalk.bold('  🏛️  EU AI Act Risk Classification Wizard'));
+  console.log(chalk.dim('  ' + '─'.repeat(44)));
+  console.log(chalk.dim('  Answer the following questions about your AI system.'));
+  console.log(chalk.dim('  Press Ctrl+C to cancel at any time.'));
+  console.log();
 
   // Step 1: Prohibited practices
-  console.log(chalk.bold.underline('Step 1: Prohibited Practices (Article 5)\n'));
+  console.log(chalk.bold.hex('#ea580c')('  Step 1/4 ') + chalk.bold('Prohibited Practices (Article 5)'));
+  console.log();
 
   const prohibitedQuestions: { field: keyof ClassificationInput; text: string }[] = [
     { field: 'socialScoring', text: 'Does your system perform social scoring by public authorities?' },
@@ -163,13 +214,15 @@ async function runInteractiveWizard(): Promise<ClassificationInput> {
       default: false,
     });
     if ((input as Record<string, boolean>)[q.field]) {
-      console.log(chalk.red('\n⚠ This practice is prohibited under Article 5.\n'));
+      console.log(chalk.red('\n  🚫 This practice is prohibited under Article 5.\n'));
       return input;
     }
   }
 
   // Step 2: GPAI
-  console.log(chalk.bold.underline('\nStep 2: General-Purpose AI Model\n'));
+  console.log();
+  console.log(chalk.bold.yellow('  Step 2/4 ') + chalk.bold('General-Purpose AI Model'));
+  console.log();
   input.isGPAI = await confirm({
     message: 'Is this a general-purpose AI model (foundation model, LLM, etc.)?',
     default: false,
@@ -188,7 +241,9 @@ async function runInteractiveWizard(): Promise<ClassificationInput> {
   }
 
   // Step 3: High-risk
-  console.log(chalk.bold.underline('\nStep 3: High-Risk Classification\n'));
+  console.log();
+  console.log(chalk.bold.hex('#ea580c')('  Step 3/4 ') + chalk.bold('High-Risk Classification'));
+  console.log();
   input.annexIProduct = await confirm({
     message: 'Is your system a safety component of a product under Annex I EU legislation?',
     default: false,
@@ -212,7 +267,9 @@ async function runInteractiveWizard(): Promise<ClassificationInput> {
   input.annexIIICategory = annexIIIAnswer === 'none' ? null : annexIIIAnswer as AnnexIIICategory;
 
   // Step 4: Limited risk
-  console.log(chalk.bold.underline('\nStep 4: Transparency Triggers\n'));
+  console.log();
+  console.log(chalk.bold.blue('  Step 4/4 ') + chalk.bold('Transparency Triggers'));
+  console.log();
   input.interactsWithPersons = await confirm({
     message: 'Does the system interact directly with natural persons?',
     default: false,

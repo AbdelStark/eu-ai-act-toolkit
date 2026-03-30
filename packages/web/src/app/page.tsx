@@ -34,39 +34,77 @@ const features = [
       </svg>
     ),
   },
+  {
+    href: '/templates',
+    labelKey: 'templates' as const,
+    icon: (
+      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+      </svg>
+    ),
+  },
+  {
+    href: '/examples/social-scoring',
+    labelKey: 'examples' as const,
+    icon: (
+      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+      </svg>
+    ),
+  },
 ] as const;
+
+const stats = [
+  { value: '113', labelKey: 'articles' as const },
+  { value: '45+', labelKey: 'checklists' as const },
+  { value: '6', labelKey: 'templates' as const },
+  { value: '5', labelKey: 'examples' as const },
+];
 
 export default function HomePage() {
   const t = useTranslations('landing');
   const tFeatures = useTranslations('landing.features');
+  const tStats = useTranslations('landing.stats');
   const events = getTimeline();
   const nextEvent = events.find((e) => e.status === 'upcoming') ?? events.find((e) => e.status === 'future') ?? null;
 
   return (
     <Layout>
       {/* Hero */}
-      <section className="bg-navy text-white">
-        <div className="container-page py-16 sm:py-24">
+      <section className="relative overflow-hidden bg-navy text-white">
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-800 to-eu-blue-800 opacity-90" />
+        {/* Grid pattern */}
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+
+        <div className="container-page relative py-20 sm:py-28 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm">
+              <span className="inline-block h-2 w-2 rounded-full bg-green-400 animate-pulse" />
+              Regulation (EU) 2024/1689
+            </div>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
               {t('hero.title')}
             </h1>
-            <p className="mt-4 text-lg text-white/70 sm:text-xl">
+            <p className="mt-5 text-lg text-white/70 sm:text-xl">
               {t('hero.subtitle')}
             </p>
-            <p className="mt-4 text-base text-white/60">
+            <p className="mt-4 text-base text-white/50 leading-relaxed">
               {t('hero.description')}
             </p>
-            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link
                 href="/classify"
-                className="inline-flex items-center rounded-lg bg-eu-blue px-6 py-3 text-base font-semibold text-white shadow-lg transition-colors hover:bg-eu-blue/90 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-navy"
+                className="group inline-flex items-center gap-2 rounded-lg bg-eu-blue px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-eu-blue/30 transition-all hover:bg-eu-blue/90 hover:shadow-xl hover:shadow-eu-blue/40 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-navy"
               >
                 {t('hero.ctaClassify')}
+                <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                </svg>
               </Link>
               <Link
                 href="/timeline"
-                className="inline-flex items-center rounded-lg border border-white/30 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-navy"
+                className="inline-flex items-center rounded-lg border border-white/30 px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-white/10 hover:border-white/50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-navy"
               >
                 {t('hero.ctaLearnMore')}
               </Link>
@@ -75,29 +113,58 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Stats bar */}
+      <section className="border-b border-gray-200 bg-white">
+        <div className="container-page py-8">
+          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+            {stats.map((stat) => (
+              <div key={stat.labelKey} className="text-center">
+                <p className="text-3xl font-bold text-navy">{stat.value}</p>
+                <p className="mt-1 text-sm font-medium text-slate-500">{tStats(stat.labelKey)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Countdown Banner */}
       <CountdownBanner event={nextEvent} />
 
       {/* Features */}
-      <section className="py-16 sm:py-24">
+      <section className="py-20 sm:py-28">
         <div className="container-page">
-          <h2 className="text-center text-2xl font-bold text-navy sm:text-3xl">
-            {tFeatures('title')}
-          </h2>
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature) => (
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold text-navy sm:text-4xl">
+              {tFeatures('title')}
+            </h2>
+            <p className="mt-4 text-lg text-slate-500">
+              Everything you need to navigate EU AI Act compliance
+            </p>
+          </div>
+          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((feature, index) => (
               <Link
                 key={feature.href}
                 href={feature.href}
-                className="group rounded-xl border border-gray-200 p-6 transition-all hover:border-eu-blue/30 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
+                className={`group relative rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:border-eu-blue/30 hover:shadow-xl hover:shadow-eu-blue/5 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
+                  index >= 3 ? 'sm:col-span-1 lg:col-span-1' : ''
+                }`}
               >
-                <div className="text-eu-blue">{feature.icon}</div>
-                <h3 className="mt-4 text-lg font-semibold text-navy group-hover:text-eu-blue">
+                <div className="inline-flex rounded-xl bg-eu-blue/5 p-3 text-eu-blue transition-colors group-hover:bg-eu-blue/10">
+                  {feature.icon}
+                </div>
+                <h3 className="mt-5 text-lg font-semibold text-navy group-hover:text-eu-blue transition-colors">
                   {tFeatures(`${feature.labelKey}.title`)}
                 </h3>
-                <p className="mt-2 text-sm text-gray-600">
+                <p className="mt-2 text-sm leading-relaxed text-slate-500">
                   {tFeatures(`${feature.labelKey}.description`)}
                 </p>
+                <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-eu-blue opacity-0 transition-opacity group-hover:opacity-100">
+                  Explore
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
               </Link>
             ))}
           </div>

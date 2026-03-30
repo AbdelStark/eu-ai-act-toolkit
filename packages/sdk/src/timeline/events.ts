@@ -22,6 +22,16 @@ const UPCOMING_THRESHOLD_DAYS = 90;
  * ```
  */
 export function getTimeline(referenceDate?: Date): TimelineEvent[] {
+  if (referenceDate != null && !(referenceDate instanceof Date)) {
+    throw new TypeError(
+      `getTimeline() referenceDate must be a Date instance or undefined, got ${typeof referenceDate}`,
+    );
+  }
+
+  if (referenceDate != null && isNaN(referenceDate.getTime())) {
+    throw new RangeError('getTimeline() referenceDate is an invalid Date');
+  }
+
   const ref = referenceDate ?? new Date();
   const refTime = ref.getTime();
   const raw = getTimelineData();

@@ -8,15 +8,15 @@ interface TimelineEventProps {
 }
 
 const statusStyles: Record<TimelineEventType['status'], string> = {
-  past: 'border-green-300 bg-green-50',
-  upcoming: 'border-amber-300 bg-amber-50',
-  future: 'border-gray-200 bg-white',
+  past: 'border-green-200 bg-green-50/80 shadow-sm',
+  upcoming: 'border-amber-200 bg-amber-50/80 shadow-md ring-1 ring-amber-200/50',
+  future: 'border-gray-200 bg-white shadow-sm',
 };
 
-const dotStyles: Record<TimelineEventType['status'], string> = {
-  past: 'bg-green-500',
-  upcoming: 'bg-amber-500',
-  future: 'bg-gray-300',
+const statusBadgeStyles: Record<TimelineEventType['status'], string> = {
+  past: 'bg-green-100 text-green-700',
+  upcoming: 'bg-amber-100 text-amber-700',
+  future: 'bg-gray-100 text-gray-500',
 };
 
 const statusLabels: Record<TimelineEventType['status'], string> = {
@@ -40,22 +40,18 @@ export function TimelineEvent({ event }: TimelineEventProps) {
         : 'Today';
 
   return (
-    <div className={`rounded-lg border p-4 ${statusStyles[event.status]}`}>
-      <div className="mb-2 flex items-center gap-2">
-        <span
-          className={`inline-block h-2.5 w-2.5 rounded-full ${dotStyles[event.status]}`}
-          aria-hidden="true"
-        />
-        <span className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+    <div className={`rounded-xl border p-5 transition-all duration-200 hover:shadow-md ${statusStyles[event.status]}`}>
+      <div className="mb-3 flex items-center justify-between">
+        <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${statusBadgeStyles[event.status]}`}>
           {statusLabels[event.status]}
         </span>
+        <time className="text-xs font-medium text-slate-400">{formattedDate}</time>
       </div>
 
-      <p className="text-sm font-medium text-gray-500">{formattedDate}</p>
-      <h3 className="mt-1 text-base font-bold text-navy">{event.title}</h3>
-      <p className="mt-1 text-sm text-gray-600">{event.description}</p>
+      <h3 className="text-base font-bold text-navy">{event.title}</h3>
+      <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{event.description}</p>
 
-      <div className="mt-3 flex items-center justify-between">
+      <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3">
         <div className="flex flex-wrap gap-1">
           {event.articles.slice(0, 4).map((article) => (
             <ArticleReference key={article} article={article} />
@@ -66,7 +62,9 @@ export function TimelineEvent({ event }: TimelineEventProps) {
             </span>
           )}
         </div>
-        <span className="text-xs text-gray-500">{daysLabel}</span>
+        <span className={`text-xs font-medium ${
+          event.daysUntil > 0 ? 'text-amber-600' : event.daysUntil < 0 ? 'text-green-600' : 'text-eu-blue'
+        }`}>{daysLabel}</span>
       </div>
     </div>
   );

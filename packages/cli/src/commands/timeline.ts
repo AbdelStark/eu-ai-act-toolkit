@@ -6,6 +6,18 @@ import { getTimeline } from '@eu-ai-act/sdk';
 export const timelineCommand = new Command('timeline')
   .description('Display the EU AI Act enforcement timeline')
   .option('--json', 'Output as JSON')
+  .addHelpText(
+    'after',
+    `
+${chalk.bold('Description:')}
+  Display key enforcement dates for the EU AI Act. Shows which
+  deadlines have passed, are imminent, or are still in the future.
+  Use this to plan your compliance roadmap.
+
+${chalk.bold('Examples:')}
+  ${chalk.dim('$')} eu-ai-act timeline          ${chalk.dim('Display timeline table')}
+  ${chalk.dim('$')} eu-ai-act timeline --json    ${chalk.dim('JSON output for scripting')}`,
+  )
   .action((opts) => {
     const events = getTimeline();
 
@@ -15,13 +27,23 @@ export const timelineCommand = new Command('timeline')
     }
 
     console.log();
-    console.log(chalk.bold('EU AI Act Enforcement Timeline'));
+    console.log(chalk.bold('  📅 EU AI Act Enforcement Timeline'));
+    console.log(chalk.dim('  ' + '─'.repeat(40)));
     console.log();
 
     const table = new Table({
-      head: ['Date', 'Milestone', 'Status', 'Countdown'],
+      head: [
+        chalk.bold('Date'),
+        chalk.bold('Milestone'),
+        chalk.bold('Status'),
+        chalk.bold('Countdown'),
+      ],
       colWidths: [14, 45, 12, 18],
       wordWrap: true,
+      style: {
+        head: [],
+        border: ['dim'],
+      },
     });
 
     for (const event of events) {
@@ -31,25 +53,25 @@ export const timelineCommand = new Command('timeline')
 
       switch (event.status) {
         case 'past':
-          statusText = chalk.green('In effect');
+          statusText = chalk.green('✓ Done');
           dateText = chalk.green(event.date);
-          countdownText = chalk.dim(`${Math.abs(event.daysUntil)} days ago`);
+          countdownText = chalk.dim(`${Math.abs(event.daysUntil)}d ago`);
           break;
         case 'upcoming':
           if (event.daysUntil <= 30) {
-            statusText = chalk.red('IMMINENT');
-            dateText = chalk.red(event.date);
-            countdownText = chalk.red.bold(`${event.daysUntil} days`);
+            statusText = chalk.red.bold('⚠ IMMINENT');
+            dateText = chalk.red.bold(event.date);
+            countdownText = chalk.red.bold(`${event.daysUntil}d left`);
           } else {
-            statusText = chalk.yellow('Upcoming');
+            statusText = chalk.yellow('● Soon');
             dateText = chalk.yellow(event.date);
-            countdownText = chalk.yellow(`${event.daysUntil} days`);
+            countdownText = chalk.yellow(`${event.daysUntil}d left`);
           }
           break;
         default:
-          statusText = chalk.dim('Future');
+          statusText = chalk.dim('○ Future');
           dateText = chalk.dim(event.date);
-          countdownText = chalk.dim(`${event.daysUntil} days`);
+          countdownText = chalk.dim(`${event.daysUntil}d left`);
       }
 
       table.push([dateText, event.title, statusText, countdownText]);
@@ -57,5 +79,6 @@ export const timelineCommand = new Command('timeline')
 
     console.log(table.toString());
     console.log();
-    console.log(chalk.dim('This tool does not constitute legal advice.'));
+    console.log(chalk.dim('  This tool does not constitute legal advice.'));
+    console.log();
   });

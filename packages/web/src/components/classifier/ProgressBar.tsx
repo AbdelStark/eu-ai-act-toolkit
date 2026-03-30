@@ -12,20 +12,20 @@ export function ProgressBar({ current, total }: ProgressBarProps) {
     <div className="w-full">
       <div className="mb-2 flex items-center justify-between text-sm">
         <span className="font-medium text-navy">
-          Step {current} of {total}
+          Question {current} of {total}
         </span>
-        <span className="text-gray-500">{percent}%</span>
+        <span className="rounded-full bg-eu-blue/5 px-2.5 py-0.5 text-xs font-semibold text-eu-blue">{percent}%</span>
       </div>
       <div
         role="progressbar"
         aria-valuenow={current}
         aria-valuemin={0}
         aria-valuemax={total}
-        aria-label={`Step ${current} of ${total}`}
-        className="h-2 w-full overflow-hidden rounded-full bg-gray-200"
+        aria-label={`Question ${current} of ${total}`}
+        className="h-2 w-full overflow-hidden rounded-full bg-gray-100"
       >
         <div
-          className="h-full rounded-full bg-eu-blue transition-all duration-300"
+          className="h-full rounded-full bg-gradient-to-r from-eu-blue to-eu-blue-400 transition-all duration-500 ease-out"
           style={{ width: `${percent}%` }}
         />
       </div>

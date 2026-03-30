@@ -21,9 +21,15 @@ import { getChecklistsData } from '../data/loader.js';
  * ```
  */
 export function getChecklist(tier: RiskTier): Checklist {
-  if (!RISK_TIERS.includes(tier)) {
+  if (tier == null) {
+    throw new TypeError(
+      `getChecklist() requires a RiskTier string, but received ${tier === null ? 'null' : 'undefined'}`,
+    );
+  }
+
+  if (typeof tier !== 'string' || !RISK_TIERS.includes(tier as RiskTier)) {
     throw new RangeError(
-      `Invalid risk tier: '${tier}'. Must be one of: ${RISK_TIERS.join(', ')}`,
+      `Invalid risk tier: '${String(tier)}'. Must be one of: ${RISK_TIERS.join(', ')}`,
     );
   }
 
