@@ -6,7 +6,6 @@ import { useTranslations } from 'next-intl';
 import type { RiskTier, ChecklistProgress, Checklist } from '@eu-ai-act/sdk';
 import { getChecklist, RISK_TIERS } from '@eu-ai-act/sdk';
 import { Layout } from '@/components/shared/Layout';
-import { Disclaimer } from '@/components/shared/Disclaimer';
 import { RiskBadge } from '@/components/shared/RiskBadge';
 import { ChecklistView } from '@/components/checklist/ChecklistView';
 import { exportState, importState, getState, setState } from '@/lib/storage';
@@ -119,17 +118,16 @@ export default function ChecklistPage() {
 
   return (
     <Layout>
-      <Disclaimer />
       <div className="container-page py-12">
         <div className="mx-auto max-w-3xl">
           {/* Tier selector */}
-          <div className="mb-8 flex flex-wrap items-center gap-2">
+          <div className="mb-8 flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-x-visible sm:pb-0">
             {AVAILABLE_TIERS.map((t) => (
               <button
                 key={t.value}
                 type="button"
                 onClick={() => router.push(`/checklist/${t.value}`)}
-                className={`rounded-lg px-4 py-2 text-sm font-medium transition-all focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
+                className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-all whitespace-nowrap min-h-[44px] focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
                   tier === t.value
                     ? 'bg-navy text-white shadow-sm'
                     : 'bg-white text-slate-600 border border-gray-200 hover:border-gray-300 hover:bg-gray-50'

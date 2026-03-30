@@ -4,7 +4,6 @@ import { useSearchParams } from 'next/navigation';
 import { Suspense } from 'react';
 import { useTranslations } from 'next-intl';
 import { Layout } from '@/components/shared/Layout';
-import { Disclaimer } from '@/components/shared/Disclaimer';
 import { ClassifierWizard } from '@/components/classifier/ClassifierWizard';
 import { decodeClassificationInput } from '@/lib/url-state';
 
@@ -16,7 +15,6 @@ function ClassifyContent() {
 
   return (
     <Layout>
-      <Disclaimer />
       <div className="container-page py-12">
         <div className="mx-auto max-w-2xl">
           <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-eu-blue/5 px-3 py-1 text-xs font-medium text-eu-blue">

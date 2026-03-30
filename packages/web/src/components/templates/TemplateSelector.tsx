@@ -82,7 +82,7 @@ export function TemplateSelector({ onSelect }: TemplateSelectorProps) {
                 <span className="h-2 w-2 rounded-full bg-amber-300" />
                 <span className="h-2 w-2 rounded-full bg-green-300" />
               </div>
-              <span className="text-xs text-slate-400 font-mono">{template.name}.md</span>
+              <span className="text-xs text-slate-400 font-mono truncate">{template.name}.md</span>
             </div>
             <pre className="text-xs text-slate-400 font-mono leading-relaxed overflow-hidden whitespace-pre-wrap" style={{ maxHeight: '4.5rem' }}>
               {template.preview}

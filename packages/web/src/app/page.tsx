@@ -77,13 +77,13 @@ export default function HomePage() {
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
-        <div className="container-page relative py-20 sm:py-28 lg:py-32">
+        <div className="container-page relative py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm">
               <span className="inline-block h-2 w-2 rounded-full bg-green-400 animate-pulse" />
               Regulation (EU) 2024/1689
             </div>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
               {t('hero.title')}
             </h1>
             <p className="mt-5 text-lg text-white/70 sm:text-xl">

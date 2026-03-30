@@ -6,6 +6,7 @@
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
   }
 
   body {
@@ -19,11 +20,42 @@
   h1, h2, h3 {
     @apply font-display;
   }
+
+  /* Focus-visible styles for all interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid #003399;
+    outline-offset: 2px;
+  }
+
+  /* Respect reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 @layer components {
   .container-page {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Skip to content link for accessibility */
+  .skip-to-content {
+    @apply fixed left-2 top-2 z-[100] -translate-y-20 rounded-lg bg-eu-blue px-4 py-3 text-sm font-semibold text-white shadow-lg transition-transform;
+  }
+  .skip-to-content:focus {
+    @apply translate-y-0;
   }
 }
 

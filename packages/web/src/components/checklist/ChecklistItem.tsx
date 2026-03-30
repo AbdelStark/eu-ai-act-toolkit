@@ -92,7 +92,7 @@ export function ChecklistItem({
           <button
             type="button"
             onClick={() => setExpanded(!expanded)}
-            className="mt-1.5 inline-flex items-center gap-1 text-xs text-slate-400 hover:text-navy focus:outline-none focus:underline transition-colors"
+            className="mt-1.5 inline-flex items-center gap-1 rounded px-1 py-1 text-xs text-slate-400 hover:text-navy focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-1 transition-colors min-h-[44px] sm:min-h-0"
           >
             <svg className={`h-3 w-3 transition-transform duration-200 ${expanded ? 'rotate-90' : ''}`} fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />

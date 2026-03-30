@@ -114,8 +114,8 @@ export function TemplateEditor({
       {preview ? (
         <div>
           <h3 className="mb-2 text-sm font-semibold text-navy">Preview</h3>
-          <div className="max-h-96 overflow-y-auto rounded-lg border border-gray-200 bg-gray-50 p-4">
-            <pre className="whitespace-pre-wrap font-mono text-xs text-gray-700">
+          <div className="max-h-96 overflow-auto rounded-lg border border-gray-200 bg-gray-50 p-4">
+            <pre className="whitespace-pre-wrap break-words font-mono text-xs text-gray-700">
               {preview}
             </pre>
           </div>

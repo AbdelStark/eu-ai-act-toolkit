@@ -4,7 +4,6 @@ import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { getTimeline } from '@eu-ai-act/sdk';
 import { Layout } from '@/components/shared/Layout';
-import { Disclaimer } from '@/components/shared/Disclaimer';
 import { Timeline } from '@/components/timeline/Timeline';
 import { CountdownBanner } from '@/components/timeline/CountdownBanner';
 
@@ -35,7 +34,6 @@ export default function TimelinePage() {
 
   return (
     <Layout>
-      <Disclaimer />
       <CountdownBanner event={nextEvent} />
 
       <div className="container-page py-12">
@@ -57,7 +55,7 @@ export default function TimelinePage() {
                 />
               </div>
               {/* Milestone markers */}
-              <div className="relative mt-3">
+              <div className="relative mt-3 hidden sm:block">
                 {milestones.map((m) => (
                   <div
                     key={m.label}
@@ -68,6 +66,14 @@ export default function TimelinePage() {
                     <p className="text-xs font-medium text-slate-600 whitespace-nowrap">{m.label}</p>
                     <p className="text-xs text-slate-400">{m.year}</p>
                   </div>
+                ))}
+              </div>
+              {/* Mobile milestone list */}
+              <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 sm:hidden">
+                {milestones.map((m) => (
+                  <span key={m.label} className={`text-xs ${m.position <= timelineProgress ? 'text-eu-blue font-medium' : 'text-slate-400'}`}>
+                    {m.label} ({m.year})
+                  </span>
                 ))}
               </div>
             </div>

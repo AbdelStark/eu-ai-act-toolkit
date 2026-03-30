@@ -51,8 +51,12 @@ function AnimatedEvent({ event, index, isTodayMarker }: { event: TimelineEventTy
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        {/* Dot on the line */}
-        <div className={`absolute left-4 top-4 z-10 hidden h-4 w-4 -translate-x-1/2 rounded-full border-[3px] border-white shadow-md sm:left-1/2 sm:block ${
+        {/* Dot on the line - mobile */}
+        <div className={`absolute left-4 top-5 z-10 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-white shadow-md sm:hidden ${
+          event.status === 'past' ? 'bg-green-500' : event.status === 'upcoming' ? 'bg-amber-500' : 'bg-gray-300'
+        }`} />
+        {/* Dot on the line - desktop */}
+        <div className={`absolute left-1/2 top-4 z-10 hidden h-4 w-4 -translate-x-1/2 rounded-full border-[3px] border-white shadow-md sm:block ${
           event.status === 'past' ? 'bg-green-500' : event.status === 'upcoming' ? 'bg-amber-500' : 'bg-gray-300'
         }`} />
 

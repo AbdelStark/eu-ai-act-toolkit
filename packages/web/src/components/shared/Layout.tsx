@@ -58,7 +58,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="inline-flex items-center justify-center rounded-md p-2 text-white/70 hover:bg-white/10 hover:text-white md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-md text-white/70 hover:bg-white/10 hover:text-white md:hidden"
             aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileMenuOpen}
           >
@@ -88,7 +88,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`rounded-md px-3 py-2.5 text-sm font-medium transition-colors ${
+                    className={`rounded-md px-3 py-3 text-sm font-medium transition-colors min-h-[44px] flex items-center ${
                       isActive
                         ? 'bg-white/15 text-white'
                         : 'text-white/70 hover:bg-white/10 hover:text-white'
@@ -105,7 +105,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       <Disclaimer />
 
-      <main className="flex-1">{children}</main>
+      <main id="main-content" className="flex-1">{children}</main>
 
       <footer className="border-t border-gray-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">

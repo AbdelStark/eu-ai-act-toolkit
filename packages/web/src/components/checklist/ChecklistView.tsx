@@ -78,13 +78,13 @@ export function ChecklistView({
       <ComplianceScore completed={completed} total={total} percent={percent} />
 
       {/* Filters */}
-      <div className="flex flex-wrap gap-2">
+      <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-x-visible sm:pb-0">
         {FILTERS.map((f) => (
           <button
             key={f.value}
             type="button"
             onClick={() => setFilter(f.value)}
-            className={`rounded-full px-3 py-1.5 text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
+            className={`rounded-full px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap min-h-[44px] focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
               filter === f.value
                 ? 'bg-eu-blue text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'

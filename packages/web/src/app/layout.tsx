@@ -54,6 +54,9 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${dmSans.variable} ${dmSerif.variable}`}>
       <body className="min-h-screen font-sans antialiased">
+        <a href="#main-content" className="skip-to-content">
+          Skip to main content
+        </a>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

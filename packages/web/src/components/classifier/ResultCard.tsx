@@ -92,11 +92,11 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
         </div>
 
         {/* Actions */}
-        <div className="flex flex-wrap gap-3 border-t border-gray-100 pt-5">
+        <div className="flex flex-col gap-3 border-t border-gray-100 pt-5 sm:flex-row sm:flex-wrap">
           {result.tier !== 'prohibited' && result.tier !== 'minimal' && (
             <Link
               href={`/checklist/${result.tier}`}
-              className="inline-flex items-center gap-2 rounded-lg bg-eu-blue px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-eu-blue/90 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-eu-blue px-5 py-3 text-sm font-semibold text-white shadow-sm transition-all hover:bg-eu-blue/90 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 min-h-[44px]"
             >
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -108,7 +108,7 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
           <button
             type="button"
             onClick={handleCopyUrl}
-            className={`inline-flex items-center gap-2 rounded-lg border px-5 py-2.5 text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
+            className={`inline-flex items-center justify-center gap-2 rounded-lg border px-5 py-3 text-sm font-semibold transition-all min-h-[44px] focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
               copied
                 ? 'border-green-300 bg-green-50 text-green-700'
                 : 'border-gray-300 bg-white text-navy hover:bg-gray-50'

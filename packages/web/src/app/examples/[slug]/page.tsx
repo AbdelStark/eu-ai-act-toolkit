@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import type { WorkedExample, ClassificationInput } from '@eu-ai-act/sdk';
 import { Layout } from '@/components/shared/Layout';
-import { Disclaimer } from '@/components/shared/Disclaimer';
 import { RiskBadge } from '@/components/shared/RiskBadge';
 import { encodeClassificationInput } from '@/lib/url-state';
 
@@ -50,7 +49,6 @@ export default function ExamplePage() {
 
   return (
     <Layout>
-      <Disclaimer />
       <div className="container-page py-12">
         <div className="mx-auto max-w-3xl">
           <Link
@@ -91,7 +89,7 @@ export default function ExamplePage() {
           <div className="mt-8 flex gap-3">
             <Link
               href={classifyUrl}
-              className="inline-flex items-center rounded-lg bg-eu-blue px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-eu-blue/90 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
+              className="inline-flex items-center rounded-lg bg-eu-blue px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-eu-blue/90 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 min-h-[44px]"
             >
               Classify like this
             </Link>
@@ -99,7 +97,7 @@ export default function ExamplePage() {
               example.expectedTier !== 'minimal' && (
                 <Link
                   href={`/checklist/${example.expectedTier}`}
-                  className="inline-flex items-center rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-navy transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
+                  className="inline-flex items-center rounded-lg border border-gray-300 px-5 py-3 text-sm font-semibold text-navy transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 min-h-[44px]"
                 >
                   View Checklist
                 </Link>

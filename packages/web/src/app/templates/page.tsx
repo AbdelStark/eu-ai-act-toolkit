@@ -4,7 +4,6 @@ import { useState, useCallback } from 'react';
 import { useTranslations } from 'next-intl';
 import type { TemplateName } from '@eu-ai-act/sdk';
 import { Layout } from '@/components/shared/Layout';
-import { Disclaimer } from '@/components/shared/Disclaimer';
 import { TemplateSelector } from '@/components/templates/TemplateSelector';
 import { TemplateEditor } from '@/components/templates/TemplateEditor';
 import { ExportButton } from '@/components/templates/ExportButton';
@@ -20,7 +19,6 @@ export default function TemplatesPage() {
 
   return (
     <Layout>
-      <Disclaimer />
       <div className="container-page py-12">
         <div className="mx-auto max-w-5xl">
           <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-eu-blue/5 px-3 py-1 text-xs font-medium text-eu-blue">
@@ -43,7 +41,7 @@ export default function TemplatesPage() {
                     setSelected(null);
                     setGeneratedContent('');
                   }}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-eu-blue transition-colors hover:text-eu-blue/80 focus:outline-none focus:underline"
+                  className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2.5 text-sm font-medium text-eu-blue transition-colors hover:text-eu-blue/80 hover:bg-eu-blue/5 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 min-h-[44px]"
                 >
                   <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />

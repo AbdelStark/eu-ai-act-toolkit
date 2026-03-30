@@ -1,11 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 
+const DISCLAIMER_KEY = 'eu-ai-act-disclaimer-dismissed';
+
 export function Disclaimer() {
-  const [dismissed, setDismissed] = useState(false);
+  const [dismissed, setDismissed] = useState(true); // default hidden to avoid flash
   const t = useTranslations('disclaimer');
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(DISCLAIMER_KEY);
+      setDismissed(stored === 'true');
+    } catch {
+      setDismissed(false);
+    }
+  }, []);
 
   if (dismissed) {
     return null;
@@ -36,7 +47,10 @@ export function Disclaimer() {
         </div>
         <button
           type="button"
-          onClick={() => setDismissed(true)}
+          onClick={() => {
+            setDismissed(true);
+            try { localStorage.setItem(DISCLAIMER_KEY, 'true'); } catch {}
+          }}
           className="flex-shrink-0 rounded-md bg-amber-100 px-3 py-1.5 text-xs font-semibold text-amber-800 transition-colors hover:bg-amber-200 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 focus:ring-offset-amber-50"
           aria-label={t('dismiss')}
         >
