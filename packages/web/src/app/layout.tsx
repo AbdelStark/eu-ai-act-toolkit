@@ -1,13 +1,20 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { DM_Sans, DM_Serif_Display } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import './globals.css';
 
-const inter = Inter({
+const dmSans = DM_Sans({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-sans',
+});
+
+const dmSerif = DM_Serif_Display({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
 });
 
 export const metadata: Metadata = {
@@ -45,7 +52,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={inter.variable}>
+    <html lang={locale} className={`${dmSans.variable} ${dmSerif.variable}`}>
       <body className="min-h-screen font-sans antialiased">
         <NextIntlClientProvider messages={messages}>
           {children}

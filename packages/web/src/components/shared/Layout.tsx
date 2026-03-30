@@ -107,7 +107,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <ul className="mt-2 space-y-1">
                 <li>
                   <a
-                    href="https://github.com"
+                    href="https://github.com/AbdelStark/eu-ai-act-toolkit"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm text-eu-blue hover:underline"

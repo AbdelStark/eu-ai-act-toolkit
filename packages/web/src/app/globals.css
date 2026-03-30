@@ -9,11 +9,15 @@
   }
 
   body {
-    @apply bg-white text-gray-900;
+    @apply bg-slate-50 text-slate-800;
   }
 
   ::selection {
-    @apply bg-eu-blue/20 text-navy;
+    @apply bg-eu-blue-100 text-navy;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
   }
 }
 

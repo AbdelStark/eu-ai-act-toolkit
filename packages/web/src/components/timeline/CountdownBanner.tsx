@@ -28,7 +28,7 @@ export function CountdownBanner({ event }: CountdownBannerProps) {
           </svg>
           <p className="text-sm font-medium text-navy">
             <span className="font-bold">{event.title}</span>
-            {' '}&mdash;{' '}
+            {' '}/{' '}
             <span className="text-eu-blue">
               {event.daysUntil} days remaining
             </span>
