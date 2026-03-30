@@ -42,7 +42,7 @@ export default function TimelinePage() {
           <p className="mt-2 text-lg text-slate-500">{t('subtitle')}</p>
 
           {/* Horizontal progress bar */}
-          <div className="mt-10 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+          <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-layered-sm">
             <div className="mb-3 flex items-center justify-between">
               <h3 className="text-sm font-semibold text-navy">Implementation Progress</h3>
               <span className="text-sm font-bold text-eu-blue">{timelineProgress}%</span>

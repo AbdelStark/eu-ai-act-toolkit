@@ -87,7 +87,7 @@ export function ChecklistView({
             className={`rounded-full px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap min-h-[44px] focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
               filter === f.value
                 ? 'bg-eu-blue text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
             }`}
           >
             {f.label}
@@ -107,9 +107,15 @@ export function ChecklistView({
           />
         ))}
         {filteredItems.length === 0 && (
-          <p className="py-8 text-center text-sm text-gray-500">
-            No items match the current filter.
-          </p>
+          <div className="empty-state">
+            <div className="empty-state-icon">
+              <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+            </div>
+            <p className="empty-state-title">No items found</p>
+            <p className="empty-state-description">No checklist items match the current filter. Try a different filter.</p>
+          </div>
         )}
       </div>
     </div>

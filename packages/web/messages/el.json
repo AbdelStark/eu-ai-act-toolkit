@@ -237,7 +237,8 @@
       "privacy": "Απόρρητο"
     },
     "copyright": "EU AI Act Toolkit. Ανοικτός κώδικας υπό άδεια MIT.",
-    "regulation": "Βασισμένο στον Regulation (EU) 2024/1689 του Ευρωπαϊκού Κοινοβουλίου και του Συμβουλίου."
+    "regulation": "Βασισμένο στον Regulation (EU) 2024/1689 του Ευρωπαϊκού Κοινοβουλίου και του Συμβουλίου.",
+    "tagline": "Made with care for AI compliance teams worldwide"
   },
   "disclaimer": {
     "short": "Αυτό το εργαλείο δεν αποτελεί νομική συμβουλή.",

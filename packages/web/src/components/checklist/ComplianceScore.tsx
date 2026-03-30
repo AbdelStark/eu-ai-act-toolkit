@@ -26,7 +26,7 @@ export function ComplianceScore({
   percent,
 }: ComplianceScoreProps) {
   return (
-    <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
+    <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-layered-sm">
       <div className="flex items-center gap-6">
         {/* Circular score indicator */}
         <div className="relative flex h-20 w-20 flex-shrink-0 items-center justify-center">

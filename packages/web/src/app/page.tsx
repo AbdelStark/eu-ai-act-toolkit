@@ -71,40 +71,42 @@ export default function HomePage() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-navy text-white">
+      <section className="relative overflow-hidden bg-navy">
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-800 to-eu-blue-800 opacity-90" />
         {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #f0f1f5 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
         <div className="container-page relative py-16 sm:py-24 lg:py-32">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-sm" style={{ color: '#d9dce4' }}>
               <span className="inline-block h-2 w-2 rounded-full bg-green-400 animate-pulse" />
               Regulation (EU) 2024/1689
             </div>
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl lg:text-6xl">
+            <h1 className="font-bold tracking-tight" style={{ color: '#f0f1f5' }}>
               {t('hero.title')}
             </h1>
-            <p className="mt-5 text-lg text-white/70 sm:text-xl">
+            <p className="mt-5 text-lg sm:text-xl" style={{ color: '#b3b8c9' }}>
               {t('hero.subtitle')}
             </p>
-            <p className="mt-4 text-base text-white/50 leading-relaxed">
+            <p className="mt-4 text-base leading-relaxed" style={{ color: '#8d94ae' }}>
               {t('hero.description')}
             </p>
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link
                 href="/classify"
-                className="group inline-flex items-center gap-2 rounded-lg bg-eu-blue px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-eu-blue/30 transition-all hover:bg-eu-blue/90 hover:shadow-xl hover:shadow-eu-blue/40 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-navy"
+                className="group inline-flex items-center gap-2 rounded-xl bg-eu-blue px-7 py-3.5 text-base font-semibold shadow-layered-lg transition-all duration-150 hover:bg-eu-blue/90 hover:shadow-layered-xl hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-eu-blue-200 focus:ring-offset-2 focus:ring-offset-navy"
+                style={{ color: '#f0f1f5' }}
               >
                 {t('hero.ctaClassify')}
-                <svg className="h-4 w-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <svg className="h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
               </Link>
               <Link
                 href="/timeline"
-                className="inline-flex items-center rounded-lg border border-white/30 px-7 py-3.5 text-base font-semibold text-white transition-all hover:bg-white/10 hover:border-white/50 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-navy"
+                className="inline-flex items-center rounded-xl border border-white/30 px-7 py-3.5 text-base font-semibold transition-all duration-150 hover:bg-white/10 hover:border-white/50 focus:outline-none focus:ring-2 focus:ring-eu-blue-200 focus:ring-offset-2 focus:ring-offset-navy"
+                style={{ color: '#f0f1f5' }}
               >
                 {t('hero.ctaLearnMore')}
               </Link>
@@ -114,12 +116,12 @@ export default function HomePage() {
       </section>
 
       {/* Stats bar */}
-      <section className="border-b border-gray-200 bg-white">
+      <section className="border-b border-slate-200 bg-slate-50">
         <div className="container-page py-8">
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
             {stats.map((stat) => (
               <div key={stat.labelKey} className="text-center">
-                <p className="text-3xl font-bold text-navy">{stat.value}</p>
+                <p className="text-3xl font-bold tabular-nums text-navy">{stat.value}</p>
                 <p className="mt-1 text-sm font-medium text-slate-500">{tStats(stat.labelKey)}</p>
               </div>
             ))}
@@ -134,7 +136,7 @@ export default function HomePage() {
       <section className="py-20 sm:py-28">
         <div className="container-page">
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-navy sm:text-4xl">
+            <h2 className="font-bold text-navy">
               {tFeatures('title')}
             </h2>
             <p className="mt-4 text-lg text-slate-500">
@@ -146,20 +148,20 @@ export default function HomePage() {
               <Link
                 key={feature.href}
                 href={feature.href}
-                className={`group relative rounded-2xl border border-gray-200 bg-white p-8 transition-all duration-300 hover:border-eu-blue/30 hover:shadow-xl hover:shadow-eu-blue/5 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
+                className={`group relative rounded-xl border border-slate-200 bg-slate-50 p-8 shadow-layered-sm transition-all duration-300 hover:border-eu-blue/30 hover:shadow-layered-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
                   index >= 3 ? 'sm:col-span-1 lg:col-span-1' : ''
                 }`}
               >
-                <div className="inline-flex rounded-xl bg-eu-blue/5 p-3 text-eu-blue transition-colors group-hover:bg-eu-blue/10">
+                <div className="inline-flex rounded-xl bg-eu-blue/5 p-3 text-eu-blue transition-colors duration-150 group-hover:bg-eu-blue/10">
                   {feature.icon}
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-navy group-hover:text-eu-blue transition-colors">
+                <h3 className="mt-5 text-lg font-semibold text-navy group-hover:text-eu-blue transition-colors duration-150">
                   {tFeatures(`${feature.labelKey}.title`)}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-500">
                   {tFeatures(`${feature.labelKey}.description`)}
                 </p>
-                <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-eu-blue opacity-0 transition-opacity group-hover:opacity-100">
+                <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-eu-blue opacity-0 transition-opacity duration-150 group-hover:opacity-100">
                   Explore
                   <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />

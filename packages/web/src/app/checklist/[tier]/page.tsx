@@ -103,13 +103,37 @@ export default function ChecklistPage() {
   if (!checklist) {
     return (
       <Layout>
-        <div className="container-page py-12 text-center">
-          <div className="flex items-center justify-center gap-3 text-slate-500">
-            <svg className="h-5 w-5 animate-spin" fill="none" viewBox="0 0 24 24">
-              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
-            </svg>
-            Loading checklist...
+        <div className="container-page py-12">
+          <div className="mx-auto max-w-3xl space-y-6">
+            {/* Skeleton: score card */}
+            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+              <div className="flex items-center gap-6">
+                <div className="skeleton-circle h-20 w-20 flex-shrink-0" />
+                <div className="flex-1 space-y-3">
+                  <div className="skeleton-heading" />
+                  <div className="skeleton-text" style={{ width: '40%' }} />
+                  <div className="skeleton h-2.5 w-full rounded-full" />
+                </div>
+              </div>
+            </div>
+            {/* Skeleton: filter pills */}
+            <div className="flex gap-2">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <div key={i} className="skeleton h-10 w-24 rounded-full" />
+              ))}
+            </div>
+            {/* Skeleton: checklist items */}
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+                <div className="flex items-start gap-3">
+                  <div className="skeleton h-5 w-5 rounded-lg flex-shrink-0 mt-0.5" />
+                  <div className="flex-1 space-y-2">
+                    <div className="skeleton-text" style={{ width: `${70 + i * 5}%` }} />
+                    <div className="skeleton-text" style={{ width: '30%' }} />
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </Layout>

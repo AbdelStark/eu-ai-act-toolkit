@@ -237,7 +237,8 @@
       "privacy": "Datenschutz"
     },
     "copyright": "EU AI Act Toolkit. Open Source unter MIT-Lizenz.",
-    "regulation": "Basierend auf Regulation (EU) 2024/1689 des Europäischen Parlaments und des Rates."
+    "regulation": "Basierend auf Regulation (EU) 2024/1689 des Europäischen Parlaments und des Rates.",
+    "tagline": "Made with care for AI compliance teams worldwide"
   },
   "disclaimer": {
     "short": "Dieses Tool stellt keine Rechtsberatung dar.",

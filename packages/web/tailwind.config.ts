@@ -60,6 +60,21 @@ const config: Config = {
         display: ['var(--font-display)', 'DM Serif Display', 'Georgia', 'serif'],
         mono: ['JetBrains Mono', 'Menlo', 'monospace'],
       },
+      borderRadius: {
+        'xl': '0.75rem',
+        '2xl': '1rem',
+      },
+      boxShadow: {
+        'layered-sm': '0 1px 2px rgba(26,31,54,0.04), 0 2px 4px rgba(26,31,54,0.03)',
+        'layered': '0 1px 3px rgba(26,31,54,0.06), 0 4px 8px rgba(26,31,54,0.04), 0 8px 16px rgba(26,31,54,0.02)',
+        'layered-lg': '0 2px 4px rgba(26,31,54,0.04), 0 8px 16px rgba(26,31,54,0.06), 0 16px 32px rgba(26,31,54,0.04)',
+        'layered-xl': '0 4px 8px rgba(26,31,54,0.04), 0 12px 24px rgba(26,31,54,0.06), 0 24px 48px rgba(26,31,54,0.06)',
+      },
+      transitionTimingFunction: {
+        'out-quart': 'cubic-bezier(0.25, 1, 0.5, 1)',
+        'in-quart': 'cubic-bezier(0.5, 0, 0.75, 0)',
+        'in-out-quart': 'cubic-bezier(0.76, 0, 0.24, 1)',
+      },
     },
   },
   plugins: [],

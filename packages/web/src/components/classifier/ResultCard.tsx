@@ -41,7 +41,7 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
   };
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-lg">
+    <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-layered-lg">
       {/* Colored header */}
       <div className={`bg-gradient-to-r ${tierGradients[result.tier] ?? 'from-eu-blue to-eu-blue-700'} px-6 py-8 text-center text-white`}>
         <p className="text-sm font-medium uppercase tracking-wider opacity-80">Classification Result</p>

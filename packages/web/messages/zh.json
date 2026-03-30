@@ -237,7 +237,8 @@
       "privacy": "隐私政策"
     },
     "copyright": "EU AI Act Toolkit。基于 MIT 许可证的开源项目。",
-    "regulation": "基于欧洲议会和理事会的 Regulation (EU) 2024/1689。"
+    "regulation": "基于欧洲议会和理事会的 Regulation (EU) 2024/1689。",
+    "tagline": "Made with care for AI compliance teams worldwide"
   },
   "disclaimer": {
     "short": "本工具不构成法律建议。",

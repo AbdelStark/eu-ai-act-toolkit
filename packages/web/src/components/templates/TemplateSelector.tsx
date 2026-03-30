@@ -72,7 +72,7 @@ export function TemplateSelector({ onSelect }: TemplateSelectorProps) {
           key={template.name}
           type="button"
           onClick={() => onSelect(template.name)}
-          className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white text-left transition-all duration-300 hover:border-eu-blue/30 hover:shadow-xl hover:shadow-eu-blue/5 hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
+          className="group relative overflow-hidden rounded-xl border border-slate-200 bg-slate-50 text-left shadow-layered-sm transition-all duration-300 hover:border-eu-blue/30 hover:shadow-layered-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
         >
           {/* Preview snippet */}
           <div className="border-b border-gray-100 bg-slate-50/80 px-5 pt-4 pb-3">
