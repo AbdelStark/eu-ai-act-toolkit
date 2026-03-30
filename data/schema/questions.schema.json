@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Classification Questions",
+  "type": "object",
+  "required": ["steps"],
+  "properties": {
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "description", "questions"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "questions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "text", "article", "type"],
+              "properties": {
+                "id": { "type": "string" },
+                "text": { "type": "string" },
+                "article": { "type": "integer", "minimum": 1 },
+                "paragraph": { "type": "integer", "minimum": 1 },
+                "point": { "type": "string" },
+                "help": { "type": "string" },
+                "type": { "enum": ["boolean", "select", "number"] },
+                "options": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["value", "label"],
+                    "properties": {
+                      "value": { "type": "string" },
+                      "label": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

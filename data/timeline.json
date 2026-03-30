@@ -1,0 +1,46 @@
+{
+  "events": [
+    {
+      "date": "2024-08-01",
+      "title": "EU AI Act enters into force",
+      "description": "Regulation (EU) 2024/1689 enters into force 20 days after publication in the Official Journal. Most provisions apply on a staggered timeline over the following 36 months.",
+      "articles": [],
+      "categories": ["all"]
+    },
+    {
+      "date": "2025-02-02",
+      "title": "Prohibited practices apply",
+      "description": "Prohibitions on banned AI practices (Article 5) and AI literacy requirements (Article 4) become enforceable. Systems performing prohibited practices must cease operation in the EU.",
+      "articles": [4, 5],
+      "categories": ["prohibited"]
+    },
+    {
+      "date": "2025-08-02",
+      "title": "GPAI rules apply",
+      "description": "Obligations for providers of general-purpose AI models take effect, including documentation, copyright compliance, training data summaries, and additional obligations for models with systemic risk.",
+      "articles": [51, 52, 53, 54, 55],
+      "categories": ["gpai", "gpai-systemic"]
+    },
+    {
+      "date": "2026-08-02",
+      "title": "High-risk requirements apply",
+      "description": "Full requirements for high-risk AI systems (Articles 6-15, 26-27) and transparency obligations (Article 50) become enforceable. Providers must meet risk management, data governance, documentation, record-keeping, transparency, human oversight, accuracy, and robustness requirements. Registration in the EU database and conformity assessment required before market placement.",
+      "articles": [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 26, 27, 43, 49, 50],
+      "categories": ["high-risk", "limited"]
+    },
+    {
+      "date": "2027-08-02",
+      "title": "Legacy GPAI and large-scale IT systems",
+      "description": "Obligations apply to GPAI models already on the market before August 2025, and to high-risk AI systems that are components of large-scale EU IT systems (e.g., Schengen Information System, Visa Information System, Eurodac) listed in Annex X.",
+      "articles": [111],
+      "categories": ["gpai", "high-risk"]
+    },
+    {
+      "date": "2028-08-02",
+      "title": "Product safety components",
+      "description": "Obligations for high-risk AI systems that are safety components of products covered by Annex I Union harmonisation legislation (Pathway A under Article 6(1)) take full effect. These systems must comply with all high-risk requirements and undergo relevant conformity assessment procedures.",
+      "articles": [6],
+      "categories": ["high-risk"]
+    }
+  ]
+}

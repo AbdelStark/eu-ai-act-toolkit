@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Article References",
+  "type": "object",
+  "required": ["articles"],
+  "properties": {
+    "articles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["number", "title", "summary", "tiers", "eurLexUrl"],
+        "properties": {
+          "number": { "type": "integer", "minimum": 1 },
+          "title": { "type": "string" },
+          "summary": { "type": "string" },
+          "tiers": {
+            "type": "array",
+            "items": {
+              "enum": ["prohibited", "high-risk", "gpai", "gpai-systemic", "limited", "minimal", "all"]
+            }
+          },
+          "eurLexUrl": { "type": "string", "format": "uri" }
+        }
+      }
+    }
+  }
+}

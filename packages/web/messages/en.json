@@ -1,0 +1,267 @@
+{
+  "nav": {
+    "home": "EU AI Act Toolkit",
+    "classify": "Classify",
+    "checklist": "Checklist",
+    "timeline": "Timeline",
+    "templates": "Templates",
+    "examples": "Examples"
+  },
+  "landing": {
+    "hero": {
+      "title": "EU AI Act Compliance Toolkit",
+      "subtitle": "Open-source tools for navigating Regulation (EU) 2024/1689",
+      "description": "Classify your AI system's risk tier, track compliance obligations, generate documentation, and stay ahead of enforcement deadlines.",
+      "ctaClassify": "Classify Your AI System",
+      "ctaLearnMore": "Learn More"
+    },
+    "features": {
+      "title": "What You Can Do",
+      "classifier": {
+        "title": "Risk Classification",
+        "description": "Interactive wizard to determine whether your AI system is prohibited, high-risk, GPAI, limited, or minimal risk under the EU AI Act."
+      },
+      "checklists": {
+        "title": "Compliance Checklists",
+        "description": "Tier-specific checklists with article references, evidence tracking, and exportable compliance reports."
+      },
+      "timeline": {
+        "title": "Enforcement Timeline",
+        "description": "Visual timeline of all EU AI Act enforcement dates — see what's in effect, upcoming, and future."
+      },
+      "templates": {
+        "title": "Documentation Templates",
+        "description": "Generate conformity declarations, risk assessments, model cards, and transparency notices from pre-built templates."
+      },
+      "examples": {
+        "title": "Worked Examples",
+        "description": "Real-world scenarios showing how the classification and compliance process works for different AI systems."
+      }
+    },
+    "stats": {
+      "articles": "Articles covered",
+      "checklists": "Checklist items",
+      "templates": "Documentation templates",
+      "examples": "Worked examples"
+    }
+  },
+  "classifier": {
+    "title": "AI System Risk Classifier",
+    "subtitle": "Determine which EU AI Act risk tier applies to your AI system",
+    "steps": {
+      "prohibited": {
+        "title": "Prohibited Practices",
+        "description": "Check whether your AI system falls under Article 5 prohibited practices"
+      },
+      "gpai": {
+        "title": "General-Purpose AI",
+        "description": "Determine if your system qualifies as a GPAI model"
+      },
+      "gpaiSystemic": {
+        "title": "Systemic Risk Assessment",
+        "description": "Assess whether your GPAI model poses systemic risk"
+      },
+      "highRisk": {
+        "title": "High-Risk Classification",
+        "description": "Check Annex I safety components and Annex III use cases"
+      },
+      "limited": {
+        "title": "Limited Risk (Transparency)",
+        "description": "Check transparency obligations for your AI system"
+      },
+      "minimal": {
+        "title": "Minimal Risk",
+        "description": "Voluntary codes of conduct apply"
+      }
+    },
+    "navigation": {
+      "next": "Next",
+      "previous": "Previous",
+      "restart": "Start Over",
+      "viewChecklist": "View Compliance Checklist",
+      "exportResult": "Export Classification Result"
+    },
+    "progress": {
+      "step": "Step {current} of {total}",
+      "complete": "Classification Complete"
+    },
+    "results": {
+      "prohibited": {
+        "title": "Prohibited AI System",
+        "description": "Your AI system is prohibited under Article 5 of the EU AI Act.",
+        "action": "Discontinue development or fundamentally redesign to remove prohibited capabilities."
+      },
+      "highRisk": {
+        "title": "High-Risk AI System",
+        "description": "Your AI system is classified as high-risk. Extensive compliance obligations apply.",
+        "action": "Complete the high-risk compliance checklist and prepare technical documentation."
+      },
+      "gpai": {
+        "title": "General-Purpose AI Model",
+        "description": "Your model is classified as GPAI. Transparency and documentation obligations apply.",
+        "action": "Complete the GPAI compliance checklist including model cards and training data documentation."
+      },
+      "gpaiSystemic": {
+        "title": "GPAI with Systemic Risk",
+        "description": "Your model has systemic risk. Enhanced obligations apply.",
+        "action": "Complete the GPAI systemic risk checklist including adversarial testing and incident monitoring."
+      },
+      "limited": {
+        "title": "Limited Risk AI System",
+        "description": "Transparency obligations apply. Users must be informed about AI interaction.",
+        "action": "Implement transparency measures: disclose AI interaction, label synthetic content."
+      },
+      "minimal": {
+        "title": "Minimal Risk AI System",
+        "description": "No mandatory obligations beyond existing law. Voluntary codes of conduct encouraged.",
+        "action": "Consider adopting voluntary codes of conduct for trustworthy AI."
+      }
+    }
+  },
+  "checklists": {
+    "title": "Compliance Checklists",
+    "subtitle": "Track your EU AI Act compliance obligations",
+    "filters": {
+      "all": "All Items",
+      "complete": "Completed",
+      "incomplete": "Incomplete",
+      "required": "Required",
+      "recommended": "Recommended"
+    },
+    "score": {
+      "title": "Compliance Score",
+      "complete": "All items complete",
+      "remaining": "{count} items remaining"
+    },
+    "item": {
+      "required": "Required",
+      "recommended": "Recommended",
+      "article": "Article {number}",
+      "deadline": "Deadline: {date}",
+      "markComplete": "Mark as complete",
+      "markIncomplete": "Mark as incomplete"
+    },
+    "evidence": {
+      "prompt": "Attach evidence or documentation",
+      "upload": "Upload file",
+      "link": "Add link",
+      "note": "Add note"
+    },
+    "export": {
+      "title": "Export Checklist",
+      "json": "JSON",
+      "csv": "CSV",
+      "markdown": "Markdown",
+      "pdf": "PDF",
+      "button": "Export"
+    },
+    "tiers": {
+      "highRisk": "High-Risk Checklist",
+      "gpai": "GPAI Checklist",
+      "gpaiSystemic": "GPAI Systemic Risk Checklist",
+      "limited": "Limited Risk Checklist"
+    }
+  },
+  "timeline": {
+    "title": "Enforcement Timeline",
+    "subtitle": "Key dates for EU AI Act compliance",
+    "filters": {
+      "all": "All Dates",
+      "past": "In Effect",
+      "upcoming": "Upcoming",
+      "future": "Future"
+    },
+    "entryIntoForce": "Entry into force",
+    "daysUntil": "{days} days remaining",
+    "daysPast": "{days} days ago",
+    "today": "Today",
+    "milestones": {
+      "entryIntoForce": "Entry into Force",
+      "prohibitions": "Prohibited AI Practices",
+      "gpaiObligations": "GPAI Obligations",
+      "highRiskAnnexIII": "High-Risk (Annex III) Obligations",
+      "highRiskAnnexI": "High-Risk (Annex I) Obligations",
+      "fullEnforcement": "Full Enforcement"
+    }
+  },
+  "templates": {
+    "title": "Documentation Templates",
+    "subtitle": "Generate compliance documentation from pre-built templates",
+    "list": {
+      "conformity": {
+        "title": "EU Declaration of Conformity",
+        "description": "Required declaration for high-risk AI systems per Article 47 and Annex V."
+      },
+      "riskAssessment": {
+        "title": "Fundamental Rights Impact Assessment",
+        "description": "Required assessment for high-risk AI systems deployed by public bodies per Article 27."
+      },
+      "modelCard": {
+        "title": "GPAI Model Card",
+        "description": "Technical documentation for GPAI models per Article 53 and Annex XI."
+      },
+      "impactAssessment": {
+        "title": "Data Protection Impact Assessment",
+        "description": "DPIA template for AI systems processing personal data, aligned with GDPR Article 35."
+      },
+      "transparencyNotice": {
+        "title": "Transparency Notice",
+        "description": "User-facing notice for AI systems with transparency obligations per Article 50."
+      }
+    },
+    "generate": "Generate Document",
+    "preview": "Preview",
+    "download": "Download",
+    "customize": "Customize Template"
+  },
+  "examples": {
+    "title": "Worked Examples",
+    "subtitle": "See how the EU AI Act applies to real-world AI systems",
+    "backToList": "Back to Examples",
+    "classification": "Classification",
+    "obligations": "Key Obligations",
+    "walkthrough": "Classification Walkthrough",
+    "relatedArticles": "Related Articles"
+  },
+  "footer": {
+    "description": "Open-source EU AI Act compliance toolkit. Built for developers, compliance teams, and legal professionals.",
+    "links": {
+      "github": "GitHub",
+      "docs": "Documentation",
+      "eurLex": "EUR-Lex Full Text",
+      "aiOffice": "EU AI Office"
+    },
+    "legal": {
+      "title": "Legal",
+      "license": "MIT License",
+      "privacy": "Privacy"
+    },
+    "copyright": "EU AI Act Toolkit. Open source under MIT License.",
+    "regulation": "Based on Regulation (EU) 2024/1689 of the European Parliament and of the Council."
+  },
+  "disclaimer": {
+    "short": "This tool does not constitute legal advice.",
+    "full": "This tool does not constitute legal advice. Consult qualified legal counsel for compliance decisions. The EU AI Act Toolkit is an open-source project and is not affiliated with the European Union or any EU institution.",
+    "dismiss": "I understand"
+  },
+  "common": {
+    "tiers": {
+      "prohibited": "Prohibited",
+      "highRisk": "High-Risk",
+      "gpai": "GPAI",
+      "gpaiSystemic": "GPAI with Systemic Risk",
+      "limited": "Limited Risk",
+      "minimal": "Minimal Risk"
+    },
+    "actions": {
+      "learnMore": "Learn more",
+      "viewDetails": "View details",
+      "close": "Close",
+      "save": "Save",
+      "cancel": "Cancel",
+      "reset": "Reset",
+      "copy": "Copy",
+      "share": "Share"
+    }
+  }
+}

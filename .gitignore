@@ -1,0 +1,14 @@
+node_modules/
+dist/
+build/
+.next/
+out/
+*.log
+.env*
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.turbo/
+coverage/
+.vercel/

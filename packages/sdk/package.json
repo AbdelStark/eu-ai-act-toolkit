@@ -1,0 +1,37 @@
+{
+  "name": "@eu-ai-act/sdk",
+  "version": "0.1.0",
+  "description": "TypeScript SDK for EU AI Act (Regulation 2024/1689) compliance — risk classification, checklists, timeline, and documentation templates. This toolkit does not constitute legal advice.",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "test": "vitest run",
+    "lint": "tsc --noEmit"
+  },
+  "keywords": [
+    "eu-ai-act",
+    "ai-regulation",
+    "compliance",
+    "risk-classification",
+    "2024-1689"
+  ],
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "vitest": "^2.0.0"
+  }
+}

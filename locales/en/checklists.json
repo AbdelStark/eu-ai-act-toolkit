@@ -1,0 +1,62 @@
+{
+  "title": "Compliance Checklists",
+  "subtitle": "Track your EU AI Act compliance obligations",
+  "filters": {
+    "all": "All Items",
+    "complete": "Completed",
+    "incomplete": "Incomplete",
+    "required": "Required",
+    "recommended": "Recommended"
+  },
+  "categories": {
+    "riskManagement": "Risk Management System",
+    "dataGovernance": "Data and Data Governance",
+    "technicalDocumentation": "Technical Documentation",
+    "recordKeeping": "Record-Keeping",
+    "transparency": "Transparency and User Information",
+    "humanOversight": "Human Oversight",
+    "accuracy": "Accuracy, Robustness and Cybersecurity",
+    "qualityManagement": "Quality Management System",
+    "conformityAssessment": "Conformity Assessment",
+    "registration": "EU Database Registration",
+    "postMarket": "Post-Market Monitoring",
+    "incidentReporting": "Serious Incident Reporting",
+    "copyright": "Copyright and Training Data",
+    "modelCard": "Model Card / Technical Sheet",
+    "adversarialTesting": "Adversarial Testing",
+    "cybersecurity": "Cybersecurity Measures"
+  },
+  "evidence": {
+    "prompt": "Attach evidence or documentation",
+    "upload": "Upload file",
+    "link": "Add link",
+    "note": "Add note",
+    "placeholder": "Describe the evidence or reference supporting this compliance item..."
+  },
+  "export": {
+    "title": "Export Checklist",
+    "formats": {
+      "json": "JSON (machine-readable)",
+      "csv": "CSV (spreadsheet)",
+      "markdown": "Markdown (documentation)",
+      "pdf": "PDF (report)"
+    },
+    "includeEvidence": "Include evidence references",
+    "includeArticles": "Include article references",
+    "button": "Export"
+  },
+  "score": {
+    "title": "Compliance Score",
+    "complete": "All items complete",
+    "remaining": "{count} items remaining"
+  },
+  "item": {
+    "required": "Required",
+    "recommended": "Recommended",
+    "article": "Article {number}",
+    "deadline": "Deadline: {date}",
+    "markComplete": "Mark as complete",
+    "markIncomplete": "Mark as incomplete",
+    "viewArticle": "View article text"
+  }
+}

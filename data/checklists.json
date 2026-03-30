@@ -1,0 +1,842 @@
+{
+  "prohibited": [
+    {
+      "id": "prohibited-stop-deployment",
+      "article": 5,
+      "paragraph": null,
+      "text": "Stop deployment of the prohibited AI system in the EU immediately",
+      "description": "Any AI system falling under Article 5 prohibitions must cease operation. Continued operation carries penalties of up to 35 million EUR or 7% of global annual turnover.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "prohibited-document-and-assess",
+      "article": 5,
+      "paragraph": null,
+      "text": "Document the prohibited system and assess alternatives that achieve the same goal without falling under prohibitions",
+      "description": "Record the system's functionality and intended purpose, then evaluate alternative approaches that are compliant. Check for narrow exceptions (some law enforcement uses have limited exceptions under strict conditions). Consult legal counsel specializing in EU AI Act compliance.",
+      "required": true,
+      "category": "documentation"
+    }
+  ],
+  "high-risk": [
+    {
+      "id": "hr-risk-lifecycle",
+      "article": 9,
+      "paragraph": 1,
+      "text": "Establish a risk management system that operates throughout the entire lifecycle",
+      "description": "The risk management system must be a continuous iterative process planned and run throughout the entire lifecycle of the high-risk AI system, requiring regular systematic review and updating.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "hr-risk-identify",
+      "article": 9,
+      "paragraph": 2,
+      "text": "Identify and analyze known and reasonably foreseeable risks",
+      "description": "Identify and analyse the known and reasonably foreseeable risks that the high-risk AI system can pose to health, safety, or fundamental rights when used in accordance with its intended purpose.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "hr-risk-estimate-intended",
+      "article": 9,
+      "paragraph": 2,
+      "text": "Estimate and evaluate risks from intended use and reasonably foreseeable misuse",
+      "description": "Estimate and evaluate the risks that may emerge when the system is used in accordance with its intended purpose and under conditions of reasonably foreseeable misuse.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "hr-risk-post-market",
+      "article": 9,
+      "paragraph": 2,
+      "text": "Evaluate risks based on post-market monitoring data",
+      "description": "Evaluate risks that may emerge based on the analysis of data gathered from the post-market monitoring system referred to in Article 72.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "hr-risk-measures",
+      "article": 9,
+      "paragraph": 3,
+      "text": "Adopt risk management measures to eliminate or reduce risks",
+      "description": "Adopt appropriate and targeted risk management measures designed to address identified risks. Measures must give due consideration to the effects and possible interaction with other requirements, and to the generally acknowledged state of the art.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "hr-risk-testing",
+      "article": 9,
+      "paragraph": 6,
+      "text": "Test the system to identify the most appropriate risk management measures",
+      "description": "Testing procedures must be suitable to fulfil the intended purpose of the AI system and do not need to go beyond what is necessary. Testing must be performed against prior defined metrics and probabilistic thresholds.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "hr-risk-combined-effects",
+      "article": 9,
+      "paragraph": 8,
+      "text": "Consider the combined effects when the system is used with other systems",
+      "description": "When implementing risk management measures, consideration must be given to the combined effects that may result from the AI system being used together with other AI or non-AI systems or processes.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "hr-risk-residual",
+      "article": 9,
+      "paragraph": 5,
+      "text": "Document residual risks and communicate them to deployers",
+      "description": "Any residual risk after risk management measures are adopted must be judged acceptable. Residual risks must be communicated to the deployer. Residual risks associated with each hazard and the overall residual risk must be within an acceptable level.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "hr-data-governance",
+      "article": 10,
+      "paragraph": 2,
+      "text": "Ensure training, validation, and testing datasets are subject to appropriate data governance",
+      "description": "Data governance and management practices must concern the design choices, data collection processes, data preparation operations (annotation, labelling, cleaning, updating, enrichment, aggregation), formulation of relevant assumptions, prior assessment of data availability and suitability, and examination for possible biases.",
+      "required": true,
+      "category": "data-governance"
+    },
+    {
+      "id": "hr-data-collection-docs",
+      "article": 10,
+      "paragraph": 2,
+      "text": "Document data collection processes and data sources",
+      "description": "Document all data collection processes, the origin of data, and the data preparation processing operations used for the training, validation, and testing datasets.",
+      "required": true,
+      "category": "data-governance"
+    },
+    {
+      "id": "hr-data-relevance",
+      "article": 10,
+      "paragraph": 3,
+      "text": "Assess data for relevance, representativeness, completeness, and statistical properties",
+      "description": "Training, validation, and testing datasets must be relevant, sufficiently representative, and to the best extent possible, free of errors and complete in view of the intended purpose.",
+      "required": true,
+      "category": "data-governance"
+    },
+    {
+      "id": "hr-data-bias-examination",
+      "article": 10,
+      "paragraph": 2,
+      "text": "Examine data for possible biases likely to affect health, safety, or fundamental rights",
+      "description": "Examine datasets in view of possible biases that are likely to affect the health and safety of persons, have a negative impact on fundamental rights, or lead to discrimination prohibited under Union law.",
+      "required": true,
+      "category": "data-governance"
+    },
+    {
+      "id": "hr-data-gaps",
+      "article": 10,
+      "paragraph": 2,
+      "text": "Identify and address data gaps or shortcomings",
+      "description": "Identify relevant data gaps or shortcomings that prevent compliance with data quality requirements, and determine how those gaps and shortcomings can be addressed.",
+      "required": true,
+      "category": "data-governance"
+    },
+    {
+      "id": "hr-data-bias-mitigation",
+      "article": 10,
+      "paragraph": 2,
+      "text": "Apply appropriate measures for bias detection, correction, and mitigation",
+      "description": "Apply appropriate measures to detect, prevent, and mitigate biases identified in training, validation, and testing datasets.",
+      "required": true,
+      "category": "data-governance"
+    },
+    {
+      "id": "hr-data-quality",
+      "article": 10,
+      "paragraph": 3,
+      "text": "Ensure training data is free from errors and complete relative to the intended purpose",
+      "description": "Datasets must have the appropriate statistical properties, including, where applicable, as regards the persons or groups of persons in relation to whom the high-risk AI system is intended to be used.",
+      "required": true,
+      "category": "data-governance"
+    },
+    {
+      "id": "hr-data-special-categories",
+      "article": 10,
+      "paragraph": 5,
+      "text": "If processing special categories of personal data: document the necessity and safeguards",
+      "description": "Where strictly necessary for bias detection and correction, providers may process special categories of personal data subject to appropriate safeguards for fundamental rights, including technical limitations on re-use, and state-of-the-art security and privacy-preserving measures.",
+      "required": false,
+      "category": "data-governance"
+    },
+    {
+      "id": "hr-docs-general",
+      "article": 11,
+      "paragraph": 1,
+      "text": "Prepare general description of the AI system (intended purpose, developer, version)",
+      "description": "Technical documentation must include a general description of the AI system covering its intended purpose, the name and contact of the provider, the system version, and how it interacts with hardware or software that is not part of the AI system itself.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-docs-development",
+      "article": 11,
+      "paragraph": 1,
+      "text": "Prepare detailed description of elements and development process",
+      "description": "Document the development process including design specifications, system architecture, and algorithms. Include computational and hardware resources used, data sheets for training/validation/testing datasets, and validation and testing procedures used.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-docs-monitoring",
+      "article": 11,
+      "paragraph": 1,
+      "text": "Prepare detailed description of monitoring, functioning, and control of the system",
+      "description": "Document the capabilities and limitations of the system, the degree of accuracy, expected performance metrics, foreseeable unintended outcomes, and specifications for input data.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-docs-risk-mgmt",
+      "article": 11,
+      "paragraph": 1,
+      "text": "Include description of the risk management system (Article 9 compliance)",
+      "description": "Technical documentation must include a full description of the risk management system in accordance with Article 9.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-docs-lifecycle",
+      "article": 11,
+      "paragraph": 1,
+      "text": "Document all changes made through the system's lifecycle",
+      "description": "A description of any change made to the system through its lifecycle must be maintained in the technical documentation.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-docs-standards",
+      "article": 11,
+      "paragraph": 1,
+      "text": "List harmonised standards or other technical specifications applied",
+      "description": "Document the list of harmonised standards applied in full or in part, and where no harmonised standards have been applied, describe the solutions adopted to meet the requirements.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-docs-human-oversight",
+      "article": 11,
+      "paragraph": 1,
+      "text": "Describe how human oversight measures are implemented",
+      "description": "Technical documentation must describe the human oversight measures to be implemented in accordance with Article 14.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-docs-lifetime",
+      "article": 11,
+      "paragraph": 1,
+      "text": "Document expected lifetime and maintenance/care measures",
+      "description": "Include the expected lifetime of the high-risk AI system and any necessary maintenance and care measures to ensure proper functioning, including software updates.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-docs-accuracy-robustness",
+      "article": 11,
+      "paragraph": 1,
+      "text": "Describe the AI system's accuracy, robustness, and cybersecurity measures",
+      "description": "Include a description of the accuracy, robustness, and cybersecurity metrics and measures, with accuracy levels and metrics declared per Annex IV.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-logs-automatic",
+      "article": 12,
+      "paragraph": 1,
+      "text": "Ensure the system automatically records events (logs) throughout its lifetime",
+      "description": "High-risk AI systems must technically allow for the automatic recording of events (logs) over the lifetime of the system.",
+      "required": true,
+      "category": "record-keeping"
+    },
+    {
+      "id": "hr-logs-tracing",
+      "article": 12,
+      "paragraph": 1,
+      "text": "Ensure logging enables tracing of the system's operation",
+      "description": "The logging capabilities must enable the monitoring of the operation of the high-risk AI system with respect to the occurrence of situations that may result in risks or a substantial modification.",
+      "required": true,
+      "category": "record-keeping"
+    },
+    {
+      "id": "hr-logs-standards",
+      "article": 12,
+      "paragraph": 1,
+      "text": "Ensure logging capabilities conform to recognized standards or common specifications",
+      "description": "Logging capabilities must conform to recognised standards or common specifications.",
+      "required": true,
+      "category": "record-keeping"
+    },
+    {
+      "id": "hr-logs-content",
+      "article": 12,
+      "paragraph": 2,
+      "text": "Logs include: period of use, reference database, input data, identification of natural persons involved in verification",
+      "description": "Logs must record the period of each use (start date and time and end date and time), the reference database against which input data has been checked, the input data for which the search has led to a match, and the identification of the natural persons involved in the verification of results.",
+      "required": true,
+      "category": "record-keeping"
+    },
+    {
+      "id": "hr-transparency-interpretable",
+      "article": 13,
+      "paragraph": 1,
+      "text": "Design the system to enable deployers to interpret output and use it appropriately",
+      "description": "High-risk AI systems must be designed and developed in such a way to ensure that their operation is sufficiently transparent to enable deployers to interpret the system's output and use it appropriately.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "hr-transparency-identity",
+      "article": 13,
+      "paragraph": 3,
+      "text": "Instructions for use include identity and contact details of the provider",
+      "description": "The instructions for use must include the identity and the contact details of the provider and, where applicable, of the authorised representative.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "hr-transparency-capabilities",
+      "article": 13,
+      "paragraph": 3,
+      "text": "Instructions for use include system capabilities and limitations",
+      "description": "The characteristics, capabilities, and limitations of performance of the high-risk AI system must be clearly described in the instructions for use.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "hr-transparency-purpose",
+      "article": 13,
+      "paragraph": 3,
+      "text": "Instructions for use include intended purpose and foreseeable misuse scenarios",
+      "description": "Document the intended purpose and any known or foreseeable circumstances of misuse that could lead to risks to health, safety, or fundamental rights.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "hr-transparency-changes",
+      "article": 13,
+      "paragraph": 3,
+      "text": "Instructions for use include changes pre-determined by the provider",
+      "description": "Document any changes to the high-risk AI system pre-determined by the provider at the time of initial conformity assessment.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "hr-transparency-oversight-info",
+      "article": 13,
+      "paragraph": 3,
+      "text": "Instructions for use include human oversight measures",
+      "description": "The human oversight measures referred to in Article 14, including the technical measures put in place to facilitate interpretation of system outputs by deployers.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "hr-transparency-accuracy-info",
+      "article": 13,
+      "paragraph": 3,
+      "text": "Instructions for use include expected level of accuracy, robustness, cybersecurity (benchmarks)",
+      "description": "Expected level of accuracy, including metrics, of the high-risk AI system, and any known circumstances that may have an impact on that expected level.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "hr-transparency-risks",
+      "article": 13,
+      "paragraph": 3,
+      "text": "Instructions for use include known risks to health, safety, or fundamental rights",
+      "description": "Any known or foreseeable risk to health, safety, or fundamental rights related to the use of the high-risk AI system.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "hr-transparency-input-specs",
+      "article": 13,
+      "paragraph": 3,
+      "text": "Instructions for use include technical specifications for input data",
+      "description": "Where appropriate, a description of the input data, or any other relevant information in terms of the training, validation, and testing datasets used.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "hr-transparency-logging-info",
+      "article": 13,
+      "paragraph": 3,
+      "text": "Instructions for use include description of logging functionality",
+      "description": "Where applicable, information about measures for deployers to facilitate the interpretation of the output of the high-risk AI system and a description of the automatic logging functionality.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "hr-oversight-design",
+      "article": 14,
+      "paragraph": 1,
+      "text": "Design the system to allow effective oversight by natural persons during use",
+      "description": "High-risk AI systems must be designed and developed in such a way that they can be effectively overseen by natural persons during the period in which they are in use.",
+      "required": true,
+      "category": "human-oversight"
+    },
+    {
+      "id": "hr-oversight-understand",
+      "article": 14,
+      "paragraph": 4,
+      "text": "Oversight enables the human to fully understand the system's capacities and limitations",
+      "description": "Human oversight persons must be able to fully understand the capacities and limitations of the high-risk AI system and be able to duly monitor its operation.",
+      "required": true,
+      "category": "human-oversight"
+    },
+    {
+      "id": "hr-oversight-monitor",
+      "article": 14,
+      "paragraph": 4,
+      "text": "Oversight enables detection of anomalies, dysfunctions, and unexpected performance",
+      "description": "Oversight measures must enable the person to properly monitor the operation of the system so that signs of anomalies, dysfunctions, and unexpected performance can be detected and addressed.",
+      "required": true,
+      "category": "human-oversight"
+    },
+    {
+      "id": "hr-oversight-bias-awareness",
+      "article": 14,
+      "paragraph": 4,
+      "text": "Oversight includes awareness of automation bias, especially for decisions about persons",
+      "description": "Oversight must enable remaining aware of the possible tendency of automatically relying on or over-relying on the output produced by a high-risk AI system (automation bias), in particular for systems used to provide information or recommendations for decisions to be taken by natural persons.",
+      "required": true,
+      "category": "human-oversight"
+    },
+    {
+      "id": "hr-oversight-interpret",
+      "article": 14,
+      "paragraph": 4,
+      "text": "Oversight enables correct interpretation of the system's output",
+      "description": "The person overseeing the system must be able to correctly interpret the high-risk AI system's output, taking into account the characteristics of the system and the interpretation tools and methods available.",
+      "required": true,
+      "category": "human-oversight"
+    },
+    {
+      "id": "hr-oversight-override",
+      "article": 14,
+      "paragraph": 4,
+      "text": "Oversight enables the human to decide not to use the system or override/reverse the output",
+      "description": "The oversight person must be able to decide, in any particular situation, not to use the high-risk AI system or to otherwise disregard, override, or reverse the output.",
+      "required": true,
+      "category": "human-oversight"
+    },
+    {
+      "id": "hr-oversight-stop",
+      "article": 14,
+      "paragraph": 4,
+      "text": "Oversight enables the human to interrupt the system through a stop button or similar procedure",
+      "description": "The oversight person must be able to intervene in the operation of the high-risk AI system or interrupt the system through a stop button or a similar procedure allowing the system to come to a halt in a safe state.",
+      "required": true,
+      "category": "human-oversight"
+    },
+    {
+      "id": "hr-accuracy-level",
+      "article": 15,
+      "paragraph": 1,
+      "text": "Design the system to achieve an appropriate level of accuracy for its intended purpose",
+      "description": "High-risk AI systems must be designed and developed in such a way that they achieve an appropriate level of accuracy, robustness, and cybersecurity, and that they perform consistently in those respects throughout their lifecycle.",
+      "required": true,
+      "category": "accuracy-robustness"
+    },
+    {
+      "id": "hr-accuracy-declared",
+      "article": 15,
+      "paragraph": 2,
+      "text": "Declare accuracy levels and metrics in instructions for use",
+      "description": "The levels of accuracy and the relevant accuracy metrics must be declared in the accompanying instructions for use.",
+      "required": true,
+      "category": "accuracy-robustness"
+    },
+    {
+      "id": "hr-robustness-errors",
+      "article": 15,
+      "paragraph": 3,
+      "text": "Ensure the system is resilient to errors, faults, or inconsistencies in the environment",
+      "description": "High-risk AI systems must be resilient to errors, faults, or inconsistencies that may occur within the system or the environment in which the system operates.",
+      "required": true,
+      "category": "accuracy-robustness"
+    },
+    {
+      "id": "hr-robustness-adversarial",
+      "article": 15,
+      "paragraph": 4,
+      "text": "Ensure the system is resilient to adversarial attempts by third parties to manipulate it",
+      "description": "High-risk AI systems must be resilient as regards to attempts by unauthorised third parties to alter their use, outputs, or performance by exploiting system vulnerabilities.",
+      "required": true,
+      "category": "accuracy-robustness"
+    },
+    {
+      "id": "hr-robustness-failsafe",
+      "article": 15,
+      "paragraph": 3,
+      "text": "Design for safe handling of unexpected situations (fallback/fail-safe plans)",
+      "description": "The system must address situations where the AI system ceases to operate safely or outside specified conditions by, for example, implementing technical redundancy solutions, including backup or fail-safe plans.",
+      "required": true,
+      "category": "accuracy-robustness"
+    },
+    {
+      "id": "hr-cybersecurity",
+      "article": 15,
+      "paragraph": 5,
+      "text": "Implement cybersecurity measures proportionate to the risk",
+      "description": "High-risk AI systems must be resilient against attempts by unauthorised third parties to exploit system vulnerabilities. Cybersecurity solutions must be appropriate to the relevant circumstances and the risks.",
+      "required": true,
+      "category": "accuracy-robustness"
+    },
+    {
+      "id": "hr-redundancy",
+      "article": 15,
+      "paragraph": 3,
+      "text": "Implement technical redundancy solutions where appropriate (backup plans, fail-safe mechanisms)",
+      "description": "Where appropriate, technical redundancy solutions must be in place, which may include backup or fail-safe plans.",
+      "required": false,
+      "category": "accuracy-robustness"
+    },
+    {
+      "id": "hr-conformity-route",
+      "article": 43,
+      "paragraph": 1,
+      "text": "Determine conformity assessment route: self-assessment or third-party assessment",
+      "description": "Determine whether the system requires self-assessment (internal control per Annex VI, applicable to most high-risk AI systems) or third-party assessment with a notified body (Annex VII, required for biometrics, critical infrastructure, and some Annex III categories).",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-register-eu-db",
+      "article": 49,
+      "paragraph": 1,
+      "text": "Register in the EU database before placing the system on the market",
+      "description": "Before placing the high-risk AI system on the market or putting it into service, the provider (or authorised representative) must register the system in the EU database referred to in Article 71.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-ce-marking",
+      "article": 43,
+      "paragraph": null,
+      "text": "Affix CE marking upon successful conformity assessment",
+      "description": "High-risk AI systems that are in conformity with the requirements shall bear the CE marking to indicate their conformity and allow free movement across Member States.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-declaration-conformity",
+      "article": 43,
+      "paragraph": null,
+      "text": "Prepare EU Declaration of Conformity",
+      "description": "The provider must draw up a written or machine-readable EU declaration of conformity for each high-risk AI system and keep it for 10 years after the system is placed on the market.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-authorised-rep",
+      "article": 22,
+      "paragraph": null,
+      "text": "Designate an authorised representative in the EU (if provider is outside the EU)",
+      "description": "Providers of high-risk AI systems that are established outside the Union must appoint an authorised representative established in the Union prior to making their systems available on the Union market.",
+      "required": false,
+      "category": "documentation"
+    },
+    {
+      "id": "hr-post-market-monitoring",
+      "article": 72,
+      "paragraph": 1,
+      "text": "Establish a post-market monitoring system",
+      "description": "Providers must establish and document a post-market monitoring system proportionate to the nature and risks of the high-risk AI system. The system must actively and systematically collect, document, and analyse relevant data.",
+      "required": true,
+      "category": "monitoring"
+    },
+    {
+      "id": "hr-incident-reporting-procedure",
+      "article": 73,
+      "paragraph": 1,
+      "text": "Establish a serious incident reporting procedure",
+      "description": "Providers must establish a procedure for reporting serious incidents to the market surveillance authorities of the Member States where such incidents occurred.",
+      "required": true,
+      "category": "incident-reporting"
+    },
+    {
+      "id": "hr-incident-reporting-timeline",
+      "article": 73,
+      "paragraph": 2,
+      "text": "Report serious incidents to market surveillance authorities without undue delay and within 15 days",
+      "description": "Serious incidents must be reported to the relevant market surveillance authority without undue delay after the provider has established a causal link or the reasonable likelihood of a causal link, and in any event not later than 15 days after the provider becomes aware of the serious incident.",
+      "required": true,
+      "category": "incident-reporting"
+    }
+  ],
+  "gpai": [
+    {
+      "id": "gpai-tech-docs",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Prepare and maintain technical documentation of the model (Annex XI)",
+      "description": "Technical documentation must include training methodology and techniques, design choices and assumptions, training data sources with general description including key design choices and data provenance, and computational resources used for training.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "gpai-tech-docs-training",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Document training methodology, techniques, design choices, and assumptions",
+      "description": "The technical documentation must include information about the training methodology and techniques used, the design choices made, the assumptions underlying the model, and the rationale for key decisions.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "gpai-tech-docs-data-sources",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Document training data sources, including general description and data provenance",
+      "description": "Provide a general description of training data sources, including key design choices and data provenance information sufficient for understanding the data used.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "gpai-tech-docs-compute",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Document computational resources used for training",
+      "description": "Record the computational resources used for training the model, including hardware specifications, training duration, and total compute in FLOPs where relevant.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "gpai-downstream-info",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Prepare and maintain information and documentation for downstream providers",
+      "description": "Provide information and documentation to downstream providers who intend to integrate the GPAI model into their own AI systems, enabling them to understand the capabilities and limitations and comply with their own obligations.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "gpai-copyright",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Comply with EU copyright law (Directive 2019/790), including text and data mining opt-out",
+      "description": "Put in place a policy to comply with Union copyright law, in particular to identify and comply with text and data mining opt-out reservations expressed by rights holders pursuant to Article 4(3) of Directive (EU) 2019/790.",
+      "required": true,
+      "category": "copyright"
+    },
+    {
+      "id": "gpai-training-data-summary",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Publish a sufficiently detailed summary of training data content",
+      "description": "Draw up and make publicly available a sufficiently detailed summary of the content used for training the GPAI model, according to the template provided by the AI Office.",
+      "required": true,
+      "category": "training-data-summary"
+    },
+    {
+      "id": "gpai-open-source-exception",
+      "article": 53,
+      "paragraph": 2,
+      "text": "If open-source: verify only copyright compliance and training data summary are required",
+      "description": "Open-source GPAI models (where parameters, architecture, and usage information are publicly available under an open-source licence) only need to comply with copyright obligations and publish a training data summary, unless the model poses systemic risk.",
+      "required": false,
+      "category": "documentation"
+    },
+    {
+      "id": "gpai-code-of-practice",
+      "article": 56,
+      "paragraph": null,
+      "text": "Consider adhering to the Code of Practice for GPAI providers",
+      "description": "The AI Office facilitates the drawing up of a Code of Practice for GPAI providers. Adherence to an approved Code of Practice may be relied upon to demonstrate compliance with the obligations.",
+      "required": false,
+      "category": "documentation"
+    }
+  ],
+  "gpai-systemic": [
+    {
+      "id": "gpai-sys-tech-docs",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Prepare and maintain technical documentation of the model (Annex XI)",
+      "description": "Technical documentation must include training methodology and techniques, design choices and assumptions, training data sources with general description including key design choices and data provenance, and computational resources used for training.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "gpai-sys-downstream-info",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Prepare and maintain information and documentation for downstream providers",
+      "description": "Provide information and documentation to downstream providers who intend to integrate the GPAI model into their own AI systems.",
+      "required": true,
+      "category": "documentation"
+    },
+    {
+      "id": "gpai-sys-copyright",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Comply with EU copyright law (Directive 2019/790), including text and data mining opt-out",
+      "description": "Put in place a policy to comply with Union copyright law, in particular to identify and comply with text and data mining opt-out reservations expressed by rights holders pursuant to Article 4(3) of Directive (EU) 2019/790.",
+      "required": true,
+      "category": "copyright"
+    },
+    {
+      "id": "gpai-sys-training-data-summary",
+      "article": 53,
+      "paragraph": 1,
+      "text": "Publish a sufficiently detailed summary of training data content",
+      "description": "Draw up and make publicly available a sufficiently detailed summary of the content used for training the GPAI model, according to the template provided by the AI Office.",
+      "required": true,
+      "category": "training-data-summary"
+    },
+    {
+      "id": "gpai-sys-model-eval",
+      "article": 55,
+      "paragraph": 1,
+      "text": "Perform model evaluation in accordance with standardised protocols and tools",
+      "description": "Providers of GPAI models with systemic risk must perform model evaluation in accordance with standardised protocols and tools reflecting the state of the art, including conducting and documenting adversarial testing (red teaming) of the model to identify and mitigate systemic risks.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "gpai-sys-red-teaming",
+      "article": 55,
+      "paragraph": 1,
+      "text": "Conduct adversarial testing (red teaming) to identify and mitigate systemic risks",
+      "description": "Red teaming must be performed as part of model evaluation, designed to identify systemic risks including risks related to misuse, loss of control, and large-scale societal harm.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "gpai-sys-assess-mitigate",
+      "article": 55,
+      "paragraph": 1,
+      "text": "Assess and mitigate possible systemic risks, including their sources",
+      "description": "Assess and mitigate possible systemic risks at Union level, including their sources, that may stem from the development, the placing on the market, or the use of general-purpose AI models with systemic risk.",
+      "required": true,
+      "category": "risk-management"
+    },
+    {
+      "id": "gpai-sys-incident-tracking",
+      "article": 55,
+      "paragraph": 1,
+      "text": "Track, document, and report serious incidents to the AI Office and national authorities",
+      "description": "Keep track of, document, and report without undue delay to the AI Office and, where relevant, to national competent authorities, relevant information about serious incidents and possible corrective measures to address them.",
+      "required": true,
+      "category": "incident-reporting"
+    },
+    {
+      "id": "gpai-sys-cybersecurity",
+      "article": 55,
+      "paragraph": 1,
+      "text": "Ensure adequate cybersecurity protection for the model and its physical infrastructure",
+      "description": "Ensure an adequate level of cybersecurity protection for the general-purpose AI model with systemic risk and the physical infrastructure of the model.",
+      "required": true,
+      "category": "accuracy-robustness"
+    },
+    {
+      "id": "gpai-sys-code-of-practice",
+      "article": 56,
+      "paragraph": null,
+      "text": "Consider adhering to the Code of Practice for GPAI providers (including systemic risk provisions)",
+      "description": "The AI Office facilitates the drawing up of Codes of Practice including specific measures for systemic risk providers. Compliance with an approved Code of Practice may be relied upon to demonstrate compliance.",
+      "required": false,
+      "category": "documentation"
+    }
+  ],
+  "limited": [
+    {
+      "id": "limited-ai-disclosure",
+      "article": 50,
+      "paragraph": 1,
+      "text": "Inform users they are interacting with an AI system (unless obvious from context)",
+      "description": "Providers of AI systems intended to directly interact with natural persons must ensure that the system is designed and developed in such a way that the natural person is informed they are interacting with an AI system, unless this is obvious from the circumstances and context of use.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "limited-disclosure-format",
+      "article": 50,
+      "paragraph": 1,
+      "text": "Ensure AI disclosure is clear, timely, and in an accessible format",
+      "description": "The disclosure that a person is interacting with an AI system must be provided in a clear and distinguishable manner at the latest at the time of the first interaction.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "limited-synthetic-marking",
+      "article": 50,
+      "paragraph": 2,
+      "text": "Mark synthetic content (deepfakes, AI-generated text/images/audio/video) as artificially generated or manipulated",
+      "description": "Providers of AI systems generating synthetic audio, image, video, or text content must ensure that the outputs are marked as artificially generated or manipulated. The marking must be in a machine-readable format where technically feasible.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "limited-synthetic-machine-readable",
+      "article": 50,
+      "paragraph": 2,
+      "text": "Ensure synthetic content marking is machine-readable where technically feasible",
+      "description": "The technical solution for marking synthetic content must be effective, interoperable, robust, and reliable, taking into account the specificities and limitations of different types of content, costs of implementation, and the generally acknowledged state of the art.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "limited-emotion-inform",
+      "article": 50,
+      "paragraph": 3,
+      "text": "Inform persons exposed to emotion recognition systems that the system is in operation",
+      "description": "Deployers of emotion recognition systems must inform the natural persons exposed thereto of the operation of the system, and process personal data in accordance with GDPR and the Law Enforcement Directive.",
+      "required": true,
+      "category": "transparency"
+    },
+    {
+      "id": "limited-biometric-inform",
+      "article": 50,
+      "paragraph": 3,
+      "text": "Inform persons exposed to biometric categorization systems that the system is in operation",
+      "description": "Deployers of biometric categorization systems must inform the natural persons exposed thereto of the operation of the system. Note: categorization by sensitive attributes may be prohibited under Article 5.",
+      "required": true,
+      "category": "transparency"
+    }
+  ],
+  "minimal": [
+    {
+      "id": "minimal-voluntary-codes",
+      "article": 95,
+      "paragraph": null,
+      "text": "Consider adopting voluntary codes of conduct covering environmental sustainability, accessibility, stakeholder participation, and diversity of development teams",
+      "description": "The EU AI Act encourages providers and deployers of AI systems that are not high-risk to voluntarily apply codes of conduct intended to foster the voluntary application of some or all requirements for high-risk systems.",
+      "required": false,
+      "category": "documentation"
+    },
+    {
+      "id": "minimal-voluntary-high-risk-subset",
+      "article": 95,
+      "paragraph": null,
+      "text": "Consider voluntarily applying the requirements for high-risk systems (or a subset)",
+      "description": "While not legally required, providers may voluntarily apply risk management, data governance, documentation, transparency, human oversight, or accuracy requirements applicable to high-risk systems.",
+      "required": false,
+      "category": "risk-management"
+    },
+    {
+      "id": "minimal-ai-pact",
+      "article": null,
+      "paragraph": null,
+      "text": "Consider following the AI Pact commitments (voluntary early adoption of certain AI Act provisions)",
+      "description": "The EU AI Pact is a voluntary initiative encouraging organisations to commit to early adoption of key AI Act provisions ahead of legal deadlines. Participation signals commitment to responsible AI development.",
+      "required": false,
+      "category": "documentation"
+    },
+    {
+      "id": "minimal-good-practices",
+      "article": null,
+      "paragraph": null,
+      "text": "Document system capabilities and limitations, monitor for unexpected behaviours, and maintain transparency with users about AI involvement",
+      "description": "Even without legal obligation, good practices include documenting system capabilities and limitations, monitoring for unexpected behaviours in deployment, being transparent with users about AI involvement, and maintaining data quality standards.",
+      "required": false,
+      "category": "transparency"
+    }
+  ]
+}

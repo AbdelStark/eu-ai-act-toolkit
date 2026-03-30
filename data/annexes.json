@@ -1,0 +1,89 @@
+{
+  "annexIII": [
+    {
+      "category": 1,
+      "id": "biometrics",
+      "title": "Biometrics",
+      "items": [
+        "Remote biometric identification (not real-time in public spaces for law enforcement, which is prohibited)",
+        "Biometric categorization based on sensitive or protected attributes",
+        "Emotion recognition"
+      ]
+    },
+    {
+      "category": 2,
+      "id": "critical-infrastructure",
+      "title": "Critical Infrastructure",
+      "items": [
+        "AI systems used as safety components in the management and operation of road traffic",
+        "AI systems used as safety components in the management and operation of water supply",
+        "AI systems used as safety components in the management and operation of gas supply",
+        "AI systems used as safety components in the management and operation of heating supply",
+        "AI systems used as safety components in the management and operation of electricity supply"
+      ]
+    },
+    {
+      "category": 3,
+      "id": "education",
+      "title": "Education and Vocational Training",
+      "items": [
+        "Determining access to or admission into educational or vocational training institutions",
+        "Evaluating learning outcomes, including to steer the learning process",
+        "Determining the appropriate level of education for an individual",
+        "Monitoring and detecting prohibited behaviour of students during tests"
+      ]
+    },
+    {
+      "category": 4,
+      "id": "employment",
+      "title": "Employment, Workers Management, and Access to Self-Employment",
+      "items": [
+        "Recruitment or selection, particularly for placing targeted job advertisements, filtering applications, and evaluating candidates",
+        "Making decisions affecting terms of work-related relationships, promotion, or termination of contractual relationships",
+        "Allocating tasks based on individual behaviour, personal traits, or characteristics",
+        "Monitoring and evaluating performance and behaviour of persons in work-related relationships"
+      ]
+    },
+    {
+      "category": 5,
+      "id": "essential-services",
+      "title": "Access to and Enjoyment of Essential Private and Public Services and Benefits",
+      "items": [
+        "Evaluating eligibility for public assistance benefits and services, granting, reducing, revoking, or reclaiming such benefits",
+        "Evaluating creditworthiness of natural persons (except for the purpose of detecting financial fraud)",
+        "Risk assessment and pricing in life and health insurance for natural persons",
+        "Evaluating and classifying emergency calls, including for establishing dispatching priority"
+      ]
+    },
+    {
+      "category": 6,
+      "id": "law-enforcement",
+      "title": "Law Enforcement",
+      "items": [
+        "Individual risk assessment of natural persons to assess the likelihood of offending or re-offending, or of being a victim of criminal offences",
+        "Use as polygraphs or similar tools to detect deception",
+        "Evaluating the reliability of evidence in the course of investigation or prosecution of criminal offences",
+        "Profiling of natural persons in the course of detection, investigation, or prosecution of criminal offences"
+      ]
+    },
+    {
+      "category": 7,
+      "id": "migration",
+      "title": "Migration, Asylum, and Border Control Management",
+      "items": [
+        "Assessing a risk of irregular migration or a health risk posed by a natural person intending to enter or having entered the territory of a Member State",
+        "Examining applications for asylum, visa, or residence permits, and associated complaints regarding the eligibility of persons",
+        "Detecting, recognizing, or identifying natural persons in the context of migration, asylum, and border control (except verification of travel documents)"
+      ]
+    },
+    {
+      "category": 8,
+      "id": "justice-democracy",
+      "title": "Administration of Justice and Democratic Processes",
+      "items": [
+        "Assisting judicial authorities in researching and interpreting facts and the law, and in applying the law to a concrete set of facts",
+        "Influencing the outcome of an election or referendum (excluding organisational tools that do not directly influence how individuals cast votes)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "disclaimer": "This tool does not constitute legal advice. Consult qualified legal counsel for compliance decisions.",
+  "tiers": {
+    "prohibited": "Prohibited",
+    "high-risk": "High-Risk",
+    "gpai": "GPAI",
+    "gpai-systemic": "GPAI with Systemic Risk",
+    "limited": "Limited Risk",
+    "minimal": "Minimal Risk"
+  },
+  "enforcement": {
+    "past": "In effect",
+    "upcoming": "Upcoming",
+    "future": "Future",
+    "daysUntil": "{days} days remaining",
+    "daysPast": "{days} days ago"
+  },
+  "compliance": {
+    "complete": "Complete",
+    "incomplete": "Incomplete",
+    "progress": "{completed}/{total} items ({percent}%)"
+  }
+}

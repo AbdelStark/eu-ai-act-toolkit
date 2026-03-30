@@ -1,0 +1,144 @@
+{
+  "articles": [
+    {
+      "number": 4,
+      "title": "AI literacy",
+      "summary": "Requires providers and deployers of AI systems to ensure that their staff and other persons dealing with the operation and use of AI systems on their behalf have a sufficient level of AI literacy, taking into account their technical knowledge, experience, education, training, and the context of use.",
+      "tiers": ["all"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 5,
+      "title": "Prohibited artificial intelligence practices",
+      "summary": "Lists AI practices that are prohibited in the Union, including subliminal manipulation, exploitation of vulnerabilities, social scoring, individual predictive policing, untargeted facial scraping, emotion inference in workplace/education, biometric categorization for sensitive attributes, and real-time remote biometric identification in public spaces for law enforcement (with narrow exceptions).",
+      "tiers": ["prohibited"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 6,
+      "title": "Classification rules for high-risk AI systems",
+      "summary": "Defines two pathways for high-risk classification: (1) AI systems that are safety components of products or are themselves products covered by Annex I Union harmonisation legislation requiring third-party conformity assessment; (2) AI systems referred to in Annex III areas, unless they do not pose a significant risk of harm to health, safety, or fundamental rights.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 9,
+      "title": "Risk management system",
+      "summary": "Requires establishment of a risk management system throughout the entire lifecycle of the high-risk AI system, including identification and analysis of known and foreseeable risks, estimation and evaluation of risks from intended use and reasonably foreseeable misuse, adoption of appropriate risk management measures, and testing to identify most appropriate measures.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 10,
+      "title": "Data and data governance",
+      "summary": "Requires that training, validation, and testing data sets are subject to appropriate data governance and management practices, including documentation of data sources, assessment of relevance and representativeness, examination for biases affecting health, safety, or fundamental rights, and measures for bias detection and mitigation.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 11,
+      "title": "Technical documentation",
+      "summary": "Requires preparation of technical documentation before the system is placed on the market or put into service, demonstrating compliance with high-risk requirements. Documentation must include general system description, development process details, monitoring and control mechanisms, risk management compliance, lifecycle changes, standards applied, human oversight measures, and accuracy/robustness/cybersecurity information.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 12,
+      "title": "Record-keeping",
+      "summary": "Requires high-risk AI systems to include automatic recording of events (logs) throughout their lifetime, enabling tracing of system operation. Logging must conform to recognised standards and include period of use, reference database, input data, and identification of natural persons involved in verification.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 13,
+      "title": "Transparency and provision of information to deployers",
+      "summary": "Requires high-risk AI systems to be designed to enable deployers to interpret output and use it appropriately. Instructions for use must include provider identity, system capabilities and limitations, intended purpose, foreseeable misuse scenarios, human oversight measures, expected accuracy/robustness/cybersecurity levels, known risks, and input data specifications.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 14,
+      "title": "Human oversight",
+      "summary": "Requires high-risk AI systems to be designed to allow effective oversight by natural persons, enabling them to fully understand system capacities and limitations, monitor for anomalies, remain aware of automation bias, correctly interpret output, decide not to use the system or override its output, and interrupt operation via a stop mechanism.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 15,
+      "title": "Accuracy, robustness and cybersecurity",
+      "summary": "Requires high-risk AI systems to achieve appropriate accuracy levels, be resilient to errors and adversarial attempts, include fail-safe mechanisms, and implement cybersecurity measures proportionate to the risks. Accuracy levels and metrics must be declared in instructions for use.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 26,
+      "title": "Obligations of deployers of high-risk AI systems",
+      "summary": "Deployers must use systems in accordance with instructions, ensure human oversight by competent persons, monitor operation, keep logs, perform data protection impact assessments where required, and inform affected persons and workers representatives about their use of high-risk AI systems.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 27,
+      "title": "Fundamental rights impact assessment for high-risk AI systems",
+      "summary": "Certain deployers of high-risk AI systems (public bodies and private entities providing public services) must perform a fundamental rights impact assessment before putting the system into use, assessing impact on rights of affected persons, specific risks of harm, human oversight measures, and governance measures.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 43,
+      "title": "Conformity assessment",
+      "summary": "Defines conformity assessment procedures for high-risk AI systems, including self-assessment based on internal control (Annex VI) and third-party assessment involving a notified body (Annex VII) for certain categories including biometric identification and critical infrastructure systems.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 49,
+      "title": "Registration",
+      "summary": "Requires providers and deployers of high-risk AI systems to register in the EU database established under Article 71 before placing the system on the market or putting it into service. Registration information must be kept up to date.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 50,
+      "title": "Transparency obligations for providers and deployers of certain AI systems",
+      "summary": "Establishes transparency obligations for AI systems interacting with persons (must disclose AI nature), generating synthetic content (must mark as AI-generated), performing emotion recognition (must inform exposed persons), and performing biometric categorization (must inform exposed persons).",
+      "tiers": ["limited"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 51,
+      "title": "Classification of general-purpose AI models as general-purpose AI models with systemic risk",
+      "summary": "Defines when a GPAI model is classified as posing systemic risk: either trained with compute greater than 10^25 FLOPs (automatic classification) or designated by the Commission based on high-impact capabilities assessed against criteria including number of users, cross-border reach, and degree of autonomy.",
+      "tiers": ["gpai", "gpai-systemic"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 52,
+      "title": "Obligations for providers of general-purpose AI models",
+      "summary": "All GPAI providers must prepare and keep up to date technical documentation (Annex XI), provide information and documentation to downstream providers, establish a copyright compliance policy including compliance with text and data mining opt-out, and publish a sufficiently detailed summary of training data content.",
+      "tiers": ["gpai", "gpai-systemic"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 53,
+      "title": "Obligations for providers of general-purpose AI models to put in place a policy to comply with Union copyright law",
+      "summary": "GPAI providers must comply with EU copyright law, specifically Directive 2019/790 on copyright in the Digital Single Market, including identifying and respecting text and data mining opt-out reservations expressed by rights holders. Open-source models meeting specific criteria have reduced obligations.",
+      "tiers": ["gpai", "gpai-systemic"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 54,
+      "title": "Authorised representatives of providers of general-purpose AI models",
+      "summary": "Providers of GPAI models established outside the Union must appoint an authorised representative in the Union before making the model available on the Union market.",
+      "tiers": ["gpai", "gpai-systemic"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 55,
+      "title": "Obligations for providers of general-purpose AI models with systemic risk",
+      "summary": "In addition to standard GPAI obligations, providers of models with systemic risk must perform model evaluation including adversarial testing (red teaming), assess and mitigate systemic risks, track and report serious incidents to the AI Office and national authorities, and ensure adequate cybersecurity for the model and its physical infrastructure.",
+      "tiers": ["gpai-systemic"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    }
+  ]
+}

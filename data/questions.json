@@ -1,0 +1,281 @@
+{
+  "steps": [
+    {
+      "id": "prohibited",
+      "title": "Prohibited Practices",
+      "description": "Article 5 prohibits certain AI practices entirely. If any apply, your system cannot be placed on the EU market.",
+      "questions": [
+        {
+          "id": "subliminal-manipulation",
+          "text": "Does your AI system deploy subliminal techniques beyond a person's consciousness, or purposefully manipulative or deceptive techniques, with the objective or effect of materially distorting behaviour and causing significant harm?",
+          "article": 5,
+          "paragraph": 1,
+          "point": "a",
+          "help": "Covers techniques that a person cannot perceive or that exploit psychological patterns to manipulate decisions, materially distorting behaviour in a way that causes or is reasonably likely to cause significant harm.",
+          "type": "boolean"
+        },
+        {
+          "id": "exploiting-vulnerabilities",
+          "text": "Does your AI system exploit vulnerabilities of a specific group of persons due to their age, disability, or a specific social or economic situation, with the objective or effect of materially distorting their behaviour and causing significant harm?",
+          "article": 5,
+          "paragraph": 1,
+          "point": "b",
+          "help": "Targets systems that take advantage of children, elderly, disabled persons, or those in precarious social or economic situations to distort their behaviour in harmful ways.",
+          "type": "boolean"
+        },
+        {
+          "id": "social-scoring",
+          "text": "Does your AI system evaluate or classify natural persons based on their social behaviour or personal characteristics, leading to detrimental or unfavourable treatment in unrelated contexts or disproportionate to the behaviour?",
+          "article": 5,
+          "paragraph": 1,
+          "point": "c",
+          "help": "Covers social scoring by public authorities or private actors leading to unfavourable treatment of persons in social contexts unrelated to the context in which the data was originally generated, or treatment that is unjustified or disproportionate to their social behaviour.",
+          "type": "boolean"
+        },
+        {
+          "id": "individual-predictive-policing",
+          "text": "Does your AI system make risk assessments of natural persons to predict the likelihood of a person committing a criminal offence, based solely on profiling or personality traits?",
+          "article": 5,
+          "paragraph": 1,
+          "point": "d",
+          "help": "Prohibits individual criminal risk prediction based solely on profiling or personality traits and characteristics. Does not cover systems that augment human assessment based on objective, verifiable facts directly linked to criminal activity.",
+          "type": "boolean"
+        },
+        {
+          "id": "untargeted-facial-scraping",
+          "text": "Does your AI system create or expand facial recognition databases through untargeted scraping of facial images from the internet or CCTV footage?",
+          "article": 5,
+          "paragraph": 1,
+          "point": "e",
+          "help": "Prohibits building facial recognition databases by indiscriminately scraping facial images from internet sources or video surveillance systems without targeted selection.",
+          "type": "boolean"
+        },
+        {
+          "id": "emotion-inference-workplace-education",
+          "text": "Does your AI system infer emotions of natural persons in the areas of workplace or educational institutions, except where the system is intended to be put in place or on the market for medical or safety reasons?",
+          "article": 5,
+          "paragraph": 1,
+          "point": "f",
+          "help": "Prohibits emotion recognition in workplace and education settings. Medical devices and safety-critical systems (e.g., monitoring driver drowsiness) are excepted.",
+          "type": "boolean"
+        },
+        {
+          "id": "biometric-categorization-sensitive",
+          "text": "Does your AI system categorize natural persons individually based on biometric data to deduce or infer their race, political opinions, trade union membership, religious or philosophical beliefs, sex life, or sexual orientation?",
+          "article": 5,
+          "paragraph": 1,
+          "point": "g",
+          "help": "Prohibits using biometric data (face, voice, gait, etc.) to infer sensitive or protected attributes. Labelling or filtering of lawfully acquired biometric datasets (e.g., for law enforcement) is not covered.",
+          "type": "boolean"
+        },
+        {
+          "id": "realtime-biometric-public",
+          "text": "Does your AI system use real-time remote biometric identification in publicly accessible spaces for law enforcement purposes?",
+          "article": 5,
+          "paragraph": 1,
+          "point": "h",
+          "help": "Prohibits real-time remote biometric identification in public spaces for law enforcement, with narrow exceptions: searching for specific missing persons or abduction victims, preventing a specific and imminent terrorist threat, or locating or identifying a person suspected of certain serious criminal offences. Exceptions require prior judicial authorization and strict necessity/proportionality assessment.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "gpai",
+      "title": "General-Purpose AI",
+      "description": "General-purpose AI models have specific obligations under Articles 51-55. Determine if your model qualifies and whether it poses systemic risk.",
+      "questions": [
+        {
+          "id": "is-gpai",
+          "text": "Is your AI model a general-purpose AI model, meaning it displays significant generality, is capable of competently performing a wide range of distinct tasks, and can be integrated into a variety of downstream systems or applications?",
+          "article": 51,
+          "paragraph": null,
+          "point": null,
+          "help": "A general-purpose AI model (e.g., large language models, large multimodal models) is trained with a large amount of data using self-supervision at scale, displays significant generality, and can be adapted to a wide range of distinct downstream tasks.",
+          "type": "boolean"
+        },
+        {
+          "id": "gpai-flops",
+          "text": "Was your model trained using total compute greater than 10^25 FLOPs?",
+          "article": 51,
+          "paragraph": 2,
+          "point": null,
+          "help": "Models trained with more than 10^25 floating point operations are presumed to have high impact capabilities and are automatically classified as posing systemic risk. The Commission may update this threshold.",
+          "type": "boolean"
+        },
+        {
+          "id": "is-open-source",
+          "text": "Is your model made available under a free and open-source licence that allows access, usage, modification, and distribution, and whose parameters, including weights, architecture, and usage information are made publicly available?",
+          "article": 53,
+          "paragraph": 2,
+          "point": null,
+          "help": "Open-source GPAI models only need to comply with copyright obligations and publish a training data summary, unless they pose systemic risk. The licence must be truly open (OSI-compatible or equivalent).",
+          "type": "boolean"
+        },
+        {
+          "id": "designated-systemic-risk",
+          "text": "Has your model been designated by the European Commission as posing systemic risk based on its high-impact capabilities?",
+          "article": 51,
+          "paragraph": 3,
+          "point": null,
+          "help": "Even without meeting the 10^25 FLOPs threshold, the Commission can designate a model as posing systemic risk based on criteria including the number of registered end users, cross-border reach, or the degree of autonomy of action.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "high-risk-pathway-a",
+      "title": "High-Risk: Product Safety (Annex I)",
+      "description": "AI systems that are safety components of products covered by existing EU harmonisation legislation (Annex I) are high-risk under Article 6(1).",
+      "questions": [
+        {
+          "id": "annex-i-product",
+          "text": "Is your AI system a safety component of a product, or is it itself a product, covered by Union harmonisation legislation listed in Annex I (e.g., machinery, toys, medical devices, vehicles, aviation, rail, marine, lifts, pressure equipment)?",
+          "article": 6,
+          "paragraph": 1,
+          "point": null,
+          "help": "Annex I lists over 20 pieces of EU product safety legislation. If your AI system is embedded in or is itself a product that must undergo a third-party conformity assessment under any of these, it is high-risk.",
+          "type": "boolean"
+        },
+        {
+          "id": "annex-i-requires-third-party",
+          "text": "Does the relevant Annex I legislation require a third-party conformity assessment for the product to be placed on the market?",
+          "article": 6,
+          "paragraph": 1,
+          "point": null,
+          "help": "High-risk classification under Pathway A only triggers if the applicable product legislation requires a third-party conformity assessment. If self-assessment suffices under the product legislation, the AI component may not be automatically classified high-risk under this pathway.",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "high-risk-pathway-b",
+      "title": "High-Risk: Annex III Stand-Alone Systems",
+      "description": "AI systems used in the areas listed in Annex III are classified as high-risk under Article 6(2), unless they do not pose a significant risk of harm.",
+      "questions": [
+        {
+          "id": "annex-iii-biometrics",
+          "text": "Is your AI system used for biometrics, including remote biometric identification, biometric categorization by sensitive attributes, or emotion recognition?",
+          "article": 6,
+          "paragraph": 2,
+          "point": null,
+          "help": "Annex III, area 1: Covers remote biometric identification (not the prohibited real-time variant), biometric categorization by sensitive or protected attributes, and emotion recognition systems.",
+          "annexIIICategory": 1,
+          "type": "boolean"
+        },
+        {
+          "id": "annex-iii-critical-infrastructure",
+          "text": "Is your AI system used as a safety component in the management and operation of critical infrastructure (road traffic, water, gas, heating, electricity)?",
+          "article": 6,
+          "paragraph": 2,
+          "point": null,
+          "help": "Annex III, area 2: Covers AI systems serving as safety components in critical digital or physical infrastructure that could endanger life, health, or cause major environmental or property damage.",
+          "annexIIICategory": 2,
+          "type": "boolean"
+        },
+        {
+          "id": "annex-iii-education",
+          "text": "Is your AI system used in education or vocational training, for example determining access/admission, evaluating learning outcomes, determining educational levels, or monitoring student behaviour during tests?",
+          "article": 6,
+          "paragraph": 2,
+          "point": null,
+          "help": "Annex III, area 3: Covers AI systems that determine access to education, evaluate outcomes that steer learning, assess appropriate educational levels, or monitor/detect prohibited behaviour during examinations.",
+          "annexIIICategory": 3,
+          "type": "boolean"
+        },
+        {
+          "id": "annex-iii-employment",
+          "text": "Is your AI system used in employment, workers management, or access to self-employment, for example for recruitment, screening applications, evaluating candidates, making decisions on employment terms, or monitoring/evaluating worker performance?",
+          "article": 6,
+          "paragraph": 2,
+          "point": null,
+          "help": "Annex III, area 4: Covers AI systems for recruitment, candidate evaluation, employment decisions (promotion, termination), task allocation based on personal traits, and worker performance monitoring.",
+          "annexIIICategory": 4,
+          "type": "boolean"
+        },
+        {
+          "id": "annex-iii-essential-services",
+          "text": "Is your AI system used for access to or provision of essential private or public services (eligibility for public benefits, creditworthiness assessment, risk assessment for life/health insurance, or classifying emergency calls)?",
+          "article": 6,
+          "paragraph": 2,
+          "point": null,
+          "help": "Annex III, area 5: Covers AI systems evaluating eligibility for public assistance, assessing creditworthiness (except fraud detection), risk-pricing in life/health insurance, and evaluating or classifying emergency calls for dispatch priority.",
+          "annexIIICategory": 5,
+          "type": "boolean"
+        },
+        {
+          "id": "annex-iii-law-enforcement",
+          "text": "Is your AI system used in law enforcement, for example for individual risk assessment, as a polygraph, evaluating evidence reliability, or profiling persons during criminal investigations?",
+          "article": 6,
+          "paragraph": 2,
+          "point": null,
+          "help": "Annex III, area 6: Covers AI systems for individual risk assessment (likelihood of offending/re-offending or victimhood), deception detection, evidence reliability evaluation, and profiling in criminal investigations.",
+          "annexIIICategory": 6,
+          "type": "boolean"
+        },
+        {
+          "id": "annex-iii-migration",
+          "text": "Is your AI system used in migration, asylum, or border control management, for example assessing irregular migration risk, examining asylum/visa/residence applications, or identifying persons at borders?",
+          "article": 6,
+          "paragraph": 2,
+          "point": null,
+          "help": "Annex III, area 7: Covers AI systems assessing irregular migration or health risks, examining applications for asylum/visa/residence permits and associated complaints, and detecting/recognizing/identifying persons (except travel document verification).",
+          "annexIIICategory": 7,
+          "type": "boolean"
+        },
+        {
+          "id": "annex-iii-justice-democracy",
+          "text": "Is your AI system used in the administration of justice or democratic processes, for example assisting judicial authorities in researching/interpreting/applying law, or influencing the outcome of elections or referenda?",
+          "article": 6,
+          "paragraph": 2,
+          "point": null,
+          "help": "Annex III, area 8: Covers AI systems assisting courts in researching, interpreting, and applying facts and law to concrete cases, and systems intended to influence election or referendum outcomes (excluding organisational tools that do not directly influence votes).",
+          "annexIIICategory": 8,
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "id": "limited-risk",
+      "title": "Limited Risk: Transparency Obligations",
+      "description": "Certain AI systems carry transparency obligations under Article 50, regardless of other risk classifications.",
+      "questions": [
+        {
+          "id": "interacts-with-persons",
+          "text": "Does your AI system interact directly with natural persons (e.g., chatbot, voice assistant, virtual agent)?",
+          "article": 50,
+          "paragraph": 1,
+          "point": null,
+          "help": "Systems designed to directly interact with people must disclose that the person is interacting with an AI system, unless this is obvious from the circumstances and context of use.",
+          "type": "boolean"
+        },
+        {
+          "id": "generates-synthetic-content",
+          "text": "Does your AI system generate or manipulate synthetic content such as images, audio, video, or text (including deepfakes)?",
+          "article": 50,
+          "paragraph": 2,
+          "point": null,
+          "help": "Providers of AI systems generating synthetic audio, image, video, or text must ensure outputs are marked as artificially generated or manipulated in a machine-readable format where technically feasible.",
+          "type": "boolean"
+        },
+        {
+          "id": "emotion-recognition",
+          "text": "Does your AI system perform emotion recognition (detecting or inferring emotions or intentions of natural persons based on biometric data)?",
+          "article": 50,
+          "paragraph": 3,
+          "point": null,
+          "help": "Deployers of emotion recognition systems must inform persons exposed to the system that it is in operation and process personal data in accordance with GDPR.",
+          "type": "boolean"
+        },
+        {
+          "id": "biometric-categorizing",
+          "text": "Does your AI system perform biometric categorization (classifying natural persons based on biometric data into groups based on specific attributes)?",
+          "article": 50,
+          "paragraph": 3,
+          "point": null,
+          "help": "Deployers of biometric categorization systems must inform exposed persons of the system's operation. Note: categorization by sensitive attributes may be prohibited under Article 5.",
+          "type": "boolean"
+        }
+      ]
+    }
+  ]
+}

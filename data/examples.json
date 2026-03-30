@@ -1,0 +1,97 @@
+{
+  "examples": [
+    {
+      "slug": "chatbot",
+      "title": "Customer Service Chatbot",
+      "description": "A text-based chatbot that answers customer questions about products and services. Uses a large language model for natural language understanding.",
+      "classificationInput": {
+        "socialScoring": false,
+        "realtimeBiometrics": false,
+        "subliminalManipulation": false,
+        "exploitsVulnerabilities": false,
+        "untargetedFacialScraping": false,
+        "emotionInferenceWorkplace": false,
+        "biometricCategorization": false,
+        "predictivePolicing": false,
+        "isGPAI": false,
+        "annexIProduct": false,
+        "annexIIICategory": null,
+        "interactsWithPersons": true,
+        "generatesSyntheticContent": false,
+        "emotionRecognition": false,
+        "biometricCategorizing": false
+      },
+      "expectedTier": "limited",
+      "walkthrough": [
+        "Step 1 — Prohibited practices (Article 5): The chatbot does not perform social scoring, biometric identification, or any other prohibited practice. ✗ Not prohibited.",
+        "Step 2 — GPAI: While the chatbot uses an LLM, the chatbot itself is not a general-purpose AI model — it is a specific application. The LLM provider has separate GPAI obligations. ✗ Not GPAI.",
+        "Step 3 — High-risk Pathway A: The chatbot is not a safety component of a regulated product listed in Annex I. ✗ Not Annex I.",
+        "Step 4 — High-risk Pathway B: Customer service does not fall under any Annex III high-risk category. ✗ Not Annex III.",
+        "Step 5 — Limited risk: The chatbot interacts directly with natural persons. Under Article 50, users must be informed they are interacting with an AI system. ✓ Limited risk transparency obligation applies.",
+        "Result: LIMITED RISK — The chatbot must clearly disclose to users that they are interacting with an AI system."
+      ]
+    },
+    {
+      "slug": "hiring-tool",
+      "title": "AI-Powered Hiring Screener",
+      "description": "An automated system that screens job applications, ranks candidates based on resume analysis, and recommends candidates for interviews.",
+      "classificationInput": {
+        "socialScoring": false,
+        "realtimeBiometrics": false,
+        "subliminalManipulation": false,
+        "exploitsVulnerabilities": false,
+        "untargetedFacialScraping": false,
+        "emotionInferenceWorkplace": false,
+        "biometricCategorization": false,
+        "predictivePolicing": false,
+        "isGPAI": false,
+        "annexIProduct": false,
+        "annexIIICategory": "employment",
+        "interactsWithPersons": true,
+        "generatesSyntheticContent": false,
+        "emotionRecognition": false,
+        "biometricCategorizing": false
+      },
+      "expectedTier": "high-risk",
+      "walkthrough": [
+        "Step 1 — Prohibited practices (Article 5): The hiring tool does not perform social scoring, biometric identification, or any prohibited practice. ✗ Not prohibited.",
+        "Step 2 — GPAI: The tool is a specific application, not a general-purpose AI model. ✗ Not GPAI.",
+        "Step 3 — High-risk Pathway A: The tool is not a safety component of a regulated product. ✗ Not Annex I.",
+        "Step 4 — High-risk Pathway B: The tool is used for recruitment and selection of candidates — this falls squarely under Annex III Category 4 (Employment, workers management, access to self-employment). ✓ Annex III Category 4.",
+        "Step 5 — Conformity assessment: Employment AI systems generally qualify for self-assessment unless specifically designated otherwise.",
+        "Result: HIGH-RISK — The hiring tool must comply with Articles 9-15 (risk management, data governance, documentation, record-keeping, transparency, human oversight, accuracy/robustness). Full conformity assessment required before deployment. Enforcement date: August 2, 2026."
+      ]
+    },
+    {
+      "slug": "autonomous-vehicle",
+      "title": "Autonomous Vehicle Perception System",
+      "description": "An AI system that processes camera, lidar, and radar data to detect objects, pedestrians, and road features for an autonomous vehicle.",
+      "classificationInput": {
+        "socialScoring": false,
+        "realtimeBiometrics": false,
+        "subliminalManipulation": false,
+        "exploitsVulnerabilities": false,
+        "untargetedFacialScraping": false,
+        "emotionInferenceWorkplace": false,
+        "biometricCategorization": false,
+        "predictivePolicing": false,
+        "isGPAI": false,
+        "annexIProduct": true,
+        "annexIRequiresThirdParty": true,
+        "annexIIICategory": null,
+        "interactsWithPersons": false,
+        "generatesSyntheticContent": false,
+        "emotionRecognition": false,
+        "biometricCategorizing": false
+      },
+      "expectedTier": "high-risk",
+      "walkthrough": [
+        "Step 1 — Prohibited practices (Article 5): The perception system does not perform any prohibited practice. ✗ Not prohibited.",
+        "Step 2 — GPAI: This is a specialized perception system, not a general-purpose AI model. ✗ Not GPAI.",
+        "Step 3 — High-risk Pathway A: The system IS a safety component of a motor vehicle, which is covered by EU type-approval legislation listed in Annex I. Vehicle type-approval requires third-party conformity assessment. ✓ Annex I safety component with third-party assessment.",
+        "Step 4 — Conformity assessment: Third-party conformity assessment by a notified body is required because the underlying product legislation (vehicle type-approval) mandates it.",
+        "Result: HIGH-RISK — The perception system must comply with Articles 9-15 and undergo third-party conformity assessment before the vehicle can be placed on the EU market. Enforcement date: August 2, 2028 (Annex I product safety components)."
+      ]
+    }
+  ]
+}

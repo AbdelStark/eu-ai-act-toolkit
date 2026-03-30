@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Worked Examples",
+  "type": "object",
+  "required": ["examples"],
+  "properties": {
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["slug", "title", "description", "classificationInput", "expectedTier", "walkthrough"],
+        "properties": {
+          "slug": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "classificationInput": { "type": "object" },
+          "expectedTier": {
+            "enum": ["prohibited", "high-risk", "gpai", "gpai-systemic", "limited", "minimal"]
+          },
+          "walkthrough": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

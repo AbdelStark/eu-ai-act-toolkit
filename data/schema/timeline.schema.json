@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Enforcement Timeline",
+  "type": "object",
+  "required": ["events"],
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "title", "description", "articles", "categories"],
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "title": { "type": "string" },
+          "description": { "type": "string" },
+          "articles": {
+            "type": "array",
+            "items": { "type": "integer", "minimum": 1 }
+          },
+          "categories": {
+            "type": "array",
+            "items": {
+              "enum": ["all", "prohibited", "high-risk", "gpai", "gpai-systemic", "limited", "minimal"]
+            }
+          }
+        }
+      }
+    }
+  }
+}

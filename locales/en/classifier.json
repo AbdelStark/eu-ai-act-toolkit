@@ -1,0 +1,96 @@
+{
+  "title": "AI System Risk Classifier",
+  "subtitle": "Determine which EU AI Act risk tier applies to your AI system",
+  "steps": {
+    "prohibited": {
+      "title": "Prohibited Practices",
+      "description": "Check whether your AI system falls under Article 5 prohibited practices"
+    },
+    "gpai": {
+      "title": "General-Purpose AI",
+      "description": "Determine if your system qualifies as a GPAI model"
+    },
+    "gpaiSystemic": {
+      "title": "Systemic Risk Assessment",
+      "description": "Assess whether your GPAI model poses systemic risk"
+    },
+    "highRisk": {
+      "title": "High-Risk Classification",
+      "description": "Check Annex I safety components and Annex III use cases"
+    },
+    "limited": {
+      "title": "Limited Risk (Transparency)",
+      "description": "Check transparency obligations for your AI system"
+    },
+    "minimal": {
+      "title": "Minimal Risk",
+      "description": "Voluntary codes of conduct apply"
+    }
+  },
+  "questions": {
+    "socialScoring": "Does the system perform social scoring by public authorities?",
+    "biometricRealtime": "Does it use real-time remote biometric identification in public spaces for law enforcement?",
+    "subliminal": "Does it deploy subliminal, manipulative, or deceptive techniques to distort behavior?",
+    "vulnerability": "Does it exploit vulnerabilities of specific groups (age, disability, social/economic situation)?",
+    "facialScraping": "Does it perform untargeted scraping of facial images from the internet or CCTV?",
+    "emotionWorkplace": "Does it infer emotions in workplace or educational settings (except medical/safety)?",
+    "biometricCategorization": "Does it use biometric categorization to infer sensitive attributes?",
+    "predictivePolicing": "Does it perform individual predictive policing based solely on profiling?",
+    "isGpai": "Is your system a general-purpose AI model (foundation model, LLM, or built on one)?",
+    "flopsThreshold": "Was it trained with more than 10^25 FLOPs of compute?",
+    "designatedSystemic": "Has it been designated by the EU AI Office as posing systemic risk?",
+    "annexISafety": "Is the system a safety component of a product covered by EU harmonisation legislation (Annex I)?",
+    "annexIIIBiometrics": "Does it involve biometric identification, categorization, or emotion recognition?",
+    "annexIIIInfrastructure": "Is it a safety component in critical infrastructure management?",
+    "annexIIIEducation": "Does it determine access to education or evaluate learning outcomes?",
+    "annexIIIEmployment": "Is it used in recruitment, selection, or workforce management?",
+    "annexIIIEssentialServices": "Does it affect access to essential private or public services?",
+    "annexIIILawEnforcement": "Is it used by law enforcement for risk assessment or evidence evaluation?",
+    "annexIIIMigration": "Is it used in migration, asylum, or border control management?",
+    "annexIIIJustice": "Is it used in administration of justice or democratic processes?",
+    "transparencyObligations": "Does the system interact directly with natural persons, generate synthetic content, or perform emotion recognition?"
+  },
+  "results": {
+    "prohibited": {
+      "title": "Prohibited AI System",
+      "description": "Your AI system is prohibited under Article 5 of the EU AI Act. It cannot be placed on the EU market or put into service.",
+      "action": "Discontinue development or fundamentally redesign to remove prohibited capabilities."
+    },
+    "high-risk": {
+      "title": "High-Risk AI System",
+      "description": "Your AI system is classified as high-risk under Annex I or Annex III. Extensive compliance obligations apply.",
+      "action": "Complete the high-risk compliance checklist, implement a quality management system, and prepare technical documentation."
+    },
+    "gpai": {
+      "title": "General-Purpose AI Model",
+      "description": "Your model is classified as GPAI under Articles 51-53. Transparency and documentation obligations apply.",
+      "action": "Complete the GPAI compliance checklist, including model cards, training data documentation, and copyright compliance."
+    },
+    "gpai-systemic": {
+      "title": "GPAI with Systemic Risk",
+      "description": "Your model is classified as GPAI with systemic risk under Articles 51 and 55. Enhanced obligations apply.",
+      "action": "Complete the GPAI systemic risk checklist, including adversarial testing, incident monitoring, and cybersecurity measures."
+    },
+    "limited": {
+      "title": "Limited Risk AI System",
+      "description": "Your AI system has transparency obligations. Users must be informed they are interacting with AI.",
+      "action": "Implement transparency measures: disclose AI interaction, label synthetic content, inform about emotion recognition."
+    },
+    "minimal": {
+      "title": "Minimal Risk AI System",
+      "description": "Your AI system has no mandatory obligations beyond existing law. Voluntary codes of conduct are encouraged.",
+      "action": "Consider adopting voluntary codes of conduct and best practices for trustworthy AI."
+    }
+  },
+  "navigation": {
+    "next": "Next",
+    "previous": "Previous",
+    "restart": "Start Over",
+    "viewChecklist": "View Compliance Checklist",
+    "exportResult": "Export Classification Result"
+  },
+  "progress": {
+    "step": "Step {current} of {total}",
+    "complete": "Classification Complete"
+  }
+}

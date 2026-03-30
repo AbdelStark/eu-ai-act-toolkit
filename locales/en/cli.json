@@ -1,0 +1,77 @@
+{
+  "program": {
+    "name": "eu-ai-act",
+    "description": "EU AI Act compliance toolkit — classify AI systems, track checklists, generate documentation",
+    "version": "0.1.0"
+  },
+  "commands": {
+    "classify": {
+      "description": "Classify your AI system's risk tier under the EU AI Act",
+      "helpText": "Interactive wizard that walks through the classification decision tree to determine which risk tier (prohibited, high-risk, GPAI, GPAI systemic, limited, or minimal) applies to your AI system.",
+      "options": {
+        "interactive": "Run in interactive mode (default)",
+        "json": "Output result as JSON",
+        "quiet": "Suppress progress output"
+      }
+    },
+    "checklist": {
+      "description": "View or manage compliance checklists for a risk tier",
+      "helpText": "Display the compliance checklist for a specific risk tier. Track completion status and attach evidence references.",
+      "options": {
+        "tier": "Risk tier (high-risk, gpai, gpai-systemic, limited)",
+        "format": "Output format (table, json, markdown)",
+        "filter": "Filter items (all, complete, incomplete)"
+      }
+    },
+    "generate": {
+      "description": "Generate compliance documentation from templates",
+      "helpText": "Produce documentation (conformity declarations, risk assessments, model cards, etc.) from built-in templates pre-filled with your system data.",
+      "options": {
+        "template": "Template name (conformity, risk-assessment, model-card, impact-assessment, transparency-notice)",
+        "output": "Output file path",
+        "format": "Output format (markdown, docx, pdf)"
+      }
+    },
+    "timeline": {
+      "description": "View enforcement timeline and upcoming deadlines",
+      "helpText": "Display the EU AI Act enforcement timeline with key compliance dates. Shows which deadlines have passed, are upcoming, or are in the future.",
+      "options": {
+        "format": "Output format (table, json)",
+        "upcoming": "Show only upcoming deadlines"
+      }
+    },
+    "status": {
+      "description": "Show overall compliance status summary",
+      "helpText": "Display a summary of your compliance progress across all applicable checklists, with overall score and next action items.",
+      "options": {
+        "json": "Output as JSON"
+      }
+    }
+  },
+  "errors": {
+    "unknownTier": "Unknown risk tier: {tier}. Valid tiers: high-risk, gpai, gpai-systemic, limited, minimal",
+    "unknownTemplate": "Unknown template: {template}. Run 'eu-ai-act generate --help' for available templates.",
+    "noClassification": "No classification found. Run 'eu-ai-act classify' first.",
+    "fileNotFound": "File not found: {path}",
+    "invalidFormat": "Invalid format: {format}. Valid formats: {valid}",
+    "writeError": "Failed to write file: {path}. {reason}",
+    "dataLoadError": "Failed to load data files. Ensure the package is installed correctly."
+  },
+  "messages": {
+    "classifyStart": "Starting AI system classification...",
+    "classifyComplete": "Classification complete. Your system is classified as: {tier}",
+    "checklistLoaded": "Loaded {count} checklist items for {tier}",
+    "generateComplete": "Generated {template} at {path}",
+    "timelineLoaded": "EU AI Act Enforcement Timeline",
+    "noUpcoming": "No upcoming deadlines found.",
+    "disclaimer": "This tool does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
+  },
+  "prompts": {
+    "confirm": "Is this correct?",
+    "yes": "Yes",
+    "no": "No",
+    "selectTier": "Select a risk tier:",
+    "selectTemplate": "Select a documentation template:",
+    "continueClassification": "Continue with classification?"
+  }
+}
