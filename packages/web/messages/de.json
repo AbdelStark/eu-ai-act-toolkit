@@ -1,0 +1,267 @@
+{
+  "nav": {
+    "home": "EU AI Act Toolkit",
+    "classify": "Klassifizieren",
+    "checklist": "Checkliste",
+    "timeline": "Zeitplan",
+    "templates": "Vorlagen",
+    "examples": "Beispiele"
+  },
+  "landing": {
+    "hero": {
+      "title": "EU AI Act Compliance-Toolkit",
+      "subtitle": "Open-Source-Tools zur Navigation der Regulation (EU) 2024/1689",
+      "description": "Klassifizieren Sie die Risikostufe Ihres KI-Systems, verfolgen Sie Compliance-Pflichten, erstellen Sie Dokumentation und bereiten Sie sich auf Durchsetzungsfristen vor.",
+      "ctaClassify": "Ihr KI-System klassifizieren",
+      "ctaLearnMore": "Mehr erfahren"
+    },
+    "features": {
+      "title": "Was Sie tun können",
+      "classifier": {
+        "title": "Risikoklassifizierung",
+        "description": "Interaktiver Assistent zur Bestimmung, ob Ihr KI-System unter dem EU AI Act als verboten, hochriskant, GPAI, begrenzt oder minimal riskant eingestuft wird."
+      },
+      "checklists": {
+        "title": "Compliance-Checklisten",
+        "description": "Stufenspezifische Checklisten mit Artikelverweisen, Nachverfolgung von Nachweisen und exportierbaren Compliance-Berichten."
+      },
+      "timeline": {
+        "title": "Durchsetzungszeitplan",
+        "description": "Visueller Zeitplan aller Durchsetzungstermine des EU AI Act — sehen Sie, was in Kraft ist, bevorsteht und zukünftig gilt."
+      },
+      "templates": {
+        "title": "Dokumentationsvorlagen",
+        "description": "Erstellen Sie Konformitätserklärungen, Risikobewertungen, Modellkarten und Transparenzhinweise aus vorgefertigten Vorlagen."
+      },
+      "examples": {
+        "title": "Praxisbeispiele",
+        "description": "Reale Szenarien, die zeigen, wie der Klassifizierungs- und Compliance-Prozess für verschiedene KI-Systeme funktioniert."
+      }
+    },
+    "stats": {
+      "articles": "Abgedeckte Artikel",
+      "checklists": "Checklistenpunkte",
+      "templates": "Dokumentationsvorlagen",
+      "examples": "Praxisbeispiele"
+    }
+  },
+  "classifier": {
+    "title": "KI-System-Risikoklassifikator",
+    "subtitle": "Bestimmen Sie, welche Risikostufe des EU AI Act auf Ihr KI-System zutrifft",
+    "steps": {
+      "prohibited": {
+        "title": "Verbotene Praktiken",
+        "description": "Prüfen Sie, ob Ihr KI-System unter die verbotenen Praktiken gemäß Article 5 fällt"
+      },
+      "gpai": {
+        "title": "KI-Modelle mit allgemeinem Verwendungszweck",
+        "description": "Bestimmen Sie, ob Ihr System als GPAI-Modell eingestuft wird"
+      },
+      "gpaiSystemic": {
+        "title": "Bewertung systemischer Risiken",
+        "description": "Beurteilen Sie, ob Ihr GPAI-Modell ein systemisches Risiko darstellt"
+      },
+      "highRisk": {
+        "title": "Hochrisiko-Klassifizierung",
+        "description": "Prüfen Sie die Sicherheitskomponenten gemäß Annex I und Anwendungsfälle gemäß Annex III"
+      },
+      "limited": {
+        "title": "Begrenztes Risiko (Transparenz)",
+        "description": "Prüfen Sie die Transparenzpflichten für Ihr KI-System"
+      },
+      "minimal": {
+        "title": "Minimales Risiko",
+        "description": "Freiwillige Verhaltenskodizes gelten"
+      }
+    },
+    "navigation": {
+      "next": "Weiter",
+      "previous": "Zurück",
+      "restart": "Neu starten",
+      "viewChecklist": "Compliance-Checkliste anzeigen",
+      "exportResult": "Klassifizierungsergebnis exportieren"
+    },
+    "progress": {
+      "step": "Schritt {current} von {total}",
+      "complete": "Klassifizierung abgeschlossen"
+    },
+    "results": {
+      "prohibited": {
+        "title": "Verbotenes KI-System",
+        "description": "Ihr KI-System ist gemäß Article 5 des EU AI Act verboten.",
+        "action": "Stellen Sie die Entwicklung ein oder gestalten Sie das System grundlegend um, um verbotene Funktionen zu entfernen."
+      },
+      "highRisk": {
+        "title": "Hochrisiko-KI-System",
+        "description": "Ihr KI-System wird als hochriskant eingestuft. Umfangreiche Compliance-Pflichten gelten.",
+        "action": "Vervollständigen Sie die Hochrisiko-Compliance-Checkliste und bereiten Sie die technische Dokumentation vor."
+      },
+      "gpai": {
+        "title": "KI-Modell mit allgemeinem Verwendungszweck",
+        "description": "Ihr Modell wird als GPAI eingestuft. Transparenz- und Dokumentationspflichten gelten.",
+        "action": "Vervollständigen Sie die GPAI-Compliance-Checkliste einschließlich Modellkarten und Dokumentation der Trainingsdaten."
+      },
+      "gpaiSystemic": {
+        "title": "GPAI mit systemischem Risiko",
+        "description": "Ihr Modell weist ein systemisches Risiko auf. Erweiterte Pflichten gelten.",
+        "action": "Vervollständigen Sie die GPAI-Checkliste für systemische Risiken einschließlich gegnerischer Tests und Vorfallüberwachung."
+      },
+      "limited": {
+        "title": "KI-System mit begrenztem Risiko",
+        "description": "Transparenzpflichten gelten. Die Nutzer müssen über die KI-Interaktion informiert werden.",
+        "action": "Setzen Sie Transparenzmaßnahmen um: Offenlegung der KI-Interaktion, Kennzeichnung synthetischer Inhalte."
+      },
+      "minimal": {
+        "title": "KI-System mit minimalem Risiko",
+        "description": "Keine zwingenden Pflichten über bestehendes Recht hinaus. Freiwillige Verhaltenskodizes werden empfohlen.",
+        "action": "Erwägen Sie die Einführung freiwilliger Verhaltenskodizes für vertrauenswürdige KI."
+      }
+    }
+  },
+  "checklists": {
+    "title": "Compliance-Checklisten",
+    "subtitle": "Verfolgen Sie Ihre Compliance-Pflichten gemäß dem EU AI Act",
+    "filters": {
+      "all": "Alle Punkte",
+      "complete": "Abgeschlossen",
+      "incomplete": "Unvollständig",
+      "required": "Erforderlich",
+      "recommended": "Empfohlen"
+    },
+    "score": {
+      "title": "Compliance-Score",
+      "complete": "Alle Punkte abgeschlossen",
+      "remaining": "{count} Punkte verbleibend"
+    },
+    "item": {
+      "required": "Erforderlich",
+      "recommended": "Empfohlen",
+      "article": "Article {number}",
+      "deadline": "Frist: {date}",
+      "markComplete": "Als abgeschlossen markieren",
+      "markIncomplete": "Als unvollständig markieren"
+    },
+    "evidence": {
+      "prompt": "Nachweis oder Dokumentation anhängen",
+      "upload": "Datei hochladen",
+      "link": "Link hinzufügen",
+      "note": "Notiz hinzufügen"
+    },
+    "export": {
+      "title": "Checkliste exportieren",
+      "json": "JSON",
+      "csv": "CSV",
+      "markdown": "Markdown",
+      "pdf": "PDF",
+      "button": "Exportieren"
+    },
+    "tiers": {
+      "highRisk": "Hochrisiko-Checkliste",
+      "gpai": "GPAI-Checkliste",
+      "gpaiSystemic": "GPAI-Checkliste für systemische Risiken",
+      "limited": "Checkliste für begrenztes Risiko"
+    }
+  },
+  "timeline": {
+    "title": "Durchsetzungszeitplan",
+    "subtitle": "Wichtige Termine für die Einhaltung des EU AI Act",
+    "filters": {
+      "all": "Alle Termine",
+      "past": "In Kraft",
+      "upcoming": "Bevorstehend",
+      "future": "Zukünftig"
+    },
+    "entryIntoForce": "Inkrafttreten",
+    "daysUntil": "{days} Tage verbleibend",
+    "daysPast": "Vor {days} Tagen",
+    "today": "Heute",
+    "milestones": {
+      "entryIntoForce": "Inkrafttreten",
+      "prohibitions": "Verbotene KI-Praktiken",
+      "gpaiObligations": "GPAI-Pflichten",
+      "highRiskAnnexIII": "Hochrisiko-Pflichten (Annex III)",
+      "highRiskAnnexI": "Hochrisiko-Pflichten (Annex I)",
+      "fullEnforcement": "Vollständige Durchsetzung"
+    }
+  },
+  "templates": {
+    "title": "Dokumentationsvorlagen",
+    "subtitle": "Erstellen Sie Compliance-Dokumentation aus vorgefertigten Vorlagen",
+    "list": {
+      "conformity": {
+        "title": "EU-Konformitätserklärung",
+        "description": "Erforderliche Erklärung für Hochrisiko-KI-Systeme gemäß Article 47 und Annex V."
+      },
+      "riskAssessment": {
+        "title": "Folgenabschätzung für Grundrechte",
+        "description": "Erforderliche Bewertung für Hochrisiko-KI-Systeme, die von öffentlichen Stellen eingesetzt werden, gemäß Article 27."
+      },
+      "modelCard": {
+        "title": "GPAI-Modellkarte",
+        "description": "Technische Dokumentation für GPAI-Modelle gemäß Article 53 und Annex XI."
+      },
+      "impactAssessment": {
+        "title": "Datenschutz-Folgenabschätzung",
+        "description": "DSFA-Vorlage für KI-Systeme, die personenbezogene Daten verarbeiten, im Einklang mit Artikel 35 der DSGVO."
+      },
+      "transparencyNotice": {
+        "title": "Transparenzhinweis",
+        "description": "Nutzergerichteter Hinweis für KI-Systeme mit Transparenzpflichten gemäß Article 50."
+      }
+    },
+    "generate": "Dokument erstellen",
+    "preview": "Vorschau",
+    "download": "Herunterladen",
+    "customize": "Vorlage anpassen"
+  },
+  "examples": {
+    "title": "Praxisbeispiele",
+    "subtitle": "Erfahren Sie, wie der EU AI Act auf reale KI-Systeme angewendet wird",
+    "backToList": "Zurück zu den Beispielen",
+    "classification": "Klassifizierung",
+    "obligations": "Wichtige Pflichten",
+    "walkthrough": "Klassifizierungsprozess",
+    "relatedArticles": "Verwandte Artikel"
+  },
+  "footer": {
+    "description": "Open-Source-Toolkit für EU AI Act-Compliance. Entwickelt für Entwickler, Compliance-Teams und Rechtsexperten.",
+    "links": {
+      "github": "GitHub",
+      "docs": "Dokumentation",
+      "eurLex": "EUR-Lex Volltext",
+      "aiOffice": "EU-KI-Büro"
+    },
+    "legal": {
+      "title": "Rechtliches",
+      "license": "MIT-Lizenz",
+      "privacy": "Datenschutz"
+    },
+    "copyright": "EU AI Act Toolkit. Open Source unter MIT-Lizenz.",
+    "regulation": "Basierend auf Regulation (EU) 2024/1689 des Europäischen Parlaments und des Rates."
+  },
+  "disclaimer": {
+    "short": "Dieses Tool stellt keine Rechtsberatung dar.",
+    "full": "Dieses Tool stellt keine Rechtsberatung dar. Konsultieren Sie qualifizierten Rechtsberater für Compliance-Entscheidungen. Das EU AI Act Toolkit ist ein Open-Source-Projekt und ist nicht mit der Europäischen Union oder einer EU-Institution verbunden.",
+    "dismiss": "Ich verstehe"
+  },
+  "common": {
+    "tiers": {
+      "prohibited": "Verboten",
+      "highRisk": "Hochrisiko",
+      "gpai": "GPAI",
+      "gpaiSystemic": "GPAI mit systemischem Risiko",
+      "limited": "Begrenztes Risiko",
+      "minimal": "Minimales Risiko"
+    },
+    "actions": {
+      "learnMore": "Mehr erfahren",
+      "viewDetails": "Details anzeigen",
+      "close": "Schließen",
+      "save": "Speichern",
+      "cancel": "Abbrechen",
+      "reset": "Zurücksetzen",
+      "copy": "Kopieren",
+      "share": "Teilen"
+    }
+  }
+}

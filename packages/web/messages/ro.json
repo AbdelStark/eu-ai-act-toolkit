@@ -1,0 +1,267 @@
+{
+  "nav": {
+    "home": "EU AI Act Toolkit",
+    "classify": "Clasificare",
+    "checklist": "Listă de verificare",
+    "timeline": "Cronologie",
+    "templates": "Șabloane",
+    "examples": "Exemple"
+  },
+  "landing": {
+    "hero": {
+      "title": "EU AI Act Compliance Toolkit",
+      "subtitle": "Instrumente open-source pentru navigarea Regulation (EU) 2024/1689",
+      "description": "Clasificați nivelul de risc al sistemului dvs. de AI, urmăriți obligațiile de conformitate, generați documentație și rămâneți în avans față de termenele de aplicare.",
+      "ctaClassify": "Clasificați sistemul dvs. de AI",
+      "ctaLearnMore": "Aflați mai multe"
+    },
+    "features": {
+      "title": "Ce puteți face",
+      "classifier": {
+        "title": "Clasificarea riscului",
+        "description": "Asistent interactiv pentru a determina dacă sistemul dvs. de AI este interzis, cu risc ridicat, GPAI, cu risc limitat sau cu risc minim conform EU AI Act."
+      },
+      "checklists": {
+        "title": "Liste de verificare a conformității",
+        "description": "Liste de verificare specifice fiecărui nivel de risc, cu referințe la articole, urmărirea dovezilor și rapoarte de conformitate exportabile."
+      },
+      "timeline": {
+        "title": "Cronologia aplicării",
+        "description": "Cronologie vizuală a tuturor datelor de aplicare ale EU AI Act — vedeți ce este în vigoare, ce urmează și ce este planificat."
+      },
+      "templates": {
+        "title": "Șabloane de documentație",
+        "description": "Generați declarații de conformitate, evaluări de risc, fișe de model și notificări de transparență pe baza șabloanelor predefinite."
+      },
+      "examples": {
+        "title": "Exemple elaborate",
+        "description": "Scenarii din practică care arată cum funcționează procesul de clasificare și conformitate pentru diferite sisteme de AI."
+      }
+    },
+    "stats": {
+      "articles": "Articole acoperite",
+      "checklists": "Elemente din lista de verificare",
+      "templates": "Șabloane de documentație",
+      "examples": "Exemple elaborate"
+    }
+  },
+  "classifier": {
+    "title": "Clasificator de risc al sistemului de AI",
+    "subtitle": "Determinați ce nivel de risc din EU AI Act se aplică sistemului dvs. de AI",
+    "steps": {
+      "prohibited": {
+        "title": "Practici interzise",
+        "description": "Verificați dacă sistemul dvs. de AI se încadrează în practicile interzise conform Article 5"
+      },
+      "gpai": {
+        "title": "AI de uz general",
+        "description": "Determinați dacă sistemul dvs. se califică drept model GPAI"
+      },
+      "gpaiSystemic": {
+        "title": "Evaluarea riscului sistemic",
+        "description": "Evaluați dacă modelul dvs. GPAI prezintă risc sistemic"
+      },
+      "highRisk": {
+        "title": "Clasificare cu risc ridicat",
+        "description": "Verificați componentele de siguranță din Annex I și cazurile de utilizare din Annex III"
+      },
+      "limited": {
+        "title": "Risc limitat (Transparență)",
+        "description": "Verificați obligațiile de transparență pentru sistemul dvs. de AI"
+      },
+      "minimal": {
+        "title": "Risc minim",
+        "description": "Se aplică coduri voluntare de conduită"
+      }
+    },
+    "navigation": {
+      "next": "Următorul",
+      "previous": "Anteriorul",
+      "restart": "Reîncepeți",
+      "viewChecklist": "Vizualizați lista de verificare a conformității",
+      "exportResult": "Exportați rezultatul clasificării"
+    },
+    "progress": {
+      "step": "Pasul {current} din {total}",
+      "complete": "Clasificare finalizată"
+    },
+    "results": {
+      "prohibited": {
+        "title": "Sistem de AI interzis",
+        "description": "Sistemul dvs. de AI este interzis conform Article 5 din EU AI Act.",
+        "action": "Întrerupeți dezvoltarea sau reproiectați fundamental pentru a elimina capacitățile interzise."
+      },
+      "highRisk": {
+        "title": "Sistem de AI cu risc ridicat",
+        "description": "Sistemul dvs. de AI este clasificat ca având risc ridicat. Se aplică obligații extinse de conformitate.",
+        "action": "Completați lista de verificare a conformității pentru risc ridicat și pregătiți documentația tehnică."
+      },
+      "gpai": {
+        "title": "Model de AI de uz general",
+        "description": "Modelul dvs. este clasificat ca GPAI. Se aplică obligații de transparență și documentare.",
+        "action": "Completați lista de verificare a conformității GPAI, inclusiv fișele de model și documentația datelor de antrenament."
+      },
+      "gpaiSystemic": {
+        "title": "GPAI cu risc sistemic",
+        "description": "Modelul dvs. prezintă risc sistemic. Se aplică obligații extinse.",
+        "action": "Completați lista de verificare GPAI pentru risc sistemic, inclusiv teste adversariale și monitorizarea incidentelor."
+      },
+      "limited": {
+        "title": "Sistem de AI cu risc limitat",
+        "description": "Se aplică obligații de transparență. Utilizatorii trebuie informați despre interacțiunea cu AI.",
+        "action": "Implementați măsuri de transparență: dezvăluiți interacțiunea cu AI, etichetați conținutul sintetic."
+      },
+      "minimal": {
+        "title": "Sistem de AI cu risc minim",
+        "description": "Nu există obligații obligatorii în afara legislației existente. Se încurajează adoptarea codurilor voluntare de conduită.",
+        "action": "Luați în considerare adoptarea codurilor voluntare de conduită pentru o AI de încredere."
+      }
+    }
+  },
+  "checklists": {
+    "title": "Liste de verificare a conformității",
+    "subtitle": "Urmăriți obligațiile dvs. de conformitate cu EU AI Act",
+    "filters": {
+      "all": "Toate elementele",
+      "complete": "Finalizate",
+      "incomplete": "Nefinalizate",
+      "required": "Obligatoriu",
+      "recommended": "Recomandat"
+    },
+    "score": {
+      "title": "Scor de conformitate",
+      "complete": "Toate elementele finalizate",
+      "remaining": "{count} elemente rămase"
+    },
+    "item": {
+      "required": "Obligatoriu",
+      "recommended": "Recomandat",
+      "article": "Article {number}",
+      "deadline": "Termen limită: {date}",
+      "markComplete": "Marcați ca finalizat",
+      "markIncomplete": "Marcați ca nefinalizat"
+    },
+    "evidence": {
+      "prompt": "Atașați dovezi sau documentație",
+      "upload": "Încărcați fișier",
+      "link": "Adăugați link",
+      "note": "Adăugați notă"
+    },
+    "export": {
+      "title": "Exportați lista de verificare",
+      "json": "JSON",
+      "csv": "CSV",
+      "markdown": "Markdown",
+      "pdf": "PDF",
+      "button": "Exportați"
+    },
+    "tiers": {
+      "highRisk": "Lista de verificare pentru risc ridicat",
+      "gpai": "Lista de verificare GPAI",
+      "gpaiSystemic": "Lista de verificare GPAI — risc sistemic",
+      "limited": "Lista de verificare pentru risc limitat"
+    }
+  },
+  "timeline": {
+    "title": "Cronologia aplicării",
+    "subtitle": "Date cheie pentru conformitatea cu EU AI Act",
+    "filters": {
+      "all": "Toate datele",
+      "past": "În vigoare",
+      "upcoming": "În curând",
+      "future": "Viitoare"
+    },
+    "entryIntoForce": "Intrarea în vigoare",
+    "daysUntil": "{days} zile rămase",
+    "daysPast": "acum {days} zile",
+    "today": "Astăzi",
+    "milestones": {
+      "entryIntoForce": "Intrarea în vigoare",
+      "prohibitions": "Practici AI interzise",
+      "gpaiObligations": "Obligații GPAI",
+      "highRiskAnnexIII": "Obligații pentru risc ridicat (Annex III)",
+      "highRiskAnnexI": "Obligații pentru risc ridicat (Annex I)",
+      "fullEnforcement": "Aplicare integrală"
+    }
+  },
+  "templates": {
+    "title": "Șabloane de documentație",
+    "subtitle": "Generați documentație de conformitate pe baza șabloanelor predefinite",
+    "list": {
+      "conformity": {
+        "title": "Declarația de conformitate UE",
+        "description": "Declarație obligatorie pentru sistemele AI cu risc ridicat conform Article 47 și Annex V."
+      },
+      "riskAssessment": {
+        "title": "Evaluarea impactului asupra drepturilor fundamentale",
+        "description": "Evaluare obligatorie pentru sistemele AI cu risc ridicat implementate de organismele publice conform Article 27."
+      },
+      "modelCard": {
+        "title": "Fișa modelului GPAI",
+        "description": "Documentație tehnică pentru modelele GPAI conform Article 53 și Annex XI."
+      },
+      "impactAssessment": {
+        "title": "Evaluarea impactului asupra protecției datelor",
+        "description": "Șablon DPIA pentru sistemele AI care prelucrează date cu caracter personal, aliniat la GDPR Article 35."
+      },
+      "transparencyNotice": {
+        "title": "Notificare de transparență",
+        "description": "Notificare destinată utilizatorilor pentru sistemele AI cu obligații de transparență conform Article 50."
+      }
+    },
+    "generate": "Generați documentul",
+    "preview": "Previzualizare",
+    "download": "Descărcați",
+    "customize": "Personalizați șablonul"
+  },
+  "examples": {
+    "title": "Exemple elaborate",
+    "subtitle": "Vedeți cum se aplică EU AI Act la sisteme AI din lumea reală",
+    "backToList": "Înapoi la exemple",
+    "classification": "Clasificare",
+    "obligations": "Obligații cheie",
+    "walkthrough": "Procesul de clasificare",
+    "relatedArticles": "Articole conexe"
+  },
+  "footer": {
+    "description": "Set de instrumente open-source pentru conformitate cu EU AI Act. Conceput pentru dezvoltatori, echipe de conformitate și profesioniști din domeniul juridic.",
+    "links": {
+      "github": "GitHub",
+      "docs": "Documentație",
+      "eurLex": "EUR-Lex text integral",
+      "aiOffice": "EU AI Office"
+    },
+    "legal": {
+      "title": "Juridic",
+      "license": "Licența MIT",
+      "privacy": "Confidențialitate"
+    },
+    "copyright": "EU AI Act Toolkit. Open source sub licența MIT.",
+    "regulation": "Bazat pe Regulation (EU) 2024/1689 al Parlamentului European și al Consiliului."
+  },
+  "disclaimer": {
+    "short": "Acest instrument nu constituie consiliere juridică.",
+    "full": "Acest instrument nu constituie consiliere juridică. Consultați un consilier juridic calificat pentru deciziile de conformitate. EU AI Act Toolkit este un proiect open-source și nu este afiliat Uniunii Europene sau vreunei instituții UE.",
+    "dismiss": "Am înțeles"
+  },
+  "common": {
+    "tiers": {
+      "prohibited": "Interzis",
+      "highRisk": "Risc ridicat",
+      "gpai": "GPAI",
+      "gpaiSystemic": "GPAI cu risc sistemic",
+      "limited": "Risc limitat",
+      "minimal": "Risc minim"
+    },
+    "actions": {
+      "learnMore": "Aflați mai multe",
+      "viewDetails": "Vizualizați detaliile",
+      "close": "Închideți",
+      "save": "Salvați",
+      "cancel": "Anulați",
+      "reset": "Resetați",
+      "copy": "Copiați",
+      "share": "Distribuiți"
+    }
+  }
+}

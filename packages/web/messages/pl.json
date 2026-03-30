@@ -1,0 +1,267 @@
+{
+  "nav": {
+    "home": "EU AI Act Toolkit",
+    "classify": "Klasyfikacja",
+    "checklist": "Lista kontrolna",
+    "timeline": "Oś czasu",
+    "templates": "Szablony",
+    "examples": "Przykłady"
+  },
+  "landing": {
+    "hero": {
+      "title": "EU AI Act Compliance Toolkit",
+      "subtitle": "Narzędzia open-source do nawigacji po Regulation (EU) 2024/1689",
+      "description": "Sklasyfikuj poziom ryzyka swojego systemu AI, śledź obowiązki zgodności, generuj dokumentację i wyprzedzaj terminy egzekwowania.",
+      "ctaClassify": "Sklasyfikuj swój system AI",
+      "ctaLearnMore": "Dowiedz się więcej"
+    },
+    "features": {
+      "title": "Co możesz zrobić",
+      "classifier": {
+        "title": "Klasyfikacja ryzyka",
+        "description": "Interaktywny kreator do określenia, czy Twój system AI jest zakazany, wysokiego ryzyka, GPAI, ograniczonego ryzyka lub minimalnego ryzyka zgodnie z EU AI Act."
+      },
+      "checklists": {
+        "title": "Listy kontrolne zgodności",
+        "description": "Listy kontrolne dostosowane do kategorii ryzyka z odniesieniami do artykułów, śledzeniem dowodów i eksportowalnymi raportami zgodności."
+      },
+      "timeline": {
+        "title": "Oś czasu egzekwowania",
+        "description": "Wizualna oś czasu wszystkich dat egzekwowania EU AI Act — zobacz, co obowiązuje, nadchodzi i jest planowane."
+      },
+      "templates": {
+        "title": "Szablony dokumentacji",
+        "description": "Generuj deklaracje zgodności, oceny ryzyka, karty modeli i powiadomienia o przejrzystości na podstawie gotowych szablonów."
+      },
+      "examples": {
+        "title": "Opracowane przykłady",
+        "description": "Scenariusze z praktyki pokazujące, jak proces klasyfikacji i zgodności działa dla różnych systemów AI."
+      }
+    },
+    "stats": {
+      "articles": "Objętych artykułów",
+      "checklists": "Pozycji listy kontrolnej",
+      "templates": "Szablonów dokumentacji",
+      "examples": "Opracowanych przykładów"
+    }
+  },
+  "classifier": {
+    "title": "Klasyfikator ryzyka systemu AI",
+    "subtitle": "Określ, która kategoria ryzyka EU AI Act ma zastosowanie do Twojego systemu AI",
+    "steps": {
+      "prohibited": {
+        "title": "Zakazane praktyki",
+        "description": "Sprawdź, czy Twój system AI podlega zakazanym praktykom z Article 5"
+      },
+      "gpai": {
+        "title": "AI ogólnego przeznaczenia",
+        "description": "Określ, czy Twój system kwalifikuje się jako model GPAI"
+      },
+      "gpaiSystemic": {
+        "title": "Ocena ryzyka systemowego",
+        "description": "Oceń, czy Twój model GPAI stwarza ryzyko systemowe"
+      },
+      "highRisk": {
+        "title": "Klasyfikacja wysokiego ryzyka",
+        "description": "Sprawdź komponenty bezpieczeństwa z Annex I i przypadki użycia z Annex III"
+      },
+      "limited": {
+        "title": "Ograniczone ryzyko (Przejrzystość)",
+        "description": "Sprawdź obowiązki przejrzystości dla Twojego systemu AI"
+      },
+      "minimal": {
+        "title": "Minimalne ryzyko",
+        "description": "Obowiązują dobrowolne kodeksy postępowania"
+      }
+    },
+    "navigation": {
+      "next": "Dalej",
+      "previous": "Wstecz",
+      "restart": "Rozpocznij od nowa",
+      "viewChecklist": "Zobacz listę kontrolną zgodności",
+      "exportResult": "Eksportuj wynik klasyfikacji"
+    },
+    "progress": {
+      "step": "Krok {current} z {total}",
+      "complete": "Klasyfikacja zakończona"
+    },
+    "results": {
+      "prohibited": {
+        "title": "Zakazany system AI",
+        "description": "Twój system AI jest zakazany na mocy Article 5 EU AI Act.",
+        "action": "Wstrzymaj rozwój lub gruntownie przeprojektuj system, aby usunąć zakazane możliwości."
+      },
+      "highRisk": {
+        "title": "System AI wysokiego ryzyka",
+        "description": "Twój system AI jest sklasyfikowany jako system wysokiego ryzyka. Obowiązują rozszerzone wymagania zgodności.",
+        "action": "Wypełnij listę kontrolną zgodności dla systemów wysokiego ryzyka i przygotuj dokumentację techniczną."
+      },
+      "gpai": {
+        "title": "Model AI ogólnego przeznaczenia",
+        "description": "Twój model jest sklasyfikowany jako GPAI. Obowiązują wymogi przejrzystości i dokumentacji.",
+        "action": "Wypełnij listę kontrolną zgodności GPAI, w tym karty modeli i dokumentację danych treningowych."
+      },
+      "gpaiSystemic": {
+        "title": "GPAI z ryzykiem systemowym",
+        "description": "Twój model stwarza ryzyko systemowe. Obowiązują wzmocnione wymagania.",
+        "action": "Wypełnij listę kontrolną GPAI dotyczącą ryzyka systemowego, w tym testy adversarialne i monitorowanie incydentów."
+      },
+      "limited": {
+        "title": "System AI ograniczonego ryzyka",
+        "description": "Obowiązują wymogi przejrzystości. Użytkownicy muszą być informowani o interakcji z AI.",
+        "action": "Wdróż środki przejrzystości: ujawnij interakcję z AI, oznacz treści syntetyczne."
+      },
+      "minimal": {
+        "title": "System AI minimalnego ryzyka",
+        "description": "Brak obowiązkowych wymagań poza istniejącym prawem. Zachęca się do stosowania dobrowolnych kodeksów postępowania.",
+        "action": "Rozważ przyjęcie dobrowolnych kodeksów postępowania na rzecz godnej zaufania AI."
+      }
+    }
+  },
+  "checklists": {
+    "title": "Listy kontrolne zgodności",
+    "subtitle": "Śledź swoje obowiązki zgodności z EU AI Act",
+    "filters": {
+      "all": "Wszystkie pozycje",
+      "complete": "Ukończone",
+      "incomplete": "Nieukończone",
+      "required": "Wymagane",
+      "recommended": "Zalecane"
+    },
+    "score": {
+      "title": "Wynik zgodności",
+      "complete": "Wszystkie pozycje ukończone",
+      "remaining": "{count} pozycji pozostało"
+    },
+    "item": {
+      "required": "Wymagane",
+      "recommended": "Zalecane",
+      "article": "Article {number}",
+      "deadline": "Termin: {date}",
+      "markComplete": "Oznacz jako ukończone",
+      "markIncomplete": "Oznacz jako nieukończone"
+    },
+    "evidence": {
+      "prompt": "Dołącz dowody lub dokumentację",
+      "upload": "Prześlij plik",
+      "link": "Dodaj link",
+      "note": "Dodaj notatkę"
+    },
+    "export": {
+      "title": "Eksportuj listę kontrolną",
+      "json": "JSON",
+      "csv": "CSV",
+      "markdown": "Markdown",
+      "pdf": "PDF",
+      "button": "Eksportuj"
+    },
+    "tiers": {
+      "highRisk": "Lista kontrolna wysokiego ryzyka",
+      "gpai": "Lista kontrolna GPAI",
+      "gpaiSystemic": "Lista kontrolna GPAI — ryzyko systemowe",
+      "limited": "Lista kontrolna ograniczonego ryzyka"
+    }
+  },
+  "timeline": {
+    "title": "Oś czasu egzekwowania",
+    "subtitle": "Kluczowe daty zgodności z EU AI Act",
+    "filters": {
+      "all": "Wszystkie daty",
+      "past": "Obowiązujące",
+      "upcoming": "Nadchodzące",
+      "future": "Przyszłe"
+    },
+    "entryIntoForce": "Wejście w życie",
+    "daysUntil": "{days} dni pozostało",
+    "daysPast": "{days} dni temu",
+    "today": "Dziś",
+    "milestones": {
+      "entryIntoForce": "Wejście w życie",
+      "prohibitions": "Zakazane praktyki AI",
+      "gpaiObligations": "Obowiązki GPAI",
+      "highRiskAnnexIII": "Obowiązki wysokiego ryzyka (Annex III)",
+      "highRiskAnnexI": "Obowiązki wysokiego ryzyka (Annex I)",
+      "fullEnforcement": "Pełne egzekwowanie"
+    }
+  },
+  "templates": {
+    "title": "Szablony dokumentacji",
+    "subtitle": "Generuj dokumentację zgodności na podstawie gotowych szablonów",
+    "list": {
+      "conformity": {
+        "title": "Deklaracja zgodności UE",
+        "description": "Wymagana deklaracja dla systemów AI wysokiego ryzyka zgodnie z Article 47 i Annex V."
+      },
+      "riskAssessment": {
+        "title": "Ocena wpływu na prawa podstawowe",
+        "description": "Wymagana ocena dla systemów AI wysokiego ryzyka wdrażanych przez podmioty publiczne zgodnie z Article 27."
+      },
+      "modelCard": {
+        "title": "Karta modelu GPAI",
+        "description": "Dokumentacja techniczna modeli GPAI zgodnie z Article 53 i Annex XI."
+      },
+      "impactAssessment": {
+        "title": "Ocena skutków dla ochrony danych",
+        "description": "Szablon DPIA dla systemów AI przetwarzających dane osobowe, zgodny z GDPR Article 35."
+      },
+      "transparencyNotice": {
+        "title": "Powiadomienie o przejrzystości",
+        "description": "Powiadomienie dla użytkowników systemów AI z obowiązkami przejrzystości zgodnie z Article 50."
+      }
+    },
+    "generate": "Generuj dokument",
+    "preview": "Podgląd",
+    "download": "Pobierz",
+    "customize": "Dostosuj szablon"
+  },
+  "examples": {
+    "title": "Opracowane przykłady",
+    "subtitle": "Zobacz, jak EU AI Act ma zastosowanie do rzeczywistych systemów AI",
+    "backToList": "Powrót do przykładów",
+    "classification": "Klasyfikacja",
+    "obligations": "Kluczowe obowiązki",
+    "walkthrough": "Proces klasyfikacji",
+    "relatedArticles": "Powiązane artykuły"
+  },
+  "footer": {
+    "description": "Open-source EU AI Act compliance toolkit. Stworzony dla programistów, zespołów ds. zgodności i prawników.",
+    "links": {
+      "github": "GitHub",
+      "docs": "Dokumentacja",
+      "eurLex": "EUR-Lex pełny tekst",
+      "aiOffice": "EU AI Office"
+    },
+    "legal": {
+      "title": "Informacje prawne",
+      "license": "Licencja MIT",
+      "privacy": "Prywatność"
+    },
+    "copyright": "EU AI Act Toolkit. Open source na licencji MIT.",
+    "regulation": "Na podstawie Regulation (EU) 2024/1689 Parlamentu Europejskiego i Rady."
+  },
+  "disclaimer": {
+    "short": "To narzędzie nie stanowi porady prawnej.",
+    "full": "To narzędzie nie stanowi porady prawnej. W kwestiach zgodności należy skonsultować się z wykwalifikowanym doradcą prawnym. EU AI Act Toolkit jest projektem open-source i nie jest powiązany z Unią Europejską ani żadną instytucją UE.",
+    "dismiss": "Rozumiem"
+  },
+  "common": {
+    "tiers": {
+      "prohibited": "Zakazany",
+      "highRisk": "Wysokie ryzyko",
+      "gpai": "GPAI",
+      "gpaiSystemic": "GPAI z ryzykiem systemowym",
+      "limited": "Ograniczone ryzyko",
+      "minimal": "Minimalne ryzyko"
+    },
+    "actions": {
+      "learnMore": "Dowiedz się więcej",
+      "viewDetails": "Zobacz szczegóły",
+      "close": "Zamknij",
+      "save": "Zapisz",
+      "cancel": "Anuluj",
+      "reset": "Resetuj",
+      "copy": "Kopiuj",
+      "share": "Udostępnij"
+    }
+  }
+}

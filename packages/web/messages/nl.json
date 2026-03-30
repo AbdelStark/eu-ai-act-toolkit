@@ -1,0 +1,267 @@
+{
+  "nav": {
+    "home": "EU AI Act Toolkit",
+    "classify": "Classificeren",
+    "checklist": "Checklist",
+    "timeline": "Tijdlijn",
+    "templates": "Sjablonen",
+    "examples": "Voorbeelden"
+  },
+  "landing": {
+    "hero": {
+      "title": "EU AI Act Compliance Toolkit",
+      "subtitle": "Open-source tools voor het navigeren van Regulation (EU) 2024/1689",
+      "description": "Classificeer de risicocategorie van uw AI-systeem, volg nalevingsverplichtingen, genereer documentatie en blijf vooroplopen op handhavingsdeadlines.",
+      "ctaClassify": "Classificeer uw AI-systeem",
+      "ctaLearnMore": "Meer informatie"
+    },
+    "features": {
+      "title": "Wat u kunt doen",
+      "classifier": {
+        "title": "Risicoclassificatie",
+        "description": "Interactieve wizard om te bepalen of uw AI-systeem verboden, hoog risico, GPAI, beperkt risico of minimaal risico is volgens de EU AI Act."
+      },
+      "checklists": {
+        "title": "Nalevingschecklists",
+        "description": "Categorie-specifieke checklists met artikelverwijzingen, bewijsregistratie en exporteerbare nalevingsrapporten."
+      },
+      "timeline": {
+        "title": "Handhavingstijdlijn",
+        "description": "Visuele tijdlijn van alle handhavingsdata van de EU AI Act — bekijk wat van kracht is, aanstaand en toekomstig."
+      },
+      "templates": {
+        "title": "Documentatiesjablonen",
+        "description": "Genereer conformiteitsverklaringen, risicobeoordelingen, modelkaarten en transparantiemeldingen op basis van vooraf gebouwde sjablonen."
+      },
+      "examples": {
+        "title": "Uitgewerkte voorbeelden",
+        "description": "Praktijkscenario's die laten zien hoe het classificatie- en nalevingsproces werkt voor verschillende AI-systemen."
+      }
+    },
+    "stats": {
+      "articles": "Behandelde artikelen",
+      "checklists": "Checklistitems",
+      "templates": "Documentatiesjablonen",
+      "examples": "Uitgewerkte voorbeelden"
+    }
+  },
+  "classifier": {
+    "title": "AI-systeem risicoclassificatie",
+    "subtitle": "Bepaal welke EU AI Act risicocategorie van toepassing is op uw AI-systeem",
+    "steps": {
+      "prohibited": {
+        "title": "Verboden praktijken",
+        "description": "Controleer of uw AI-systeem onder de verboden praktijken van Article 5 valt"
+      },
+      "gpai": {
+        "title": "Algemeen inzetbare AI",
+        "description": "Bepaal of uw systeem kwalificeert als een GPAI-model"
+      },
+      "gpaiSystemic": {
+        "title": "Beoordeling systeemrisico",
+        "description": "Beoordeel of uw GPAI-model een systeemrisico vormt"
+      },
+      "highRisk": {
+        "title": "Hoog-risicoclassificatie",
+        "description": "Controleer Annex I veiligheidscomponenten en Annex III toepassingen"
+      },
+      "limited": {
+        "title": "Beperkt risico (Transparantie)",
+        "description": "Controleer transparantieverplichtingen voor uw AI-systeem"
+      },
+      "minimal": {
+        "title": "Minimaal risico",
+        "description": "Vrijwillige gedragscodes zijn van toepassing"
+      }
+    },
+    "navigation": {
+      "next": "Volgende",
+      "previous": "Vorige",
+      "restart": "Opnieuw beginnen",
+      "viewChecklist": "Nalevingschecklist bekijken",
+      "exportResult": "Classificatieresultaat exporteren"
+    },
+    "progress": {
+      "step": "Stap {current} van {total}",
+      "complete": "Classificatie voltooid"
+    },
+    "results": {
+      "prohibited": {
+        "title": "Verboden AI-systeem",
+        "description": "Uw AI-systeem is verboden onder Article 5 van de EU AI Act.",
+        "action": "Staak de ontwikkeling of herontwerp fundamenteel om verboden mogelijkheden te verwijderen."
+      },
+      "highRisk": {
+        "title": "Hoog-risico AI-systeem",
+        "description": "Uw AI-systeem is geclassificeerd als hoog risico. Uitgebreide nalevingsverplichtingen zijn van toepassing.",
+        "action": "Voltooi de hoog-risico nalevingschecklist en bereid technische documentatie voor."
+      },
+      "gpai": {
+        "title": "Algemeen inzetbaar AI-model",
+        "description": "Uw model is geclassificeerd als GPAI. Transparantie- en documentatieverplichtingen zijn van toepassing.",
+        "action": "Voltooi de GPAI-nalevingschecklist inclusief modelkaarten en documentatie over trainingsdata."
+      },
+      "gpaiSystemic": {
+        "title": "GPAI met systeemrisico",
+        "description": "Uw model heeft systeemrisico. Aangescherpte verplichtingen zijn van toepassing.",
+        "action": "Voltooi de GPAI-checklist voor systeemrisico inclusief adversariële tests en incidentmonitoring."
+      },
+      "limited": {
+        "title": "AI-systeem met beperkt risico",
+        "description": "Transparantieverplichtingen zijn van toepassing. Gebruikers moeten worden geïnformeerd over de AI-interactie.",
+        "action": "Implementeer transparantiemaatregelen: vermeld AI-interactie, label synthetische inhoud."
+      },
+      "minimal": {
+        "title": "AI-systeem met minimaal risico",
+        "description": "Geen verplichte vereisten buiten bestaande wetgeving. Vrijwillige gedragscodes worden aangemoedigd.",
+        "action": "Overweeg het aannemen van vrijwillige gedragscodes voor betrouwbare AI."
+      }
+    }
+  },
+  "checklists": {
+    "title": "Nalevingschecklists",
+    "subtitle": "Volg uw nalevingsverplichtingen onder de EU AI Act",
+    "filters": {
+      "all": "Alle items",
+      "complete": "Voltooid",
+      "incomplete": "Onvolledig",
+      "required": "Vereist",
+      "recommended": "Aanbevolen"
+    },
+    "score": {
+      "title": "Nalevingsscore",
+      "complete": "Alle items voltooid",
+      "remaining": "{count} items resterend"
+    },
+    "item": {
+      "required": "Vereist",
+      "recommended": "Aanbevolen",
+      "article": "Article {number}",
+      "deadline": "Deadline: {date}",
+      "markComplete": "Markeer als voltooid",
+      "markIncomplete": "Markeer als onvolledig"
+    },
+    "evidence": {
+      "prompt": "Voeg bewijs of documentatie toe",
+      "upload": "Bestand uploaden",
+      "link": "Link toevoegen",
+      "note": "Opmerking toevoegen"
+    },
+    "export": {
+      "title": "Checklist exporteren",
+      "json": "JSON",
+      "csv": "CSV",
+      "markdown": "Markdown",
+      "pdf": "PDF",
+      "button": "Exporteren"
+    },
+    "tiers": {
+      "highRisk": "Hoog-risico checklist",
+      "gpai": "GPAI-checklist",
+      "gpaiSystemic": "GPAI-checklist systeemrisico",
+      "limited": "Checklist beperkt risico"
+    }
+  },
+  "timeline": {
+    "title": "Handhavingstijdlijn",
+    "subtitle": "Belangrijke data voor naleving van de EU AI Act",
+    "filters": {
+      "all": "Alle data",
+      "past": "Van kracht",
+      "upcoming": "Aanstaand",
+      "future": "Toekomstig"
+    },
+    "entryIntoForce": "Inwerkingtreding",
+    "daysUntil": "{days} dagen resterend",
+    "daysPast": "{days} dagen geleden",
+    "today": "Vandaag",
+    "milestones": {
+      "entryIntoForce": "Inwerkingtreding",
+      "prohibitions": "Verboden AI-praktijken",
+      "gpaiObligations": "GPAI-verplichtingen",
+      "highRiskAnnexIII": "Hoog-risico (Annex III) verplichtingen",
+      "highRiskAnnexI": "Hoog-risico (Annex I) verplichtingen",
+      "fullEnforcement": "Volledige handhaving"
+    }
+  },
+  "templates": {
+    "title": "Documentatiesjablonen",
+    "subtitle": "Genereer nalevingsdocumentatie op basis van vooraf gebouwde sjablonen",
+    "list": {
+      "conformity": {
+        "title": "EU-conformiteitsverklaring",
+        "description": "Vereiste verklaring voor hoog-risico AI-systemen conform Article 47 en Annex V."
+      },
+      "riskAssessment": {
+        "title": "Effectbeoordeling grondrechten",
+        "description": "Vereiste beoordeling voor hoog-risico AI-systemen ingezet door overheidsinstanties conform Article 27."
+      },
+      "modelCard": {
+        "title": "GPAI-modelkaart",
+        "description": "Technische documentatie voor GPAI-modellen conform Article 53 en Annex XI."
+      },
+      "impactAssessment": {
+        "title": "Gegevensbeschermingseffectbeoordeling",
+        "description": "DPIA-sjabloon voor AI-systemen die persoonsgegevens verwerken, in lijn met GDPR Article 35."
+      },
+      "transparencyNotice": {
+        "title": "Transparantiemededeling",
+        "description": "Gebruikersgerichte mededeling voor AI-systemen met transparantieverplichtingen conform Article 50."
+      }
+    },
+    "generate": "Document genereren",
+    "preview": "Voorbeeld",
+    "download": "Downloaden",
+    "customize": "Sjabloon aanpassen"
+  },
+  "examples": {
+    "title": "Uitgewerkte voorbeelden",
+    "subtitle": "Bekijk hoe de EU AI Act van toepassing is op praktijk-AI-systemen",
+    "backToList": "Terug naar voorbeelden",
+    "classification": "Classificatie",
+    "obligations": "Belangrijkste verplichtingen",
+    "walkthrough": "Classificatieproces",
+    "relatedArticles": "Gerelateerde artikelen"
+  },
+  "footer": {
+    "description": "Open-source EU AI Act compliance toolkit. Gebouwd voor ontwikkelaars, nalevingsteams en juridische professionals.",
+    "links": {
+      "github": "GitHub",
+      "docs": "Documentatie",
+      "eurLex": "EUR-Lex volledige tekst",
+      "aiOffice": "EU AI Office"
+    },
+    "legal": {
+      "title": "Juridisch",
+      "license": "MIT-licentie",
+      "privacy": "Privacy"
+    },
+    "copyright": "EU AI Act Toolkit. Open source onder MIT-licentie.",
+    "regulation": "Gebaseerd op Regulation (EU) 2024/1689 van het Europees Parlement en de Raad."
+  },
+  "disclaimer": {
+    "short": "Dit hulpmiddel vormt geen juridisch advies.",
+    "full": "Dit hulpmiddel vormt geen juridisch advies. Raadpleeg gekwalificeerde juridische adviseurs voor nalevingsbeslissingen. De EU AI Act Toolkit is een open-sourceproject en is niet gelieerd aan de Europese Unie of enige EU-instelling.",
+    "dismiss": "Ik begrijp het"
+  },
+  "common": {
+    "tiers": {
+      "prohibited": "Verboden",
+      "highRisk": "Hoog risico",
+      "gpai": "GPAI",
+      "gpaiSystemic": "GPAI met systeemrisico",
+      "limited": "Beperkt risico",
+      "minimal": "Minimaal risico"
+    },
+    "actions": {
+      "learnMore": "Meer informatie",
+      "viewDetails": "Details bekijken",
+      "close": "Sluiten",
+      "save": "Opslaan",
+      "cancel": "Annuleren",
+      "reset": "Resetten",
+      "copy": "Kopiëren",
+      "share": "Delen"
+    }
+  }
+}
