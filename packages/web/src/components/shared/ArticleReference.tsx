@@ -53,7 +53,7 @@ export function ArticleReference({
       target="_blank"
       rel="noopener noreferrer"
       title={`View ${label} on EUR-Lex`}
-      className={`inline-flex items-center gap-1 text-sm font-medium text-eu-blue underline decoration-eu-blue/30 underline-offset-2 transition-colors hover:text-eu-blue/80 hover:decoration-eu-blue/60 ${className ?? ''}`}
+      className={`inline-flex items-center gap-1 font-mono text-sm font-medium text-eu-blue underline decoration-eu-blue/30 underline-offset-2 transition-colors hover:text-eu-blue/80 hover:decoration-eu-blue/60 ${className ?? ''}`}
     >
       {label}
       <svg
