@@ -1,5 +1,3 @@
-import ChecklistPageClient from './ChecklistPageClient';
-
 export function generateStaticParams() {
   return [
     { tier: 'high-risk' },
@@ -9,8 +7,4 @@ export function generateStaticParams() {
     { tier: 'minimal' },
     { tier: 'prohibited' },
   ];
-}
-
-export default function ChecklistPage() {
-  return <ChecklistPageClient />;
 }
