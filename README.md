@@ -1,100 +1,199 @@
-# EU AI Act Compliance Toolkit
+<p align="center">
+  <h1 align="center">EU AI Act Toolkit</h1>
+  <p align="center">
+    Open-source compliance toolkit for <a href="https://artificialintelligenceact.eu/">Regulation (EU) 2024/1689</a>
+  </p>
+</p>
 
-Open-source tools for navigating the [EU AI Act](https://artificialintelligenceact.eu/) (Regulation 2024/1689).
+<p align="center">
+  <a href="https://github.com/AbdelStark/eu-ai-act-toolkit/actions"><img src="https://img.shields.io/github/actions/workflow/status/AbdelStark/eu-ai-act-toolkit/ci.yml?branch=main&style=flat-square" alt="Build"></a>
+  <a href="https://www.npmjs.com/package/@eu-ai-act/sdk"><img src="https://img.shields.io/npm/v/@eu-ai-act/sdk?style=flat-square&label=sdk" alt="SDK version"></a>
+  <a href="https://github.com/AbdelStark/eu-ai-act-toolkit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/AbdelStark/eu-ai-act-toolkit?style=flat-square" alt="License"></a>
+</p>
 
-The Act is live. Prohibitions took effect February 2025. GPAI rules apply August 2025. Full high-risk enforcement hits August 2026. If you're building or deploying AI in Europe, compliance is not optional.
+---
 
-This toolkit gives you the practical resources to get there: risk classification, conformity checklists, documentation templates, and reference guides. No vendor lock-in, no SaaS fees.
+The EU AI Act is the first comprehensive AI regulation. Prohibitions are already enforceable. GPAI rules apply August 2025. Full high-risk requirements hit August 2026. Penalties go up to 35M EUR or 7% of global turnover.
 
-## What's Inside
+This toolkit helps you figure out what applies to you and track your compliance. Three components, same data, no vendor lock-in.
 
-```
-eu-ai-act-toolkit/
-├── classifier/          # Interactive risk classification questionnaire
-├── checklists/          # Conformity assessment checklists by risk tier
-├── templates/           # Required documentation templates
-├── reference/           # Act summaries, timelines, Annex III breakdown
-└── examples/            # Worked examples for common AI systems
-```
+| Component | What it does |
+|-----------|-------------|
+| **[`@eu-ai-act/sdk`](packages/sdk/)** | TypeScript library. Classify systems, generate checklists, render templates. |
+| **[`eu-ai-act`](packages/cli/)** | CLI tool. Interactive classification wizard, compliance tracking, doc generation. |
+| **[Web App](packages/web/)** | Visual dashboard. Timeline, classifier wizard, interactive checklists. |
 
-## Quick Start
+## Get Started
 
-### 1. Classify Your System
-
-Run the interactive risk classifier to determine which tier your AI system falls under:
+### CLI
 
 ```bash
-python classifier/classify.py
+npx eu-ai-act classify
 ```
 
-Or use the static decision tree in [`classifier/DECISION-TREE.md`](classifier/DECISION-TREE.md).
+Walks you through a step-by-step classification of your AI system. Outputs which risk tier applies, which articles you need to comply with, and what to do next.
 
-### 2. Get Your Checklist
+```bash
+npx eu-ai-act checklist high-risk    # See all requirements for high-risk systems
+npx eu-ai-act timeline               # Enforcement dates and countdowns
+npx eu-ai-act generate --tier high-risk --output ./compliance/
+```
 
-Based on your classification:
+See the full [CLI documentation](packages/cli/README.md).
 
-| Risk Tier | What You Need |
-|-----------|--------------|
-| [Prohibited](checklists/00-prohibited.md) | Stop. Your system is banned under Article 5. |
-| [High-Risk](checklists/01-high-risk.md) | Full conformity assessment (Articles 9-15). |
-| [GPAI Provider](checklists/02-gpai.md) | Technical documentation, copyright, training data summary. |
-| [GPAI Systemic Risk](checklists/03-gpai-systemic.md) | Everything in GPAI plus evaluations, adversarial testing, incident reporting. |
-| [Limited Risk](checklists/04-limited-risk.md) | Transparency obligations only. |
-| [Minimal Risk](checklists/05-minimal-risk.md) | No legal obligations. Voluntary codes encouraged. |
+### SDK
 
-### 3. Fill Documentation Templates
+```bash
+npm install @eu-ai-act/sdk
+```
 
-Required documentation for high-risk systems (Annex IV):
+```typescript
+import { classify, getChecklist, getTimeline } from '@eu-ai-act/sdk';
 
-- [`templates/technical-documentation.md`](templates/technical-documentation.md) - Full system description, design, development, and validation
-- [`templates/risk-management-system.md`](templates/risk-management-system.md) - Risk identification, analysis, evaluation, mitigation
-- [`templates/data-governance.md`](templates/data-governance.md) - Training data provenance, quality, bias assessment
-- [`templates/human-oversight-plan.md`](templates/human-oversight-plan.md) - Oversight mechanisms and override capabilities
-- [`templates/monitoring-plan.md`](templates/monitoring-plan.md) - Post-market monitoring and incident reporting
+const result = classify({
+  socialScoring: false,
+  realtimeBiometrics: false,
+  isGPAI: true,
+  gpaiFlops: 1e24,
+  isOpenSource: true,
+  annexIProduct: false,
+  annexIIICategory: null,
+  interactsWithPersons: true,
+  generatesSyntheticContent: false,
+  emotionRecognition: false,
+  biometricCategorizing: false,
+});
 
-## Enforcement Timeline
+console.log(result.tier);        // 'gpai'
+console.log(result.articles);    // [51, 52, 53]
+console.log(result.reasoning);   // Step-by-step explanation
+```
 
-| Date | What Applies |
-|------|-------------|
-| **Feb 2, 2025** | Prohibited practices (Art. 5) + AI literacy requirement |
-| **Aug 2, 2025** | GPAI rules + governance structure + penalties framework |
-| **Aug 2, 2026** | ALL high-risk requirements (Articles 6-43) |
+See the full [SDK documentation](packages/sdk/README.md).
+
+### Web App
+
+```bash
+git clone https://github.com/AbdelStark/eu-ai-act-toolkit.git
+cd eu-ai-act-toolkit
+npm install
+npx turbo dev --filter=@eu-ai-act/web
+```
+
+Opens at `localhost:3000`. Everything runs client-side. No backend, no accounts, no data leaves your browser.
+
+## What's Covered
+
+### Risk Classification
+
+Interactive decision tree that walks through the Act's classification logic:
+
+1. **Prohibited practices** (Article 5) - social scoring, real-time biometrics, manipulative AI
+2. **GPAI assessment** - foundation models, training compute thresholds, open-source exemptions
+3. **High-risk** (Annex I + III) - safety components, biometrics, employment, critical infrastructure
+4. **Limited risk** - transparency obligations for chatbots, deepfakes, emotion recognition
+5. **Minimal risk** - voluntary codes only
+
+The classifier outputs the applicable tier, relevant articles, enforcement date, and a reasoning chain explaining why.
+
+### Compliance Checklists
+
+92 checklist items across 6 risk tiers, each linked to a specific Article:
+
+| Tier | Items | Key Articles |
+|------|-------|-------------|
+| High-Risk | 61 | Art. 9-15 (risk management, data governance, documentation, human oversight, accuracy) |
+| GPAI Systemic Risk | 10 | Art. 55 (evaluations, adversarial testing, incident reporting) |
+| GPAI | 9 | Art. 51-53 (technical docs, copyright, training data summary) |
+| Limited Risk | 6 | Art. 50 (transparency: disclose AI interaction, label synthetic content) |
+| Minimal Risk | 4 | Voluntary measures |
+| Prohibited | 2 | Art. 5 (stop deployment) |
+
+Checklists support evidence tracking, notes, and export to JSON/Markdown.
+
+### Documentation Templates
+
+Pre-structured templates for everything the Act requires from high-risk system providers:
+
+- **Technical Documentation** (Annex IV) - system description, architecture, data, validation
+- **Risk Management System** (Art. 9) - risk identification, evaluation, mitigation, residual risk
+- **Data Governance** (Art. 10) - data provenance, bias assessment, representativeness
+- **Human Oversight Plan** (Art. 14) - monitoring, interpretation, override, automation bias mitigation
+- **Post-Market Monitoring** (Art. 72) - performance tracking, incident reporting, continuous improvement
+
+### Enforcement Timeline
+
+| Date | Milestone |
+|------|-----------|
+| **Feb 2, 2025** | Prohibited practices + AI literacy |
+| **Aug 2, 2025** | GPAI obligations + governance + penalties |
+| **Aug 2, 2026** | All high-risk requirements (Art. 6-43) |
 | **Aug 2, 2027** | Legacy GPAI models + large-scale IT systems |
 | **Aug 2, 2028** | Annex I product safety components |
 
-Penalties: up to 35M EUR or 7% of global annual turnover, whichever is higher.
+### Worked Examples
 
-## Who This Is For
+Step-by-step classification walkthroughs for real scenarios:
 
-- **AI companies deploying in the EU** - Know exactly what's required before enforcement hits
-- **Compliance and legal teams** - Practical checklists instead of reading 400 pages of regulation
-- **Startups and open-source projects** - Free tooling to meet the same bar as large companies
-- **Policymakers and auditors** - Standardized assessment frameworks
+- **Customer service chatbot** - Limited risk. Transparency obligations only.
+- **AI hiring screening tool** - High-risk (Annex III, employment). Full Articles 9-15.
+- **Autonomous vehicle** - High-risk + third-party conformity assessment.
 
-## Status
+## Architecture
 
-This is an early release. Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+```
+eu-ai-act-toolkit/
+├── packages/
+│   ├── sdk/              # @eu-ai-act/sdk - classification engine, checklists, templates
+│   ├── cli/              # eu-ai-act CLI - interactive terminal tool
+│   └── web/              # Next.js web application
+├── data/                 # Structured JSON - single source of truth
+│   ├── questions.json    # Classification decision tree (26 questions, 5 steps)
+│   ├── checklists.json   # All checklist items with article references
+│   ├── timeline.json     # Enforcement dates
+│   ├── articles.json     # Article text and cross-references
+│   └── examples.json     # Worked example metadata
+├── locales/              # i18n strings (English, more coming)
+└── docs/                 # Static compliance documents
+```
 
-- [x] Risk classification decision tree
-- [x] High-risk conformity checklist (Articles 9-15)
-- [x] GPAI compliance checklist
-- [x] Documentation templates
-- [x] Reference guides
-- [ ] Interactive CLI classifier (Python)
-- [ ] Automated documentation gap analysis
-- [ ] Integration with existing tools (AIF360, Fairlearn)
-- [ ] Harmonised standards mapping (CEN/CENELEC JTC 21)
-- [ ] Multi-language support (FR, DE, ES, IT)
+All three components consume the same `data/` directory. Updating the Act means updating JSON files, not code.
+
+## Development
+
+```bash
+git clone https://github.com/AbdelStark/eu-ai-act-toolkit.git
+cd eu-ai-act-toolkit
+npm install
+npx turbo build          # Build all packages
+npx turbo dev            # Start dev servers
+npx turbo test           # Run tests
+```
+
+Monorepo managed with [Turborepo](https://turbo.build/). SDK builds with [tsup](https://tsup.egoist.dev/) (ESM + CJS). Web app is [Next.js 14](https://nextjs.org/).
+
+## Contributing
+
+Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Things that would help most right now:
+- Corrections to legal interpretations (cite the Article)
+- Additional worked examples
+- Translations (French and German are priorities)
+- Harmonised standards mapping as CEN/CENELEC JTC 21 publishes them
+
+## Disclaimer
+
+This toolkit helps organize and track compliance work. It does not constitute legal advice. Consult qualified legal counsel for compliance decisions. Not affiliated with the European Union or any EU institution.
 
 ## References
 
 - [EU AI Act Full Text](https://artificialintelligenceact.eu/ai-act-explorer/)
-- [EU AI Act Corrigendum (Official Journal)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
+- [Official Journal (EUR-Lex)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
 - [EU AI Office](https://digital-strategy.ec.europa.eu/en/policies/ai-office)
-- [ALTAI Assessment List](https://futurium.ec.europa.eu/en/european-ai-alliance/pages/altai-assessment-list-trustworthy-artificial-intelligence)
-- [NIST AI RMF Crosswalk](https://airc.nist.gov/AI_RMF_Interoperability/iso-42001)
-- [ISO/IEC 42001 AI Management System](https://www.iso.org/standard/81230.html)
+- [NIST AI RMF](https://airc.nist.gov/)
+- [ISO/IEC 42001](https://www.iso.org/standard/81230.html)
 
 ## License
 
-MIT. Use it, fork it, build on it.
+[MIT](LICENSE)
