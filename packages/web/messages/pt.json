@@ -45,7 +45,7 @@
       },
       "penalties": {
         "title": "Calculadora de penalidades",
-        "description": "Calcule a exposição máxima a multas com base no nível de risco, tipo de organização e volume de negócios anual conforme o Article 99."
+        "description": "Calcule a exposição máxima a multas com base no nível de risco, tipo de organização e volume de negócios anual conforme o Artigo 99."
       },
       "gaps": {
         "title": "Análise de lacunas",
@@ -73,7 +73,7 @@
     "steps": {
       "prohibited": {
         "title": "Práticas proibidas",
-        "description": "Verifique se o seu sistema de IA se enquadra nas práticas proibidas do Article 5"
+        "description": "Verifique se o seu sistema de IA se enquadra nas práticas proibidas do Artigo 5"
       },
       "gpai": {
         "title": "IA de finalidade geral",
@@ -85,7 +85,7 @@
       },
       "highRisk": {
         "title": "Classificação de alto risco",
-        "description": "Verifique os componentes de segurança do Annex I e os casos de utilização do Annex III"
+        "description": "Verifique os componentes de segurança do Anexo I e os casos de utilização do Anexo III"
       },
       "limited": {
         "title": "Risco limitado (Transparência)",
@@ -105,12 +105,13 @@
     },
     "progress": {
       "step": "Passo {current} de {total}",
-      "complete": "Classificação concluída"
+      "complete": "Classificação concluída",
+      "question": "Questão {current} de {total}"
     },
     "results": {
       "prohibited": {
         "title": "Sistema de IA proibido",
-        "description": "O seu sistema de IA é proibido ao abrigo do Article 5 do EU AI Act.",
+        "description": "O seu sistema de IA é proibido ao abrigo do Artigo 5 do EU AI Act.",
         "action": "Suspenda o desenvolvimento ou redesenhe fundamentalmente o sistema para remover as capacidades proibidas."
       },
       "highRisk": {
@@ -137,7 +138,23 @@
         "title": "Sistema de IA de risco mínimo",
         "description": "Não existem obrigações vinculativas para além da legislação vigente. Encoraja-se a adoção de códigos de conduta voluntários.",
         "action": "Considere adotar códigos de conduta voluntários para uma IA de confiança."
-      }
+      },
+      "label": "Resultado da classificação",
+      "enforcementDate": "Data de aplicação",
+      "applicableArticles": "Artigos aplicáveis",
+      "reasoning": "Fundamentação",
+      "viewChecklist": "Ver lista de conformidade",
+      "shareResult": "Partilhar resultado",
+      "copied": "Copiado!"
+    },
+    "answers": {
+      "yes": "Sim",
+      "no": "Não"
+    },
+    "wizard": {
+      "interactiveWizard": "Assistente interativo",
+      "startOver": "Recomeçar",
+      "previousQuestion": "Questão anterior"
     }
   },
   "checklists": {
@@ -158,7 +175,7 @@
     "item": {
       "required": "Obrigatório",
       "recommended": "Recomendado",
-      "article": "Article {number}",
+      "article": "Artigo {number}",
       "deadline": "Prazo: {date}",
       "markComplete": "Marcar como concluído",
       "markIncomplete": "Marcar como incompleto"
@@ -201,8 +218,8 @@
       "entryIntoForce": "Entrada em vigor",
       "prohibitions": "Práticas de IA proibidas",
       "gpaiObligations": "Obrigações GPAI",
-      "highRiskAnnexIII": "Obrigações de alto risco (Annex III)",
-      "highRiskAnnexI": "Obrigações de alto risco (Annex I)",
+      "highRiskAnnexIII": "Obrigações de alto risco (Anexo III)",
+      "highRiskAnnexI": "Obrigações de alto risco (Anexo I)",
       "fullEnforcement": "Aplicação completa"
     }
   },
@@ -212,23 +229,23 @@
     "list": {
       "conformity": {
         "title": "Declaração de conformidade UE",
-        "description": "Declaração obrigatória para sistemas de IA de alto risco nos termos do Article 47 e do Annex V."
+        "description": "Declaração obrigatória para sistemas de IA de alto risco nos termos do Artigo 47 e do Anexo V."
       },
       "riskAssessment": {
         "title": "Avaliação de impacto nos direitos fundamentais",
-        "description": "Avaliação obrigatória para sistemas de IA de alto risco utilizados por organismos públicos nos termos do Article 27."
+        "description": "Avaliação obrigatória para sistemas de IA de alto risco utilizados por organismos públicos nos termos do Artigo 27."
       },
       "modelCard": {
         "title": "Ficha de modelo GPAI",
-        "description": "Documentação técnica para modelos GPAI nos termos do Article 53 e do Annex XI."
+        "description": "Documentação técnica para modelos GPAI nos termos do Artigo 53 e do Anexo XI."
       },
       "impactAssessment": {
         "title": "Avaliação de impacto sobre a proteção de dados",
-        "description": "Modelo de AIPD para sistemas de IA que processam dados pessoais, alinhado com o artigo 35.º do RGPD."
+        "description": "Modelo de AIPD para sistemas de IA que processam dados pessoais, alinhado com o Artigo 35.º do RGPD."
       },
       "transparencyNotice": {
         "title": "Aviso de transparência",
-        "description": "Aviso dirigido aos utilizadores para sistemas de IA com obrigações de transparência nos termos do Article 50."
+        "description": "Aviso dirigido aos utilizadores para sistemas de IA com obrigações de transparência nos termos do Artigo 50."
       }
     },
     "generate": "Gerar documento",
@@ -260,7 +277,8 @@
     },
     "copyright": "EU AI Act Toolkit. Código aberto sob licença MIT.",
     "regulation": "Baseado no Regulamento (UE) 2024/1689 do Parlamento Europeu e do Conselho.",
-    "tagline": "Made with care for AI compliance teams worldwide"
+    "tagline": "Desenvolvido com dedicação para equipas de conformidade de IA em todo o mundo",
+    "resources": "Recursos"
   },
   "disclaimer": {
     "short": "Esta ferramenta não constitui aconselhamento jurídico.",
@@ -280,7 +298,7 @@
     },
     "overview": {
       "title": "Níveis de penalidades do EU AI Act",
-      "description": "Todas as categorias de penalidades definidas no Article 99 do Regulamento (UE) 2024/1689."
+      "description": "Todas as categorias de penalidades definidas no Artigo 99 do Regulamento (UE) 2024/1689."
     }
   },
   "gaps": {
@@ -326,6 +344,256 @@
       "reset": "Repor",
       "copy": "Copiar",
       "share": "Partilhar"
+    }
+  },
+  "sdk": {
+    "steps": {
+      "prohibited": {
+        "title": "Práticas proibidas",
+        "description": "O Artigo 5 proíbe totalmente certas práticas de IA. Se alguma se aplicar, o seu sistema não pode ser colocado no mercado da UE."
+      },
+      "gpai": {
+        "title": "IA de finalidade geral",
+        "description": "Os modelos de IA de finalidade geral têm obrigações específicas ao abrigo dos Artigos 51-55. Determine se o seu modelo se qualifica e se apresenta risco sistémico."
+      },
+      "high-risk-pathway-a": {
+        "title": "Alto risco: Segurança de produtos (Anexo I)",
+        "description": "Os sistemas de IA que são componentes de segurança de produtos abrangidos pela legislação de harmonização da UE em vigor (Anexo I) são de alto risco nos termos do Artigo 6(1)."
+      },
+      "high-risk-pathway-b": {
+        "title": "Alto risco: Sistemas autónomos do Anexo III",
+        "description": "Os sistemas de IA utilizados nas áreas enumeradas no Anexo III são classificados como de alto risco nos termos do Artigo 6(2), salvo se não representarem um risco significativo de danos."
+      },
+      "limited-risk": {
+        "title": "Risco limitado: Obrigações de transparência",
+        "description": "Certos sistemas de IA têm obrigações de transparência ao abrigo do Artigo 50, independentemente de outras classificações de risco."
+      }
+    },
+    "questions": {
+      "subliminal-manipulation": {
+        "text": "O seu sistema de IA utiliza técnicas subliminares que escapam à consciência da pessoa, ou técnicas deliberadamente manipuladoras ou enganosas, com o objetivo ou efeito de distorcer materialmente o comportamento e causar danos significativos?",
+        "help": "Abrange técnicas que a pessoa não consegue percecionar ou que exploram padrões psicológicos para manipular decisões, distorcendo materialmente o comportamento de forma que causa ou é razoavelmente suscetível de causar danos significativos."
+      },
+      "exploiting-vulnerabilities": {
+        "text": "O seu sistema de IA explora vulnerabilidades de um grupo específico de pessoas devido à sua idade, deficiência ou situação social ou económica específica, com o objetivo ou efeito de distorcer materialmente o seu comportamento e causar danos significativos?",
+        "help": "Visa sistemas que tiram partido de crianças, idosos, pessoas com deficiência ou em situações sociais ou económicas precárias para distorcer o seu comportamento de forma prejudicial."
+      },
+      "social-scoring": {
+        "text": "O seu sistema de IA avalia ou classifica pessoas singulares com base no seu comportamento social ou características pessoais, conduzindo a um tratamento prejudicial ou desfavorável em contextos não relacionados ou desproporcionado em relação ao comportamento?",
+        "help": "Abrange a pontuação social por autoridades públicas ou entidades privadas que conduza a tratamento desfavorável de pessoas em contextos sociais não relacionados com o contexto em que os dados foram originalmente gerados, ou tratamento injustificado ou desproporcionado em relação ao seu comportamento social."
+      },
+      "individual-predictive-policing": {
+        "text": "O seu sistema de IA realiza avaliações de risco de pessoas singulares para prever a probabilidade de uma pessoa cometer uma infração penal, baseando-se exclusivamente em perfis ou traços de personalidade?",
+        "help": "Proíbe a previsão de risco criminal individual baseada exclusivamente em perfis ou traços e características de personalidade. Não abrange sistemas que complementem a avaliação humana com base em factos objetivos e verificáveis diretamente relacionados com atividade criminal."
+      },
+      "untargeted-facial-scraping": {
+        "text": "O seu sistema de IA cria ou expande bases de dados de reconhecimento facial através da recolha não direcionada de imagens faciais da internet ou de imagens de CCTV?",
+        "help": "Proíbe a criação de bases de dados de reconhecimento facial através da recolha indiscriminada de imagens faciais de fontes da internet ou de sistemas de videovigilância sem seleção direcionada."
+      },
+      "emotion-inference-workplace-education": {
+        "text": "O seu sistema de IA infere emoções de pessoas singulares no contexto do local de trabalho ou de instituições de ensino, exceto quando o sistema se destina a ser colocado no mercado por razões médicas ou de segurança?",
+        "help": "Proíbe o reconhecimento de emoções no local de trabalho e no ensino. Estão excluídos os dispositivos médicos e os sistemas críticos para a segurança (por exemplo, monitorização da sonolência de condutores)."
+      },
+      "biometric-categorization-sensitive": {
+        "text": "O seu sistema de IA categoriza individualmente pessoas singulares com base em dados biométricos para deduzir ou inferir a sua raça, opiniões políticas, filiação sindical, convicções religiosas ou filosóficas, vida sexual ou orientação sexual?",
+        "help": "Proíbe a utilização de dados biométricos (rosto, voz, marcha, etc.) para inferir atributos sensíveis ou protegidos. A rotulagem ou filtragem de conjuntos de dados biométricos legalmente adquiridos (por exemplo, para fins de aplicação da lei) não está abrangida."
+      },
+      "realtime-biometric-public": {
+        "text": "O seu sistema de IA utiliza identificação biométrica remota em tempo real em espaços acessíveis ao público para fins de aplicação da lei?",
+        "help": "Proíbe a identificação biométrica remota em tempo real em espaços públicos para fins de aplicação da lei, com exceções restritas: busca de pessoas desaparecidas ou vítimas de rapto, prevenção de uma ameaça terrorista específica e iminente, ou localização ou identificação de pessoa suspeita de determinadas infrações penais graves. As exceções exigem autorização judicial prévia e avaliação rigorosa de necessidade/proporcionalidade."
+      },
+      "is-gpai": {
+        "text": "O seu modelo de IA é um modelo de IA de finalidade geral, ou seja, apresenta generalidade significativa, é capaz de desempenhar competentemente uma vasta gama de tarefas distintas e pode ser integrado numa variedade de sistemas ou aplicações a jusante?",
+        "help": "Um modelo de IA de finalidade geral (por exemplo, grandes modelos de linguagem, grandes modelos multimodais) é treinado com uma grande quantidade de dados utilizando auto-supervisão em escala, apresenta generalidade significativa e pode ser adaptado a uma vasta gama de tarefas a jusante distintas."
+      },
+      "gpai-flops": {
+        "text": "O seu modelo foi treinado utilizando uma capacidade computacional total superior a 10^25 FLOPs?",
+        "help": "Presume-se que os modelos treinados com mais de 10^25 operações de vírgula flutuante possuem capacidades de alto impacto e são automaticamente classificados como apresentando risco sistémico. A Comissão pode atualizar este limiar."
+      },
+      "is-open-source": {
+        "text": "O seu modelo é disponibilizado ao abrigo de uma licença livre e de código aberto que permite o acesso, utilização, modificação e distribuição, e cujos parâmetros, incluindo pesos, arquitetura e informação de utilização, são disponibilizados publicamente?",
+        "help": "Os modelos GPAI de código aberto apenas precisam de cumprir as obrigações de direitos de autor e publicar um resumo dos dados de treino, salvo se apresentarem risco sistémico. A licença deve ser verdadeiramente aberta (compatível com OSI ou equivalente)."
+      },
+      "designated-systemic-risk": {
+        "text": "O seu modelo foi designado pela Comissão Europeia como apresentando risco sistémico com base nas suas capacidades de alto impacto?",
+        "help": "Mesmo sem atingir o limiar de 10^25 FLOPs, a Comissão pode designar um modelo como apresentando risco sistémico com base em critérios que incluem o número de utilizadores finais registados, o alcance transfronteiriço ou o grau de autonomia de ação."
+      },
+      "annex-i-product": {
+        "text": "O seu sistema de IA é um componente de segurança de um produto, ou é ele próprio um produto, abrangido pela legislação de harmonização da União enumerada no Anexo I (por exemplo, máquinas, brinquedos, dispositivos médicos, veículos, aviação, ferroviário, marítimo, elevadores, equipamento sob pressão)?",
+        "help": "O Anexo I enumera mais de 20 peças de legislação de segurança de produtos da UE. Se o seu sistema de IA estiver integrado num produto ou for ele próprio um produto que deve ser submetido a uma avaliação de conformidade por terceiros ao abrigo de qualquer destas legislações, é de alto risco."
+      },
+      "annex-i-requires-third-party": {
+        "text": "A legislação do Anexo I aplicável exige uma avaliação de conformidade por terceiros para que o produto seja colocado no mercado?",
+        "help": "A classificação de alto risco ao abrigo da Via A apenas se aplica se a legislação de produtos aplicável exigir uma avaliação de conformidade por terceiros. Se a autoavaliação for suficiente ao abrigo da legislação de produtos, o componente de IA pode não ser automaticamente classificado como de alto risco por esta via."
+      },
+      "annex-iii-biometrics": {
+        "text": "O seu sistema de IA é utilizado para biometria, incluindo identificação biométrica remota, categorização biométrica por atributos sensíveis ou reconhecimento de emoções?",
+        "help": "Anexo III, área 1: Abrange a identificação biométrica remota (excluindo a variante em tempo real proibida), a categorização biométrica por atributos sensíveis ou protegidos e os sistemas de reconhecimento de emoções."
+      },
+      "annex-iii-critical-infrastructure": {
+        "text": "O seu sistema de IA é utilizado como componente de segurança na gestão e operação de infraestruturas críticas (tráfego rodoviário, água, gás, aquecimento, eletricidade)?",
+        "help": "Anexo III, área 2: Abrange sistemas de IA que funcionam como componentes de segurança em infraestruturas digitais ou físicas críticas que possam pôr em perigo a vida, a saúde ou causar danos ambientais ou patrimoniais significativos."
+      },
+      "annex-iii-education": {
+        "text": "O seu sistema de IA é utilizado no ensino ou na formação profissional, por exemplo na determinação do acesso/admissão, na avaliação dos resultados de aprendizagem, na determinação dos níveis educativos ou na monitorização do comportamento dos alunos durante exames?",
+        "help": "Anexo III, área 3: Abrange sistemas de IA que determinam o acesso ao ensino, avaliam resultados, determinam o nível educativo adequado ou monitorizam/detetam comportamento proibido durante exames."
+      },
+      "annex-iii-employment": {
+        "text": "O seu sistema de IA é utilizado no emprego, gestão de trabalhadores ou acesso ao trabalho por conta própria, por exemplo para recrutamento, triagem de candidaturas, avaliação de candidatos, tomada de decisões sobre condições de emprego ou monitorização/avaliação do desempenho dos trabalhadores?",
+        "help": "Anexo III, área 4: Abrange sistemas de IA para recrutamento, avaliação de candidatos, decisões de emprego (promoção, cessação), atribuição de tarefas com base em traços pessoais e monitorização do desempenho dos trabalhadores."
+      },
+      "annex-iii-essential-services": {
+        "text": "O seu sistema de IA é utilizado para acesso ou prestação de serviços privados ou públicos essenciais (elegibilidade para prestações públicas, avaliação de solvabilidade, avaliação de risco para seguros de vida/saúde ou classificação de chamadas de emergência)?",
+        "help": "Anexo III, área 5: Abrange sistemas de IA que avaliam a elegibilidade para assistência pública, avaliam a solvabilidade (exceto deteção de fraude), determinam preços de risco em seguros de vida/saúde e avaliam ou classificam chamadas de emergência para prioridade de despacho."
+      },
+      "annex-iii-law-enforcement": {
+        "text": "O seu sistema de IA é utilizado na aplicação da lei, por exemplo para avaliação de risco individual, como polígrafo, avaliação da fiabilidade de provas ou definição de perfis de pessoas durante investigações criminais?",
+        "help": "Anexo III, área 6: Abrange sistemas de IA para avaliação de risco individual (probabilidade de cometer/reincidir em infrações ou de vitimização), deteção de engano, avaliação da fiabilidade de provas e definição de perfis em investigações criminais."
+      },
+      "annex-iii-migration": {
+        "text": "O seu sistema de IA é utilizado na migração, asilo ou gestão do controlo de fronteiras, por exemplo na avaliação do risco de migração irregular, na análise de pedidos de asilo/visto/residência ou na identificação de pessoas nas fronteiras?",
+        "help": "Anexo III, área 7: Abrange sistemas de IA que avaliam o risco de migração irregular ou riscos sanitários, analisam pedidos de asilo/visto/residência e queixas associadas, e detetam/reconhecem/identificam pessoas (exceto verificação de documentos de viagem)."
+      },
+      "annex-iii-justice-democracy": {
+        "text": "O seu sistema de IA é utilizado na administração da justiça ou em processos democráticos, por exemplo auxiliando autoridades judiciais na pesquisa/interpretação/aplicação do direito, ou influenciando o resultado de eleições ou referendos?",
+        "help": "Anexo III, área 8: Abrange sistemas de IA que assistem tribunais na pesquisa, interpretação e aplicação de factos e do direito a casos concretos, e sistemas destinados a influenciar os resultados de eleições ou referendos (excluindo instrumentos organizativos que não influenciam diretamente os votos)."
+      },
+      "interacts-with-persons": {
+        "text": "O seu sistema de IA interage diretamente com pessoas singulares (por exemplo, chatbot, assistente de voz, agente virtual)?",
+        "help": "Os sistemas concebidos para interagir diretamente com pessoas devem divulgar que a pessoa está a interagir com um sistema de IA, salvo se tal for óbvio pelas circunstâncias e contexto de utilização."
+      },
+      "generates-synthetic-content": {
+        "text": "O seu sistema de IA gera ou manipula conteúdo sintético como imagens, áudio, vídeo ou texto (incluindo deepfakes)?",
+        "help": "Os fornecedores de sistemas de IA que geram conteúdo sintético de áudio, imagem, vídeo ou texto devem assegurar que os resultados são marcados como gerados ou manipulados artificialmente num formato legível por máquina, sempre que tecnicamente viável."
+      },
+      "emotion-recognition": {
+        "text": "O seu sistema de IA realiza reconhecimento de emoções (deteção ou inferência de emoções ou intenções de pessoas singulares com base em dados biométricos)?",
+        "help": "Os responsáveis pela implantação de sistemas de reconhecimento de emoções devem informar as pessoas expostas ao sistema de que este está em funcionamento e tratar os dados pessoais em conformidade com o RGPD."
+      },
+      "biometric-categorizing": {
+        "text": "O seu sistema de IA realiza categorização biométrica (classificação de pessoas singulares com base em dados biométricos em grupos segundo atributos específicos)?",
+        "help": "Os responsáveis pela implantação de sistemas de categorização biométrica devem informar as pessoas expostas sobre o funcionamento do sistema. Nota: a categorização por atributos sensíveis pode ser proibida ao abrigo do Artigo 5."
+      }
+    },
+    "timeline": {
+      "0": {
+        "title": "O Regulamento Europeu da IA entra em vigor",
+        "description": "O Regulamento (UE) 2024/1689 entra em vigor 20 dias após a publicação no Jornal Oficial. A maioria das disposições aplica-se de forma faseada ao longo dos 36 meses seguintes."
+      },
+      "1": {
+        "title": "Aplicação das práticas proibidas",
+        "description": "As proibições sobre práticas de IA proibidas (Artigo 5) e os requisitos de literacia em IA (Artigo 4) tornam-se aplicáveis. Os sistemas que executam práticas proibidas devem cessar a sua operação na UE."
+      },
+      "2": {
+        "title": "Aplicação das regras GPAI",
+        "description": "Entram em vigor as obrigações para fornecedores de modelos de IA de finalidade geral, incluindo documentação, cumprimento de direitos de autor, resumos dos dados de treino e obrigações adicionais para modelos com risco sistémico."
+      },
+      "3": {
+        "title": "Aplicação dos requisitos de alto risco",
+        "description": "Tornam-se aplicáveis os requisitos completos para sistemas de IA de alto risco (Artigos 6-15, 26-27) e as obrigações de transparência (Artigo 50). Os fornecedores devem cumprir requisitos de gestão de riscos, governação de dados, documentação, conservação de registos, transparência, supervisão humana, exatidão e robustez. É obrigatório o registo na base de dados da UE e a avaliação de conformidade antes da colocação no mercado."
+      },
+      "4": {
+        "title": "Modelos GPAI pré-existentes e sistemas informáticos de grande escala",
+        "description": "As obrigações aplicam-se a modelos GPAI já no mercado antes de agosto de 2025 e a sistemas de IA de alto risco que são componentes de sistemas informáticos de grande escala da UE (por exemplo, Sistema de Informação Schengen, Sistema de Informação sobre Vistos, Eurodac) enumerados no Anexo X."
+      },
+      "5": {
+        "title": "Componentes de segurança de produtos",
+        "description": "Entram plenamente em vigor as obrigações para sistemas de IA de alto risco que são componentes de segurança de produtos abrangidos pela legislação de harmonização da União do Anexo I (Via A ao abrigo do Artigo 6(1)). Estes sistemas devem cumprir todos os requisitos de alto risco e ser submetidos aos procedimentos de avaliação de conformidade aplicáveis."
+      }
+    },
+    "checklists": {
+      "prohibited-stop-deployment": "Suspender imediatamente a implantação do sistema de IA proibido na UE",
+      "prohibited-document-and-assess": "Documentar o sistema proibido e avaliar alternativas que alcancem o mesmo objetivo sem se enquadrarem nas proibições",
+      "hr-risk-lifecycle": "Estabelecer um sistema de gestão de riscos que funcione ao longo de todo o ciclo de vida",
+      "hr-risk-identify": "Identificar e analisar riscos conhecidos e razoavelmente previsíveis",
+      "hr-risk-estimate-intended": "Estimar e avaliar riscos decorrentes da utilização prevista e de utilizações indevidas razoavelmente previsíveis",
+      "hr-risk-post-market": "Avaliar riscos com base em dados de monitorização pós-comercialização",
+      "hr-risk-measures": "Adotar medidas de gestão de riscos para eliminar ou reduzir riscos",
+      "hr-risk-testing": "Testar o sistema para identificar as medidas de gestão de riscos mais adequadas",
+      "hr-risk-combined-effects": "Considerar os efeitos combinados quando o sistema é utilizado com outros sistemas",
+      "hr-risk-residual": "Documentar os riscos residuais e comunicá-los aos responsáveis pela implantação",
+      "hr-data-governance": "Assegurar que os conjuntos de dados de treino, validação e teste estão sujeitos a uma governação de dados adequada",
+      "hr-data-collection-docs": "Documentar os processos de recolha de dados e as fontes de dados",
+      "hr-data-relevance": "Avaliar os dados quanto à relevância, representatividade, completude e propriedades estatísticas",
+      "hr-data-bias-examination": "Examinar os dados quanto a possíveis enviesamentos suscetíveis de afetar a saúde, segurança ou direitos fundamentais",
+      "hr-data-gaps": "Identificar e corrigir lacunas ou deficiências nos dados",
+      "hr-data-bias-mitigation": "Aplicar medidas adequadas para deteção, correção e mitigação de enviesamentos",
+      "hr-data-quality": "Assegurar que os dados de treino estão isentos de erros e são completos em relação à finalidade prevista",
+      "hr-data-special-categories": "Em caso de tratamento de categorias especiais de dados pessoais: documentar a necessidade e as salvaguardas",
+      "hr-docs-general": "Preparar uma descrição geral do sistema de IA (finalidade prevista, criador, versão)",
+      "hr-docs-development": "Preparar uma descrição detalhada dos elementos e do processo de desenvolvimento",
+      "hr-docs-monitoring": "Preparar uma descrição detalhada da monitorização, funcionamento e controlo do sistema",
+      "hr-docs-risk-mgmt": "Incluir a descrição do sistema de gestão de riscos (conformidade com o Artigo 9)",
+      "hr-docs-lifecycle": "Documentar todas as alterações efetuadas ao longo do ciclo de vida do sistema",
+      "hr-docs-standards": "Listar as normas harmonizadas ou outras especificações técnicas aplicadas",
+      "hr-docs-human-oversight": "Descrever como são implementadas as medidas de supervisão humana",
+      "hr-docs-lifetime": "Documentar o tempo de vida previsto e as medidas de manutenção/conservação",
+      "hr-docs-accuracy-robustness": "Descrever as medidas de exatidão, robustez e cibersegurança do sistema de IA",
+      "hr-logs-automatic": "Assegurar que o sistema regista automaticamente eventos (registos) ao longo de toda a sua vida útil",
+      "hr-logs-tracing": "Assegurar que o registo permite rastrear o funcionamento do sistema",
+      "hr-logs-standards": "Assegurar que as capacidades de registo estão em conformidade com normas reconhecidas ou especificações comuns",
+      "hr-logs-content": "Os registos incluem: período de utilização, base de dados de referência, dados de entrada, identificação das pessoas singulares envolvidas na verificação",
+      "hr-transparency-interpretable": "Conceber o sistema de forma a permitir que os responsáveis pela implantação interpretem os resultados e os utilizem adequadamente",
+      "hr-transparency-identity": "As instruções de utilização incluem a identidade e os dados de contacto do fornecedor",
+      "hr-transparency-capabilities": "As instruções de utilização incluem as capacidades e limitações do sistema",
+      "hr-transparency-purpose": "As instruções de utilização incluem a finalidade prevista e cenários de utilização indevida previsível",
+      "hr-transparency-changes": "As instruções de utilização incluem alterações pré-determinadas pelo fornecedor",
+      "hr-transparency-oversight-info": "As instruções de utilização incluem medidas de supervisão humana",
+      "hr-transparency-accuracy-info": "As instruções de utilização incluem o nível esperado de exatidão, robustez e cibersegurança (referências)",
+      "hr-transparency-risks": "As instruções de utilização incluem riscos conhecidos para a saúde, segurança ou direitos fundamentais",
+      "hr-transparency-input-specs": "As instruções de utilização incluem especificações técnicas para os dados de entrada",
+      "hr-transparency-logging-info": "As instruções de utilização incluem a descrição da funcionalidade de registo",
+      "hr-oversight-design": "Conceber o sistema de forma a permitir uma supervisão eficaz por pessoas singulares durante a utilização",
+      "hr-oversight-understand": "A supervisão permite que o ser humano compreenda plenamente as capacidades e limitações do sistema",
+      "hr-oversight-monitor": "A supervisão permite a deteção de anomalias, disfunções e desempenho inesperado",
+      "hr-oversight-bias-awareness": "A supervisão inclui consciência do viés de automação, especialmente para decisões relativas a pessoas",
+      "hr-oversight-interpret": "A supervisão permite a interpretação correta dos resultados do sistema",
+      "hr-oversight-override": "A supervisão permite que o ser humano decida não utilizar o sistema ou anular/reverter os resultados",
+      "hr-oversight-stop": "A supervisão permite que o ser humano interrompa o sistema através de um botão de paragem ou procedimento semelhante",
+      "hr-accuracy-level": "Conceber o sistema para alcançar um nível adequado de exatidão para a sua finalidade prevista",
+      "hr-accuracy-declared": "Declarar os níveis de exatidão e as métricas nas instruções de utilização",
+      "hr-robustness-errors": "Assegurar que o sistema é resiliente a erros, falhas ou inconsistências no ambiente",
+      "hr-robustness-adversarial": "Assegurar que o sistema é resiliente a tentativas adversariais de terceiros para o manipular",
+      "hr-robustness-failsafe": "Conceber para tratamento seguro de situações inesperadas (planos de contingência/segurança)",
+      "hr-cybersecurity": "Implementar medidas de cibersegurança proporcionais ao risco",
+      "hr-redundancy": "Implementar soluções de redundância técnica quando adequado (planos de contingência, mecanismos de segurança)",
+      "hr-conformity-route": "Determinar a via de avaliação de conformidade: autoavaliação ou avaliação por terceiros",
+      "hr-register-eu-db": "Registar na base de dados da UE antes de colocar o sistema no mercado",
+      "hr-ce-marking": "Apor a marcação CE após avaliação de conformidade bem-sucedida",
+      "hr-declaration-conformity": "Preparar a Declaração de Conformidade UE",
+      "hr-authorised-rep": "Designar um representante autorizado na UE (se o fornecedor estiver fora da UE)",
+      "hr-post-market-monitoring": "Estabelecer um sistema de monitorização pós-comercialização",
+      "hr-incident-reporting-procedure": "Estabelecer um procedimento de comunicação de incidentes graves",
+      "hr-incident-reporting-timeline": "Comunicar incidentes graves às autoridades de fiscalização do mercado sem demora indevida e no prazo de 15 dias",
+      "gpai-tech-docs": "Preparar e manter documentação técnica do modelo (Anexo XI)",
+      "gpai-tech-docs-training": "Documentar a metodologia de treino, técnicas, opções de conceção e pressupostos",
+      "gpai-tech-docs-data-sources": "Documentar as fontes de dados de treino, incluindo uma descrição geral e a proveniência dos dados",
+      "gpai-tech-docs-compute": "Documentar os recursos computacionais utilizados para o treino",
+      "gpai-downstream-info": "Preparar e manter informação e documentação para fornecedores a jusante",
+      "gpai-copyright": "Cumprir a legislação de direitos de autor da UE (Diretiva 2019/790), incluindo a opção de exclusão de mineração de texto e dados",
+      "gpai-training-data-summary": "Publicar um resumo suficientemente detalhado do conteúdo dos dados de treino",
+      "gpai-open-source-exception": "Se de código aberto: verificar que apenas o cumprimento dos direitos de autor e o resumo dos dados de treino são exigidos",
+      "gpai-code-of-practice": "Considerar a adesão ao Código de Boas Práticas para fornecedores de GPAI",
+      "gpai-sys-tech-docs": "Preparar e manter documentação técnica do modelo (Anexo XI)",
+      "gpai-sys-downstream-info": "Preparar e manter informação e documentação para fornecedores a jusante",
+      "gpai-sys-copyright": "Cumprir a legislação de direitos de autor da UE (Diretiva 2019/790), incluindo a opção de exclusão de mineração de texto e dados",
+      "gpai-sys-training-data-summary": "Publicar um resumo suficientemente detalhado do conteúdo dos dados de treino",
+      "gpai-sys-model-eval": "Realizar a avaliação do modelo de acordo com protocolos e ferramentas normalizados",
+      "gpai-sys-red-teaming": "Realizar testes adversariais (red teaming) para identificar e mitigar riscos sistémicos",
+      "gpai-sys-assess-mitigate": "Avaliar e mitigar possíveis riscos sistémicos, incluindo as suas fontes",
+      "gpai-sys-incident-tracking": "Acompanhar, documentar e comunicar incidentes graves ao Gabinete para a IA e às autoridades nacionais",
+      "gpai-sys-cybersecurity": "Assegurar uma proteção de cibersegurança adequada para o modelo e a sua infraestrutura física",
+      "gpai-sys-code-of-practice": "Considerar a adesão ao Código de Boas Práticas para fornecedores de GPAI (incluindo disposições sobre risco sistémico)",
+      "limited-ai-disclosure": "Informar os utilizadores de que estão a interagir com um sistema de IA (salvo se óbvio pelo contexto)",
+      "limited-disclosure-format": "Assegurar que a divulgação da IA é clara, oportuna e num formato acessível",
+      "limited-synthetic-marking": "Marcar o conteúdo sintético (deepfakes, texto/imagens/áudio/vídeo gerados por IA) como gerado ou manipulado artificialmente",
+      "limited-synthetic-machine-readable": "Assegurar que a marcação de conteúdo sintético é legível por máquina, sempre que tecnicamente viável",
+      "limited-emotion-inform": "Informar as pessoas expostas a sistemas de reconhecimento de emoções de que o sistema está em funcionamento",
+      "limited-biometric-inform": "Informar as pessoas expostas a sistemas de categorização biométrica de que o sistema está em funcionamento",
+      "minimal-voluntary-codes": "Considerar a adoção de códigos de conduta voluntários que abranjam a sustentabilidade ambiental, a acessibilidade, a participação das partes interessadas e a diversidade das equipas de desenvolvimento",
+      "minimal-voluntary-high-risk-subset": "Considerar a aplicação voluntária dos requisitos para sistemas de alto risco (ou de um subconjunto)",
+      "minimal-ai-pact": "Considerar o cumprimento dos compromissos do AI Pact (adoção voluntária antecipada de certas disposições do Regulamento da IA)",
+      "minimal-good-practices": "Documentar as capacidades e limitações do sistema, monitorizar comportamentos inesperados e manter transparência com os utilizadores sobre o envolvimento de IA"
     }
   }
 }
