@@ -1,6 +1,6 @@
 {
   "nav": {
-    "home": "EU AI Act Toolkit",
+    "home": "欧盟人工智能法案工具包",
     "classify": "分类",
     "checklist": "检查清单",
     "timeline": "时间线",
@@ -15,8 +15,8 @@
   },
   "landing": {
     "hero": {
-      "title": "EU AI Act 合规工具包",
-      "subtitle": "用于解读 Regulation (EU) 2024/1689 的开源工具",
+      "title": "欧盟人工智能法案合规工具包",
+      "subtitle": "用于解读《欧盟第2024/1689号条例》的开源工具",
       "description": "对您的AI系统进行风险等级分类、跟踪合规义务、生成文档，并提前应对执行截止日期。",
       "ctaClassify": "对您的AI系统进行分类",
       "ctaLearnMore": "了解更多"
@@ -25,7 +25,7 @@
       "title": "您可以执行的操作",
       "classifier": {
         "title": "风险分类",
-        "description": "通过交互式向导确定您的AI系统在 EU AI Act 下属于禁止类、高风险类、GPAI、有限风险类还是最低风险类。"
+        "description": "通过交互式向导确定您的AI系统在欧盟人工智能法案下属于禁止类、高风险类、GPAI、有限风险类还是最低风险类。"
       },
       "checklists": {
         "title": "合规检查清单",
@@ -33,7 +33,7 @@
       },
       "timeline": {
         "title": "执行时间线",
-        "description": "EU AI Act 所有执行日期的可视化时间线——查看已生效、即将生效和未来的日期。"
+        "description": "欧盟人工智能法案所有执行日期的可视化时间线——查看已生效、即将生效和未来的日期。"
       },
       "templates": {
         "title": "文档模板",
@@ -45,7 +45,7 @@
       },
       "penalties": {
         "title": "处罚计算器",
-        "description": "根据 Article 99，基于您的风险等级、组织类型和年营业额计算最高罚款风险敞口。"
+        "description": "根据第99条，基于您的风险等级、组织类型和年营业额计算最高罚款风险敞口。"
       },
       "gaps": {
         "title": "差距分析",
@@ -53,7 +53,7 @@
       },
       "standards": {
         "title": "标准映射",
-        "description": "浏览与 EU AI Act 要求对应的 ISO、CEN/CENELEC 及其他协调标准。"
+        "description": "浏览与欧盟人工智能法案要求对应的 ISO、CEN/CENELEC 及其他协调标准。"
       },
       "reports": {
         "title": "合规报告",
@@ -69,11 +69,11 @@
   },
   "classifier": {
     "title": "AI系统风险分类器",
-    "subtitle": "确定您的AI系统适用哪个 EU AI Act 风险等级",
+    "subtitle": "确定您的AI系统适用哪个欧盟人工智能法案风险等级",
     "steps": {
       "prohibited": {
         "title": "禁止行为",
-        "description": "检查您的AI系统是否属于 Article 5 禁止的行为"
+        "description": "检查您的AI系统是否属于第5条禁止的行为"
       },
       "gpai": {
         "title": "通用人工智能",
@@ -85,7 +85,7 @@
       },
       "highRisk": {
         "title": "高风险分类",
-        "description": "检查 Annex I 安全组件和 Annex III 使用场景"
+        "description": "检查附件一安全组件和附件三使用场景"
       },
       "limited": {
         "title": "有限风险（透明度）",
@@ -110,7 +110,7 @@
     "results": {
       "prohibited": {
         "title": "禁止的AI系统",
-        "description": "您的AI系统根据 EU AI Act 的 Article 5 被禁止。",
+        "description": "您的AI系统根据欧盟人工智能法案第5条被禁止。",
         "action": "停止开发或从根本上重新设计以消除被禁止的功能。"
       },
       "highRisk": {
@@ -142,7 +142,7 @@
   },
   "checklists": {
     "title": "合规检查清单",
-    "subtitle": "跟踪您的 EU AI Act 合规义务",
+    "subtitle": "跟踪您的欧盟人工智能法案合规义务",
     "filters": {
       "all": "所有项目",
       "complete": "已完成",
@@ -158,7 +158,7 @@
     "item": {
       "required": "必需",
       "recommended": "建议",
-      "article": "Article {number}",
+      "article": "第{number}条",
       "deadline": "截止日期：{date}",
       "markComplete": "标记为已完成",
       "markIncomplete": "标记为未完成"
@@ -186,7 +186,7 @@
   },
   "timeline": {
     "title": "执行时间线",
-    "subtitle": "EU AI Act 合规关键日期",
+    "subtitle": "欧盟人工智能法案合规关键日期",
     "filters": {
       "all": "所有日期",
       "past": "已生效",
@@ -201,8 +201,8 @@
       "entryIntoForce": "生效",
       "prohibitions": "禁止的AI行为",
       "gpaiObligations": "GPAI 义务",
-      "highRiskAnnexIII": "高风险（Annex III）义务",
-      "highRiskAnnexI": "高风险（Annex I）义务",
+      "highRiskAnnexIII": "高风险（附件三）义务",
+      "highRiskAnnexI": "高风险（附件一）义务",
       "fullEnforcement": "全面执行"
     }
   },
@@ -212,23 +212,23 @@
     "list": {
       "conformity": {
         "title": "欧盟符合性声明",
-        "description": "根据 Article 47 和 Annex V，高风险AI系统的必需声明。"
+        "description": "根据第47条和附件五，高风险AI系统的必需声明。"
       },
       "riskAssessment": {
         "title": "基本权利影响评估",
-        "description": "根据 Article 27，由公共机构部署的高风险AI系统的必需评估。"
+        "description": "根据第27条，由公共机构部署的高风险AI系统的必需评估。"
       },
       "modelCard": {
         "title": "GPAI 模型卡",
-        "description": "根据 Article 53 和 Annex XI，GPAI 模型的技术文档。"
+        "description": "根据第53条和附件十一，GPAI 模型的技术文档。"
       },
       "impactAssessment": {
         "title": "数据保护影响评估",
-        "description": "适用于处理个人数据的AI系统的 DPIA 模板，与 GDPR Article 35 保持一致。"
+        "description": "适用于处理个人数据的AI系统的数据保护影响评估模板，与《通用数据保护条例》第35条保持一致。"
       },
       "transparencyNotice": {
         "title": "透明度通知",
-        "description": "根据 Article 50，面向用户的具有透明度义务的AI系统通知。"
+        "description": "根据第50条，面向用户的具有透明度义务的AI系统通知。"
       }
     },
     "generate": "生成文档",
@@ -238,7 +238,7 @@
   },
   "examples": {
     "title": "详细示例",
-    "subtitle": "了解 EU AI Act 如何应用于实际AI系统",
+    "subtitle": "了解欧盟人工智能法案如何应用于实际AI系统",
     "backToList": "返回示例列表",
     "classification": "分类",
     "obligations": "主要义务",
@@ -246,41 +246,41 @@
     "relatedArticles": "相关条款"
   },
   "footer": {
-    "description": "开源 EU AI Act 合规工具包。为开发人员、合规团队和法律专业人士打造。",
+    "description": "开源欧盟人工智能法案合规工具包。为开发人员、合规团队和法律专业人士打造。",
     "links": {
       "github": "GitHub",
       "docs": "文档",
       "eurLex": "EUR-Lex 全文",
-      "aiOffice": "EU AI Office"
+      "aiOffice": "欧盟人工智能办公室"
     },
     "legal": {
       "title": "法律信息",
       "license": "MIT 许可证",
       "privacy": "隐私政策"
     },
-    "copyright": "EU AI Act Toolkit。基于 MIT 许可证的开源项目。",
-    "regulation": "基于欧洲议会和理事会的 Regulation (EU) 2024/1689。",
-    "tagline": "Made with care for AI compliance teams worldwide"
+    "copyright": "欧盟人工智能法案工具包。基于 MIT 许可证的开源项目。",
+    "regulation": "基于欧洲议会和理事会《欧盟第2024/1689号条例》。",
+    "tagline": "用心服务全球AI合规团队"
   },
   "disclaimer": {
     "short": "本工具不构成法律建议。",
-    "full": "本工具不构成法律建议。合规决策请咨询合格的法律顾问。EU AI Act Toolkit 是一个开源项目，与欧盟或任何欧盟机构无关联。",
+    "full": "本工具不构成法律建议。合规决策请咨询合格的法律顾问。欧盟人工智能法案工具包是一个开源项目，与欧盟或任何欧盟机构无关联。",
     "dismiss": "我已了解"
   },
   "articles": {
-    "title": "EU AI Act 条款",
-    "subtitle": "浏览和搜索 Regulation (EU) 2024/1689 的所有条款"
+    "title": "欧盟人工智能法案条款",
+    "subtitle": "浏览和搜索《欧盟第2024/1689号条例》的所有条款"
   },
   "penalties": {
     "title": "处罚风险",
-    "subtitle": "了解不遵守 EU AI Act 的财务后果",
+    "subtitle": "了解不遵守欧盟人工智能法案的财务后果",
     "calculator": {
       "title": "处罚计算器",
       "description": "根据风险等级、组织类型和年营业额计算组织的最大处罚风险。"
     },
     "overview": {
-      "title": "EU AI Act 处罚等级",
-      "description": "Regulation (EU) 2024/1689 Article 99 中定义的所有处罚类别。"
+      "title": "欧盟人工智能法案处罚等级",
+      "description": "《欧盟第2024/1689号条例》第99条中定义的所有处罚类别。"
     }
   },
   "gaps": {
@@ -298,7 +298,7 @@
   },
   "standards": {
     "title": "协调标准",
-    "subtitle": "与 EU AI Act 要求对应的 ISO、CEN/CENELEC 及其他标准"
+    "subtitle": "与欧盟人工智能法案要求对应的 ISO、CEN/CENELEC 及其他标准"
   },
   "reports": {
     "title": "合规报告生成器",
