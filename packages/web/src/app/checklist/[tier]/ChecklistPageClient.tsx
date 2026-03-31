@@ -9,6 +9,7 @@ import { Layout } from '@/components/shared/Layout';
 import { RiskBadge } from '@/components/shared/RiskBadge';
 import { ChecklistView } from '@/components/checklist/ChecklistView';
 import { exportState, importState, getState, setState } from '@/lib/storage';
+import { exportChecklistAsMarkdown, exportChecklistAsCsv, downloadFile } from '@/lib/export';
 
 const PROGRESS_KEY_PREFIX = 'eu-ai-act-checklist-';
 
@@ -62,6 +63,7 @@ export default function ChecklistPage() {
   const [checklist, setChecklist] = useState<Checklist | null>(null);
   const [progress, setProgress] = useState<Record<string, ChecklistProgress>>({});
   const [error, setError] = useState<string | null>(null);
+  const [exportOpen, setExportOpen] = useState(false);
 
   useEffect(() => {
     if (!RISK_TIERS.includes(tier as RiskTier)) {
@@ -186,16 +188,72 @@ export default function ChecklistPage() {
               <p className="mt-2 text-slate-500">{t('subtitle')}</p>
             </div>
             <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={exportState}
-                className="inline-flex items-center gap-2 rounded-lg bg-eu-blue px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-eu-blue/90 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
-              >
-                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                </svg>
-                {t('export.button')}
-              </button>
+              {/* Export dropdown */}
+              <div className="relative">
+                <button
+                  type="button"
+                  onClick={() => setExportOpen(!exportOpen)}
+                  className="inline-flex items-center gap-2 rounded-lg bg-eu-blue px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-eu-blue/90 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
+                >
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                  </svg>
+                  {t('export.button')}
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+                {exportOpen && (
+                  <div className="absolute right-0 top-full z-10 mt-1 w-48 rounded-lg border border-slate-200 bg-white py-1 shadow-lg">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (checklist) {
+                          const state = getState();
+                          const md = exportChecklistAsMarkdown(
+                            tier as RiskTier,
+                            checklist.items,
+                            progress,
+                            state?.system.name,
+                            state?.system.provider,
+                          );
+                          downloadFile(md, `checklist-${tier}-${Date.now()}.md`, 'text/markdown');
+                        }
+                        setExportOpen(false);
+                      }}
+                      className="flex w-full items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >
+                      <span className="text-xs font-mono bg-slate-100 px-1.5 py-0.5 rounded">MD</span>
+                      {t('export.markdown')}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (checklist) {
+                          const csv = exportChecklistAsCsv(tier as RiskTier, checklist.items, progress);
+                          downloadFile(csv, `checklist-${tier}-${Date.now()}.csv`, 'text/csv');
+                        }
+                        setExportOpen(false);
+                      }}
+                      className="flex w-full items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >
+                      <span className="text-xs font-mono bg-slate-100 px-1.5 py-0.5 rounded">CSV</span>
+                      {t('export.csv')}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        exportState();
+                        setExportOpen(false);
+                      }}
+                      className="flex w-full items-center gap-2 px-4 py-2 text-sm text-slate-700 hover:bg-slate-50"
+                    >
+                      <span className="text-xs font-mono bg-slate-100 px-1.5 py-0.5 rounded">JSON</span>
+                      {t('export.json')}
+                    </button>
+                  </div>
+                )}
+              </div>
               <button
                 type="button"
                 onClick={handleImport}
