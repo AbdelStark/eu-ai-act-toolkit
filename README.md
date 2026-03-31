@@ -13,6 +13,17 @@
 
 ---
 
+<table>
+  <tr>
+    <td align="center"><img src="docs/assets/img/webapp-1.png" width="400" alt="Web App — Classification Wizard" /><br /><sub>Classification wizard with step-by-step risk assessment</sub></td>
+    <td align="center"><img src="docs/assets/img/webapp-2.png" width="400" alt="Web App — Compliance Dashboard" /><br /><sub>Compliance dashboard with checklists and gap analysis</sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/assets/img/cli-1.png" width="400" alt="CLI — Interactive Classification" /><br /><sub>Interactive CLI classification with guided questions</sub></td>
+    <td align="center"><img src="docs/assets/img/cli-2.png" width="400" alt="CLI — Checklist Output" /><br /><sub>Compliance checklist with obligation tracking</sub></td>
+  </tr>
+</table>
+
 The EU AI Act is the first comprehensive AI regulation. Prohibitions are already enforceable. GPAI rules apply August 2025. Full high-risk requirements hit August 2026. Penalties go up to 35M EUR or 7% of global turnover.
 
 This toolkit helps you figure out what applies to you and track your compliance. Three components, same data, no vendor lock-in.
