@@ -107,6 +107,59 @@ export { getTimeline } from './timeline/events.js';
  */
 export { generateTemplate } from './templates/renderer.js';
 
+/**
+ * Get all EU AI Act article references, sorted by article number.
+ */
+export { getArticles } from './articles/lookup.js';
+
+/**
+ * Get a specific article by its number.
+ * Returns null if the article is not in the index.
+ */
+export { getArticle } from './articles/lookup.js';
+
+/**
+ * Get all articles applicable to a given risk tier.
+ */
+export { getArticlesByTier } from './articles/lookup.js';
+
+/**
+ * Get all Annex III high-risk use case categories.
+ */
+export { getAnnexes } from './annexes/lookup.js';
+
+/**
+ * Get a specific Annex III category by its identifier.
+ * Returns null if the category is not found.
+ */
+export { getAnnex } from './annexes/lookup.js';
+
+/**
+ * Get all worked classification examples.
+ * Pre-configured AI system scenarios with inputs, expected tiers, and walkthroughs.
+ */
+export { getExamples } from './examples/loader.js';
+
+/**
+ * Get a specific worked example by its URL-safe slug.
+ * Returns null if not found.
+ */
+export { getExampleBySlug } from './examples/loader.js';
+
+/**
+ * Validate all worked examples against the classification engine.
+ * Useful for regression testing and data integrity checks.
+ */
+export { validateExamples } from './examples/loader.js';
+
+/**
+ * Generate a comprehensive compliance report as Markdown.
+ *
+ * Combines classification results, checklist status, applicable articles,
+ * and enforcement timeline into a single document.
+ */
+export { generateReport } from './reports/generator.js';
+
 // -- Public Types --
 export type {
   RiskTier,
@@ -128,6 +181,11 @@ export type {
   WorkedExample,
   StateFile,
 } from './data/types.js';
+
+export type { ArticleReference } from './articles/lookup.js';
+export type { AnnexIIIDetail } from './annexes/lookup.js';
+export type { ExampleValidationResult } from './examples/loader.js';
+export type { ReportOptions } from './reports/generator.js';
 
 // -- Constants --
 
