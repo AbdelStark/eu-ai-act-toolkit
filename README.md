@@ -20,8 +20,8 @@ This toolkit helps you figure out what applies to you and track your compliance.
 | Component | What it does |
 |-----------|-------------|
 | **[`@eu-ai-act/sdk`](packages/sdk/)** | TypeScript library. Classify systems, generate checklists, render templates. |
-| **[`eu-ai-act`](packages/cli/)** | CLI tool. Interactive classification wizard, compliance tracking, doc generation. |
-| **[Web App](packages/web/)** | Visual dashboard. Timeline, classifier wizard, interactive checklists. |
+| **[`eu-ai-act`](packages/cli/)** | CLI tool. 12 commands: classify, checklist, timeline, templates, examples, articles, annexes, penalties, gaps, standards, reports. |
+| **[Web App](packages/web/)** | Visual dashboard. Classification wizard, checklists, timeline, templates, examples, articles browser, penalty calculator, gap analysis, standards mapping, compliance reports. 14 languages. |
 
 ## Get Started
 
@@ -36,7 +36,10 @@ Walks you through a step-by-step classification of your AI system. Outputs which
 ```bash
 npx eu-ai-act checklist high-risk    # See all requirements for high-risk systems
 npx eu-ai-act timeline               # Enforcement dates and countdowns
-npx eu-ai-act generate --tier high-risk --output ./compliance/
+npx eu-ai-act penalties high-risk    # Calculate penalty exposure
+npx eu-ai-act gaps high-risk         # Analyze compliance gaps
+npx eu-ai-act standards --mapping    # View standards compliance matrix
+npx eu-ai-act report --format md     # Generate comprehensive compliance report
 ```
 
 See the full [CLI documentation](packages/cli/README.md).
@@ -119,13 +122,16 @@ Checklists support evidence tracking, notes, and export to JSON/Markdown.
 
 ### Documentation Templates
 
-Pre-structured templates for everything the Act requires from high-risk system providers:
+8 pre-structured templates for compliance documentation:
 
 - **Technical Documentation** (Annex IV) - system description, architecture, data, validation
 - **Risk Management System** (Art. 9) - risk identification, evaluation, mitigation, residual risk
 - **Data Governance** (Art. 10) - data provenance, bias assessment, representativeness
 - **Human Oversight Plan** (Art. 14) - monitoring, interpretation, override, automation bias mitigation
 - **Post-Market Monitoring** (Art. 72) - performance tracking, incident reporting, continuous improvement
+- **Declaration of Conformity** (Art. 47) - EU declaration per Annex V
+- **GPAI Model Card** (Art. 53) - model information per Annex XI
+- **Fundamental Rights Impact Assessment** (Art. 27) - impact assessment for public-body deployments
 
 ### Enforcement Timeline
 
@@ -137,13 +143,44 @@ Pre-structured templates for everything the Act requires from high-risk system p
 | **Aug 2, 2027** | Legacy GPAI models + large-scale IT systems |
 | **Aug 2, 2028** | Annex I product safety components |
 
+### Penalty Calculator
+
+Calculates maximum fine exposure based on:
+- Risk tier and infringement category (Article 99)
+- Organization type (large, SME, startup, EU institution)
+- Annual turnover for percentage-based fines
+- SME reductions (Art. 99(6)) and EU institution caps (Art. 99(7))
+
+### Gap Analysis
+
+Comprehensive compliance gap analysis combining:
+- Per-item gap detection with priority scoring (critical/high/medium/low)
+- Category-level completion tracking
+- Deadline urgency calculations
+- Fine exposure estimates for outstanding items
+- Prioritized remediation recommendations
+
+### Harmonised Standards Mapping
+
+Maps ISO, CEN/CENELEC JTC 21, and other relevant standards to EU AI Act requirements:
+- Standard list with status tracking (published, in development, draft)
+- Obligation-category-to-standards mapping matrix
+- Filterable by risk tier, status, and search
+
 ### Worked Examples
 
-Step-by-step classification walkthroughs for real scenarios:
+10 step-by-step classification walkthroughs covering all 6 risk tiers:
 
-- **Customer service chatbot** - Limited risk. Transparency obligations only.
-- **AI hiring screening tool** - High-risk (Annex III, employment). Full Articles 9-15.
-- **Autonomous vehicle** - High-risk + third-party conformity assessment.
+- **Social scoring system** - Prohibited (Art. 5)
+- **AI hiring screening tool** - High-risk (Annex III, employment)
+- **Credit scoring AI** - High-risk (Annex III, creditworthiness)
+- **Autonomous vehicle** - High-risk + third-party conformity assessment
+- **Foundation model** - GPAI
+- **Frontier model** - GPAI with systemic risk
+- **Open-source LLM** - GPAI with open-source exemption
+- **Deepfake generator** - Limited risk (transparency)
+- **Customer service chatbot** - Limited risk
+- **Spam filter** - Minimal risk
 
 ## Architecture
 
@@ -158,8 +195,12 @@ eu-ai-act-toolkit/
 │   ├── checklists.json   # All checklist items with article references
 │   ├── timeline.json     # Enforcement dates
 │   ├── articles.json     # Article text and cross-references
-│   └── examples.json     # Worked example metadata
-├── locales/              # i18n strings (English, more coming)
+│   ├── annexes.json      # Annex III categories
+│   ├── examples.json     # 10 worked classification examples
+│   ├── penalties.json    # Article 99 penalty tiers
+│   ├── standards.json    # Harmonised standards mapping
+│   └── schema/           # JSON Schema validation
+├── locales/              # i18n strings
 └── docs/                 # Static compliance documents
 ```
 
@@ -254,22 +295,22 @@ Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Things that would help most right now:
 - Corrections to legal interpretations (cite the Article)
-- Additional worked examples
-- Translations (French and German are priorities)
-- Harmonised standards mapping as CEN/CENELEC JTC 21 publishes them
+- Translation review (all 14 languages have machine translations that need native speaker review)
+- Updated standards mapping as CEN/CENELEC JTC 21 publishes new harmonised standards
+- Additional worked examples for edge cases
 
 ## Project Status
 
-This project is in **beta** (v0.1.0). The SDK classification engine, checklists, templates, timeline, gap analysis, and penalty calculations are functional and tested (321+ tests). The CLI is usable. The web app builds but depends on Google Fonts at build time.
+This project is in **beta** (v0.1.0). The SDK includes classification engine, checklists, templates, timeline, gap analysis, penalty calculations, standards mapping, article/annex lookup, and compliance report generation — all tested (344+ tests). The CLI has 12 commands. The web app has 10 pages covering all SDK features in 14 languages.
 
-**Suitable for**: Evaluating AI system risk tiers, generating initial compliance documentation, tracking obligations during pre-enforcement planning.
+**Suitable for**: Evaluating AI system risk tiers, generating initial compliance documentation, tracking obligations during pre-enforcement planning, estimating penalty exposure, analyzing compliance gaps.
 
 **Not yet suitable for**: Production compliance auditing without legal counsel review. The legal interpretations have not been independently validated by EU AI Act specialists.
 
 **Known limitations**:
 - Web app requires network access at build time (Google Fonts)
 - SDK is not yet published to npm
-- Only English locale is complete
+- Non-English translations are machine-generated and should be reviewed
 - Harmonised standards mapping is preliminary (CEN/CENELEC JTC 21 standards are in development)
 
 ## Disclaimer
