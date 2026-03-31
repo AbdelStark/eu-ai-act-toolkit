@@ -8,7 +8,7 @@ import { getChecklist, RISK_TIERS } from '@eu-ai-act/sdk';
 import { Layout } from '@/components/shared/Layout';
 import { RiskBadge } from '@/components/shared/RiskBadge';
 import { ChecklistView } from '@/components/checklist/ChecklistView';
-import { importState, getState, setState } from '@/lib/storage';
+import { getState, setState } from '@/lib/storage';
 
 const PROGRESS_KEY_PREFIX = 'eu-ai-act-checklist-';
 
@@ -83,7 +83,7 @@ export default function ChecklistPage() {
     URL.revokeObjectURL(url);
   }, [tier, progress]);
 
-  const handleImport = async () => {
+  const handleImport = useCallback(() => {
     const input = document.createElement('input');
     input.type = 'file';
     input.accept = '.json';
@@ -91,17 +91,22 @@ export default function ChecklistPage() {
       const file = (e.target as HTMLInputElement).files?.[0];
       if (!file) return;
       try {
-        const state = await importState(file);
-        if (state.checklist) {
-          setProgress(state.checklist);
-          saveProgress(tier, state.checklist);
+        const text = await file.text();
+        const parsed = JSON.parse(text);
+        // Support both new format { tier, progress } and old StateFile { checklist }
+        const imported = parsed.progress ?? parsed.checklist;
+        if (imported && typeof imported === 'object') {
+          setProgress(imported);
+          saveProgress(tier, imported);
+        } else {
+          alert('Invalid file: no checklist progress data found.');
         }
       } catch {
-        alert('Failed to import state file.');
+        alert('Failed to import file. Please select a valid JSON export.');
       }
     };
     input.click();
-  };
+  }, [tier]);
 
   if (error) {
     return (
