@@ -74,7 +74,9 @@ export type TemplateName =
   | 'data-governance'
   | 'human-oversight-plan'
   | 'monitoring-plan'
-  | 'declaration-of-conformity';
+  | 'declaration-of-conformity'
+  | 'gpai-model-card'
+  | 'fundamental-rights-impact';
 
 /**
  * Type of conformity assessment required for an AI system.
@@ -128,6 +130,8 @@ export const TEMPLATE_NAMES: readonly TemplateName[] = [
   'human-oversight-plan',
   'monitoring-plan',
   'declaration-of-conformity',
+  'gpai-model-card',
+  'fundamental-rights-impact',
 ] as const;
 
 /** All valid obligation category values. Use for runtime validation. */
