@@ -71,7 +71,7 @@ const result = classify({
 });
 
 console.log(result.tier);        // 'gpai'
-console.log(result.articles);    // [51, 52, 53]
+console.log(result.articles);    // [51, 53] (Article 52 excluded for open-source)
 console.log(result.reasoning);   // Step-by-step explanation
 ```
 
@@ -257,6 +257,20 @@ Things that would help most right now:
 - Additional worked examples
 - Translations (French and German are priorities)
 - Harmonised standards mapping as CEN/CENELEC JTC 21 publishes them
+
+## Project Status
+
+This project is in **beta** (v0.1.0). The SDK classification engine, checklists, templates, timeline, gap analysis, and penalty calculations are functional and tested (321+ tests). The CLI is usable. The web app builds but depends on Google Fonts at build time.
+
+**Suitable for**: Evaluating AI system risk tiers, generating initial compliance documentation, tracking obligations during pre-enforcement planning.
+
+**Not yet suitable for**: Production compliance auditing without legal counsel review. The legal interpretations have not been independently validated by EU AI Act specialists.
+
+**Known limitations**:
+- Web app requires network access at build time (Google Fonts)
+- SDK is not yet published to npm
+- Only English locale is complete
+- Harmonised standards mapping is preliminary (CEN/CENELEC JTC 21 standards are in development)
 
 ## Disclaimer
 

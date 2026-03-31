@@ -192,7 +192,7 @@ export function analyzeGaps(input: GapAnalysisInput): GapAnalysisResult {
     .sort((a, b) => b.priorityScore - a.priorityScore);
 
   // Category-level summary
-  const categorySummary = computeCategorySummary(checklist.items, progress);
+  const categorySummary = computeCategorySummary(checklist.items, progress, daysUntilDeadline);
 
   // Critical gaps count
   const criticalGaps = gaps.filter((g) => g.priority === 'critical').length;
@@ -325,6 +325,7 @@ function formatUrgency(daysUntilDeadline: number, required: boolean): string {
 function computeCategorySummary(
   items: ChecklistItem[],
   progress: Record<string, ChecklistProgress>,
+  daysUntilDeadline: number,
 ): CategoryGapSummary[] {
   const categories = new Map<string, { total: number; completed: number; priorities: GapPriority[] }>();
 
@@ -334,9 +335,7 @@ function computeCategorySummary(
     if (progress[item.id]?.checked) {
       cat.completed++;
     } else {
-      // Determine the priority for uncompleted items — we use 'medium' as default
-      // since we don't have deadline info here (it's a simpler summary)
-      cat.priorities.push(item.required ? 'medium' : 'low');
+      cat.priorities.push(computePriority(item.required, daysUntilDeadline));
     }
     categories.set(item.category, cat);
   }

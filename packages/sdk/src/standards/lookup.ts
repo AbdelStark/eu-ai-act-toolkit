@@ -1,4 +1,5 @@
 import type { RiskTier } from '../data/types.js';
+import { RISK_TIERS } from '../data/types.js';
 import { getStandardsData } from '../data/loader.js';
 
 /**
@@ -88,8 +89,14 @@ export function getStandards(): Standard[] {
  *
  * @param id - Standard identifier (e.g., "iso-42001")
  * @returns The standard, or null if not found.
+ * @throws {TypeError} If id is not a non-empty string
  */
 export function getStandard(id: string): Standard | null {
+  if (typeof id !== 'string' || id.length === 0) {
+    throw new TypeError(
+      `getStandard() requires a non-empty string ID, got ${String(id)}`,
+    );
+  }
   return getStandards().find((s) => s.id === id) ?? null;
 }
 
@@ -98,8 +105,14 @@ export function getStandard(id: string): Standard | null {
  *
  * @param tier - Risk tier to filter by.
  * @returns Standards relevant to the given tier.
+ * @throws {RangeError} If tier is not a valid RiskTier
  */
 export function getStandardsByTier(tier: RiskTier): Standard[] {
+  if (typeof tier !== 'string' || !RISK_TIERS.includes(tier as RiskTier)) {
+    throw new RangeError(
+      `Invalid risk tier: '${String(tier)}'. Must be one of: ${RISK_TIERS.join(', ')}`,
+    );
+  }
   return getStandards().filter((s) => s.applicableTiers.includes(tier));
 }
 
@@ -108,8 +121,14 @@ export function getStandardsByTier(tier: RiskTier): Standard[] {
  *
  * @param articleNumber - Article number to look up.
  * @returns Standards that address the given article.
+ * @throws {TypeError} If articleNumber is not a positive integer
  */
 export function getStandardsByArticle(articleNumber: number): Standard[] {
+  if (typeof articleNumber !== 'number' || !Number.isInteger(articleNumber) || articleNumber < 1) {
+    throw new TypeError(
+      `getStandardsByArticle() requires a positive integer article number, got ${String(articleNumber)}`,
+    );
+  }
   return getStandards().filter((s) => s.applicableArticles.includes(articleNumber));
 }
 
@@ -118,8 +137,14 @@ export function getStandardsByArticle(articleNumber: number): Standard[] {
  *
  * @param category - Obligation category (e.g., "risk-management").
  * @returns Standards addressing the given category.
+ * @throws {TypeError} If category is not a non-empty string
  */
 export function getStandardsByCategory(category: string): Standard[] {
+  if (typeof category !== 'string' || category.length === 0) {
+    throw new TypeError(
+      `getStandardsByCategory() requires a non-empty string category, got ${String(category)}`,
+    );
+  }
   return getStandards().filter((s) => s.applicableCategories.includes(category));
 }
 
