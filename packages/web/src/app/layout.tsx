@@ -46,13 +46,6 @@ export const metadata: Metadata = {
     siteName: 'EU AI Act Toolkit',
     url: 'https://abdelstark.github.io/eu-ai-act-toolkit/',
   },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'EU AI Act Compliance Toolkit',
-    description:
-      'Open-source compliance toolkit for Regulation (EU) 2024/1689. Classify, track, and document.',
-    creator: '@AbdelStark',
-  },
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_BASE_PATH
       ? `https://abdelstark.github.io${process.env.NEXT_PUBLIC_BASE_PATH}`
