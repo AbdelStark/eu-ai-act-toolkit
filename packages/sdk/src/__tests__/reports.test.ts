@@ -140,7 +140,7 @@ describe('generateReport', () => {
     const checklist = getChecklist('high-risk');
     const report = generateReport(classification, checklist, defaultOptions);
 
-    expect(report).toContain('## 4. Enforcement Timeline');
+    expect(report).toContain('Enforcement Timeline');
     expect(report).toContain(classification.enforcementDate);
   });
 
@@ -159,6 +159,61 @@ describe('generateReport', () => {
 
     expect(report).toContain('Third-party assessment');
     expect(report).toContain('notified body');
+  });
+
+  it('includes gap analysis section by default', () => {
+    const classification = classify(baseInput({ annexIIICategory: 'employment' }));
+    const checklist = getChecklist('high-risk');
+    const report = generateReport(classification, checklist, defaultOptions);
+
+    expect(report).toContain('Compliance Gap Analysis');
+    expect(report).toContain('Readiness');
+    expect(report).toContain('Category Readiness');
+    expect(report).toContain('Recommendations');
+  });
+
+  it('includes penalty exposure section by default', () => {
+    const classification = classify(baseInput({ annexIIICategory: 'employment' }));
+    const checklist = getChecklist('high-risk');
+    const report = generateReport(classification, checklist, defaultOptions);
+
+    expect(report).toContain('Penalty Exposure');
+    expect(report).toContain('Article 99');
+    expect(report).toContain('EUR');
+  });
+
+  it('excludes gap analysis when option is false', () => {
+    const classification = classify(baseInput({ annexIIICategory: 'employment' }));
+    const checklist = getChecklist('high-risk');
+    const report = generateReport(classification, checklist, {
+      ...defaultOptions,
+      includeGapAnalysis: false,
+    });
+
+    expect(report).not.toContain('Compliance Gap Analysis');
+  });
+
+  it('excludes penalties when option is false', () => {
+    const classification = classify(baseInput({ annexIIICategory: 'employment' }));
+    const checklist = getChecklist('high-risk');
+    const report = generateReport(classification, checklist, {
+      ...defaultOptions,
+      includePenalties: false,
+    });
+
+    expect(report).not.toContain('Penalty Exposure');
+  });
+
+  it('includes turnover-based fine calculation when provided', () => {
+    const classification = classify(baseInput({ annexIIICategory: 'employment' }));
+    const checklist = getChecklist('high-risk');
+    const report = generateReport(classification, checklist, {
+      ...defaultOptions,
+      annualTurnoverEur: 1_000_000_000,
+    });
+
+    expect(report).toContain('Penalty Exposure');
+    expect(report).toContain('EUR');
   });
 });
 
