@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "EU AI Act Penalties",
+  "type": "object",
+  "required": ["penalties", "smeReductions", "euInstitutionCap"],
+  "properties": {
+    "penalties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "article", "paragraph", "description", "maxFineEur", "maxFineTurnoverPercent", "applicableTiers", "violationExamples"],
+        "properties": {
+          "id": { "type": "string" },
+          "article": { "type": "integer", "minimum": 1 },
+          "paragraph": { "type": "integer", "minimum": 1 },
+          "description": { "type": "string" },
+          "maxFineEur": { "type": "integer", "minimum": 0 },
+          "maxFineTurnoverPercent": { "type": "number", "minimum": 0 },
+          "applicableTiers": {
+            "type": "array",
+            "items": {
+              "enum": ["prohibited", "high-risk", "gpai", "gpai-systemic", "limited", "minimal"]
+            }
+          },
+          "violationExamples": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "smeReductions": {
+      "type": "object",
+      "required": ["article", "paragraph", "description", "applicableTo", "note"],
+      "properties": {
+        "article": { "type": "integer" },
+        "paragraph": { "type": "integer" },
+        "description": { "type": "string" },
+        "applicableTo": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "euInstitutionCap": {
+      "type": "object",
+      "required": ["article", "paragraph", "description", "maxFineEur"],
+      "properties": {
+        "article": { "type": "integer" },
+        "paragraph": { "type": "integer" },
+        "description": { "type": "string" },
+        "maxFineEur": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

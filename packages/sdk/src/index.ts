@@ -160,6 +160,81 @@ export { validateExamples } from './examples/loader.js';
  */
 export { generateReport } from './reports/generator.js';
 
+/**
+ * Get all penalty tiers defined in the EU AI Act (Article 99).
+ */
+export { getPenalties } from './penalties/calculator.js';
+
+/**
+ * Get penalty tiers applicable to a specific risk tier.
+ */
+export { getPenaltiesByTier } from './penalties/calculator.js';
+
+/**
+ * Calculate penalty exposure for an AI system based on risk tier
+ * and organization characteristics.
+ */
+export { calculatePenaltyExposure } from './penalties/calculator.js';
+
+/**
+ * Format a penalty amount for human display (e.g., "EUR 15M").
+ */
+export { formatFineAmount } from './penalties/calculator.js';
+
+/**
+ * Perform a comprehensive compliance gap analysis.
+ *
+ * Analyzes checklist completion against obligations for a risk tier,
+ * computing priority scoring, deadline urgency, fine exposure,
+ * and remediation recommendations.
+ */
+export { analyzeGaps } from './gap-analysis/analyzer.js';
+
+/**
+ * Get a quick compliance readiness score without full gap analysis.
+ */
+export { getReadinessScore } from './gap-analysis/analyzer.js';
+
+/**
+ * Get all harmonised and relevant standards mapped to EU AI Act requirements.
+ */
+export { getStandards } from './standards/lookup.js';
+
+/**
+ * Get a specific standard by its ID.
+ */
+export { getStandard } from './standards/lookup.js';
+
+/**
+ * Get standards applicable to a specific risk tier.
+ */
+export { getStandardsByTier } from './standards/lookup.js';
+
+/**
+ * Get standards that map to a specific EU AI Act article.
+ */
+export { getStandardsByArticle } from './standards/lookup.js';
+
+/**
+ * Get standards that cover a specific obligation category.
+ */
+export { getStandardsByCategory } from './standards/lookup.js';
+
+/**
+ * Get a complete mapping of obligation categories to applicable standards.
+ */
+export { getStandardsMapping } from './standards/lookup.js';
+
+/**
+ * Get only published standards (excluding in-development/draft).
+ */
+export { getPublishedStandards } from './standards/lookup.js';
+
+/**
+ * Get standards currently under development by CEN/CENELEC JTC 21.
+ */
+export { getInDevelopmentStandards } from './standards/lookup.js';
+
 // -- Public Types --
 export type {
   RiskTier,
@@ -186,6 +261,24 @@ export type { ArticleReference } from './articles/lookup.js';
 export type { AnnexIIIDetail } from './annexes/lookup.js';
 export type { ExampleValidationResult } from './examples/loader.js';
 export type { ReportOptions } from './reports/generator.js';
+export type {
+  OrganizationType,
+  PenaltyInput,
+  PenaltyTier,
+  PenaltyExposure,
+  PenaltySummary,
+} from './penalties/calculator.js';
+export type {
+  GapPriority,
+  ComplianceGap,
+  CategoryGapSummary,
+  GapAnalysisInput,
+  GapAnalysisResult,
+} from './gap-analysis/analyzer.js';
+export type {
+  Standard,
+  StandardsMapping,
+} from './standards/lookup.js';
 
 // -- Constants --
 

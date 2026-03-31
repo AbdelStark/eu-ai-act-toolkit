@@ -8,6 +8,9 @@ import { buildReasoning, formatTierSummary } from '../classifier/reasoning.js';
 import { countProgress } from '../checklists/scoring.js';
 import { getArticlesByTier } from '../articles/lookup.js';
 import type { ArticleReference } from '../articles/lookup.js';
+import { calculatePenaltyExposure, formatFineAmount } from '../penalties/calculator.js';
+import type { OrganizationType } from '../penalties/calculator.js';
+import { analyzeGaps } from '../gap-analysis/analyzer.js';
 
 /**
  * Options for compliance report generation.
@@ -30,6 +33,18 @@ export interface ReportOptions {
 
   /** Whether to include the full article reference appendix. Defaults to true. */
   includeArticleAppendix?: boolean;
+
+  /** Whether to include penalty exposure section. Defaults to true. */
+  includePenalties?: boolean;
+
+  /** Whether to include gap analysis section. Defaults to true. */
+  includeGapAnalysis?: boolean;
+
+  /** Organization type for penalty calculation. Defaults to 'large'. */
+  organizationType?: OrganizationType;
+
+  /** Annual turnover in EUR for penalty calculation. */
+  annualTurnoverEur?: number;
 }
 
 /** Tier display labels for report headings. */
@@ -73,6 +88,8 @@ export function generateReport(
 
   const date = options.date ?? new Date().toISOString().split('T')[0]!;
   const includeAppendix = options.includeArticleAppendix !== false;
+  const includePenalties = options.includePenalties !== false;
+  const includeGapAnalysis = options.includeGapAnalysis !== false;
 
   const sections: string[] = [];
 
@@ -87,6 +104,16 @@ export function generateReport(
 
   // Checklist status
   sections.push(renderChecklist(checklist, options.progress));
+
+  // Gap analysis
+  if (includeGapAnalysis) {
+    sections.push(renderGapAnalysis(classification, options));
+  }
+
+  // Penalty exposure
+  if (includePenalties) {
+    sections.push(renderPenaltyExposure(classification, options));
+  }
 
   // Enforcement timeline
   sections.push(renderEnforcement(classification));
@@ -244,7 +271,7 @@ function formatCategory(cat: string): string {
 }
 
 function renderEnforcement(classification: ClassificationResult): string {
-  return `## 4. Enforcement Timeline
+  return `## 7. Enforcement Timeline
 
 **Enforcement Date**: ${classification.enforcementDate}
 
@@ -279,6 +306,91 @@ function renderArticleAppendix(tier: RiskTier): string {
   }
 
   section += '\n';
+  return section;
+}
+
+function renderGapAnalysis(
+  classification: ClassificationResult,
+  options: ReportOptions,
+): string {
+  const result = analyzeGaps({
+    classification,
+    progress: options.progress,
+    organizationType: options.organizationType,
+    annualTurnoverEur: options.annualTurnoverEur,
+  });
+
+  let section = `## 5. Compliance Gap Analysis
+
+**Readiness**: ${result.readinessPercent}% (${result.completedItems}/${result.totalItems} items complete)
+**Outstanding Gaps**: ${result.outstandingGaps}${result.criticalGaps > 0 ? ` (${result.criticalGaps} critical)` : ''}
+**Deadline**: ${result.enforcementDate} (${result.daysUntilDeadline} days ${result.daysUntilDeadline < 0 ? 'overdue' : 'remaining'})
+
+### Assessment
+
+${result.assessment}
+
+`;
+
+  if (result.categorySummary.length > 0) {
+    section += `### Category Readiness
+
+| Category | Complete | Total | Progress |
+|----------|----------|-------|----------|
+`;
+    for (const cat of result.categorySummary) {
+      section += `| ${formatCategory(cat.category)} | ${cat.completedItems} | ${cat.totalItems} | ${cat.completionPercent}% |\n`;
+    }
+    section += '\n';
+  }
+
+  if (result.recommendations.length > 0) {
+    section += '### Recommendations\n\n';
+    for (const rec of result.recommendations) {
+      section += `- ${rec}\n`;
+    }
+    section += '\n';
+  }
+
+  return section;
+}
+
+function renderPenaltyExposure(
+  classification: ClassificationResult,
+  options: ReportOptions,
+): string {
+  const exposure = calculatePenaltyExposure({
+    tier: classification.tier,
+    organizationType: options.organizationType,
+    annualTurnoverEur: options.annualTurnoverEur,
+  });
+
+  if (exposure.penalties.length === 0) {
+    return `## 6. Penalty Exposure
+
+No specific penalty provisions apply for ${TIER_LABELS[classification.tier]} AI systems.
+`;
+  }
+
+  let section = `## 6. Penalty Exposure (Article 99)
+
+**Maximum Exposure**: ${formatFineAmount(exposure.maxExposureEur)}
+`;
+
+  if (exposure.smeReductionApplied) {
+    section += '**Note**: SME/startup reduced fines applied (Art. 99(6)).\n';
+  }
+  if (exposure.euInstitutionCapApplied) {
+    section += '**Note**: EU institution cap applied (Art. 99(7)).\n';
+  }
+
+  section += '\n| Infringement | Article | Maximum Fine |\n|---|---|---|\n';
+  for (const p of exposure.penalties) {
+    section += `| ${p.description} | Art. ${p.article}(${p.paragraph}) | ${formatFineAmount(p.effectiveMaxFineEur)} |\n`;
+  }
+
+  section += `\n${exposure.summary}\n\n`;
+
   return section;
 }
 

@@ -1,0 +1,102 @@
+{
+  "penalties": [
+    {
+      "id": "prohibited-practices",
+      "article": 99,
+      "paragraph": 3,
+      "description": "Infringements of prohibited AI practices under Article 5",
+      "maxFineEur": 35000000,
+      "maxFineTurnoverPercent": 7,
+      "applicableTiers": ["prohibited"],
+      "violationExamples": [
+        "Deploying social scoring AI systems",
+        "Using real-time remote biometric identification in public spaces without authorization",
+        "Deploying subliminal or manipulative AI techniques",
+        "Exploiting vulnerabilities of specific groups",
+        "Untargeted scraping of facial images from internet or CCTV",
+        "Emotion inference in workplace or education institutions",
+        "Biometric categorization to deduce sensitive attributes",
+        "Individual predictive policing based solely on profiling"
+      ]
+    },
+    {
+      "id": "high-risk-non-compliance",
+      "article": 99,
+      "paragraph": 4,
+      "description": "Non-compliance with requirements for high-risk AI systems",
+      "maxFineEur": 15000000,
+      "maxFineTurnoverPercent": 3,
+      "applicableTiers": ["high-risk"],
+      "violationExamples": [
+        "Failure to establish a risk management system (Art. 9)",
+        "Non-compliance with data governance requirements (Art. 10)",
+        "Inadequate technical documentation (Art. 11)",
+        "Failure to maintain automatic logging (Art. 12)",
+        "Insufficient transparency and information to deployers (Art. 13)",
+        "Failure to enable human oversight (Art. 14)",
+        "Not meeting accuracy, robustness, and cybersecurity standards (Art. 15)",
+        "Failure to implement post-market monitoring (Art. 72)",
+        "Not reporting serious incidents (Art. 73)"
+      ]
+    },
+    {
+      "id": "gpai-non-compliance",
+      "article": 99,
+      "paragraph": 4,
+      "description": "Non-compliance with GPAI model obligations",
+      "maxFineEur": 15000000,
+      "maxFineTurnoverPercent": 3,
+      "applicableTiers": ["gpai", "gpai-systemic"],
+      "violationExamples": [
+        "Failure to maintain technical documentation (Art. 53)",
+        "Non-compliance with copyright requirements (Art. 53)",
+        "Not providing training data summary (Art. 53)",
+        "Failure to provide information to downstream providers (Art. 53)",
+        "Non-compliance with systemic risk obligations (Art. 55)"
+      ]
+    },
+    {
+      "id": "limited-risk-non-compliance",
+      "article": 99,
+      "paragraph": 4,
+      "description": "Non-compliance with transparency obligations for limited-risk AI systems",
+      "maxFineEur": 15000000,
+      "maxFineTurnoverPercent": 3,
+      "applicableTiers": ["limited"],
+      "violationExamples": [
+        "Failure to disclose AI interaction to natural persons (Art. 50)",
+        "Not labelling AI-generated synthetic content (Art. 50)",
+        "Failure to disclose emotion recognition (Art. 50)",
+        "Not labelling deepfakes as AI-generated (Art. 50)"
+      ]
+    },
+    {
+      "id": "incorrect-information",
+      "article": 99,
+      "paragraph": 5,
+      "description": "Supplying incorrect, incomplete, or misleading information to notified bodies or authorities",
+      "maxFineEur": 7500000,
+      "maxFineTurnoverPercent": 1,
+      "applicableTiers": ["high-risk", "gpai", "gpai-systemic"],
+      "violationExamples": [
+        "Providing false information during conformity assessment",
+        "Misleading notified bodies about system capabilities",
+        "Incomplete disclosure of training data or methods",
+        "Supplying incorrect documentation to market surveillance authorities"
+      ]
+    }
+  ],
+  "smeReductions": {
+    "article": 99,
+    "paragraph": 6,
+    "description": "Reduced fines for SMEs and startups — the lower of the two amounts (fixed or turnover-based) applies instead of the higher",
+    "applicableTo": ["sme", "startup"],
+    "note": "For SMEs including startups, each fine is the lower of the two amounts specified (fixed EUR amount or turnover percentage), rather than the higher amount that applies to larger organizations."
+  },
+  "euInstitutionCap": {
+    "article": 99,
+    "paragraph": 7,
+    "description": "EU institutions, agencies, and bodies are subject to fines up to EUR 1,500,000",
+    "maxFineEur": 1500000
+  }
+}

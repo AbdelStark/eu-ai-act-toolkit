@@ -7,7 +7,7 @@
  * article that doesn't exist, or an example uses an invalid category.
  */
 import { describe, it, expect } from 'vitest';
-import { classify, getChecklist, getTimeline, getArticles, getArticle, getAnnexes, getAnnex, getExamples, validateExamples, getQuestions, RISK_TIERS, ANNEX_III_CATEGORIES, TEMPLATE_NAMES, generateTemplate } from '../index.js';
+import { classify, getChecklist, getTimeline, getArticles, getArticle, getAnnexes, getAnnex, getExamples, validateExamples, getQuestions, RISK_TIERS, ANNEX_III_CATEGORIES, TEMPLATE_NAMES, generateTemplate, getPenalties, getPenaltiesByTier, calculatePenaltyExposure, analyzeGaps } from '../index.js';
 
 describe('cross-module data integrity', () => {
   // -----------------------------------------------------------------------
@@ -181,6 +181,72 @@ describe('cross-module data integrity', () => {
         expect(checklist.items.length).toBeGreaterThan(0);
       });
     }
+  });
+
+  // -----------------------------------------------------------------------
+  // Penalties ↔ Risk Tiers consistency
+  // -----------------------------------------------------------------------
+  describe('penalties data integrity', () => {
+    it('every penalty references a valid article', () => {
+      const penalties = getPenalties();
+      for (const p of penalties) {
+        expect(p.article).toBe(99);
+      }
+    });
+
+    it('every penalty tier references valid risk tiers', () => {
+      const penalties = getPenalties();
+      for (const p of penalties) {
+        for (const tier of p.applicableTiers) {
+          expect(RISK_TIERS).toContain(tier);
+        }
+      }
+    });
+
+    it('non-minimal tiers have at least one applicable penalty', () => {
+      for (const tier of RISK_TIERS) {
+        if (tier === 'minimal') continue;
+        const penalties = getPenaltiesByTier(tier);
+        expect(penalties.length).toBeGreaterThan(0);
+      }
+    });
+
+    it('penalty exposure works for every non-minimal tier', () => {
+      for (const tier of RISK_TIERS) {
+        const exposure = calculatePenaltyExposure({ tier });
+        expect(exposure.tier).toBe(tier);
+        if (tier !== 'minimal') {
+          expect(exposure.maxExposureEur).toBeGreaterThan(0);
+        }
+      }
+    });
+
+    it('gap analysis works for every tier', () => {
+      for (const tier of RISK_TIERS) {
+        const input = {
+          socialScoring: tier === 'prohibited',
+          realtimeBiometrics: false,
+          subliminalManipulation: false,
+          exploitsVulnerabilities: false,
+          untargetedFacialScraping: false,
+          emotionInferenceWorkplace: false,
+          biometricCategorization: false,
+          predictivePolicing: false,
+          isGPAI: tier === 'gpai' || tier === 'gpai-systemic',
+          gpaiFlops: tier === 'gpai-systemic' ? 1e26 : undefined,
+          annexIProduct: false,
+          annexIIICategory: tier === 'high-risk' ? 'employment' as const : null,
+          interactsWithPersons: tier === 'limited',
+          generatesSyntheticContent: false,
+          emotionRecognition: false,
+          biometricCategorizing: false,
+        };
+        const classification = classify(input);
+        const result = analyzeGaps({ classification });
+        expect(result.tier).toBe(tier);
+        expect(result.totalItems).toBeGreaterThanOrEqual(0);
+      }
+    });
   });
 
   // -----------------------------------------------------------------------
