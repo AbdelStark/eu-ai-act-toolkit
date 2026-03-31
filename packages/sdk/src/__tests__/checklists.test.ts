@@ -119,6 +119,14 @@ describe('calculateScore', () => {
     };
     expect(calculateScore(items, progress)).toBe(0);
   });
+
+  it('treats checked: false as unchecked', () => {
+    const progress: Record<string, ChecklistProgress> = {
+      a: { checked: false, evidence: null, checkedAt: null },
+      b: { checked: true, evidence: null, checkedAt: null },
+    };
+    expect(calculateScore(items, progress)).toBe(0.25);
+  });
 });
 
 // ---------------------------------------------------------------------------

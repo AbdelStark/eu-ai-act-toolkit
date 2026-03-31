@@ -7,7 +7,6 @@ import type {
 import { buildReasoning, formatTierSummary } from '../classifier/reasoning.js';
 import { countProgress } from '../checklists/scoring.js';
 import { getArticlesByTier } from '../articles/lookup.js';
-import type { ArticleReference } from '../articles/lookup.js';
 import { calculatePenaltyExposure, formatFineAmount } from '../penalties/calculator.js';
 import type { OrganizationType } from '../penalties/calculator.js';
 import { analyzeGaps } from '../gap-analysis/analyzer.js';
@@ -285,12 +284,7 @@ Key enforcement milestones under the EU AI Act:
 }
 
 function renderArticleAppendix(tier: RiskTier): string {
-  let articles: ArticleReference[];
-  try {
-    articles = getArticlesByTier(tier);
-  } catch {
-    return '';
-  }
+  const articles = getArticlesByTier(tier);
 
   if (articles.length === 0) return '';
 

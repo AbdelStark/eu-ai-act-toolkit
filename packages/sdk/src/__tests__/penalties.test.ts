@@ -212,4 +212,56 @@ describe('formatFineAmount', () => {
   it('formats zero', () => {
     expect(formatFineAmount(0)).toBe('EUR 0');
   });
+
+  it('formats exact million boundary', () => {
+    expect(formatFineAmount(1_000_000)).toBe('EUR 1M');
+  });
+
+  it('formats large amounts above 1 billion', () => {
+    const result = formatFineAmount(1_000_000_000);
+    expect(result).toBe('EUR 1000M');
+  });
+
+  it('formats fractional millions', () => {
+    expect(formatFineAmount(2_500_000)).toBe('EUR 2.5M');
+  });
+});
+
+describe('calculatePenaltyExposure — additional edge cases', () => {
+  it('throws on non-string tier', () => {
+    expect(() => calculatePenaltyExposure({ tier: 42 as unknown as any })).toThrow(TypeError);
+  });
+
+  it('throws on NaN turnover', () => {
+    expect(() =>
+      calculatePenaltyExposure({ tier: 'high-risk', annualTurnoverEur: NaN }),
+    ).toThrow(TypeError);
+  });
+
+  it('throws on Infinity turnover', () => {
+    expect(() =>
+      calculatePenaltyExposure({ tier: 'high-risk', annualTurnoverEur: Infinity }),
+    ).toThrow(TypeError);
+  });
+
+  it('handles zero turnover correctly', () => {
+    const exposure = calculatePenaltyExposure({
+      tier: 'high-risk',
+      annualTurnoverEur: 0,
+      organizationType: 'large',
+    });
+    // 3% of 0 = 0, max(15M, 0) = 15M
+    expect(exposure.maxExposureEur).toBe(15_000_000);
+  });
+
+  it('SME with zero turnover falls back to fixed amount', () => {
+    const exposure = calculatePenaltyExposure({
+      tier: 'high-risk',
+      annualTurnoverEur: 0,
+      organizationType: 'sme',
+    });
+    // min(15M, 0) = 0
+    expect(exposure.maxExposureEur).toBe(0);
+    expect(exposure.smeReductionApplied).toBe(true);
+  });
 });

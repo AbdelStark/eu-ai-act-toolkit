@@ -73,6 +73,14 @@ describe('getStandard', () => {
   it('returns null for unknown ID', () => {
     expect(getStandard('nonexistent')).toBeNull();
   });
+
+  it('throws TypeError on empty string', () => {
+    expect(() => getStandard('')).toThrow(TypeError);
+  });
+
+  it('throws TypeError on non-string input', () => {
+    expect(() => getStandard(123 as unknown as string)).toThrow(TypeError);
+  });
 });
 
 describe('getStandardsByTier', () => {
@@ -92,6 +100,15 @@ describe('getStandardsByTier', () => {
   it('returns fewer or no standards for minimal tier', () => {
     const standards = getStandardsByTier('minimal');
     expect(standards.length).toBe(0);
+  });
+
+  it('throws RangeError on invalid tier', () => {
+    expect(() => getStandardsByTier('invalid' as any)).toThrow(RangeError);
+    expect(() => getStandardsByTier('invalid' as any)).toThrow(/Invalid risk tier/);
+  });
+
+  it('throws RangeError on non-string input', () => {
+    expect(() => getStandardsByTier(42 as unknown as any)).toThrow(RangeError);
   });
 });
 
@@ -113,6 +130,18 @@ describe('getStandardsByArticle', () => {
     const standards = getStandardsByArticle(999);
     expect(standards).toEqual([]);
   });
+
+  it('throws TypeError on non-integer', () => {
+    expect(() => getStandardsByArticle(9.5)).toThrow(TypeError);
+  });
+
+  it('throws TypeError on zero', () => {
+    expect(() => getStandardsByArticle(0)).toThrow(TypeError);
+  });
+
+  it('throws TypeError on negative number', () => {
+    expect(() => getStandardsByArticle(-1)).toThrow(TypeError);
+  });
 });
 
 describe('getStandardsByCategory', () => {
@@ -131,6 +160,14 @@ describe('getStandardsByCategory', () => {
 
   it('returns empty for unknown category', () => {
     expect(getStandardsByCategory('nonexistent')).toEqual([]);
+  });
+
+  it('throws TypeError on empty string', () => {
+    expect(() => getStandardsByCategory('')).toThrow(TypeError);
+  });
+
+  it('throws TypeError on non-string input', () => {
+    expect(() => getStandardsByCategory(null as unknown as string)).toThrow(TypeError);
   });
 });
 

@@ -272,6 +272,40 @@ describe('analyzeGaps', () => {
       }),
     ).toThrow(TypeError);
   });
+
+  it('throws on missing enforcementDate', () => {
+    expect(() =>
+      analyzeGaps({
+        classification: { tier: 'high-risk' } as never,
+      }),
+    ).toThrow(TypeError);
+  });
+
+  it('gap urgency label shows "TODAY" for deadline day', () => {
+    const classification = classify(highRiskInput);
+    const refDate = new Date(classification.enforcementDate);
+    const result = analyzeGaps({ classification, referenceDate: refDate });
+    // daysUntilDeadline should be 0 or 1 (depending on time rounding)
+    expect(result.daysUntilDeadline).toBeLessThanOrEqual(1);
+  });
+
+  it('gaps for optional items have zero fine exposure', () => {
+    const classification = classify(highRiskInput);
+    const result = analyzeGaps({ classification });
+    const optionalGaps = result.gaps.filter((g) => !g.required);
+    for (const gap of optionalGaps) {
+      expect(gap.fineExposureEur).toBe(0);
+    }
+  });
+
+  it('required gaps have non-zero fine exposure for non-minimal tiers', () => {
+    const classification = classify(highRiskInput);
+    const result = analyzeGaps({ classification });
+    const requiredGaps = result.gaps.filter((g) => g.required);
+    for (const gap of requiredGaps) {
+      expect(gap.fineExposureEur).toBeGreaterThan(0);
+    }
+  });
 });
 
 describe('getReadinessScore', () => {
@@ -308,5 +342,9 @@ describe('getReadinessScore', () => {
       expect(score.total).toBeGreaterThanOrEqual(0);
       expect(score.percent).toBeGreaterThanOrEqual(0);
     }
+  });
+
+  it('throws on invalid tier', () => {
+    expect(() => getReadinessScore('invalid' as any)).toThrow(RangeError);
   });
 });

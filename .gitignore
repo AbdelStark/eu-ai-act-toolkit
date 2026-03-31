@@ -11,6 +11,7 @@ Thumbs.db
 *.swp
 .turbo/
 coverage/
+*.tsbuildinfo
 .vercel/
 .specify/
 specs/
