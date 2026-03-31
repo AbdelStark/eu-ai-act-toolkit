@@ -19,8 +19,16 @@ function getProgressKey(tier: string): string {
 function loadProgress(tier: string): Record<string, ChecklistProgress> {
   if (typeof window === 'undefined') return {};
   try {
+    // Try tier-specific key first, then fall back to state file
     const raw = localStorage.getItem(getProgressKey(tier));
-    return raw ? (JSON.parse(raw) as Record<string, ChecklistProgress>) : {};
+    if (raw) return JSON.parse(raw) as Record<string, ChecklistProgress>;
+
+    // Fall back to state file if tier matches
+    const state = getState();
+    if (state && state.classification.tier === tier && Object.keys(state.checklist).length > 0) {
+      return state.checklist;
+    }
+    return {};
   } catch {
     return {};
   }
@@ -29,6 +37,13 @@ function loadProgress(tier: string): Record<string, ChecklistProgress> {
 function saveProgress(tier: string, progress: Record<string, ChecklistProgress>): void {
   if (typeof window === 'undefined') return;
   localStorage.setItem(getProgressKey(tier), JSON.stringify(progress));
+
+  // Also sync to state file if tier matches
+  const state = getState();
+  if (state && state.classification.tier === tier) {
+    state.checklist = progress;
+    setState(state);
+  }
 }
 
 const AVAILABLE_TIERS: { value: string; label: string }[] = [

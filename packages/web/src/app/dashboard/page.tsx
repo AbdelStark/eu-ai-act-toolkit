@@ -254,10 +254,13 @@ export default function DashboardPage() {
               <div className="flex items-center gap-4">
                 <RiskBadge tier={tier as RiskTier} size="lg" />
                 <div>
-                  <h2 className="text-xl font-bold text-navy">{TIER_LABELS[tier]}</h2>
-                  {state.classification.subTier && (
-                    <p className="text-sm text-slate-500">{state.classification.subTier}</p>
-                  )}
+                  <h2 className="text-xl font-bold text-navy">
+                    {state.system.name !== 'AI System' ? state.system.name : TIER_LABELS[tier]}
+                  </h2>
+                  <p className="text-sm text-slate-500">
+                    {state.system.provider !== 'Unknown' ? state.system.provider : TIER_LABELS[tier]}
+                    {state.classification.subTier ? ` \u2014 ${state.classification.subTier}` : ''}
+                  </p>
                   <p className="mt-0.5 text-xs text-slate-400">
                     {t('classifiedOn')} {new Date(state.system.classifiedAt).toLocaleDateString()}
                   </p>

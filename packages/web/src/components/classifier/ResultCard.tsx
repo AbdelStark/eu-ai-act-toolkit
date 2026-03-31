@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Link from 'next/link';
 import type { ClassificationResult } from '@eu-ai-act/sdk';
 import { RiskBadge } from '@/components/shared/RiskBadge';
 import { ArticleReference } from '@/components/shared/ArticleReference';
+import { getState, setState } from '@/lib/storage';
 
 interface ResultCardProps {
   result: ClassificationResult;
@@ -22,6 +23,9 @@ const tierGradients: Record<string, string> = {
 
 export function ResultCard({ result, shareUrl }: ResultCardProps) {
   const [copied, setCopied] = useState(false);
+  const [systemName, setSystemName] = useState('');
+  const [provider, setProvider] = useState('');
+  const [saved, setSaved] = useState(false);
 
   const handleCopyUrl = async () => {
     try {
@@ -40,6 +44,16 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
     }
   };
 
+  const handleSaveSystemInfo = useCallback(() => {
+    const existing = getState();
+    if (!existing) return;
+    existing.system.name = systemName.trim() || 'AI System';
+    existing.system.provider = provider.trim() || 'Unknown';
+    setState(existing);
+    setSaved(true);
+    setTimeout(() => setSaved(false), 2000);
+  }, [systemName, provider]);
+
   return (
     <div className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50 shadow-layered-lg">
       {/* Colored header */}
@@ -51,6 +65,48 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
       </div>
 
       <div className="p-6 space-y-6">
+        {/* System Info Form */}
+        <div className="rounded-xl border border-eu-blue/20 bg-eu-blue/5 p-4">
+          <h3 className="text-sm font-semibold text-navy">Save Your System Details</h3>
+          <p className="mt-1 text-xs text-slate-500">Optional — name your system for tracking on the dashboard.</p>
+          <div className="mt-3 grid gap-3 sm:grid-cols-2">
+            <input
+              type="text"
+              value={systemName}
+              onChange={(e) => setSystemName(e.target.value)}
+              placeholder="AI System Name"
+              className="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-eu-blue focus:outline-none focus:ring-1 focus:ring-eu-blue"
+            />
+            <input
+              type="text"
+              value={provider}
+              onChange={(e) => setProvider(e.target.value)}
+              placeholder="Provider / Organization"
+              className="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-eu-blue focus:outline-none focus:ring-1 focus:ring-eu-blue"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={handleSaveSystemInfo}
+            className={`mt-3 inline-flex items-center gap-1.5 rounded-lg px-4 py-2 text-sm font-medium transition-all ${
+              saved
+                ? 'bg-green-100 text-green-700'
+                : 'bg-eu-blue/10 text-eu-blue hover:bg-eu-blue/20'
+            }`}
+          >
+            {saved ? (
+              <>
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                </svg>
+                Saved
+              </>
+            ) : (
+              'Save Details'
+            )}
+          </button>
+        </div>
+
         {/* Enforcement date */}
         <div className="flex items-center gap-3 rounded-xl bg-slate-50 p-4">
           <svg className="h-5 w-5 flex-shrink-0 text-eu-blue" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
