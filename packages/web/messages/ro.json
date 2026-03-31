@@ -105,7 +105,8 @@
     },
     "progress": {
       "step": "Pasul {current} din {total}",
-      "complete": "Clasificare finalizată"
+      "complete": "Clasificare finalizată",
+      "question": "Întrebarea {current} din {total}"
     },
     "results": {
       "prohibited": {
@@ -137,7 +138,23 @@
         "title": "Sistem de AI cu risc minim",
         "description": "Nu există obligații obligatorii în afara legislației existente. Se încurajează adoptarea codurilor voluntare de conduită.",
         "action": "Luați în considerare adoptarea codurilor voluntare de conduită pentru o AI de încredere."
-      }
+      },
+      "label": "Rezultatul clasificării",
+      "enforcementDate": "Data aplicării",
+      "applicableArticles": "Articolele aplicabile",
+      "reasoning": "Raționament",
+      "viewChecklist": "Vizualizați lista de verificare a conformității",
+      "shareResult": "Distribuiți rezultatul",
+      "copied": "Copiat!"
+    },
+    "answers": {
+      "yes": "Da",
+      "no": "Nu"
+    },
+    "wizard": {
+      "interactiveWizard": "Asistent interactiv",
+      "startOver": "Reîncepeți",
+      "previousQuestion": "Întrebarea anterioară"
     }
   },
   "checklists": {
@@ -260,7 +277,8 @@
     },
     "copyright": "EU AI Act Toolkit. Open source sub licența MIT.",
     "regulation": "Bazat pe Regulamentul (UE) 2024/1689 al Parlamentului European și al Consiliului.",
-    "tagline": "Creat cu atenție pentru echipele de conformitate AI din întreaga lume"
+    "tagline": "Creat cu atenție pentru echipele de conformitate AI din întreaga lume",
+    "resources": "Resurse"
   },
   "disclaimer": {
     "short": "Acest instrument nu constituie consiliere juridică.",
@@ -326,6 +344,256 @@
       "reset": "Resetați",
       "copy": "Copiați",
       "share": "Distribuiți"
+    }
+  },
+  "sdk": {
+    "steps": {
+      "prohibited": {
+        "title": "Practici interzise",
+        "description": "Articolul 5 interzice în totalitate anumite practici de AI. Dacă se aplică vreuna dintre ele, sistemul dvs. nu poate fi introdus pe piața UE."
+      },
+      "gpai": {
+        "title": "AI de uz general",
+        "description": "Modelele de AI de uz general au obligații specifice conform Articolelor 51-55. Determinați dacă modelul dvs. se califică și dacă prezintă risc sistemic."
+      },
+      "high-risk-pathway-a": {
+        "title": "Risc ridicat: Siguranța produselor (Anexa I)",
+        "description": "Sistemele AI care sunt componente de siguranță ale produselor reglementate de legislația UE de armonizare existentă (Anexa I) sunt clasificate cu risc ridicat conform Articolului 6 alineatul (1)."
+      },
+      "high-risk-pathway-b": {
+        "title": "Risc ridicat: Sisteme autonome din Anexa III",
+        "description": "Sistemele AI utilizate în domeniile enumerate în Anexa III sunt clasificate cu risc ridicat conform Articolului 6 alineatul (2), cu excepția cazului în care nu prezintă un risc semnificativ de prejudiciu."
+      },
+      "limited-risk": {
+        "title": "Risc limitat: Obligații de transparență",
+        "description": "Anumite sisteme AI au obligații de transparență conform Articolului 50, indiferent de alte clasificări de risc."
+      }
+    },
+    "questions": {
+      "subliminal-manipulation": {
+        "text": "Sistemul dvs. de AI utilizează tehnici subliminale dincolo de conștiința unei persoane sau tehnici deliberat manipulative ori înșelătoare, cu obiectivul sau efectul de a distorsiona semnificativ comportamentul și de a cauza prejudicii semnificative?",
+        "help": "Acoperă tehnici pe care o persoană nu le poate percepe sau care exploatează modele psihologice pentru a manipula decizii, distorsionând semnificativ comportamentul într-un mod care cauzează sau este probabil în mod rezonabil să cauzeze prejudicii semnificative."
+      },
+      "exploiting-vulnerabilities": {
+        "text": "Sistemul dvs. de AI exploatează vulnerabilitățile unui grup specific de persoane datorită vârstei, dizabilității sau unei situații sociale sau economice specifice, cu obiectivul sau efectul de a le distorsiona semnificativ comportamentul și de a cauza prejudicii semnificative?",
+        "help": "Vizează sistemele care profită de copii, vârstnici, persoane cu dizabilități sau persoane aflate în situații sociale sau economice precare pentru a le distorsiona comportamentul în moduri dăunătoare."
+      },
+      "social-scoring": {
+        "text": "Sistemul dvs. de AI evaluează sau clasifică persoane fizice pe baza comportamentului lor social sau a caracteristicilor personale, ducând la un tratament defavorabil în contexte fără legătură sau disproporționat față de comportament?",
+        "help": "Acoperă scorul social realizat de autoritățile publice sau actorii privați care conduce la un tratament defavorabil al persoanelor în contexte sociale fără legătură cu contextul în care datele au fost generate inițial, sau un tratament nejustificat sau disproporționat față de comportamentul lor social."
+      },
+      "individual-predictive-policing": {
+        "text": "Sistemul dvs. de AI realizează evaluări de risc ale persoanelor fizice pentru a prezice probabilitatea ca o persoană să comită o infracțiune, bazându-se exclusiv pe profilare sau trăsături de personalitate?",
+        "help": "Interzice predicția riscului infracțional individual bazată exclusiv pe profilare sau trăsături și caracteristici de personalitate. Nu acoperă sistemele care completează evaluarea umană pe baza unor fapte obiective, verificabile, legate direct de activitatea infracțională."
+      },
+      "untargeted-facial-scraping": {
+        "text": "Sistemul dvs. de AI creează sau extinde baze de date de recunoaștere facială prin colectarea nedirecționată a imaginilor faciale de pe internet sau din înregistrările de supraveghere video?",
+        "help": "Interzice crearea bazelor de date de recunoaștere facială prin colectarea nediscriminatorie a imaginilor faciale din surse de pe internet sau sisteme de supraveghere video, fără selecție direcționată."
+      },
+      "emotion-inference-workplace-education": {
+        "text": "Sistemul dvs. de AI deduce emoțiile persoanelor fizice la locul de muncă sau în instituțiile de învățământ, cu excepția cazului în care sistemul este destinat să fie pus în funcțiune pe piață din motive medicale sau de siguranță?",
+        "help": "Interzice recunoașterea emoțiilor la locul de muncă și în mediul educațional. Dispozitivele medicale și sistemele critice pentru siguranță (de ex. monitorizarea somnolenței șoferului) sunt exceptate."
+      },
+      "biometric-categorization-sensitive": {
+        "text": "Sistemul dvs. de AI categorizează individual persoane fizice pe baza datelor biometrice pentru a deduce sau a infere rasa, opiniile politice, apartenența la sindicate, convingerile religioase sau filosofice, viața sexuală sau orientarea sexuală?",
+        "help": "Interzice utilizarea datelor biometrice (față, voce, mers etc.) pentru a deduce atribute sensibile sau protejate. Etichetarea sau filtrarea seturilor de date biometrice obținute legal (de ex. pentru aplicarea legii) nu este acoperită."
+      },
+      "realtime-biometric-public": {
+        "text": "Sistemul dvs. de AI utilizează identificarea biometrică la distanță în timp real în spații accesibile publicului în scopul aplicării legii?",
+        "help": "Interzice identificarea biometrică la distanță în timp real în spații publice în scopul aplicării legii, cu excepții stricte: căutarea unor persoane dispărute sau victime ale răpirii, prevenirea unei amenințări teroriste specifice și iminente, sau localizarea/identificarea unei persoane suspectate de anumite infracțiuni grave. Excepțiile necesită autorizare judiciară prealabilă și evaluarea strictă a necesității/proporționalității."
+      },
+      "is-gpai": {
+        "text": "Modelul dvs. de AI este un model de AI de uz general, adică prezintă o generalitate semnificativă, este capabil să îndeplinească cu competență o gamă largă de sarcini distincte și poate fi integrat într-o varietate de sisteme sau aplicații din aval?",
+        "help": "Un model de AI de uz general (de ex. modele lingvistice de mari dimensiuni, modele multimodale de mari dimensiuni) este antrenat cu o cantitate mare de date folosind auto-supervizare la scară largă, prezintă o generalitate semnificativă și poate fi adaptat la o gamă largă de sarcini distincte din aval."
+      },
+      "gpai-flops": {
+        "text": "Modelul dvs. a fost antrenat folosind o capacitate totală de calcul mai mare de 10^25 FLOPS?",
+        "help": "Modelele antrenate cu mai mult de 10^25 operațiuni în virgulă mobilă sunt prezumate a avea capacități cu impact ridicat și sunt clasificate automat ca prezentând risc sistemic. Comisia poate actualiza acest prag."
+      },
+      "is-open-source": {
+        "text": "Modelul dvs. este pus la dispoziție în baza unei licențe libere și open-source care permite accesul, utilizarea, modificarea și distribuirea, iar parametrii săi, inclusiv ponderile, arhitectura și informațiile de utilizare, sunt disponibili public?",
+        "help": "Modelele GPAI open-source trebuie doar să respecte obligațiile privind drepturile de autor și să publice un rezumat al datelor de antrenament, cu excepția cazului în care prezintă risc sistemic. Licența trebuie să fie cu adevărat deschisă (compatibilă OSI sau echivalentă)."
+      },
+      "designated-systemic-risk": {
+        "text": "Modelul dvs. a fost desemnat de Comisia Europeană ca prezentând risc sistemic pe baza capacităților sale cu impact ridicat?",
+        "help": "Chiar și fără a atinge pragul de 10^25 FLOPS, Comisia poate desemna un model ca prezentând risc sistemic pe baza unor criterii care includ numărul de utilizatori finali înregistrați, acoperirea transfrontalieră sau gradul de autonomie de acțiune."
+      },
+      "annex-i-product": {
+        "text": "Sistemul dvs. de AI este o componentă de siguranță a unui produs sau este el însuși un produs reglementat de legislația UE de armonizare enumerată în Anexa I (de ex. mașini, jucării, dispozitive medicale, vehicule, aviație, căi ferate, navigație, ascensoare, echipamente sub presiune)?",
+        "help": "Anexa I enumeră peste 20 de acte legislative UE privind siguranța produselor. Dacă sistemul dvs. de AI este încorporat într-un produs sau este el însuși un produs care trebuie să fie supus unei evaluări a conformității de către terți în temeiul oricăreia dintre aceste legislații, acesta este cu risc ridicat."
+      },
+      "annex-i-requires-third-party": {
+        "text": "Legislația relevantă din Anexa I impune o evaluare a conformității de către terți pentru ca produsul să fie introdus pe piață?",
+        "help": "Clasificarea cu risc ridicat în cadrul Căii A se declanșează numai dacă legislația aplicabilă produsului impune o evaluare a conformității de către terți. Dacă autoevaluarea este suficientă în temeiul legislației produsului, componenta AI poate să nu fie clasificată automat cu risc ridicat prin această cale."
+      },
+      "annex-iii-biometrics": {
+        "text": "Sistemul dvs. de AI este utilizat pentru biometrie, inclusiv identificarea biometrică la distanță, categorizarea biometrică pe baza atributelor sensibile sau recunoașterea emoțiilor?",
+        "help": "Anexa III, domeniul 1: Acoperă identificarea biometrică la distanță (nu varianta interzisă în timp real), categorizarea biometrică pe baza atributelor sensibile sau protejate și sistemele de recunoaștere a emoțiilor."
+      },
+      "annex-iii-critical-infrastructure": {
+        "text": "Sistemul dvs. de AI este utilizat ca o componentă de siguranță în gestionarea și operarea infrastructurii critice (trafic rutier, apă, gaze, încălzire, energie electrică)?",
+        "help": "Anexa III, domeniul 2: Acoperă sistemele AI care servesc drept componente de siguranță în infrastructura digitală sau fizică critică, care ar putea pune în pericol viața, sănătatea sau cauza daune majore de mediu sau de proprietate."
+      },
+      "annex-iii-education": {
+        "text": "Sistemul dvs. de AI este utilizat în educație sau formare profesională, de exemplu pentru determinarea accesului/admiterii, evaluarea rezultatelor învățării, determinarea nivelurilor educaționale sau monitorizarea comportamentului elevilor în timpul examenelor?",
+        "help": "Anexa III, domeniul 3: Acoperă sistemele AI care determină accesul la educație, evaluează rezultatele care orientează învățarea, evaluează nivelurile educaționale adecvate sau monitorizează/detectează comportamentele interzise în timpul examinărilor."
+      },
+      "annex-iii-employment": {
+        "text": "Sistemul dvs. de AI este utilizat în ocuparea forței de muncă, gestionarea lucrătorilor sau accesul la activități independente, de exemplu pentru recrutare, selecția candidaturilor, evaluarea candidaților, luarea deciziilor privind condițiile de angajare sau monitorizarea/evaluarea performanței lucrătorilor?",
+        "help": "Anexa III, domeniul 4: Acoperă sistemele AI pentru recrutare, evaluarea candidaților, decizii de angajare (promovare, concediere), atribuirea sarcinilor pe baza trăsăturilor personale și monitorizarea performanței lucrătorilor."
+      },
+      "annex-iii-essential-services": {
+        "text": "Sistemul dvs. de AI este utilizat pentru accesul la sau furnizarea de servicii esențiale private sau publice (eligibilitatea pentru prestații publice, evaluarea bonității, evaluarea riscului pentru asigurări de viață/sănătate sau clasificarea apelurilor de urgență)?",
+        "help": "Anexa III, domeniul 5: Acoperă sistemele AI care evaluează eligibilitatea pentru asistență publică, evaluează bonitatea (cu excepția detectării fraudei), stabilesc prețul riscului în asigurările de viață/sănătate și evaluează sau clasifică apelurile de urgență pentru prioritatea de expediere."
+      },
+      "annex-iii-law-enforcement": {
+        "text": "Sistemul dvs. de AI este utilizat în aplicarea legii, de exemplu pentru evaluarea riscului individual, ca poligraf, evaluarea fiabilității probelor sau profilarea persoanelor în cadrul investigațiilor penale?",
+        "help": "Anexa III, domeniul 6: Acoperă sistemele AI pentru evaluarea riscului individual (probabilitatea de a comite infracțiuni/recidivă sau victimizare), detectarea înșelăciunii, evaluarea fiabilității probelor și profilarea în investigațiile penale."
+      },
+      "annex-iii-migration": {
+        "text": "Sistemul dvs. de AI este utilizat în migrație, azil sau gestionarea controlului la frontiere, de exemplu pentru evaluarea riscului de migrație neregulamentară, examinarea cererilor de azil/viză/rezidență sau identificarea persoanelor la frontiere?",
+        "help": "Anexa III, domeniul 7: Acoperă sistemele AI care evaluează riscul de migrație neregulamentară sau riscurile pentru sănătate, examinează cererile de azil/viză/permis de rezidență și plângerile conexe, și detectează/recunosc/identifică persoane (cu excepția verificării documentelor de călătorie)."
+      },
+      "annex-iii-justice-democracy": {
+        "text": "Sistemul dvs. de AI este utilizat în administrarea justiției sau în procesele democratice, de exemplu pentru asistarea autorităților judiciare în cercetarea/interpretarea/aplicarea legii sau pentru influențarea rezultatului alegerilor sau referendumurilor?",
+        "help": "Anexa III, domeniul 8: Acoperă sistemele AI care asistă instanțele în cercetarea, interpretarea și aplicarea faptelor și legii la cazuri concrete, și sistemele destinate să influențeze rezultatul alegerilor sau referendumurilor (cu excepția instrumentelor organizatorice care nu influențează direct voturile)."
+      },
+      "interacts-with-persons": {
+        "text": "Sistemul dvs. de AI interacționează direct cu persoane fizice (de ex. chatbot, asistent vocal, agent virtual)?",
+        "help": "Sistemele concepute pentru a interacționa direct cu persoanele trebuie să dezvăluie faptul că persoana interacționează cu un sistem de AI, cu excepția cazului în care acest lucru este evident din circumstanțele și contextul utilizării."
+      },
+      "generates-synthetic-content": {
+        "text": "Sistemul dvs. de AI generează sau manipulează conținut sintetic, cum ar fi imagini, audio, video sau text (inclusiv deepfake-uri)?",
+        "help": "Furnizorii de sisteme AI care generează conținut sintetic audio, imagini, video sau text trebuie să se asigure că ieșirile sunt marcate ca generate artificial sau manipulate într-un format citibil automat, acolo unde acest lucru este fezabil din punct de vedere tehnic."
+      },
+      "emotion-recognition": {
+        "text": "Sistemul dvs. de AI realizează recunoașterea emoțiilor (detectarea sau deducerea emoțiilor sau intențiilor persoanelor fizice pe baza datelor biometrice)?",
+        "help": "Operatorii sistemelor de recunoaștere a emoțiilor trebuie să informeze persoanele expuse sistemului că acesta este în funcțiune și să prelucreze datele cu caracter personal în conformitate cu GDPR."
+      },
+      "biometric-categorizing": {
+        "text": "Sistemul dvs. de AI realizează categorizare biometrică (clasificarea persoanelor fizice pe baza datelor biometrice în grupuri pe baza unor atribute specifice)?",
+        "help": "Operatorii sistemelor de categorizare biometrică trebuie să informeze persoanele expuse despre funcționarea sistemului. Notă: categorizarea pe baza atributelor sensibile poate fi interzisă conform Articolului 5."
+      }
+    },
+    "timeline": {
+      "0": {
+        "title": "Regulamentul (UE) privind IA intră în vigoare",
+        "description": "Regulamentul (UE) 2024/1689 intră în vigoare la 20 de zile de la publicarea în Jurnalul Oficial. Cele mai multe dispoziții se aplică în mod eșalonat pe parcursul următoarelor 36 de luni."
+      },
+      "1": {
+        "title": "Se aplică practicile interzise",
+        "description": "Interdicțiile privind practicile AI interzise (Articolul 5) și cerințele de alfabetizare în domeniul AI (Articolul 4) devin aplicabile. Sistemele care realizează practici interzise trebuie să înceteze funcționarea în UE."
+      },
+      "2": {
+        "title": "Se aplică regulile GPAI",
+        "description": "Obligațiile pentru furnizorii de modele de AI de uz general intră în vigoare, inclusiv documentarea, respectarea drepturilor de autor, rezumatele datelor de antrenament și obligații suplimentare pentru modelele cu risc sistemic."
+      },
+      "3": {
+        "title": "Se aplică cerințele pentru risc ridicat",
+        "description": "Cerințele complete pentru sistemele AI cu risc ridicat (Articolele 6-15, 26-27) și obligațiile de transparență (Articolul 50) devin aplicabile. Furnizorii trebuie să îndeplinească cerințele de gestionare a riscului, guvernanță a datelor, documentare, păstrare a evidențelor, transparență, supraveghere umană, acuratețe și robustețe. Înregistrarea în baza de date UE și evaluarea conformității sunt obligatorii înainte de introducerea pe piață."
+      },
+      "4": {
+        "title": "GPAI deja existente și sisteme IT la scară largă",
+        "description": "Obligațiile se aplică modelelor GPAI deja prezente pe piață înainte de august 2025 și sistemelor AI cu risc ridicat care sunt componente ale sistemelor IT de mari dimensiuni ale UE (de ex. Sistemul de Informații Schengen, Sistemul de Informații privind Vizele, Eurodac) enumerate în Anexa X."
+      },
+      "5": {
+        "title": "Componente de siguranță ale produselor",
+        "description": "Obligațiile pentru sistemele AI cu risc ridicat care sunt componente de siguranță ale produselor reglementate de legislația UE de armonizare din Anexa I (Calea A conform Articolului 6 alineatul (1)) intră pe deplin în vigoare. Aceste sisteme trebuie să respecte toate cerințele pentru risc ridicat și să fie supuse procedurilor relevante de evaluare a conformității."
+      }
+    },
+    "checklists": {
+      "prohibited-stop-deployment": "Opriți imediat implementarea sistemului AI interzis în UE",
+      "prohibited-document-and-assess": "Documentați sistemul interzis și evaluați alternative care ating același obiectiv fără a intra sub incidența interdicțiilor",
+      "hr-risk-lifecycle": "Instituiți un sistem de gestionare a riscului care funcționează pe întregul ciclu de viață",
+      "hr-risk-identify": "Identificați și analizați riscurile cunoscute și riscurile previzibile în mod rezonabil",
+      "hr-risk-estimate-intended": "Estimați și evaluați riscurile din utilizarea prevăzută și utilizarea abuzivă previzibilă în mod rezonabil",
+      "hr-risk-post-market": "Evaluați riscurile pe baza datelor din monitorizarea post-comercializare",
+      "hr-risk-measures": "Adoptați măsuri de gestionare a riscului pentru a elimina sau reduce riscurile",
+      "hr-risk-testing": "Testați sistemul pentru a identifica cele mai adecvate măsuri de gestionare a riscului",
+      "hr-risk-combined-effects": "Luați în considerare efectele combinate atunci când sistemul este utilizat împreună cu alte sisteme",
+      "hr-risk-residual": "Documentați riscurile reziduale și comunicați-le operatorilor",
+      "hr-data-governance": "Asigurați-vă că seturile de date de antrenament, validare și testare sunt supuse unei guvernanțe adecvate a datelor",
+      "hr-data-collection-docs": "Documentați procesele de colectare a datelor și sursele de date",
+      "hr-data-relevance": "Evaluați datele din punctul de vedere al relevanței, reprezentativității, completitudinii și proprietăților statistice",
+      "hr-data-bias-examination": "Examinați datele pentru posibile prejudecăți susceptibile de a afecta sănătatea, siguranța sau drepturile fundamentale",
+      "hr-data-gaps": "Identificați și remediați lacunele sau deficiențele datelor",
+      "hr-data-bias-mitigation": "Aplicați măsuri adecvate pentru detectarea, corectarea și atenuarea prejudecăților",
+      "hr-data-quality": "Asigurați-vă că datele de antrenament sunt fără erori și complete în raport cu scopul propus",
+      "hr-data-special-categories": "Dacă prelucrați categorii speciale de date cu caracter personal: documentați necesitatea și măsurile de protecție",
+      "hr-docs-general": "Pregătiți descrierea generală a sistemului AI (scopul propus, dezvoltatorul, versiunea)",
+      "hr-docs-development": "Pregătiți descrierea detaliată a elementelor și procesului de dezvoltare",
+      "hr-docs-monitoring": "Pregătiți descrierea detaliată a monitorizării, funcționării și controlului sistemului",
+      "hr-docs-risk-mgmt": "Includeți descrierea sistemului de gestionare a riscului (conformitatea cu Articolul 9)",
+      "hr-docs-lifecycle": "Documentați toate modificările efectuate pe parcursul ciclului de viață al sistemului",
+      "hr-docs-standards": "Enumerați standardele armonizate sau alte specificații tehnice aplicate",
+      "hr-docs-human-oversight": "Descrieți modul în care sunt implementate măsurile de supraveghere umană",
+      "hr-docs-lifetime": "Documentați durata de viață preconizată și măsurile de întreținere/îngrijire",
+      "hr-docs-accuracy-robustness": "Descrieți acuratețea, robustețea și măsurile de securitate cibernetică ale sistemului AI",
+      "hr-logs-automatic": "Asigurați-vă că sistemul înregistrează automat evenimentele (jurnale) pe întreaga sa durată de viață",
+      "hr-logs-tracing": "Asigurați-vă că jurnalizarea permite trasabilitatea funcționării sistemului",
+      "hr-logs-standards": "Asigurați-vă că capacitățile de jurnalizare respectă standardele recunoscute sau specificațiile comune",
+      "hr-logs-content": "Jurnalele includ: perioada de utilizare, baza de date de referință, datele de intrare, identificarea persoanelor fizice implicate în verificare",
+      "hr-transparency-interpretable": "Proiectați sistemul astfel încât operatorii să poată interpreta rezultatele și să le utilizeze în mod adecvat",
+      "hr-transparency-identity": "Instrucțiunile de utilizare includ identitatea și datele de contact ale furnizorului",
+      "hr-transparency-capabilities": "Instrucțiunile de utilizare includ capacitățile și limitările sistemului",
+      "hr-transparency-purpose": "Instrucțiunile de utilizare includ scopul propus și scenariile de utilizare abuzivă previzibile",
+      "hr-transparency-changes": "Instrucțiunile de utilizare includ modificările predeterminate de furnizor",
+      "hr-transparency-oversight-info": "Instrucțiunile de utilizare includ măsurile de supraveghere umană",
+      "hr-transparency-accuracy-info": "Instrucțiunile de utilizare includ nivelul preconizat de acuratețe, robustețe, securitate cibernetică (criterii de referință)",
+      "hr-transparency-risks": "Instrucțiunile de utilizare includ riscurile cunoscute pentru sănătate, siguranță sau drepturile fundamentale",
+      "hr-transparency-input-specs": "Instrucțiunile de utilizare includ specificațiile tehnice pentru datele de intrare",
+      "hr-transparency-logging-info": "Instrucțiunile de utilizare includ descrierea funcționalității de jurnalizare",
+      "hr-oversight-design": "Proiectați sistemul pentru a permite supravegherea efectivă de către persoane fizice în timpul utilizării",
+      "hr-oversight-understand": "Supravegherea permite persoanei umane să înțeleagă pe deplin capacitățile și limitările sistemului",
+      "hr-oversight-monitor": "Supravegherea permite detectarea anomaliilor, disfuncționalităților și performanțelor neașteptate",
+      "hr-oversight-bias-awareness": "Supravegherea include conștientizarea prejudecății de automatizare, în special pentru deciziile privind persoanele",
+      "hr-oversight-interpret": "Supravegherea permite interpretarea corectă a rezultatelor sistemului",
+      "hr-oversight-override": "Supravegherea permite persoanei umane să decidă să nu utilizeze sistemul sau să anuleze/modifice rezultatul",
+      "hr-oversight-stop": "Supravegherea permite persoanei umane să întrerupă sistemul printr-un buton de oprire sau o procedură similară",
+      "hr-accuracy-level": "Proiectați sistemul pentru a atinge un nivel adecvat de acuratețe pentru scopul propus",
+      "hr-accuracy-declared": "Declarați nivelurile de acuratețe și indicatorii în instrucțiunile de utilizare",
+      "hr-robustness-errors": "Asigurați-vă că sistemul este rezistent la erori, defecțiuni sau inconsistențe din mediu",
+      "hr-robustness-adversarial": "Asigurați-vă că sistemul este rezistent la tentativele adversariale ale terților de a-l manipula",
+      "hr-robustness-failsafe": "Proiectați pentru gestionarea în siguranță a situațiilor neașteptate (planuri de rezervă/mecanism de siguranță)",
+      "hr-cybersecurity": "Implementați măsuri de securitate cibernetică proporționale cu riscul",
+      "hr-redundancy": "Implementați soluții tehnice de redundanță acolo unde este cazul (planuri de rezervă, mecanisme de siguranță)",
+      "hr-conformity-route": "Determinați calea de evaluare a conformității: autoevaluare sau evaluare de către terți",
+      "hr-register-eu-db": "Înregistrați-vă în baza de date UE înainte de introducerea sistemului pe piață",
+      "hr-ce-marking": "Aplicați marcajul CE după evaluarea cu succes a conformității",
+      "hr-declaration-conformity": "Pregătiți Declarația de conformitate UE",
+      "hr-authorised-rep": "Desemnați un reprezentant autorizat în UE (dacă furnizorul se află în afara UE)",
+      "hr-post-market-monitoring": "Instituiți un sistem de monitorizare post-comercializare",
+      "hr-incident-reporting-procedure": "Instituiți o procedură de raportare a incidentelor grave",
+      "hr-incident-reporting-timeline": "Raportați incidentele grave autorităților de supraveghere a pieței fără întârzieri nejustificate și în termen de 15 zile",
+      "gpai-tech-docs": "Pregătiți și mențineți documentația tehnică a modelului (Anexa XI)",
+      "gpai-tech-docs-training": "Documentați metodologia de antrenament, tehnicile, alegerile de proiectare și ipotezele",
+      "gpai-tech-docs-data-sources": "Documentați sursele datelor de antrenament, inclusiv descrierea generală și proveniența datelor",
+      "gpai-tech-docs-compute": "Documentați resursele de calcul utilizate pentru antrenament",
+      "gpai-downstream-info": "Pregătiți și mențineți informații și documentație pentru furnizorii din aval",
+      "gpai-copyright": "Respectați legislația UE privind drepturile de autor (Directiva 2019/790), inclusiv excluderea de la explorarea textelor și datelor",
+      "gpai-training-data-summary": "Publicați un rezumat suficient de detaliat al conținutului datelor de antrenament",
+      "gpai-open-source-exception": "Dacă este open-source: verificați că sunt necesare doar conformitatea cu drepturile de autor și rezumatul datelor de antrenament",
+      "gpai-code-of-practice": "Luați în considerare aderarea la Codul de practici pentru furnizorii GPAI",
+      "gpai-sys-tech-docs": "Pregătiți și mențineți documentația tehnică a modelului (Anexa XI)",
+      "gpai-sys-downstream-info": "Pregătiți și mențineți informații și documentație pentru furnizorii din aval",
+      "gpai-sys-copyright": "Respectați legislația UE privind drepturile de autor (Directiva 2019/790), inclusiv excluderea de la explorarea textelor și datelor",
+      "gpai-sys-training-data-summary": "Publicați un rezumat suficient de detaliat al conținutului datelor de antrenament",
+      "gpai-sys-model-eval": "Efectuați evaluarea modelului în conformitate cu protocoalele și instrumentele standardizate",
+      "gpai-sys-red-teaming": "Efectuați teste adversariale (red teaming) pentru a identifica și atenua riscurile sistemice",
+      "gpai-sys-assess-mitigate": "Evaluați și atenuați posibilele riscuri sistemice, inclusiv sursele acestora",
+      "gpai-sys-incident-tracking": "Urmăriți, documentați și raportați incidentele grave Biroului AI și autorităților naționale",
+      "gpai-sys-cybersecurity": "Asigurați o protecție adecvată a securității cibernetice pentru model și infrastructura sa fizică",
+      "gpai-sys-code-of-practice": "Luați în considerare aderarea la Codul de practici pentru furnizorii GPAI (inclusiv dispozițiile privind riscul sistemic)",
+      "limited-ai-disclosure": "Informați utilizatorii că interacționează cu un sistem de AI (cu excepția cazului în care acest lucru este evident din context)",
+      "limited-disclosure-format": "Asigurați-vă că dezvăluirea AI este clară, oportună și într-un format accesibil",
+      "limited-synthetic-marking": "Marcați conținutul sintetic (deepfake-uri, text/imagini/audio/video generate de AI) ca generat artificial sau manipulat",
+      "limited-synthetic-machine-readable": "Asigurați-vă că marcarea conținutului sintetic este citibilă automat acolo unde este fezabil din punct de vedere tehnic",
+      "limited-emotion-inform": "Informați persoanele expuse sistemelor de recunoaștere a emoțiilor că sistemul este în funcțiune",
+      "limited-biometric-inform": "Informați persoanele expuse sistemelor de categorizare biometrică că sistemul este în funcțiune",
+      "minimal-voluntary-codes": "Luați în considerare adoptarea codurilor voluntare de conduită privind sustenabilitatea mediului, accesibilitatea, participarea părților interesate și diversitatea echipelor de dezvoltare",
+      "minimal-voluntary-high-risk-subset": "Luați în considerare aplicarea voluntară a cerințelor pentru sistemele cu risc ridicat (sau a unui subset al acestora)",
+      "minimal-ai-pact": "Luați în considerare respectarea angajamentelor Pactului AI (adoptarea voluntară anticipată a anumitor dispoziții ale Regulamentului privind IA)",
+      "minimal-good-practices": "Documentați capacitățile și limitările sistemului, monitorizați comportamentele neașteptate și mențineți transparența cu utilizatorii privind implicarea AI"
     }
   }
 }
