@@ -8,6 +8,7 @@ import { statusCommand } from './commands/status.js';
 import { reportCommand } from './commands/report.js';
 import { examplesCommand } from './commands/examples.js';
 import { articlesCommand } from './commands/articles.js';
+import { annexesCommand } from './commands/annexes.js';
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -86,6 +87,7 @@ program.addCommand(statusCommand);
 program.addCommand(reportCommand);
 program.addCommand(examplesCommand);
 program.addCommand(articlesCommand);
+program.addCommand(annexesCommand);
 
 // Global error handler — no stack traces in production
 program.exitOverride();
