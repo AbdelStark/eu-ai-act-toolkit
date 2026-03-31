@@ -5,7 +5,13 @@
     "checklist": "检查清单",
     "timeline": "时间线",
     "templates": "模板",
-    "examples": "示例"
+    "examples": "示例",
+    "articles": "条款",
+    "more": "更多",
+    "penalties": "处罚",
+    "gaps": "差距分析",
+    "standards": "标准",
+    "reports": "报告"
   },
   "landing": {
     "hero": {
@@ -36,6 +42,22 @@
       "examples": {
         "title": "详细示例",
         "description": "展示不同AI系统的分类和合规流程如何运作的实际场景。"
+      },
+      "penalties": {
+        "title": "处罚计算器",
+        "description": "根据 Article 99，基于您的风险等级、组织类型和年营业额计算最高罚款风险敞口。"
+      },
+      "gaps": {
+        "title": "差距分析",
+        "description": "识别合规差距，优先安排整改措施，并跟踪相对于执行截止日期的准备情况。"
+      },
+      "standards": {
+        "title": "标准映射",
+        "description": "浏览与 EU AI Act 要求对应的 ISO、CEN/CENELEC 及其他协调标准。"
+      },
+      "reports": {
+        "title": "合规报告",
+        "description": "生成综合合规报告，整合分类、检查清单、差距分析和处罚风险敞口。"
       }
     },
     "stats": {
@@ -244,6 +266,47 @@
     "short": "本工具不构成法律建议。",
     "full": "本工具不构成法律建议。合规决策请咨询合格的法律顾问。EU AI Act Toolkit 是一个开源项目，与欧盟或任何欧盟机构无关联。",
     "dismiss": "我已了解"
+  },
+  "articles": {
+    "title": "EU AI Act 条款",
+    "subtitle": "浏览和搜索 Regulation (EU) 2024/1689 的所有条款"
+  },
+  "penalties": {
+    "title": "处罚风险",
+    "subtitle": "了解不遵守 EU AI Act 的财务后果",
+    "calculator": {
+      "title": "处罚计算器",
+      "description": "根据风险等级、组织类型和年营业额计算组织的最大处罚风险。"
+    },
+    "overview": {
+      "title": "EU AI Act 处罚等级",
+      "description": "Regulation (EU) 2024/1689 Article 99 中定义的所有处罚类别。"
+    }
+  },
+  "gaps": {
+    "title": "合规差距分析",
+    "subtitle": "识别并优先处理您的AI系统的合规差距",
+    "categories": {
+      "title": "分类细分"
+    },
+    "recommendations": {
+      "title": "优先建议"
+    },
+    "topGaps": {
+      "title": "最优先差距"
+    }
+  },
+  "standards": {
+    "title": "协调标准",
+    "subtitle": "与 EU AI Act 要求对应的 ISO、CEN/CENELEC 及其他标准"
+  },
+  "reports": {
+    "title": "合规报告生成器",
+    "subtitle": "生成综合合规报告，整合分类、检查清单、差距分析和处罚风险敞口",
+    "form": {
+      "title": "报告配置",
+      "description": "提供您的AI系统的详细信息以生成定制的合规报告。"
+    }
   },
   "common": {
     "tiers": {

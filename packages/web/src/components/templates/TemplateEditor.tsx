@@ -16,6 +16,8 @@ const TEMPLATE_TITLES: Record<TemplateName, string> = {
   'human-oversight-plan': 'Human Oversight Plan',
   'monitoring-plan': 'Post-Market Monitoring Plan',
   'declaration-of-conformity': 'Declaration of Conformity',
+  'gpai-model-card': 'GPAI Model Card',
+  'fundamental-rights-impact': 'Fundamental Rights Impact Assessment',
 };
 
 export function TemplateEditor({

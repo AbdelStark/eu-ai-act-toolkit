@@ -5,7 +5,13 @@
     "checklist": "Checklist",
     "timeline": "Tijdlijn",
     "templates": "Sjablonen",
-    "examples": "Voorbeelden"
+    "examples": "Voorbeelden",
+    "articles": "Artikelen",
+    "more": "Meer",
+    "penalties": "Sancties",
+    "gaps": "Lacuneanalyse",
+    "standards": "Normen",
+    "reports": "Rapporten"
   },
   "landing": {
     "hero": {
@@ -36,6 +42,22 @@
       "examples": {
         "title": "Uitgewerkte voorbeelden",
         "description": "Praktijkscenario's die laten zien hoe het classificatie- en nalevingsproces werkt voor verschillende AI-systemen."
+      },
+      "penalties": {
+        "title": "Sanctiecalculator",
+        "description": "Bereken de maximale boete-exposure op basis van uw risicocategorie, organisatietype en jaaromzet conform Article 99."
+      },
+      "gaps": {
+        "title": "Lacuneanalyse",
+        "description": "Identificeer nalevingslacunes, prioriteer herstelacties en monitor de gereedheid ten opzichte van handhavingsdeadlines."
+      },
+      "standards": {
+        "title": "Normenmapping",
+        "description": "Doorzoek ISO-, CEN/CENELEC- en andere geharmoniseerde normen gekoppeld aan de vereisten van de EU AI Act."
+      },
+      "reports": {
+        "title": "Nalevingsrapporten",
+        "description": "Genereer uitgebreide nalevingsrapporten die classificatie, checklists, lacuneanalyse en sanctie-exposure combineren."
       }
     },
     "stats": {
@@ -244,6 +266,47 @@
     "short": "Dit hulpmiddel vormt geen juridisch advies.",
     "full": "Dit hulpmiddel vormt geen juridisch advies. Raadpleeg gekwalificeerde juridische adviseurs voor nalevingsbeslissingen. De EU AI Act Toolkit is een open-sourceproject en is niet gelieerd aan de Europese Unie of enige EU-instelling.",
     "dismiss": "Ik begrijp het"
+  },
+  "articles": {
+    "title": "Artikelen van de EU AI Act",
+    "subtitle": "Blader door en zoek alle artikelen van Regulation (EU) 2024/1689"
+  },
+  "penalties": {
+    "title": "Sanctie-exposure",
+    "subtitle": "Begrijp de financiële gevolgen van niet-naleving van de EU AI Act",
+    "calculator": {
+      "title": "Sanctiecalculator",
+      "description": "Bereken de maximale sanctie-exposure van uw organisatie op basis van risicocategorie, organisatietype en jaaromzet."
+    },
+    "overview": {
+      "title": "Sanctieniveaus van de EU AI Act",
+      "description": "Alle sanctiecategorieën zoals gedefinieerd in Article 99 van Regulation (EU) 2024/1689."
+    }
+  },
+  "gaps": {
+    "title": "Nalevingslacuneanalyse",
+    "subtitle": "Identificeer en prioriteer nalevingslacunes voor uw AI-systeem",
+    "categories": {
+      "title": "Categorieoverzicht"
+    },
+    "recommendations": {
+      "title": "Geprioriteerde aanbevelingen"
+    },
+    "topGaps": {
+      "title": "Lacunes met hoogste prioriteit"
+    }
+  },
+  "standards": {
+    "title": "Geharmoniseerde normen",
+    "subtitle": "ISO-, CEN/CENELEC- en andere normen gekoppeld aan de vereisten van de EU AI Act"
+  },
+  "reports": {
+    "title": "Nalevingsrapportgenerator",
+    "subtitle": "Genereer een uitgebreid nalevingsrapport dat classificatie, checklists, lacuneanalyse en sanctie-exposure combineert",
+    "form": {
+      "title": "Rapportconfiguratie",
+      "description": "Verstrek details over uw AI-systeem om een op maat gemaakt nalevingsrapport te genereren."
+    }
   },
   "common": {
     "tiers": {

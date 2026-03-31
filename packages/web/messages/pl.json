@@ -5,7 +5,13 @@
     "checklist": "Lista kontrolna",
     "timeline": "Oś czasu",
     "templates": "Szablony",
-    "examples": "Przykłady"
+    "examples": "Przykłady",
+    "articles": "Artykuły",
+    "more": "Więcej",
+    "penalties": "Kary",
+    "gaps": "Analiza luk",
+    "standards": "Normy",
+    "reports": "Raporty"
   },
   "landing": {
     "hero": {
@@ -36,6 +42,22 @@
       "examples": {
         "title": "Opracowane przykłady",
         "description": "Scenariusze z praktyki pokazujące, jak proces klasyfikacji i zgodności działa dla różnych systemów AI."
+      },
+      "penalties": {
+        "title": "Kalkulator kar",
+        "description": "Oblicz maksymalną ekspozycję na kary na podstawie poziomu ryzyka, typu organizacji i rocznych obrotów zgodnie z Article 99."
+      },
+      "gaps": {
+        "title": "Analiza luk",
+        "description": "Identyfikuj luki w zgodności, priorytetyzuj działania naprawcze i monitoruj gotowość w kontekście terminów egzekwowania."
+      },
+      "standards": {
+        "title": "Mapowanie norm",
+        "description": "Przeglądaj normy ISO, CEN/CENELEC i inne normy zharmonizowane powiązane z wymaganiami EU AI Act."
+      },
+      "reports": {
+        "title": "Raporty zgodności",
+        "description": "Generuj kompleksowe raporty zgodności łączące klasyfikację, listy kontrolne, analizę luk i ekspozycję na kary."
       }
     },
     "stats": {
@@ -244,6 +266,47 @@
     "short": "To narzędzie nie stanowi porady prawnej.",
     "full": "To narzędzie nie stanowi porady prawnej. W kwestiach zgodności należy skonsultować się z wykwalifikowanym doradcą prawnym. EU AI Act Toolkit jest projektem open-source i nie jest powiązany z Unią Europejską ani żadną instytucją UE.",
     "dismiss": "Rozumiem"
+  },
+  "articles": {
+    "title": "Artykuły EU AI Act",
+    "subtitle": "Przeglądaj i wyszukuj wszystkie artykuły Regulation (EU) 2024/1689"
+  },
+  "penalties": {
+    "title": "Ekspozycja na kary",
+    "subtitle": "Poznaj konsekwencje finansowe niezgodności z EU AI Act",
+    "calculator": {
+      "title": "Kalkulator kar",
+      "description": "Oblicz maksymalną ekspozycję na kary swojej organizacji na podstawie poziomu ryzyka, typu organizacji i rocznych obrotów."
+    },
+    "overview": {
+      "title": "Poziomy kar EU AI Act",
+      "description": "Wszystkie kategorie kar zdefiniowane w Article 99 Regulation (EU) 2024/1689."
+    }
+  },
+  "gaps": {
+    "title": "Analiza luk w zgodności",
+    "subtitle": "Identyfikuj i priorytetyzuj luki w zgodności dla swojego systemu AI",
+    "categories": {
+      "title": "Podział na kategorie"
+    },
+    "recommendations": {
+      "title": "Priorytetowe rekomendacje"
+    },
+    "topGaps": {
+      "title": "Najważniejsze luki"
+    }
+  },
+  "standards": {
+    "title": "Normy zharmonizowane",
+    "subtitle": "Normy ISO, CEN/CENELEC i inne powiązane z wymaganiami EU AI Act"
+  },
+  "reports": {
+    "title": "Generator raportów zgodności",
+    "subtitle": "Generuj kompleksowy raport zgodności łączący klasyfikację, listy kontrolne, analizę luk i ekspozycję na kary",
+    "form": {
+      "title": "Konfiguracja raportu",
+      "description": "Podaj szczegóły dotyczące systemu AI, aby wygenerować dostosowany raport zgodności."
+    }
   },
   "common": {
     "tiers": {

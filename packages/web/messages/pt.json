@@ -5,7 +5,13 @@
     "checklist": "Conformidade",
     "timeline": "Calendário",
     "templates": "Modelos",
-    "examples": "Exemplos"
+    "examples": "Exemplos",
+    "articles": "Artigos",
+    "more": "Mais",
+    "penalties": "Sanções",
+    "gaps": "Análise de lacunas",
+    "standards": "Normas",
+    "reports": "Relatórios"
   },
   "landing": {
     "hero": {
@@ -36,6 +42,22 @@
       "examples": {
         "title": "Exemplos práticos",
         "description": "Cenários reais que demonstram como funciona o processo de classificação e conformidade para diferentes sistemas de IA."
+      },
+      "penalties": {
+        "title": "Calculadora de penalidades",
+        "description": "Calcule a exposição máxima a multas com base no nível de risco, tipo de organização e volume de negócios anual conforme o Article 99."
+      },
+      "gaps": {
+        "title": "Análise de lacunas",
+        "description": "Identifique lacunas de conformidade, priorize ações corretivas e acompanhe a prontidão face aos prazos de aplicação."
+      },
+      "standards": {
+        "title": "Mapeamento de normas",
+        "description": "Consulte normas ISO, CEN/CENELEC e outras normas harmonizadas mapeadas para os requisitos do EU AI Act."
+      },
+      "reports": {
+        "title": "Relatórios de conformidade",
+        "description": "Gere relatórios abrangentes de conformidade combinando classificação, listas de verificação, análise de lacunas e exposição a penalidades."
       }
     },
     "stats": {
@@ -244,6 +266,47 @@
     "short": "Esta ferramenta não constitui aconselhamento jurídico.",
     "full": "Esta ferramenta não constitui aconselhamento jurídico. Consulte um advogado qualificado para decisões de conformidade. O EU AI Act Toolkit é um projeto de código aberto e não é afiliado à União Europeia nem a qualquer instituição da UE.",
     "dismiss": "Compreendo"
+  },
+  "articles": {
+    "title": "Artigos do EU AI Act",
+    "subtitle": "Pesquise e consulte todos os artigos do Regulation (EU) 2024/1689"
+  },
+  "penalties": {
+    "title": "Exposição a penalidades",
+    "subtitle": "Compreenda as consequências financeiras do incumprimento do EU AI Act",
+    "calculator": {
+      "title": "Calculadora de penalidades",
+      "description": "Calcule a exposição máxima a penalidades da sua organização com base no nível de risco, tipo de organização e volume de negócios anual."
+    },
+    "overview": {
+      "title": "Níveis de penalidades do EU AI Act",
+      "description": "Todas as categorias de penalidades definidas no Article 99 do Regulation (EU) 2024/1689."
+    }
+  },
+  "gaps": {
+    "title": "Análise de lacunas de conformidade",
+    "subtitle": "Identifique e priorize lacunas de conformidade para o seu sistema de IA",
+    "categories": {
+      "title": "Desagregação por categorias"
+    },
+    "recommendations": {
+      "title": "Recomendações priorizadas"
+    },
+    "topGaps": {
+      "title": "Lacunas prioritárias"
+    }
+  },
+  "standards": {
+    "title": "Normas harmonizadas",
+    "subtitle": "Normas ISO, CEN/CENELEC e outras mapeadas para os requisitos do EU AI Act"
+  },
+  "reports": {
+    "title": "Gerador de relatórios de conformidade",
+    "subtitle": "Gere um relatório abrangente de conformidade combinando classificação, listas de verificação, análise de lacunas e exposição a penalidades",
+    "form": {
+      "title": "Configuração do relatório",
+      "description": "Forneça detalhes sobre o seu sistema de IA para gerar um relatório de conformidade personalizado."
+    }
   },
   "common": {
     "tiers": {

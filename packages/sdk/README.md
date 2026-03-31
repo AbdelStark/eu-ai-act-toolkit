@@ -9,8 +9,14 @@ TypeScript SDK for EU AI Act (Regulation 2024/1689) compliance — risk classifi
 - **Risk Classification** — Deterministic, rule-based classifier covering all six tiers (prohibited, high-risk, GPAI, GPAI with systemic risk, limited, minimal)
 - **Compliance Checklists** — Per-tier obligation checklists with article references
 - **Enforcement Timeline** — All EU AI Act milestones with computed status and countdown
-- **Documentation Templates** — Markdown templates for technical documentation, risk management, data governance, human oversight, monitoring, and declaration of conformity
+- **Documentation Templates** — 8 Markdown templates including technical docs, risk management, data governance, human oversight, monitoring, conformity declaration, GPAI model card, and fundamental rights impact assessment
 - **Interactive Questions** — Question tree for building classification wizard UIs
+- **Article & Annex Lookup** — Browse and search all EU AI Act articles and Annex III categories
+- **Penalty Calculator** — Calculate fine exposure based on risk tier, organization type, and annual turnover
+- **Gap Analysis** — Comprehensive compliance gap analysis with priority scoring and remediation recommendations
+- **Standards Mapping** — Harmonised ISO/CEN/CENELEC standards mapped to EU AI Act obligations
+- **Compliance Reports** — Generate comprehensive Markdown compliance reports
+- **Worked Examples** — 10 pre-built classification scenarios covering all 6 risk tiers
 - **Zero Dependencies** — All data is bundled at build time; no runtime dependencies
 - **Dual Format** — Ships ESM + CJS with full TypeScript declarations
 
@@ -252,6 +258,8 @@ Produces a Markdown string with system details interpolated and `[TODO]` placeho
 - `'human-oversight-plan'` — Article 14 human oversight
 - `'monitoring-plan'` — Articles 72–73 post-market monitoring
 - `'declaration-of-conformity'` — Article 47 EU declaration
+- `'gpai-model-card'` — Article 53 / Annex XI GPAI model card
+- `'fundamental-rights-impact'` — Article 27 fundamental rights impact assessment
 
 **Returns:** `string` — Markdown document
 
@@ -370,6 +378,128 @@ const { completed, total, percent } = countProgress(checklist.items, {});
 console.log(`${completed}/${total} (${percent}%)`);
 ```
 
+---
+
+### `getArticles(): ArticleReference[]`
+
+Get all EU AI Act article references, sorted by article number.
+
+```typescript
+import { getArticles, getArticle, getArticlesByTier } from '@eu-ai-act/sdk';
+
+const articles = getArticles();          // All articles
+const art9 = getArticle(9);              // Specific article (or null)
+const hrArticles = getArticlesByTier('high-risk'); // Articles for a tier
+```
+
+---
+
+### `getAnnexes(): AnnexIIIDetail[]`
+
+Get all Annex III high-risk use case categories.
+
+```typescript
+import { getAnnexes, getAnnex } from '@eu-ai-act/sdk';
+
+const categories = getAnnexes();          // All Annex III categories
+const employment = getAnnex('employment'); // Specific category (or null)
+```
+
+---
+
+### `getExamples(): WorkedExample[]`
+
+Get all worked classification examples with inputs, expected tiers, and walkthroughs.
+
+```typescript
+import { getExamples, getExampleBySlug, validateExamples } from '@eu-ai-act/sdk';
+
+const examples = getExamples();
+const hiring = getExampleBySlug('hiring-tool');
+const validation = validateExamples(); // Validate all against classify()
+```
+
+---
+
+### `calculatePenaltyExposure(input: PenaltyInput): PenaltyExposure`
+
+Calculate penalty exposure for an AI system based on risk tier and organization.
+
+```typescript
+import { calculatePenaltyExposure, formatFineAmount } from '@eu-ai-act/sdk';
+
+const exposure = calculatePenaltyExposure({
+  tier: 'high-risk',
+  annualTurnoverEur: 100_000_000,
+  organizationType: 'large',
+});
+
+console.log(formatFineAmount(exposure.maxExposureEur)); // "EUR 15M"
+console.log(exposure.summary);  // Human-readable assessment
+```
+
+---
+
+### `analyzeGaps(input: GapAnalysisInput): GapAnalysisResult`
+
+Perform comprehensive compliance gap analysis.
+
+```typescript
+import { classify, analyzeGaps } from '@eu-ai-act/sdk';
+
+const classification = classify({ /* ... */ });
+const result = analyzeGaps({
+  classification,
+  progress: {},  // checklist completion state
+  annualTurnoverEur: 50_000_000,
+});
+
+console.log(result.readinessPercent);  // 0-100
+console.log(result.criticalGaps);     // Number of critical gaps
+console.log(result.recommendations);  // Prioritized action items
+```
+
+---
+
+### `getStandards(): Standard[]`
+
+Get all harmonised standards mapped to EU AI Act requirements.
+
+```typescript
+import {
+  getStandards,
+  getStandardsByTier,
+  getStandardsMapping,
+} from '@eu-ai-act/sdk';
+
+const all = getStandards();
+const hrStandards = getStandardsByTier('high-risk');
+const mapping = getStandardsMapping(); // Category → standards matrix
+```
+
+---
+
+### `generateReport(classification, checklist, options): string`
+
+Generate a comprehensive compliance report as Markdown.
+
+```typescript
+import { classify, getChecklist, generateReport } from '@eu-ai-act/sdk';
+
+const classification = classify({ /* ... */ });
+const checklist = getChecklist(classification.tier);
+const report = generateReport(classification, checklist, {
+  systemName: 'Hiring Screener',
+  provider: 'Acme Corp',
+  intendedPurpose: 'Automated resume screening',
+  includePenalties: true,
+  includeGapAnalysis: true,
+});
+// report is a complete Markdown document
+```
+
+---
+
 ## Types
 
 All types are exported for use in TypeScript projects:
@@ -377,36 +507,40 @@ All types are exported for use in TypeScript projects:
 ```typescript
 import type {
   // Classification
-  ClassificationInput,
-  ClassificationResult,
-  RiskTier,
-  Obligation,
-  ObligationCategory,
-  ConformityAssessment,
+  ClassificationInput, ClassificationResult, RiskTier,
+  Obligation, ObligationCategory, ConformityAssessment,
 
   // Checklists
-  Checklist,
-  ChecklistItem,
-  ChecklistProgress,
+  Checklist, ChecklistItem, ChecklistProgress,
 
   // Timeline
-  TimelineEvent,
-  TimelineStatus,
+  TimelineEvent, TimelineStatus,
 
   // Templates
-  TemplateName,
-  TemplateInput,
+  TemplateName, TemplateInput,
 
   // Questions
-  QuestionStep,
-  Question,
+  QuestionStep, Question,
 
-  // Annex III
-  AnnexIIICategory,
+  // Articles & Annexes
+  ArticleReference, AnnexIIIDetail, AnnexIIICategory,
 
-  // State persistence
-  WorkedExample,
-  StateFile,
+  // Penalties
+  PenaltyInput, PenaltyExposure, PenaltyTier,
+  PenaltySummary, OrganizationType,
+
+  // Gap Analysis
+  GapAnalysisInput, GapAnalysisResult,
+  ComplianceGap, CategoryGapSummary, GapPriority,
+
+  // Standards
+  Standard, StandardsMapping,
+
+  // Reports
+  ReportOptions,
+
+  // Examples & State
+  WorkedExample, ExampleValidationResult, StateFile,
 } from '@eu-ai-act/sdk';
 ```
 

@@ -5,7 +5,13 @@
     "checklist": "Checklist",
     "timeline": "Timeline",
     "templates": "Templates",
-    "examples": "Examples"
+    "examples": "Examples",
+    "articles": "Articles",
+    "penalties": "Penalties",
+    "gaps": "Gap Analysis",
+    "standards": "Standards",
+    "reports": "Reports",
+    "more": "More"
   },
   "landing": {
     "hero": {
@@ -36,6 +42,22 @@
       "examples": {
         "title": "Worked Examples",
         "description": "Real-world scenarios showing how the classification and compliance process works for different AI systems."
+      },
+      "penalties": {
+        "title": "Penalty Calculator",
+        "description": "Calculate maximum fine exposure based on your risk tier, organization type, and annual turnover under Article 99."
+      },
+      "gaps": {
+        "title": "Gap Analysis",
+        "description": "Identify compliance gaps, prioritize remediation actions, and track readiness against enforcement deadlines."
+      },
+      "standards": {
+        "title": "Standards Mapping",
+        "description": "Browse ISO, CEN/CENELEC, and other harmonised standards mapped to EU AI Act requirements."
+      },
+      "reports": {
+        "title": "Compliance Reports",
+        "description": "Generate comprehensive compliance reports combining classification, checklists, gap analysis, and penalty exposure."
       }
     },
     "stats": {
@@ -244,6 +266,47 @@
     "short": "This tool does not constitute legal advice.",
     "full": "This tool does not constitute legal advice. Consult qualified legal counsel for compliance decisions. The EU AI Act Toolkit is an open-source project and is not affiliated with the European Union or any EU institution.",
     "dismiss": "I understand"
+  },
+  "articles": {
+    "title": "EU AI Act Articles",
+    "subtitle": "Browse and search all articles of Regulation (EU) 2024/1689"
+  },
+  "penalties": {
+    "title": "Penalty Exposure",
+    "subtitle": "Understand the financial consequences of non-compliance with the EU AI Act",
+    "calculator": {
+      "title": "Penalty Calculator",
+      "description": "Calculate your organization's maximum penalty exposure based on risk tier, organization type, and annual turnover."
+    },
+    "overview": {
+      "title": "EU AI Act Penalty Tiers",
+      "description": "All penalty categories defined in Article 99 of Regulation (EU) 2024/1689."
+    }
+  },
+  "gaps": {
+    "title": "Compliance Gap Analysis",
+    "subtitle": "Identify and prioritize compliance gaps for your AI system",
+    "categories": {
+      "title": "Category Breakdown"
+    },
+    "recommendations": {
+      "title": "Prioritized Recommendations"
+    },
+    "topGaps": {
+      "title": "Top Priority Gaps"
+    }
+  },
+  "standards": {
+    "title": "Harmonised Standards",
+    "subtitle": "ISO, CEN/CENELEC, and other standards mapped to EU AI Act requirements"
+  },
+  "reports": {
+    "title": "Compliance Report Generator",
+    "subtitle": "Generate a comprehensive compliance report combining classification, checklists, penalties, and gap analysis",
+    "form": {
+      "title": "Report Configuration",
+      "description": "Provide details about your AI system to generate a tailored compliance report."
+    }
   },
   "common": {
     "tiers": {

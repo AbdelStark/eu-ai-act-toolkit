@@ -7,13 +7,23 @@ import { useTranslations } from 'next-intl';
 import { Disclaimer } from './Disclaimer';
 import { LanguageSelector } from './LanguageSelector';
 
-const navLinks = [
+const primaryNavLinks = [
   { href: '/classify', labelKey: 'classify' as const },
   { href: '/checklist/high-risk', labelKey: 'checklist' as const },
   { href: '/timeline', labelKey: 'timeline' as const },
   { href: '/templates', labelKey: 'templates' as const },
   { href: '/examples', labelKey: 'examples' as const },
 ];
+
+const moreNavLinks = [
+  { href: '/articles', labelKey: 'articles' as const },
+  { href: '/penalties', labelKey: 'penalties' as const },
+  { href: '/gaps', labelKey: 'gaps' as const },
+  { href: '/standards', labelKey: 'standards' as const },
+  { href: '/reports', labelKey: 'reports' as const },
+];
+
+const allNavLinks = [...primaryNavLinks, ...moreNavLinks];
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -38,7 +48,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           <nav className="hidden items-center gap-1 md:flex">
-            {navLinks.map((link) => {
+            {primaryNavLinks.map((link) => {
               const isActive =
                 pathname === link.href ||
                 pathname.startsWith(link.href + '/');
@@ -57,6 +67,43 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               );
             })}
+            {/* More dropdown */}
+            <div className="relative group">
+              <button
+                type="button"
+                className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-150 inline-flex items-center gap-1 ${
+                  moreNavLinks.some(l => pathname === l.href || pathname.startsWith(l.href + '/'))
+                    ? 'bg-white/15 text-white'
+                    : 'text-white/70 hover:bg-white/10 hover:text-white'
+                }`}
+              >
+                {t('more')}
+                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+              <div className="invisible group-hover:visible group-focus-within:visible absolute right-0 top-full mt-1 w-48 rounded-lg border border-white/10 bg-navy shadow-lg py-1 z-50">
+                {moreNavLinks.map((link) => {
+                  const isActive =
+                    pathname === link.href ||
+                    pathname.startsWith(link.href + '/');
+
+                  return (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className={`block px-4 py-2 text-sm font-medium transition-colors duration-150 ${
+                        isActive
+                          ? 'bg-white/15 text-white'
+                          : 'text-white/70 hover:bg-white/10 hover:text-white'
+                      }`}
+                    >
+                      {t(link.labelKey)}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
           </nav>
 
           <div className="hidden md:flex items-center">
@@ -87,7 +134,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {mobileMenuOpen && (
           <nav className="border-t border-white/10 bg-navy px-4 pb-4 pt-2 md:hidden animate-slide-down">
             <div className="flex flex-col gap-1">
-              {navLinks.map((link) => {
+              {allNavLinks.map((link) => {
                 const isActive =
                   pathname === link.href ||
                   pathname.startsWith(link.href + '/');

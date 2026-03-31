@@ -62,6 +62,22 @@ const TEMPLATES: {
     preview: '# EU Declaration of Conformity\n## Provider Information\n## AI System Identification\n## Conformity Assessment',
     badge: 'Art. 47',
   },
+  {
+    name: 'gpai-model-card',
+    title: 'GPAI Model Card',
+    description: 'Model card for general-purpose AI models per Article 53 and Annex XI.',
+    icon: 'M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z',
+    preview: '# GPAI Model Card\n## Model Information\n## Training Data\n## Capabilities & Limitations',
+    badge: 'Art. 53',
+  },
+  {
+    name: 'fundamental-rights-impact',
+    title: 'Fundamental Rights Impact Assessment',
+    description: 'Impact assessment for high-risk systems deployed by public bodies per Article 27.',
+    icon: 'M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0 0 12 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 0 1-2.031.352 5.988 5.988 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.971Zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0 2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 0 1-2.031.352 5.989 5.989 0 0 1-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.971Z',
+    preview: '# Fundamental Rights Impact Assessment\n## 1. System Overview\n## 2. Rights Analysis\n## 3. Mitigation',
+    badge: 'Art. 27',
+  },
 ];
 
 export function TemplateSelector({ onSelect }: TemplateSelectorProps) {
