@@ -12,7 +12,8 @@
     "standards": "মানদণ্ড",
     "reports": "প্রতিবেদন",
     "more": "আরও",
-    "dashboard": "ড্যাশবোর্ড"
+    "dashboard": "ড্যাশবোর্ড",
+    "plan": "কর্ম পরিকল্পনা"
   },
   "landing": {
     "hero": {
@@ -391,5 +392,28 @@
       "title": "Recommendations"
     },
     "disclaimer": "This dashboard does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
+  },
+  "plan": {
+    "title": "সম্মতি কর্ম পরিকল্পনা",
+    "subtitle": "EU AI আইন সম্মতি অর্জনের জন্য সময়-পর্যায়ভিত্তিক রোডম্যাপ",
+    "exportPlan": "Export Plan",
+    "empty": {
+      "title": "No Classification Yet",
+      "description": "Classify your AI system first to generate a personalized compliance action plan.",
+      "cta": "Classify Your AI System"
+    },
+    "complete": {
+      "title": "All Actions Complete",
+      "description": "Congratulations! All compliance checklist items have been addressed. Continue monitoring for regulatory updates.",
+      "cta": "Back to Dashboard"
+    },
+    "summary": {
+      "actions": "Total Actions",
+      "immediate": "Immediate",
+      "readiness": "Readiness",
+      "exposure": "Fine Exposure"
+    },
+    "recommendations": "Strategic Recommendations",
+    "disclaimer": "This action plan does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
   }
 }

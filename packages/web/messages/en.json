@@ -12,6 +12,7 @@
     "gaps": "Gap Analysis",
     "standards": "Standards",
     "reports": "Reports",
+    "plan": "Action Plan",
     "more": "More"
   },
   "landing": {
@@ -313,6 +314,29 @@
       "description": "Provide details about your AI system to generate a tailored compliance report."
     }
   },
+  "plan": {
+    "title": "Compliance Action Plan",
+    "subtitle": "Time-phased roadmap for achieving EU AI Act compliance",
+    "exportPlan": "Export Plan",
+    "empty": {
+      "title": "No Classification Yet",
+      "description": "Classify your AI system first to generate a personalized compliance action plan.",
+      "cta": "Classify Your AI System"
+    },
+    "complete": {
+      "title": "All Actions Complete",
+      "description": "Congratulations! All compliance checklist items have been addressed. Continue monitoring for regulatory updates.",
+      "cta": "Back to Dashboard"
+    },
+    "summary": {
+      "actions": "Total Actions",
+      "immediate": "Immediate",
+      "readiness": "Readiness",
+      "exposure": "Fine Exposure"
+    },
+    "recommendations": "Strategic Recommendations",
+    "disclaimer": "This action plan does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
+  },
   "dashboard": {
     "title": "Compliance Dashboard",
     "subtitle": "Your AI system's compliance posture at a glance",
@@ -354,6 +378,8 @@
       "templatesDesc": "Create compliance documentation",
       "report": "Generate Report",
       "reportDesc": "Full compliance report",
+      "plan": "Action Plan",
+      "planDesc": "Time-phased compliance roadmap",
       "gaps": "Gap Analysis",
       "gapsDesc": "Identify compliance gaps",
       "penalties": "Penalty Calculator",

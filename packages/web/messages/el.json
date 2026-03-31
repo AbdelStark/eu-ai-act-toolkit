@@ -12,7 +12,8 @@
     "standards": "Πρότυπα",
     "reports": "Αναφορές",
     "more": "Περισσότερα",
-    "dashboard": "Πίνακας Ελέγχου"
+    "dashboard": "Πίνακας Ελέγχου",
+    "plan": "Σχέδιο Δράσης"
   },
   "landing": {
     "hero": {
@@ -391,5 +392,28 @@
       "title": "Recommendations"
     },
     "disclaimer": "This dashboard does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
+  },
+  "plan": {
+    "title": "Σχέδιο Δράσης Συμμόρφωσης",
+    "subtitle": "Χρονικά σταδιοποιημένος χάρτης πορείας για συμμόρφωση με τον Κανονισμό AI",
+    "exportPlan": "Export Plan",
+    "empty": {
+      "title": "No Classification Yet",
+      "description": "Classify your AI system first to generate a personalized compliance action plan.",
+      "cta": "Classify Your AI System"
+    },
+    "complete": {
+      "title": "All Actions Complete",
+      "description": "Congratulations! All compliance checklist items have been addressed. Continue monitoring for regulatory updates.",
+      "cta": "Back to Dashboard"
+    },
+    "summary": {
+      "actions": "Total Actions",
+      "immediate": "Immediate",
+      "readiness": "Readiness",
+      "exposure": "Fine Exposure"
+    },
+    "recommendations": "Strategic Recommendations",
+    "disclaimer": "This action plan does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
   }
 }

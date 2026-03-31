@@ -17,6 +17,7 @@ const primaryNavLinks = [
 ];
 
 const moreNavLinks = [
+  { href: '/plan', labelKey: 'plan' as const },
   { href: '/articles', labelKey: 'articles' as const },
   { href: '/penalties', labelKey: 'penalties' as const },
   { href: '/gaps', labelKey: 'gaps' as const },

@@ -12,7 +12,8 @@
     "gaps": "Analisi delle lacune",
     "standards": "Norme",
     "reports": "Rapporti",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "plan": "Piano d'Azione"
   },
   "landing": {
     "hero": {
@@ -391,5 +392,28 @@
       "title": "Recommendations"
     },
     "disclaimer": "This dashboard does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
+  },
+  "plan": {
+    "title": "Piano d'Azione di Conformità",
+    "subtitle": "Roadmap temporale per raggiungere la conformità al Regolamento AI",
+    "exportPlan": "Export Plan",
+    "empty": {
+      "title": "No Classification Yet",
+      "description": "Classify your AI system first to generate a personalized compliance action plan.",
+      "cta": "Classify Your AI System"
+    },
+    "complete": {
+      "title": "All Actions Complete",
+      "description": "Congratulations! All compliance checklist items have been addressed. Continue monitoring for regulatory updates.",
+      "cta": "Back to Dashboard"
+    },
+    "summary": {
+      "actions": "Total Actions",
+      "immediate": "Immediate",
+      "readiness": "Readiness",
+      "exposure": "Fine Exposure"
+    },
+    "recommendations": "Strategic Recommendations",
+    "disclaimer": "This action plan does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
   }
 }

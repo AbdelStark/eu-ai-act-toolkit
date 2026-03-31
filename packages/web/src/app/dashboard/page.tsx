@@ -459,6 +459,20 @@ export default function DashboardPage() {
                   </div>
                 </Link>
                 <Link
+                  href="/plan"
+                  className="flex items-center gap-3 rounded-lg border border-slate-200 p-4 transition-all hover:border-eu-blue/30 hover:shadow-md"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-eu-blue/10 text-eu-blue">
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM3.75 12h.007v.008H3.75V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm-.375 5.25h.007v.008H3.75v-.008Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-navy">{t('quickActions.plan')}</p>
+                    <p className="text-xs text-slate-500">{t('quickActions.planDesc')}</p>
+                  </div>
+                </Link>
+                <Link
                   href="/gaps"
                   className="flex items-center gap-3 rounded-lg border border-slate-200 p-4 transition-all hover:border-eu-blue/30 hover:shadow-md"
                 >
