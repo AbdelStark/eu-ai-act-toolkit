@@ -1,4 +1,4 @@
-# eu-ai-act
+# @eu-ai-act/cli
 
 **EU AI Act Compliance Toolkit CLI** — Classify AI systems, track compliance checklists, and generate documentation required under the EU AI Act.
 
@@ -7,13 +7,13 @@
 ## Installation
 
 ```bash
-npm i -g eu-ai-act
+npm i -g @eu-ai-act/cli
 ```
 
 Or use without installing:
 
 ```bash
-npx eu-ai-act --help
+npx @eu-ai-act/cli --help
 ```
 
 ## Quick Start

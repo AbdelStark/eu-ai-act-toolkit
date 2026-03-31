@@ -31,7 +31,7 @@ This toolkit helps you figure out what applies to you and track your compliance.
 | Component | What it does |
 |-----------|-------------|
 | **[`@eu-ai-act/sdk`](packages/sdk/)** | TypeScript library. Classify systems, generate checklists, render templates. |
-| **[`eu-ai-act`](packages/cli/)** | CLI tool. 12 commands: classify, checklist, timeline, templates, examples, articles, annexes, penalties, gaps, standards, reports. |
+| **[`@eu-ai-act/cli`](packages/cli/)** | CLI tool. 12 commands: classify, checklist, timeline, templates, examples, articles, annexes, penalties, gaps, standards, reports. |
 | **[Web App](packages/web/)** | Visual dashboard. Classification wizard, checklists, timeline, templates, examples, articles browser, penalty calculator, gap analysis, standards mapping, compliance reports. 14 languages. |
 
 ## Get Started
@@ -297,7 +297,7 @@ All CLI commands support `--json` for machine-readable output that agents can pa
 |----------|-------------|
 | [AGENTS.md](AGENTS.md) | Architecture, data model, conventions — guide for AI coding agents |
 | [SDK README](packages/sdk/README.md) | Integration guide for `@eu-ai-act/sdk` |
-| [CLI README](packages/cli/README.md) | Usage guide for the `eu-ai-act` CLI |
+| [CLI README](packages/cli/README.md) | Usage guide for the `@eu-ai-act/cli` CLI |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute, development setup |
 
 ## Contributing
