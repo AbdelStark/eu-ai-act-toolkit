@@ -29,13 +29,13 @@ jobs:
         run: node scripts/validate-data.js
 
       - name: Build SDK and CLI
-        run: npx turbo build --filter=@eu-ai-act/sdk --filter=eu-ai-act
+        run: npx turbo build --filter=@eu-ai-act/sdk --filter=@eu-ai-act/cli
 
       - name: Run tests
         run: npx turbo test --filter=@eu-ai-act/sdk
 
       - name: Type-check SDK
-        run: npx turbo lint --filter=@eu-ai-act/sdk --filter=eu-ai-act
+        run: npx turbo lint --filter=@eu-ai-act/sdk --filter=@eu-ai-act/cli
 
   web-typecheck:
     runs-on: ubuntu-latest
