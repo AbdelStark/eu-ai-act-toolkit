@@ -13,6 +13,10 @@ const navLinks = [
   { href: '/timeline', labelKey: 'timeline' as const },
   { href: '/templates', labelKey: 'templates' as const },
   { href: '/examples', labelKey: 'examples' as const },
+  { href: '/penalties', labelKey: 'penalties' as const },
+  { href: '/gaps', labelKey: 'gaps' as const },
+  { href: '/standards', labelKey: 'standards' as const },
+  { href: '/reports', labelKey: 'reports' as const },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
