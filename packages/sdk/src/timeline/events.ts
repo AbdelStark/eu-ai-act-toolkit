@@ -42,12 +42,17 @@ export function getTimeline(referenceDate?: Date): TimelineEvent[] {
       const daysUntil = Math.ceil((eventTime - refTime) / MS_PER_DAY);
       const status = computeStatus(daysUntil);
 
+      // Filter out the special 'all' sentinel — expand it to concrete tiers
+      const categories: RiskTier[] = event.categories.includes('all' as RiskTier | 'all')
+        ? ['prohibited', 'high-risk', 'gpai', 'gpai-systemic', 'limited', 'minimal']
+        : event.categories.filter((c): c is RiskTier => c !== 'all');
+
       return {
         date: event.date,
         title: event.title,
         description: event.description,
         articles: event.articles,
-        categories: event.categories as RiskTier[],
+        categories,
         status,
         daysUntil,
       };

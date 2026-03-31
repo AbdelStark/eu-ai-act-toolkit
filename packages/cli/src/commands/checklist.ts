@@ -3,8 +3,7 @@ import chalk from 'chalk';
 import Table from 'cli-table3';
 import { getChecklist, countProgress, RISK_TIERS } from '@eu-ai-act/sdk';
 import type { RiskTier, ChecklistProgress } from '@eu-ai-act/sdk';
-import { readState, writeState, findStateFile } from '../state.js';
-import { readFileSync } from 'node:fs';
+import { readState } from '../state.js';
 
 export const checklistCommand = new Command('checklist')
   .description('Display the compliance checklist for a risk tier')
