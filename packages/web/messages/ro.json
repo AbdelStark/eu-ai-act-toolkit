@@ -45,7 +45,7 @@
       },
       "penalties": {
         "title": "Calculator de penalități",
-        "description": "Calculați expunerea maximă la amenzi pe baza nivelului de risc, tipului de organizație și cifrei de afaceri anuale conform Article 99."
+        "description": "Calculați expunerea maximă la amenzi pe baza nivelului de risc, tipului de organizație și cifrei de afaceri anuale conform Articolului 99."
       },
       "gaps": {
         "title": "Analiza lacunelor",
@@ -73,7 +73,7 @@
     "steps": {
       "prohibited": {
         "title": "Practici interzise",
-        "description": "Verificați dacă sistemul dvs. de AI se încadrează în practicile interzise conform Article 5"
+        "description": "Verificați dacă sistemul dvs. de AI se încadrează în practicile interzise conform Articolului 5"
       },
       "gpai": {
         "title": "AI de uz general",
@@ -85,7 +85,7 @@
       },
       "highRisk": {
         "title": "Clasificare cu risc ridicat",
-        "description": "Verificați componentele de siguranță din Annex I și cazurile de utilizare din Annex III"
+        "description": "Verificați componentele de siguranță din Anexa I și cazurile de utilizare din Anexa III"
       },
       "limited": {
         "title": "Risc limitat (Transparență)",
@@ -110,7 +110,7 @@
     "results": {
       "prohibited": {
         "title": "Sistem de AI interzis",
-        "description": "Sistemul dvs. de AI este interzis conform Article 5 din EU AI Act.",
+        "description": "Sistemul dvs. de AI este interzis conform Articolului 5 din EU AI Act.",
         "action": "Întrerupeți dezvoltarea sau reproiectați fundamental pentru a elimina capacitățile interzise."
       },
       "highRisk": {
@@ -158,7 +158,7 @@
     "item": {
       "required": "Obligatoriu",
       "recommended": "Recomandat",
-      "article": "Article {number}",
+      "article": "Articolul {number}",
       "deadline": "Termen limită: {date}",
       "markComplete": "Marcați ca finalizat",
       "markIncomplete": "Marcați ca nefinalizat"
@@ -201,8 +201,8 @@
       "entryIntoForce": "Intrarea în vigoare",
       "prohibitions": "Practici AI interzise",
       "gpaiObligations": "Obligații GPAI",
-      "highRiskAnnexIII": "Obligații pentru risc ridicat (Annex III)",
-      "highRiskAnnexI": "Obligații pentru risc ridicat (Annex I)",
+      "highRiskAnnexIII": "Obligații pentru risc ridicat (Anexa III)",
+      "highRiskAnnexI": "Obligații pentru risc ridicat (Anexa I)",
       "fullEnforcement": "Aplicare integrală"
     }
   },
@@ -212,23 +212,23 @@
     "list": {
       "conformity": {
         "title": "Declarația de conformitate UE",
-        "description": "Declarație obligatorie pentru sistemele AI cu risc ridicat conform Article 47 și Annex V."
+        "description": "Declarație obligatorie pentru sistemele AI cu risc ridicat conform Articolului 47 și Anexei V."
       },
       "riskAssessment": {
         "title": "Evaluarea impactului asupra drepturilor fundamentale",
-        "description": "Evaluare obligatorie pentru sistemele AI cu risc ridicat implementate de organismele publice conform Article 27."
+        "description": "Evaluare obligatorie pentru sistemele AI cu risc ridicat implementate de organismele publice conform Articolului 27."
       },
       "modelCard": {
         "title": "Fișa modelului GPAI",
-        "description": "Documentație tehnică pentru modelele GPAI conform Article 53 și Annex XI."
+        "description": "Documentație tehnică pentru modelele GPAI conform Articolului 53 și Anexei XI."
       },
       "impactAssessment": {
         "title": "Evaluarea impactului asupra protecției datelor",
-        "description": "Șablon DPIA pentru sistemele AI care prelucrează date cu caracter personal, aliniat la GDPR Article 35."
+        "description": "Șablon DPIA pentru sistemele AI care prelucrează date cu caracter personal, aliniat la Articolul 35 GDPR."
       },
       "transparencyNotice": {
         "title": "Notificare de transparență",
-        "description": "Notificare destinată utilizatorilor pentru sistemele AI cu obligații de transparență conform Article 50."
+        "description": "Notificare destinată utilizatorilor pentru sistemele AI cu obligații de transparență conform Articolului 50."
       }
     },
     "generate": "Generați documentul",
@@ -260,7 +260,7 @@
     },
     "copyright": "EU AI Act Toolkit. Open source sub licența MIT.",
     "regulation": "Bazat pe Regulamentul (UE) 2024/1689 al Parlamentului European și al Consiliului.",
-    "tagline": "Made with care for AI compliance teams worldwide"
+    "tagline": "Creat cu atenție pentru echipele de conformitate AI din întreaga lume"
   },
   "disclaimer": {
     "short": "Acest instrument nu constituie consiliere juridică.",
@@ -280,7 +280,7 @@
     },
     "overview": {
       "title": "Nivelurile de penalități EU AI Act",
-      "description": "Toate categoriile de penalități definite în Article 99 din Regulamentul (UE) 2024/1689."
+      "description": "Toate categoriile de penalități definite în Articolul 99 din Regulamentul (UE) 2024/1689."
     }
   },
   "gaps": {
