@@ -205,6 +205,52 @@ interface AnnexesFile {
   annexIII: AnnexIIIEntry[];
 }
 
+/**
+ * A penalty tier as stored in `data/penalties.json`.
+ */
+export interface RawPenalty {
+  /** Unique identifier for this penalty tier. */
+  id: string;
+  /** Source article number. */
+  article: number;
+  /** Source paragraph number. */
+  paragraph: number;
+  /** Description of the infringement. */
+  description: string;
+  /** Maximum fine in EUR for large organizations. */
+  maxFineEur: number;
+  /** Maximum fine as percentage of global annual turnover. */
+  maxFineTurnoverPercent: number;
+  /** Risk tiers this penalty applies to. */
+  applicableTiers: RiskTier[];
+  /** Example violations that trigger this penalty. */
+  violationExamples: string[];
+}
+
+/** SME reduction rules from Art. 99(6). */
+export interface RawSmeReduction {
+  article: number;
+  paragraph: number;
+  description: string;
+  applicableTo: string[];
+  note: string;
+}
+
+/** EU institution fine cap from Art. 99(7). */
+export interface RawEuInstitutionCap {
+  article: number;
+  paragraph: number;
+  description: string;
+  maxFineEur: number;
+}
+
+/** Top-level shape of `data/penalties.json`. */
+interface PenaltiesFile {
+  penalties: RawPenalty[];
+  smeReductions: RawSmeReduction;
+  euInstitutionCap: RawEuInstitutionCap;
+}
+
 /** A raw example as stored in `data/examples.json`. */
 export interface RawExample {
   slug: string;
@@ -241,6 +287,8 @@ import articlesData from '@data/articles.json';
 import annexesData from '@data/annexes.json';
 // @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import examplesData from '@data/examples.json';
+// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
+import penaltiesData from '@data/penalties.json';
 
 // ---------------------------------------------------------------------------
 // Typed Accessors
@@ -352,4 +400,16 @@ export function getAnnexesData(): AnnexIIIEntry[] {
 export function getExamplesData(): RawExample[] {
   const file = examplesData as ExamplesFile;
   return file.examples;
+}
+
+/**
+ * Returns penalty data from the EU AI Act (Articles 99-101).
+ *
+ * Includes penalty tiers with maximum fines, SME reduction rules,
+ * and EU institution caps.
+ *
+ * @returns Penalties file structure with all penalty tiers and rules.
+ */
+export function getPenaltiesData(): PenaltiesFile {
+  return penaltiesData as PenaltiesFile;
 }
