@@ -8,6 +8,7 @@ import { Disclaimer } from './Disclaimer';
 import { LanguageSelector } from './LanguageSelector';
 
 const primaryNavLinks = [
+  { href: '/dashboard', labelKey: 'dashboard' as const },
   { href: '/classify', labelKey: 'classify' as const },
   { href: '/checklist/high-risk', labelKey: 'checklist' as const },
   { href: '/timeline', labelKey: 'timeline' as const },

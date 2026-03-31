@@ -11,7 +11,8 @@
     "gaps": "Análisis de brechas",
     "standards": "Normas",
     "reports": "Informes",
-    "more": "Más"
+    "more": "Más",
+    "dashboard": "Panel"
   },
   "landing": {
     "hero": {
@@ -58,6 +59,10 @@
       "reports": {
         "title": "Informes de cumplimiento",
         "description": "Genere informes de cumplimiento integrales que combinan clasificación, listas de verificación, análisis de brechas y exposición a sanciones."
+      },
+      "dashboard": {
+        "title": "Panel de Cumplimiento",
+        "description": "Vista unificada del estado de cumplimiento de su sistema de IA — progreso de lista de verificación, análisis de brechas, exposición a sanciones y plazos."
       }
     },
     "stats": {
@@ -327,5 +332,64 @@
       "copy": "Copiar",
       "share": "Compartir"
     }
+  },
+  "dashboard": {
+    "title": "Panel de Cumplimiento",
+    "subtitle": "El estado de cumplimiento de su sistema de IA de un vistazo",
+    "classifiedOn": "Clasificado el",
+    "conformityAssessment": "Evaluación de Conformidad",
+    "empty": {
+      "title": "Sin clasificación aún",
+      "description": "Clasifique su sistema de IA para ver su panel de cumplimiento con progreso de lista de verificación, análisis de brechas, exposición a sanciones y plazos.",
+      "cta": "Clasificar su sistema de IA",
+      "import": "Importar archivo de estado"
+    },
+    "actions": {
+      "export": "Export",
+      "import": "Import",
+      "reset": "Reset"
+    },
+    "metrics": {
+      "compliance": "Compliance Progress",
+      "itemsComplete": "items complete",
+      "noChecklist": "No checklist for this tier",
+      "gaps": "Gap Analysis",
+      "criticalGaps": "critical gaps",
+      "totalOutstanding": "total outstanding",
+      "maxFine": "Max Fine Exposure",
+      "penaltyCategories": "penalty categories",
+      "nextDeadline": "Next Deadline",
+      "daysRemaining": "days remaining",
+      "overdue": "overdue"
+    },
+    "categories": {
+      "title": "Category Breakdown",
+      "viewAll": "View full analysis"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "checklist": "Compliance Checklist",
+      "checklistDesc": "Track compliance obligations",
+      "templates": "Generate Documents",
+      "templatesDesc": "Create compliance documentation",
+      "report": "Generate Report",
+      "reportDesc": "Full compliance report",
+      "gaps": "Gap Analysis",
+      "gapsDesc": "Identify compliance gaps",
+      "penalties": "Penalty Calculator",
+      "penaltiesDesc": "Calculate fine exposure",
+      "reclassify": "Reclassify System",
+      "reclassifyDesc": "Run classification again"
+    },
+    "timeline": {
+      "title": "Upcoming Deadlines",
+      "viewAll": "View full timeline",
+      "daysAway": "days away",
+      "affectsYou": "Affects your tier"
+    },
+    "recommendations": {
+      "title": "Recommendations"
+    },
+    "disclaimer": "This dashboard does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
   }
 }

@@ -1,6 +1,7 @@
 {
   "nav": {
     "home": "EU AI Act Toolkit",
+    "dashboard": "Dashboard",
     "classify": "Classify",
     "checklist": "Checklist",
     "timeline": "Timeline",
@@ -23,6 +24,10 @@
     },
     "features": {
       "title": "What You Can Do",
+      "dashboard": {
+        "title": "Compliance Dashboard",
+        "description": "Unified view of your AI system's compliance posture — checklist progress, gap analysis, penalty exposure, and enforcement deadlines."
+      },
       "classifier": {
         "title": "Risk Classification",
         "description": "Interactive wizard to determine whether your AI system is prohibited, high-risk, GPAI, limited, or minimal risk under the EU AI Act."
@@ -307,6 +312,65 @@
       "title": "Report Configuration",
       "description": "Provide details about your AI system to generate a tailored compliance report."
     }
+  },
+  "dashboard": {
+    "title": "Compliance Dashboard",
+    "subtitle": "Your AI system's compliance posture at a glance",
+    "classifiedOn": "Classified on",
+    "conformityAssessment": "Conformity Assessment",
+    "empty": {
+      "title": "No Classification Yet",
+      "description": "Classify your AI system to see your compliance dashboard with checklist progress, gap analysis, penalty exposure, and enforcement deadlines.",
+      "cta": "Classify Your AI System",
+      "import": "Import State File"
+    },
+    "actions": {
+      "export": "Export",
+      "import": "Import",
+      "reset": "Reset"
+    },
+    "metrics": {
+      "compliance": "Compliance Progress",
+      "itemsComplete": "items complete",
+      "noChecklist": "No checklist for this tier",
+      "gaps": "Gap Analysis",
+      "criticalGaps": "critical gaps",
+      "totalOutstanding": "total outstanding",
+      "maxFine": "Max Fine Exposure",
+      "penaltyCategories": "penalty categories",
+      "nextDeadline": "Next Deadline",
+      "daysRemaining": "days remaining",
+      "overdue": "overdue"
+    },
+    "categories": {
+      "title": "Category Breakdown",
+      "viewAll": "View full analysis"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "checklist": "Compliance Checklist",
+      "checklistDesc": "Track compliance obligations",
+      "templates": "Generate Documents",
+      "templatesDesc": "Create compliance documentation",
+      "report": "Generate Report",
+      "reportDesc": "Full compliance report",
+      "gaps": "Gap Analysis",
+      "gapsDesc": "Identify compliance gaps",
+      "penalties": "Penalty Calculator",
+      "penaltiesDesc": "Calculate fine exposure",
+      "reclassify": "Reclassify System",
+      "reclassifyDesc": "Run classification again"
+    },
+    "timeline": {
+      "title": "Upcoming Deadlines",
+      "viewAll": "View full timeline",
+      "daysAway": "days away",
+      "affectsYou": "Affects your tier"
+    },
+    "recommendations": {
+      "title": "Recommendations"
+    },
+    "disclaimer": "This dashboard does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
   },
   "common": {
     "tiers": {

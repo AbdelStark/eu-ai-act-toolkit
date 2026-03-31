@@ -11,7 +11,8 @@
     "gaps": "ফাঁক বিশ্লেষণ",
     "standards": "মানদণ্ড",
     "reports": "প্রতিবেদন",
-    "more": "আরও"
+    "more": "আরও",
+    "dashboard": "ড্যাশবোর্ড"
   },
   "landing": {
     "hero": {
@@ -58,6 +59,10 @@
       "reports": {
         "title": "সম্মতি প্রতিবেদন",
         "description": "শ্রেণিবিন্যাস, চেকলিস্ট, ফাঁক বিশ্লেষণ এবং জরিমানা এক্সপোজার সমন্বিত ব্যাপক সম্মতি প্রতিবেদন তৈরি করুন।"
+      },
+      "dashboard": {
+        "title": "সম্মতি ড্যাশবোর্ড",
+        "description": "আপনার AI সিস্টেমের সম্মতি অবস্থার একীভূত দৃশ্য — চেকলিস্ট অগ্রগতি, ব্যবধান বিশ্লেষণ, জরিমানা এক্সপোজার এবং প্রয়োগের সময়সীমা।"
       }
     },
     "stats": {
@@ -327,5 +332,64 @@
       "copy": "কপি করুন",
       "share": "শেয়ার করুন"
     }
+  },
+  "dashboard": {
+    "title": "সম্মতি ড্যাশবোর্ড",
+    "subtitle": "আপনার AI সিস্টেমের সম্মতি অবস্থা এক নজরে",
+    "classifiedOn": "শ্রেণীবদ্ধ করা হয়েছে",
+    "conformityAssessment": "সামঞ্জস্যতা মূল্যায়ন",
+    "empty": {
+      "title": "এখনও কোনো শ্রেণীবিভাগ নেই",
+      "description": "আপনার AI সিস্টেম শ্রেণীবদ্ধ করুন সম্মতি ড্যাশবোর্ড দেখতে।",
+      "cta": "আপনার AI সিস্টেম শ্রেণীবদ্ধ করুন",
+      "import": "স্টেট ফাইল আমদানি করুন"
+    },
+    "actions": {
+      "export": "Export",
+      "import": "Import",
+      "reset": "Reset"
+    },
+    "metrics": {
+      "compliance": "Compliance Progress",
+      "itemsComplete": "items complete",
+      "noChecklist": "No checklist for this tier",
+      "gaps": "Gap Analysis",
+      "criticalGaps": "critical gaps",
+      "totalOutstanding": "total outstanding",
+      "maxFine": "Max Fine Exposure",
+      "penaltyCategories": "penalty categories",
+      "nextDeadline": "Next Deadline",
+      "daysRemaining": "days remaining",
+      "overdue": "overdue"
+    },
+    "categories": {
+      "title": "Category Breakdown",
+      "viewAll": "View full analysis"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "checklist": "Compliance Checklist",
+      "checklistDesc": "Track compliance obligations",
+      "templates": "Generate Documents",
+      "templatesDesc": "Create compliance documentation",
+      "report": "Generate Report",
+      "reportDesc": "Full compliance report",
+      "gaps": "Gap Analysis",
+      "gapsDesc": "Identify compliance gaps",
+      "penalties": "Penalty Calculator",
+      "penaltiesDesc": "Calculate fine exposure",
+      "reclassify": "Reclassify System",
+      "reclassifyDesc": "Run classification again"
+    },
+    "timeline": {
+      "title": "Upcoming Deadlines",
+      "viewAll": "View full timeline",
+      "daysAway": "days away",
+      "affectsYou": "Affects your tier"
+    },
+    "recommendations": {
+      "title": "Recommendations"
+    },
+    "disclaimer": "This dashboard does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
   }
 }

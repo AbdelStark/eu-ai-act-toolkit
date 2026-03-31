@@ -11,7 +11,8 @@
     "penalties": "处罚",
     "gaps": "差距分析",
     "standards": "标准",
-    "reports": "报告"
+    "reports": "报告",
+    "dashboard": "仪表板"
   },
   "landing": {
     "hero": {
@@ -58,6 +59,10 @@
       "reports": {
         "title": "合规报告",
         "description": "生成综合合规报告，整合分类、检查清单、差距分析和处罚风险敞口。"
+      },
+      "dashboard": {
+        "title": "合规仪表板",
+        "description": "AI系统合规状态的统一视图——清单进度、差距分析、罚款风险和执行期限。"
       }
     },
     "stats": {
@@ -327,5 +332,64 @@
       "copy": "复制",
       "share": "分享"
     }
+  },
+  "dashboard": {
+    "title": "合规仪表板",
+    "subtitle": "一览您的AI系统合规状态",
+    "classifiedOn": "分类日期",
+    "conformityAssessment": "合格评定",
+    "empty": {
+      "title": "尚未分类",
+      "description": "对您的AI系统进行分类，查看合规仪表板，包括检查清单进度、差距分析、罚款风险和执行期限。",
+      "cta": "分类您的AI系统",
+      "import": "导入状态文件"
+    },
+    "actions": {
+      "export": "Export",
+      "import": "Import",
+      "reset": "Reset"
+    },
+    "metrics": {
+      "compliance": "Compliance Progress",
+      "itemsComplete": "items complete",
+      "noChecklist": "No checklist for this tier",
+      "gaps": "Gap Analysis",
+      "criticalGaps": "critical gaps",
+      "totalOutstanding": "total outstanding",
+      "maxFine": "Max Fine Exposure",
+      "penaltyCategories": "penalty categories",
+      "nextDeadline": "Next Deadline",
+      "daysRemaining": "days remaining",
+      "overdue": "overdue"
+    },
+    "categories": {
+      "title": "Category Breakdown",
+      "viewAll": "View full analysis"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "checklist": "Compliance Checklist",
+      "checklistDesc": "Track compliance obligations",
+      "templates": "Generate Documents",
+      "templatesDesc": "Create compliance documentation",
+      "report": "Generate Report",
+      "reportDesc": "Full compliance report",
+      "gaps": "Gap Analysis",
+      "gapsDesc": "Identify compliance gaps",
+      "penalties": "Penalty Calculator",
+      "penaltiesDesc": "Calculate fine exposure",
+      "reclassify": "Reclassify System",
+      "reclassifyDesc": "Run classification again"
+    },
+    "timeline": {
+      "title": "Upcoming Deadlines",
+      "viewAll": "View full timeline",
+      "daysAway": "days away",
+      "affectsYou": "Affects your tier"
+    },
+    "recommendations": {
+      "title": "Recommendations"
+    },
+    "disclaimer": "This dashboard does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
   }
 }

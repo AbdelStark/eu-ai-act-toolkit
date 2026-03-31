@@ -3,6 +3,8 @@
 import { useState, useCallback, useMemo } from 'react';
 import { getQuestions, classify, type ClassificationInput, type ClassificationResult, type QuestionStep } from '@eu-ai-act/sdk';
 import { encodeClassificationInput } from '@/lib/url-state';
+import { setState } from '@/lib/storage';
+import type { StateFile } from '@eu-ai-act/sdk';
 import { ProgressBar } from './ProgressBar';
 import { QuestionCard } from './QuestionCard';
 import { ResultCard } from './ResultCard';
@@ -75,7 +77,25 @@ export function ClassifierWizard({ initialInput }: ClassifierWizardProps) {
           setCurrentStepIndex((prev) => prev + 1);
           setCurrentQuestionIndex(0);
         } else {
-          setResult(classify(updated));
+          const classificationResult = classify(updated);
+          setResult(classificationResult);
+
+          // Persist to localStorage for dashboard
+          const stateFile: StateFile = {
+            version: '1.0.0',
+            system: {
+              name: 'AI System',
+              provider: 'Unknown',
+              classifiedAt: new Date().toISOString(),
+            },
+            classification: {
+              tier: classificationResult.tier,
+              subTier: classificationResult.subTier,
+              conformityAssessment: classificationResult.conformityAssessment,
+            },
+            checklist: {},
+          };
+          setState(stateFile);
         }
         setTransitioning(false);
       }, 200);

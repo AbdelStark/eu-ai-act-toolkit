@@ -11,7 +11,8 @@
     "penalties": "Sanções",
     "gaps": "Análise de lacunas",
     "standards": "Normas",
-    "reports": "Relatórios"
+    "reports": "Relatórios",
+    "dashboard": "Painel"
   },
   "landing": {
     "hero": {
@@ -58,6 +59,10 @@
       "reports": {
         "title": "Relatórios de conformidade",
         "description": "Gere relatórios abrangentes de conformidade combinando classificação, listas de verificação, análise de lacunas e exposição a penalidades."
+      },
+      "dashboard": {
+        "title": "Painel de Conformidade",
+        "description": "Vista unificada do estado de conformidade do sistema de IA — progresso da lista, análise de lacunas, exposição a penalidades e prazos."
       }
     },
     "stats": {
@@ -327,5 +332,64 @@
       "copy": "Copiar",
       "share": "Partilhar"
     }
+  },
+  "dashboard": {
+    "title": "Painel de Conformidade",
+    "subtitle": "O estado de conformidade do seu sistema de IA numa vista",
+    "classifiedOn": "Classificado em",
+    "conformityAssessment": "Avaliação de Conformidade",
+    "empty": {
+      "title": "Sem classificação ainda",
+      "description": "Classifique o seu sistema de IA para ver o painel de conformidade com progresso da lista de verificação, análise de lacunas, exposição a penalidades e prazos.",
+      "cta": "Classificar o seu sistema de IA",
+      "import": "Importar ficheiro de estado"
+    },
+    "actions": {
+      "export": "Export",
+      "import": "Import",
+      "reset": "Reset"
+    },
+    "metrics": {
+      "compliance": "Compliance Progress",
+      "itemsComplete": "items complete",
+      "noChecklist": "No checklist for this tier",
+      "gaps": "Gap Analysis",
+      "criticalGaps": "critical gaps",
+      "totalOutstanding": "total outstanding",
+      "maxFine": "Max Fine Exposure",
+      "penaltyCategories": "penalty categories",
+      "nextDeadline": "Next Deadline",
+      "daysRemaining": "days remaining",
+      "overdue": "overdue"
+    },
+    "categories": {
+      "title": "Category Breakdown",
+      "viewAll": "View full analysis"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "checklist": "Compliance Checklist",
+      "checklistDesc": "Track compliance obligations",
+      "templates": "Generate Documents",
+      "templatesDesc": "Create compliance documentation",
+      "report": "Generate Report",
+      "reportDesc": "Full compliance report",
+      "gaps": "Gap Analysis",
+      "gapsDesc": "Identify compliance gaps",
+      "penalties": "Penalty Calculator",
+      "penaltiesDesc": "Calculate fine exposure",
+      "reclassify": "Reclassify System",
+      "reclassifyDesc": "Run classification again"
+    },
+    "timeline": {
+      "title": "Upcoming Deadlines",
+      "viewAll": "View full timeline",
+      "daysAway": "days away",
+      "affectsYou": "Affects your tier"
+    },
+    "recommendations": {
+      "title": "Recommendations"
+    },
+    "disclaimer": "This dashboard does not constitute legal advice. Consult qualified legal counsel for compliance decisions."
   }
 }
