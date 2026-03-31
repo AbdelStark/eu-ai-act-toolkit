@@ -8,7 +8,7 @@ import { getChecklist, RISK_TIERS } from '@eu-ai-act/sdk';
 import { Layout } from '@/components/shared/Layout';
 import { RiskBadge } from '@/components/shared/RiskBadge';
 import { ChecklistView } from '@/components/checklist/ChecklistView';
-import { exportState, importState, getState, setState } from '@/lib/storage';
+import { importState, getState, setState } from '@/lib/storage';
 
 const PROGRESS_KEY_PREFIX = 'eu-ai-act-checklist-';
 
@@ -69,6 +69,19 @@ export default function ChecklistPage() {
     },
     [tier],
   );
+
+  const handleExport = useCallback(() => {
+    const data = { tier, progress, exportedAt: new Date().toISOString() };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `eu-ai-act-checklist-${tier}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }, [tier, progress]);
 
   const handleImport = async () => {
     const input = document.createElement('input');
@@ -173,7 +186,7 @@ export default function ChecklistPage() {
             <div className="flex gap-2">
               <button
                 type="button"
-                onClick={exportState}
+                onClick={handleExport}
                 className="inline-flex items-center gap-2 rounded-xl bg-navy px-4 py-2.5 text-sm font-medium text-white shadow-soft-sm transition-all hover:bg-navy/90 hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
