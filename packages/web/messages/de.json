@@ -73,7 +73,7 @@
     "steps": {
       "prohibited": {
         "title": "Verbotene Praktiken",
-        "description": "Prüfen Sie, ob Ihr KI-System unter die verbotenen Praktiken gemäß Article 5 fällt"
+        "description": "Prüfen Sie, ob Ihr KI-System unter die verbotenen Praktiken gemäß Artikel 5 fällt"
       },
       "gpai": {
         "title": "KI-Modelle mit allgemeinem Verwendungszweck",
@@ -85,7 +85,7 @@
       },
       "highRisk": {
         "title": "Hochrisiko-Klassifizierung",
-        "description": "Prüfen Sie die Sicherheitskomponenten gemäß Annex I und Anwendungsfälle gemäß Annex III"
+        "description": "Prüfen Sie die Sicherheitskomponenten gemäß Anhang I und Anwendungsfälle gemäß Anhang III"
       },
       "limited": {
         "title": "Begrenztes Risiko (Transparenz)",
@@ -105,12 +105,13 @@
     },
     "progress": {
       "step": "Schritt {current} von {total}",
-      "complete": "Klassifizierung abgeschlossen"
+      "complete": "Klassifizierung abgeschlossen",
+      "question": "Frage {current} von {total}"
     },
     "results": {
       "prohibited": {
         "title": "Verbotenes KI-System",
-        "description": "Ihr KI-System ist gemäß Article 5 des EU AI Act verboten.",
+        "description": "Ihr KI-System ist gemäß Artikel 5 des EU AI Act verboten.",
         "action": "Stellen Sie die Entwicklung ein oder gestalten Sie das System grundlegend um, um verbotene Funktionen zu entfernen."
       },
       "highRisk": {
@@ -137,7 +138,23 @@
         "title": "KI-System mit minimalem Risiko",
         "description": "Keine zwingenden Pflichten über bestehendes Recht hinaus. Freiwillige Verhaltenskodizes werden empfohlen.",
         "action": "Erwägen Sie die Einführung freiwilliger Verhaltenskodizes für vertrauenswürdige KI."
-      }
+      },
+      "label": "Klassifizierungsergebnis",
+      "enforcementDate": "Durchsetzungsdatum",
+      "applicableArticles": "Anwendbare Artikel",
+      "reasoning": "Begründung",
+      "viewChecklist": "Compliance-Checkliste anzeigen",
+      "shareResult": "Ergebnis teilen",
+      "copied": "Kopiert!"
+    },
+    "answers": {
+      "yes": "Ja",
+      "no": "Nein"
+    },
+    "wizard": {
+      "interactiveWizard": "Interaktiver Assistent",
+      "startOver": "Neu starten",
+      "previousQuestion": "Vorherige Frage"
     }
   },
   "checklists": {
@@ -158,7 +175,7 @@
     "item": {
       "required": "Erforderlich",
       "recommended": "Empfohlen",
-      "article": "Article {number}",
+      "article": "Artikel {number}",
       "deadline": "Frist: {date}",
       "markComplete": "Als abgeschlossen markieren",
       "markIncomplete": "Als unvollständig markieren"
@@ -201,8 +218,8 @@
       "entryIntoForce": "Inkrafttreten",
       "prohibitions": "Verbotene KI-Praktiken",
       "gpaiObligations": "GPAI-Pflichten",
-      "highRiskAnnexIII": "Hochrisiko-Pflichten (Annex III)",
-      "highRiskAnnexI": "Hochrisiko-Pflichten (Annex I)",
+      "highRiskAnnexIII": "Hochrisiko-Pflichten (Anhang III)",
+      "highRiskAnnexI": "Hochrisiko-Pflichten (Anhang I)",
       "fullEnforcement": "Vollständige Durchsetzung"
     }
   },
@@ -212,15 +229,15 @@
     "list": {
       "conformity": {
         "title": "EU-Konformitätserklärung",
-        "description": "Erforderliche Erklärung für Hochrisiko-KI-Systeme gemäß Article 47 und Annex V."
+        "description": "Erforderliche Erklärung für Hochrisiko-KI-Systeme gemäß Artikel 47 und Anhang V."
       },
       "riskAssessment": {
         "title": "Folgenabschätzung für Grundrechte",
-        "description": "Erforderliche Bewertung für Hochrisiko-KI-Systeme, die von öffentlichen Stellen eingesetzt werden, gemäß Article 27."
+        "description": "Erforderliche Bewertung für Hochrisiko-KI-Systeme, die von öffentlichen Stellen eingesetzt werden, gemäß Artikel 27."
       },
       "modelCard": {
         "title": "GPAI-Modellkarte",
-        "description": "Technische Dokumentation für GPAI-Modelle gemäß Article 53 und Annex XI."
+        "description": "Technische Dokumentation für GPAI-Modelle gemäß Artikel 53 und Anhang XI."
       },
       "impactAssessment": {
         "title": "Datenschutz-Folgenabschätzung",
@@ -228,7 +245,7 @@
       },
       "transparencyNotice": {
         "title": "Transparenzhinweis",
-        "description": "Nutzergerichteter Hinweis für KI-Systeme mit Transparenzpflichten gemäß Article 50."
+        "description": "Nutzergerichteter Hinweis für KI-Systeme mit Transparenzpflichten gemäß Artikel 50."
       }
     },
     "generate": "Dokument erstellen",
@@ -260,7 +277,8 @@
     },
     "copyright": "EU AI Act Toolkit. Open Source unter MIT-Lizenz.",
     "regulation": "Basierend auf Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates.",
-    "tagline": "Made with care for AI compliance teams worldwide"
+    "tagline": "Mit Sorgfalt erstellt für KI-Compliance-Teams weltweit",
+    "resources": "Ressourcen"
   },
   "disclaimer": {
     "short": "Dieses Tool stellt keine Rechtsberatung dar.",
@@ -326,6 +344,256 @@
       "reset": "Zurücksetzen",
       "copy": "Kopieren",
       "share": "Teilen"
+    }
+  },
+  "sdk": {
+    "steps": {
+      "prohibited": {
+        "title": "Verbotene Praktiken",
+        "description": "Artikel 5 verbietet bestimmte KI-Praktiken vollständig. Wenn eine davon zutrifft, darf Ihr System nicht auf dem EU-Markt bereitgestellt werden."
+      },
+      "gpai": {
+        "title": "KI mit allgemeinem Verwendungszweck",
+        "description": "KI-Modelle mit allgemeinem Verwendungszweck unterliegen besonderen Pflichten gemäß den Artikeln 51–55. Bestimmen Sie, ob Ihr Modell darunter fällt und ob es ein systemisches Risiko darstellt."
+      },
+      "high-risk-pathway-a": {
+        "title": "Hochrisiko: Produktsicherheit (Anhang I)",
+        "description": "KI-Systeme, die Sicherheitskomponenten von Produkten sind, die unter bestehende EU-Harmonisierungsrechtsvorschriften (Anhang I) fallen, gelten gemäß Artikel 6 Absatz 1 als hochriskant."
+      },
+      "high-risk-pathway-b": {
+        "title": "Hochrisiko: Eigenständige Systeme nach Anhang III",
+        "description": "KI-Systeme, die in den in Anhang III aufgeführten Bereichen eingesetzt werden, werden gemäß Artikel 6 Absatz 2 als hochriskant eingestuft, es sei denn, sie stellen kein erhebliches Schadensrisiko dar."
+      },
+      "limited-risk": {
+        "title": "Begrenztes Risiko: Transparenzpflichten",
+        "description": "Bestimmte KI-Systeme unterliegen unabhängig von anderen Risikoeinstufungen Transparenzpflichten gemäß Artikel 50."
+      }
+    },
+    "questions": {
+      "subliminal-manipulation": {
+        "text": "Setzt Ihr KI-System unterschwellige Techniken ein, die über das Bewusstsein einer Person hinausgehen, oder absichtlich manipulative oder täuschende Techniken mit dem Ziel oder der Wirkung, das Verhalten wesentlich zu verzerren und erheblichen Schaden zu verursachen?",
+        "help": "Umfasst Techniken, die eine Person nicht wahrnehmen kann oder die psychologische Muster ausnutzen, um Entscheidungen zu manipulieren und das Verhalten in einer Weise wesentlich zu verzerren, die erheblichen Schaden verursacht oder vernünftigerweise verursachen kann."
+      },
+      "exploiting-vulnerabilities": {
+        "text": "Nutzt Ihr KI-System Schwachstellen einer bestimmten Personengruppe aufgrund ihres Alters, einer Behinderung oder einer bestimmten sozialen oder wirtschaftlichen Situation aus, mit dem Ziel oder der Wirkung, deren Verhalten wesentlich zu verzerren und erheblichen Schaden zu verursachen?",
+        "help": "Betrifft Systeme, die Kinder, ältere Menschen, Menschen mit Behinderungen oder Personen in prekären sozialen oder wirtschaftlichen Situationen ausnutzen, um deren Verhalten auf schädliche Weise zu verzerren."
+      },
+      "social-scoring": {
+        "text": "Bewertet oder klassifiziert Ihr KI-System natürliche Personen auf Grundlage ihres Sozialverhaltens oder persönlicher Merkmale, was zu einer nachteiligen oder ungünstigen Behandlung in nicht damit zusammenhängenden Kontexten oder zu einer unverhältnismäßigen Behandlung führt?",
+        "help": "Umfasst Social Scoring durch öffentliche Behörden oder private Akteure, das zu einer ungünstigen Behandlung von Personen in sozialen Kontexten führt, die nicht mit dem Kontext zusammenhängen, in dem die Daten ursprünglich erhoben wurden, oder eine ungerechtfertigte oder unverhältnismäßige Behandlung im Verhältnis zum Sozialverhalten darstellt."
+      },
+      "individual-predictive-policing": {
+        "text": "Erstellt Ihr KI-System Risikobewertungen natürlicher Personen, um die Wahrscheinlichkeit der Begehung einer Straftat vorherzusagen, und zwar ausschließlich auf der Grundlage von Profilerstellung oder Persönlichkeitsmerkmalen?",
+        "help": "Verbietet individuelle Kriminalitätsvorhersagen, die ausschließlich auf Profilerstellung oder Persönlichkeitsmerkmalen und -eigenschaften basieren. Systeme, die die menschliche Bewertung auf Grundlage objektiver, überprüfbarer und unmittelbar mit kriminellen Aktivitäten verknüpfter Tatsachen unterstützen, sind nicht betroffen."
+      },
+      "untargeted-facial-scraping": {
+        "text": "Erstellt oder erweitert Ihr KI-System Gesichtserkennungsdatenbanken durch ungezieltes Auslesen von Gesichtsbildern aus dem Internet oder aus Videoüberwachungsaufnahmen?",
+        "help": "Verbietet den Aufbau von Gesichtserkennungsdatenbanken durch wahllose Erfassung von Gesichtsbildern aus Internetquellen oder Videoüberwachungssystemen ohne gezielte Auswahl."
+      },
+      "emotion-inference-workplace-education": {
+        "text": "Leitet Ihr KI-System Emotionen natürlicher Personen am Arbeitsplatz oder in Bildungseinrichtungen ab, es sei denn, das System ist für medizinische oder sicherheitsrelevante Zwecke bestimmt?",
+        "help": "Verbietet Emotionserkennung am Arbeitsplatz und in Bildungseinrichtungen. Medizinprodukte und sicherheitskritische Systeme (z. B. Überwachung der Müdigkeit von Fahrern) sind ausgenommen."
+      },
+      "biometric-categorization-sensitive": {
+        "text": "Kategorisiert Ihr KI-System natürliche Personen individuell anhand biometrischer Daten, um deren Rasse, politische Meinungen, Gewerkschaftszugehörigkeit, religiöse oder weltanschauliche Überzeugungen, Sexualleben oder sexuelle Orientierung abzuleiten oder zu erschließen?",
+        "help": "Verbietet die Verwendung biometrischer Daten (Gesicht, Stimme, Gang usw.) zur Ableitung sensibler oder geschützter Merkmale. Die Kennzeichnung oder Filterung rechtmäßig erhobener biometrischer Datensätze (z. B. für Strafverfolgungszwecke) ist nicht betroffen."
+      },
+      "realtime-biometric-public": {
+        "text": "Verwendet Ihr KI-System biometrische Echtzeit-Fernidentifizierung in öffentlich zugänglichen Räumen zu Strafverfolgungszwecken?",
+        "help": "Verbietet biometrische Echtzeit-Fernidentifizierung in öffentlichen Räumen zu Strafverfolgungszwecken mit eng begrenzten Ausnahmen: Suche nach bestimmten vermissten Personen oder Entführungsopfern, Abwendung einer konkreten und unmittelbar bevorstehenden terroristischen Bedrohung oder Lokalisierung bzw. Identifizierung einer Person, die bestimmter schwerer Straftaten verdächtigt wird. Ausnahmen erfordern eine vorherige richterliche Genehmigung und eine strenge Notwendigkeits- und Verhältnismäßigkeitsprüfung."
+      },
+      "is-gpai": {
+        "text": "Ist Ihr KI-Modell ein KI-Modell mit allgemeinem Verwendungszweck, d. h. es weist eine erhebliche Allgemeinheit auf, ist in der Lage, ein breites Spektrum unterschiedlicher Aufgaben kompetent auszuführen, und kann in eine Vielzahl nachgelagerter Systeme oder Anwendungen integriert werden?",
+        "help": "Ein KI-Modell mit allgemeinem Verwendungszweck (z. B. große Sprachmodelle, große multimodale Modelle) wird mit einer großen Datenmenge durch Selbstüberwachung im großen Maßstab trainiert, weist eine erhebliche Allgemeinheit auf und kann an ein breites Spektrum unterschiedlicher nachgelagerter Aufgaben angepasst werden."
+      },
+      "gpai-flops": {
+        "text": "Wurde Ihr Modell mit einer Gesamtrechenleistung von mehr als 10^25 FLOPS trainiert?",
+        "help": "Bei Modellen, die mit mehr als 10^25 Gleitkommaoperationen trainiert wurden, wird davon ausgegangen, dass sie über hohe Wirkungsfähigkeiten verfügen, und sie werden automatisch als Modelle mit systemischem Risiko eingestuft. Die Kommission kann diesen Schwellenwert aktualisieren."
+      },
+      "is-open-source": {
+        "text": "Wird Ihr Modell unter einer freien und quelloffenen Lizenz bereitgestellt, die Zugang, Nutzung, Änderung und Verbreitung ermöglicht, und werden seine Parameter, einschließlich Gewichtungen, Architektur und Nutzungsinformationen, öffentlich zugänglich gemacht?",
+        "help": "Open-Source-GPAI-Modelle müssen nur Urheberrechtspflichten einhalten und eine Zusammenfassung der Trainingsdaten veröffentlichen, es sei denn, sie stellen ein systemisches Risiko dar. Die Lizenz muss wirklich offen sein (OSI-kompatibel oder gleichwertig)."
+      },
+      "designated-systemic-risk": {
+        "text": "Wurde Ihr Modell von der Europäischen Kommission aufgrund seiner hohen Wirkungsfähigkeiten als Modell mit systemischem Risiko eingestuft?",
+        "help": "Auch ohne Erreichen des Schwellenwerts von 10^25 FLOPS kann die Kommission ein Modell aufgrund von Kriterien wie der Anzahl registrierter Endnutzer, der grenzüberschreitenden Reichweite oder dem Grad der Handlungsautonomie als Modell mit systemischem Risiko einstufen."
+      },
+      "annex-i-product": {
+        "text": "Ist Ihr KI-System eine Sicherheitskomponente eines Produkts oder selbst ein Produkt, das unter die in Anhang I aufgeführten EU-Harmonisierungsrechtsvorschriften fällt (z. B. Maschinen, Spielzeug, Medizinprodukte, Fahrzeuge, Luftfahrt, Schienenverkehr, Schifffahrt, Aufzüge, Druckgeräte)?",
+        "help": "Anhang I listet über 20 EU-Produktsicherheitsrechtsvorschriften auf. Wenn Ihr KI-System in ein Produkt eingebettet ist oder selbst ein Produkt darstellt, das einer Konformitätsbewertung durch Dritte unterzogen werden muss, gilt es als hochriskant."
+      },
+      "annex-i-requires-third-party": {
+        "text": "Erfordert die einschlägige Rechtsvorschrift aus Anhang I eine Konformitätsbewertung durch Dritte, damit das Produkt auf den Markt gebracht werden darf?",
+        "help": "Die Hochrisiko-Einstufung nach Pathway A greift nur, wenn die anwendbare Produktgesetzgebung eine Konformitätsbewertung durch Dritte vorschreibt. Reicht eine Selbstbewertung gemäß der Produktgesetzgebung aus, wird die KI-Komponente unter diesem Pathway möglicherweise nicht automatisch als hochriskant eingestuft."
+      },
+      "annex-iii-biometrics": {
+        "text": "Wird Ihr KI-System für Biometrie eingesetzt, einschließlich biometrischer Fernidentifizierung, biometrischer Kategorisierung nach sensiblen Merkmalen oder Emotionserkennung?",
+        "help": "Anhang III, Bereich 1: Umfasst biometrische Fernidentifizierung (nicht die verbotene Echtzeit-Variante), biometrische Kategorisierung nach sensiblen oder geschützten Merkmalen sowie Emotionserkennungssysteme."
+      },
+      "annex-iii-critical-infrastructure": {
+        "text": "Wird Ihr KI-System als Sicherheitskomponente bei der Verwaltung und dem Betrieb kritischer Infrastruktur eingesetzt (Straßenverkehr, Wasser, Gas, Heizung, Strom)?",
+        "help": "Anhang III, Bereich 2: Umfasst KI-Systeme, die als Sicherheitskomponenten in kritischer digitaler oder physischer Infrastruktur dienen und Leben, Gesundheit gefährden oder größere Umwelt- oder Sachschäden verursachen könnten."
+      },
+      "annex-iii-education": {
+        "text": "Wird Ihr KI-System im Bildungswesen oder in der Berufsausbildung eingesetzt, beispielsweise zur Bestimmung des Zugangs/der Zulassung, zur Bewertung von Lernergebnissen, zur Festlegung von Bildungsniveaus oder zur Überwachung des Verhaltens von Schülern während Prüfungen?",
+        "help": "Anhang III, Bereich 3: Umfasst KI-Systeme, die den Zugang zu Bildung bestimmen, Ergebnisse bewerten, die den Lernverlauf steuern, angemessene Bildungsniveaus festlegen oder verbotenes Verhalten bei Prüfungen überwachen/erkennen."
+      },
+      "annex-iii-employment": {
+        "text": "Wird Ihr KI-System im Bereich Beschäftigung, Arbeitnehmerverwaltung oder Zugang zur Selbstständigkeit eingesetzt, beispielsweise für die Einstellung, Vorauswahl von Bewerbungen, Bewertung von Kandidaten, Entscheidungen über Beschäftigungsbedingungen oder die Überwachung/Bewertung der Arbeitsleistung?",
+        "help": "Anhang III, Bereich 4: Umfasst KI-Systeme für Einstellung, Kandidatenbewertung, Beschäftigungsentscheidungen (Beförderung, Kündigung), Aufgabenzuweisung auf Grundlage persönlicher Merkmale und Überwachung der Arbeitsleistung."
+      },
+      "annex-iii-essential-services": {
+        "text": "Wird Ihr KI-System für den Zugang zu oder die Erbringung von wesentlichen privaten oder öffentlichen Dienstleistungen eingesetzt (Anspruchsberechtigung auf öffentliche Leistungen, Kreditwürdigkeitsprüfung, Risikobewertung für Lebens-/Krankenversicherungen oder Klassifizierung von Notrufen)?",
+        "help": "Anhang III, Bereich 5: Umfasst KI-Systeme zur Bewertung der Anspruchsberechtigung auf öffentliche Unterstützung, Kreditwürdigkeitsprüfung (außer Betrugserkennung), Risikobepreisung bei Lebens-/Krankenversicherungen und Bewertung oder Klassifizierung von Notrufen für die Einsatzpriorisierung."
+      },
+      "annex-iii-law-enforcement": {
+        "text": "Wird Ihr KI-System in der Strafverfolgung eingesetzt, beispielsweise für individuelle Risikobewertungen, als Lügendetektor, zur Bewertung der Zuverlässigkeit von Beweismitteln oder zur Profilerstellung von Personen bei strafrechtlichen Ermittlungen?",
+        "help": "Anhang III, Bereich 6: Umfasst KI-Systeme zur individuellen Risikobewertung (Wahrscheinlichkeit von Straftaten/Rückfälligkeit oder Viktimisierung), Täuschungserkennung, Bewertung der Zuverlässigkeit von Beweismitteln und Profilerstellung bei strafrechtlichen Ermittlungen."
+      },
+      "annex-iii-migration": {
+        "text": "Wird Ihr KI-System im Bereich Migration, Asyl oder Grenzkontrolle eingesetzt, beispielsweise zur Bewertung des Risikos irregulärer Migration, zur Prüfung von Asyl-/Visa-/Aufenthaltsanträgen oder zur Identifizierung von Personen an Grenzen?",
+        "help": "Anhang III, Bereich 7: Umfasst KI-Systeme zur Bewertung des Risikos irregulärer Migration oder von Gesundheitsrisiken, Prüfung von Anträgen auf Asyl/Visa/Aufenthaltstitel und damit verbundener Beschwerden sowie Erkennung/Wiedererkennung/Identifizierung von Personen (ausgenommen Überprüfung von Reisedokumenten)."
+      },
+      "annex-iii-justice-democracy": {
+        "text": "Wird Ihr KI-System in der Rechtspflege oder bei demokratischen Prozessen eingesetzt, beispielsweise zur Unterstützung von Justizbehörden bei der Recherche/Auslegung/Anwendung von Recht oder zur Beeinflussung des Ergebnisses von Wahlen oder Volksabstimmungen?",
+        "help": "Anhang III, Bereich 8: Umfasst KI-Systeme zur Unterstützung von Gerichten bei der Recherche, Auslegung und Anwendung von Tatsachen und Recht auf konkrete Fälle sowie Systeme zur Beeinflussung von Wahl- oder Abstimmungsergebnissen (ausgenommen organisatorische Hilfsmittel, die Stimmabgaben nicht unmittelbar beeinflussen)."
+      },
+      "interacts-with-persons": {
+        "text": "Interagiert Ihr KI-System direkt mit natürlichen Personen (z. B. Chatbot, Sprachassistent, virtueller Agent)?",
+        "help": "Systeme, die für die direkte Interaktion mit Personen konzipiert sind, müssen offenlegen, dass die Person mit einem KI-System interagiert, es sei denn, dies ist aufgrund der Umstände und des Nutzungskontexts offensichtlich."
+      },
+      "generates-synthetic-content": {
+        "text": "Erzeugt oder manipuliert Ihr KI-System synthetische Inhalte wie Bilder, Audio, Video oder Text (einschließlich Deepfakes)?",
+        "help": "Anbieter von KI-Systemen, die synthetische Audio-, Bild-, Video- oder Textinhalte erzeugen, müssen sicherstellen, dass die Ausgaben als künstlich erzeugt oder manipuliert in einem maschinenlesbaren Format gekennzeichnet werden, sofern dies technisch möglich ist."
+      },
+      "emotion-recognition": {
+        "text": "Führt Ihr KI-System Emotionserkennung durch (Erkennung oder Ableitung von Emotionen oder Absichten natürlicher Personen auf Grundlage biometrischer Daten)?",
+        "help": "Betreiber von Emotionserkennungssystemen müssen die betroffenen Personen darüber informieren, dass das System in Betrieb ist, und personenbezogene Daten im Einklang mit der DSGVO verarbeiten."
+      },
+      "biometric-categorizing": {
+        "text": "Führt Ihr KI-System eine biometrische Kategorisierung durch (Klassifizierung natürlicher Personen anhand biometrischer Daten in Gruppen auf Grundlage bestimmter Merkmale)?",
+        "help": "Betreiber von biometrischen Kategorisierungssystemen müssen die betroffenen Personen über den Betrieb des Systems informieren. Hinweis: Die Kategorisierung nach sensiblen Merkmalen kann gemäß Artikel 5 verboten sein."
+      }
+    },
+    "timeline": {
+      "0": {
+        "title": "Verordnung (EU) 2024/1689 tritt in Kraft",
+        "description": "Die Verordnung (EU) 2024/1689 tritt 20 Tage nach Veröffentlichung im Amtsblatt in Kraft. Die meisten Bestimmungen gelten gestaffelt über die folgenden 36 Monate."
+      },
+      "1": {
+        "title": "Verbotene Praktiken gelten",
+        "description": "Verbote unzulässiger KI-Praktiken (Artikel 5) und Anforderungen an die KI-Kompetenz (Artikel 4) werden durchsetzbar. Systeme, die verbotene Praktiken ausführen, müssen den Betrieb in der EU einstellen."
+      },
+      "2": {
+        "title": "GPAI-Vorschriften gelten",
+        "description": "Die Pflichten für Anbieter von KI-Modellen mit allgemeinem Verwendungszweck treten in Kraft, einschließlich Dokumentation, Urheberrechtskonformität, Zusammenfassungen der Trainingsdaten und zusätzlicher Pflichten für Modelle mit systemischem Risiko."
+      },
+      "3": {
+        "title": "Hochrisiko-Anforderungen gelten",
+        "description": "Die vollständigen Anforderungen an Hochrisiko-KI-Systeme (Artikel 6–15, 26–27) und Transparenzpflichten (Artikel 50) werden durchsetzbar. Anbieter müssen Anforderungen an Risikomanagement, Daten-Governance, Dokumentation, Aufzeichnungspflicht, Transparenz, menschliche Aufsicht, Genauigkeit und Robustheit erfüllen. Die Registrierung in der EU-Datenbank und die Konformitätsbewertung sind vor dem Inverkehrbringen erforderlich."
+      },
+      "4": {
+        "title": "Bestehende GPAI und großangelegte IT-Systeme",
+        "description": "Die Pflichten gelten für GPAI-Modelle, die vor August 2025 bereits auf dem Markt waren, und für Hochrisiko-KI-Systeme, die Bestandteile großangelegter EU-IT-Systeme sind (z. B. Schengener Informationssystem, Visa-Informationssystem, Eurodac), die in Anhang X aufgeführt sind."
+      },
+      "5": {
+        "title": "Produktsicherheitskomponenten",
+        "description": "Die Pflichten für Hochrisiko-KI-Systeme, die Sicherheitskomponenten von Produkten sind, die unter die in Anhang I aufgeführten EU-Harmonisierungsrechtsvorschriften fallen (Pathway A gemäß Artikel 6 Absatz 1), treten vollständig in Kraft. Diese Systeme müssen alle Hochrisiko-Anforderungen erfüllen und die einschlägigen Konformitätsbewertungsverfahren durchlaufen."
+      }
+    },
+    "checklists": {
+      "prohibited-stop-deployment": "Stellen Sie den Einsatz des verbotenen KI-Systems in der EU unverzüglich ein",
+      "prohibited-document-and-assess": "Dokumentieren Sie das verbotene System und prüfen Sie Alternativen, die dasselbe Ziel erreichen, ohne unter die Verbote zu fallen",
+      "hr-risk-lifecycle": "Richten Sie ein Risikomanagementsystem ein, das über den gesamten Lebenszyklus hinweg funktioniert",
+      "hr-risk-identify": "Identifizieren und analysieren Sie bekannte und vernünftigerweise vorhersehbare Risiken",
+      "hr-risk-estimate-intended": "Schätzen und bewerten Sie Risiken aus der bestimmungsgemäßen Verwendung und der vernünftigerweise vorhersehbaren Fehlanwendung",
+      "hr-risk-post-market": "Bewerten Sie Risiken auf Grundlage von Daten der Marktüberwachung nach dem Inverkehrbringen",
+      "hr-risk-measures": "Ergreifen Sie Risikomanagementmaßnahmen zur Beseitigung oder Verringerung von Risiken",
+      "hr-risk-testing": "Testen Sie das System, um die geeignetsten Risikomanagementmaßnahmen zu ermitteln",
+      "hr-risk-combined-effects": "Berücksichtigen Sie die kombinierten Auswirkungen, wenn das System zusammen mit anderen Systemen verwendet wird",
+      "hr-risk-residual": "Dokumentieren Sie Restrisiken und kommunizieren Sie diese an die Betreiber",
+      "hr-data-governance": "Stellen Sie sicher, dass Trainings-, Validierungs- und Testdatensätze einer angemessenen Daten-Governance unterliegen",
+      "hr-data-collection-docs": "Dokumentieren Sie die Datenerhebungsprozesse und Datenquellen",
+      "hr-data-relevance": "Bewerten Sie die Daten hinsichtlich Relevanz, Repräsentativität, Vollständigkeit und statistischer Eigenschaften",
+      "hr-data-bias-examination": "Untersuchen Sie die Daten auf mögliche Verzerrungen, die Gesundheit, Sicherheit oder Grundrechte beeinträchtigen könnten",
+      "hr-data-gaps": "Identifizieren und beheben Sie Datenlücken oder -mängel",
+      "hr-data-bias-mitigation": "Wenden Sie geeignete Maßnahmen zur Erkennung, Korrektur und Minderung von Verzerrungen an",
+      "hr-data-quality": "Stellen Sie sicher, dass die Trainingsdaten fehlerfrei und im Hinblick auf den Verwendungszweck vollständig sind",
+      "hr-data-special-categories": "Bei Verarbeitung besonderer Kategorien personenbezogener Daten: Dokumentieren Sie die Notwendigkeit und die Schutzmaßnahmen",
+      "hr-docs-general": "Erstellen Sie eine allgemeine Beschreibung des KI-Systems (Verwendungszweck, Entwickler, Version)",
+      "hr-docs-development": "Erstellen Sie eine detaillierte Beschreibung der Elemente und des Entwicklungsprozesses",
+      "hr-docs-monitoring": "Erstellen Sie eine detaillierte Beschreibung der Überwachung, Funktionsweise und Steuerung des Systems",
+      "hr-docs-risk-mgmt": "Fügen Sie eine Beschreibung des Risikomanagementsystems bei (Konformität mit Artikel 9)",
+      "hr-docs-lifecycle": "Dokumentieren Sie alle im Laufe des Lebenszyklus des Systems vorgenommenen Änderungen",
+      "hr-docs-standards": "Listen Sie die angewandten harmonisierten Normen oder sonstigen technischen Spezifikationen auf",
+      "hr-docs-human-oversight": "Beschreiben Sie, wie die Maßnahmen zur menschlichen Aufsicht umgesetzt werden",
+      "hr-docs-lifetime": "Dokumentieren Sie die erwartete Lebensdauer und Wartungs-/Pflegemaßnahmen",
+      "hr-docs-accuracy-robustness": "Beschreiben Sie die Genauigkeit, Robustheit und Cybersicherheitsmaßnahmen des KI-Systems",
+      "hr-logs-automatic": "Stellen Sie sicher, dass das System während seiner gesamten Lebensdauer Ereignisse (Protokolle) automatisch aufzeichnet",
+      "hr-logs-tracing": "Stellen Sie sicher, dass die Protokollierung die Rückverfolgung des Systembetriebs ermöglicht",
+      "hr-logs-standards": "Stellen Sie sicher, dass die Protokollierungsfähigkeiten anerkannten Normen oder gemeinsamen Spezifikationen entsprechen",
+      "hr-logs-content": "Protokolle umfassen: Nutzungszeitraum, Referenzdatenbank, Eingabedaten, Identifizierung der an der Überprüfung beteiligten natürlichen Personen",
+      "hr-transparency-interpretable": "Gestalten Sie das System so, dass Betreiber die Ausgabe interpretieren und angemessen nutzen können",
+      "hr-transparency-identity": "Die Gebrauchsanweisung enthält Identität und Kontaktdaten des Anbieters",
+      "hr-transparency-capabilities": "Die Gebrauchsanweisung enthält die Fähigkeiten und Grenzen des Systems",
+      "hr-transparency-purpose": "Die Gebrauchsanweisung enthält den Verwendungszweck und vorhersehbare Fehlanwendungsszenarien",
+      "hr-transparency-changes": "Die Gebrauchsanweisung enthält vom Anbieter vorab festgelegte Änderungen",
+      "hr-transparency-oversight-info": "Die Gebrauchsanweisung enthält Maßnahmen zur menschlichen Aufsicht",
+      "hr-transparency-accuracy-info": "Die Gebrauchsanweisung enthält das erwartete Maß an Genauigkeit, Robustheit und Cybersicherheit (Benchmarks)",
+      "hr-transparency-risks": "Die Gebrauchsanweisung enthält bekannte Risiken für Gesundheit, Sicherheit oder Grundrechte",
+      "hr-transparency-input-specs": "Die Gebrauchsanweisung enthält technische Spezifikationen für Eingabedaten",
+      "hr-transparency-logging-info": "Die Gebrauchsanweisung enthält eine Beschreibung der Protokollierungsfunktion",
+      "hr-oversight-design": "Gestalten Sie das System so, dass eine wirksame Aufsicht durch natürliche Personen während der Nutzung möglich ist",
+      "hr-oversight-understand": "Die Aufsicht ermöglicht dem Menschen ein vollständiges Verständnis der Fähigkeiten und Grenzen des Systems",
+      "hr-oversight-monitor": "Die Aufsicht ermöglicht die Erkennung von Anomalien, Fehlfunktionen und unerwartetem Verhalten",
+      "hr-oversight-bias-awareness": "Die Aufsicht umfasst ein Bewusstsein für Automatisierungsbias, insbesondere bei Entscheidungen über Personen",
+      "hr-oversight-interpret": "Die Aufsicht ermöglicht eine korrekte Interpretation der Systemausgabe",
+      "hr-oversight-override": "Die Aufsicht ermöglicht dem Menschen, das System nicht zu verwenden oder die Ausgabe außer Kraft zu setzen oder rückgängig zu machen",
+      "hr-oversight-stop": "Die Aufsicht ermöglicht dem Menschen, das System über eine Stopptaste oder ein ähnliches Verfahren zu unterbrechen",
+      "hr-accuracy-level": "Gestalten Sie das System so, dass es ein angemessenes Genauigkeitsniveau für seinen Verwendungszweck erreicht",
+      "hr-accuracy-declared": "Geben Sie Genauigkeitsniveaus und Metriken in der Gebrauchsanweisung an",
+      "hr-robustness-errors": "Stellen Sie sicher, dass das System gegenüber Fehlern, Störungen oder Inkonsistenzen in der Umgebung widerstandsfähig ist",
+      "hr-robustness-adversarial": "Stellen Sie sicher, dass das System gegenüber gegnerischen Manipulationsversuchen durch Dritte widerstandsfähig ist",
+      "hr-robustness-failsafe": "Konzipieren Sie das System für die sichere Handhabung unerwarteter Situationen (Rückfall-/Ausfallsicherungspläne)",
+      "hr-cybersecurity": "Implementieren Sie Cybersicherheitsmaßnahmen, die dem Risiko angemessen sind",
+      "hr-redundancy": "Implementieren Sie gegebenenfalls technische Redundanzlösungen (Sicherungspläne, Ausfallsicherungsmechanismen)",
+      "hr-conformity-route": "Bestimmen Sie den Weg der Konformitätsbewertung: Selbstbewertung oder Bewertung durch Dritte",
+      "hr-register-eu-db": "Registrieren Sie sich vor dem Inverkehrbringen des Systems in der EU-Datenbank",
+      "hr-ce-marking": "Bringen Sie nach erfolgreicher Konformitätsbewertung die CE-Kennzeichnung an",
+      "hr-declaration-conformity": "Erstellen Sie die EU-Konformitätserklärung",
+      "hr-authorised-rep": "Benennen Sie einen bevollmächtigten Vertreter in der EU (wenn der Anbieter außerhalb der EU ansässig ist)",
+      "hr-post-market-monitoring": "Richten Sie ein System zur Marktüberwachung nach dem Inverkehrbringen ein",
+      "hr-incident-reporting-procedure": "Richten Sie ein Verfahren zur Meldung schwerwiegender Vorkommnisse ein",
+      "hr-incident-reporting-timeline": "Melden Sie schwerwiegende Vorkommnisse den Marktüberwachungsbehörden unverzüglich und innerhalb von 15 Tagen",
+      "gpai-tech-docs": "Erstellen und pflegen Sie die technische Dokumentation des Modells (Anhang XI)",
+      "gpai-tech-docs-training": "Dokumentieren Sie die Trainingsmethodik, Techniken, Entwurfsentscheidungen und Annahmen",
+      "gpai-tech-docs-data-sources": "Dokumentieren Sie die Trainingsdatenquellen, einschließlich einer allgemeinen Beschreibung und der Datenherkunft",
+      "gpai-tech-docs-compute": "Dokumentieren Sie die für das Training verwendeten Rechenressourcen",
+      "gpai-downstream-info": "Erstellen und pflegen Sie Informationen und Dokumentation für nachgelagerte Anbieter",
+      "gpai-copyright": "Halten Sie das EU-Urheberrecht (Richtlinie 2019/790) ein, einschließlich der Opt-out-Regelung für Text- und Data-Mining",
+      "gpai-training-data-summary": "Veröffentlichen Sie eine hinreichend detaillierte Zusammenfassung der Trainingsdateninhalte",
+      "gpai-open-source-exception": "Bei Open Source: Überprüfen Sie, ob nur Urheberrechtskonformität und Zusammenfassung der Trainingsdaten erforderlich sind",
+      "gpai-code-of-practice": "Erwägen Sie die Einhaltung des Verhaltenskodex für GPAI-Anbieter",
+      "gpai-sys-tech-docs": "Erstellen und pflegen Sie die technische Dokumentation des Modells (Anhang XI)",
+      "gpai-sys-downstream-info": "Erstellen und pflegen Sie Informationen und Dokumentation für nachgelagerte Anbieter",
+      "gpai-sys-copyright": "Halten Sie das EU-Urheberrecht (Richtlinie 2019/790) ein, einschließlich der Opt-out-Regelung für Text- und Data-Mining",
+      "gpai-sys-training-data-summary": "Veröffentlichen Sie eine hinreichend detaillierte Zusammenfassung der Trainingsdateninhalte",
+      "gpai-sys-model-eval": "Führen Sie eine Modellbewertung gemäß standardisierten Protokollen und Instrumenten durch",
+      "gpai-sys-red-teaming": "Führen Sie gegnerische Tests (Red Teaming) durch, um systemische Risiken zu identifizieren und zu mindern",
+      "gpai-sys-assess-mitigate": "Bewerten und mindern Sie mögliche systemische Risiken, einschließlich deren Quellen",
+      "gpai-sys-incident-tracking": "Verfolgen, dokumentieren und melden Sie schwerwiegende Vorkommnisse an das KI-Büro und die nationalen Behörden",
+      "gpai-sys-cybersecurity": "Stellen Sie einen angemessenen Cybersicherheitsschutz für das Modell und seine physische Infrastruktur sicher",
+      "gpai-sys-code-of-practice": "Erwägen Sie die Einhaltung des Verhaltenskodex für GPAI-Anbieter (einschließlich der Bestimmungen zu systemischen Risiken)",
+      "limited-ai-disclosure": "Informieren Sie die Nutzer darüber, dass sie mit einem KI-System interagieren (es sei denn, dies ist aus dem Kontext ersichtlich)",
+      "limited-disclosure-format": "Stellen Sie sicher, dass die KI-Offenlegung klar, rechtzeitig und in einem zugänglichen Format erfolgt",
+      "limited-synthetic-marking": "Kennzeichnen Sie synthetische Inhalte (Deepfakes, KI-generierte Texte/Bilder/Audio/Video) als künstlich erzeugt oder manipuliert",
+      "limited-synthetic-machine-readable": "Stellen Sie sicher, dass die Kennzeichnung synthetischer Inhalte, sofern technisch möglich, maschinenlesbar ist",
+      "limited-emotion-inform": "Informieren Sie betroffene Personen über den Betrieb von Emotionserkennungssystemen",
+      "limited-biometric-inform": "Informieren Sie betroffene Personen über den Betrieb von biometrischen Kategorisierungssystemen",
+      "minimal-voluntary-codes": "Erwägen Sie die Annahme freiwilliger Verhaltenskodizes zu ökologischer Nachhaltigkeit, Barrierefreiheit, Beteiligung der Interessenträger und Vielfalt der Entwicklungsteams",
+      "minimal-voluntary-high-risk-subset": "Erwägen Sie die freiwillige Anwendung der Anforderungen für Hochrisiko-Systeme (oder einer Teilmenge davon)",
+      "minimal-ai-pact": "Erwägen Sie die Befolgung der Verpflichtungen des KI-Pakts (freiwillige frühzeitige Übernahme bestimmter Bestimmungen des KI-Gesetzes)",
+      "minimal-good-practices": "Dokumentieren Sie die Fähigkeiten und Grenzen des Systems, überwachen Sie es auf unerwartetes Verhalten und wahren Sie die Transparenz gegenüber den Nutzern hinsichtlich des KI-Einsatzes"
     }
   }
 }
