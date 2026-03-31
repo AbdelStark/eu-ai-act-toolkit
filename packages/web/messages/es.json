@@ -45,7 +45,7 @@
       },
       "penalties": {
         "title": "Calculadora de sanciones",
-        "description": "Calcule la exposición máxima a multas según su nivel de riesgo, tipo de organización y facturación anual conforme al Article 99."
+        "description": "Calcule la exposición máxima a multas según su nivel de riesgo, tipo de organización y facturación anual conforme al Artículo 99."
       },
       "gaps": {
         "title": "Análisis de brechas",
@@ -73,7 +73,7 @@
     "steps": {
       "prohibited": {
         "title": "Prácticas prohibidas",
-        "description": "Verifique si su sistema de IA está incluido en las prácticas prohibidas del Article 5"
+        "description": "Verifique si su sistema de IA está incluido en las prácticas prohibidas del Artículo 5"
       },
       "gpai": {
         "title": "IA de propósito general",
@@ -85,7 +85,7 @@
       },
       "highRisk": {
         "title": "Clasificación de alto riesgo",
-        "description": "Verifique los componentes de seguridad del Annex I y los casos de uso del Annex III"
+        "description": "Verifique los componentes de seguridad del Anexo I y los casos de uso del Anexo III"
       },
       "limited": {
         "title": "Riesgo limitado (Transparencia)",
@@ -110,7 +110,7 @@
     "results": {
       "prohibited": {
         "title": "Sistema de IA prohibido",
-        "description": "Su sistema de IA está prohibido en virtud del Article 5 del EU AI Act.",
+        "description": "Su sistema de IA está prohibido en virtud del Artículo 5 del Reglamento (UE) 2024/1689.",
         "action": "Suspenda el desarrollo o rediseñe fundamentalmente el sistema para eliminar las capacidades prohibidas."
       },
       "highRisk": {
@@ -158,7 +158,7 @@
     "item": {
       "required": "Obligatorio",
       "recommended": "Recomendado",
-      "article": "Article {number}",
+      "article": "Artículo {number}",
       "deadline": "Plazo: {date}",
       "markComplete": "Marcar como completado",
       "markIncomplete": "Marcar como incompleto"
@@ -201,8 +201,8 @@
       "entryIntoForce": "Entrada en vigor",
       "prohibitions": "Prácticas de IA prohibidas",
       "gpaiObligations": "Obligaciones GPAI",
-      "highRiskAnnexIII": "Obligaciones de alto riesgo (Annex III)",
-      "highRiskAnnexI": "Obligaciones de alto riesgo (Annex I)",
+      "highRiskAnnexIII": "Obligaciones de alto riesgo (Anexo III)",
+      "highRiskAnnexI": "Obligaciones de alto riesgo (Anexo I)",
       "fullEnforcement": "Aplicación completa"
     }
   },
@@ -212,15 +212,15 @@
     "list": {
       "conformity": {
         "title": "Declaración de conformidad UE",
-        "description": "Declaración obligatoria para sistemas de IA de alto riesgo conforme al Article 47 y Annex V."
+        "description": "Declaración obligatoria para sistemas de IA de alto riesgo conforme al Artículo 47 y Anexo V."
       },
       "riskAssessment": {
         "title": "Evaluación de impacto en derechos fundamentales",
-        "description": "Evaluación obligatoria para sistemas de IA de alto riesgo desplegados por organismos públicos conforme al Article 27."
+        "description": "Evaluación obligatoria para sistemas de IA de alto riesgo desplegados por organismos públicos conforme al Artículo 27."
       },
       "modelCard": {
         "title": "Ficha de modelo GPAI",
-        "description": "Documentación técnica para modelos GPAI conforme al Article 53 y Annex XI."
+        "description": "Documentación técnica para modelos GPAI conforme al Artículo 53 y Anexo XI."
       },
       "impactAssessment": {
         "title": "Evaluación de impacto en la protección de datos",
@@ -228,7 +228,7 @@
       },
       "transparencyNotice": {
         "title": "Aviso de transparencia",
-        "description": "Aviso dirigido a los usuarios para sistemas de IA con obligaciones de transparencia conforme al Article 50."
+        "description": "Aviso dirigido a los usuarios para sistemas de IA con obligaciones de transparencia conforme al Artículo 50."
       }
     },
     "generate": "Generar documento",
@@ -260,7 +260,7 @@
     },
     "copyright": "EU AI Act Toolkit. Código abierto bajo licencia MIT.",
     "regulation": "Basado en el Reglamento (UE) 2024/1689 del Parlamento Europeo y del Consejo.",
-    "tagline": "Made with care for AI compliance teams worldwide"
+    "tagline": "Hecho con esmero para equipos de cumplimiento de IA en todo el mundo"
   },
   "disclaimer": {
     "short": "Esta herramienta no constituye asesoramiento jurídico.",
@@ -280,7 +280,7 @@
     },
     "overview": {
       "title": "Niveles de sanciones del EU AI Act",
-      "description": "Todas las categorías de sanciones definidas en el Article 99 del Reglamento (UE) 2024/1689."
+      "description": "Todas las categorías de sanciones definidas en el Artículo 99 del Reglamento (UE) 2024/1689."
     }
   },
   "gaps": {
