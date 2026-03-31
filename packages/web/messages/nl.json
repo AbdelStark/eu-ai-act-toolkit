@@ -45,7 +45,7 @@
       },
       "penalties": {
         "title": "Sanctiecalculator",
-        "description": "Bereken de maximale boete-exposure op basis van uw risicocategorie, organisatietype en jaaromzet conform Article 99."
+        "description": "Bereken de maximale boete-exposure op basis van uw risicocategorie, organisatietype en jaaromzet conform Artikel 99."
       },
       "gaps": {
         "title": "Lacuneanalyse",
@@ -73,7 +73,7 @@
     "steps": {
       "prohibited": {
         "title": "Verboden praktijken",
-        "description": "Controleer of uw AI-systeem onder de verboden praktijken van Article 5 valt"
+        "description": "Controleer of uw AI-systeem onder de verboden praktijken van Artikel 5 valt"
       },
       "gpai": {
         "title": "Algemeen inzetbare AI",
@@ -85,7 +85,7 @@
       },
       "highRisk": {
         "title": "Hoog-risicoclassificatie",
-        "description": "Controleer Annex I veiligheidscomponenten en Annex III toepassingen"
+        "description": "Controleer Bijlage I veiligheidscomponenten en Bijlage III toepassingen"
       },
       "limited": {
         "title": "Beperkt risico (Transparantie)",
@@ -105,12 +105,13 @@
     },
     "progress": {
       "step": "Stap {current} van {total}",
-      "complete": "Classificatie voltooid"
+      "complete": "Classificatie voltooid",
+      "question": "Vraag {current} van {total}"
     },
     "results": {
       "prohibited": {
         "title": "Verboden AI-systeem",
-        "description": "Uw AI-systeem is verboden onder Article 5 van de EU AI Act.",
+        "description": "Uw AI-systeem is verboden onder Artikel 5 van de EU AI Act.",
         "action": "Staak de ontwikkeling of herontwerp fundamenteel om verboden mogelijkheden te verwijderen."
       },
       "highRisk": {
@@ -137,7 +138,23 @@
         "title": "AI-systeem met minimaal risico",
         "description": "Geen verplichte vereisten buiten bestaande wetgeving. Vrijwillige gedragscodes worden aangemoedigd.",
         "action": "Overweeg het aannemen van vrijwillige gedragscodes voor betrouwbare AI."
-      }
+      },
+      "label": "Classificatieresultaat",
+      "enforcementDate": "Handhavingsdatum",
+      "applicableArticles": "Toepasselijke artikelen",
+      "reasoning": "Motivering",
+      "viewChecklist": "Nalevingschecklist bekijken",
+      "shareResult": "Resultaat delen",
+      "copied": "Gekopieerd!"
+    },
+    "answers": {
+      "yes": "Ja",
+      "no": "Nee"
+    },
+    "wizard": {
+      "interactiveWizard": "Interactieve wizard",
+      "startOver": "Opnieuw beginnen",
+      "previousQuestion": "Vorige vraag"
     }
   },
   "checklists": {
@@ -158,7 +175,7 @@
     "item": {
       "required": "Vereist",
       "recommended": "Aanbevolen",
-      "article": "Article {number}",
+      "article": "Artikel {number}",
       "deadline": "Deadline: {date}",
       "markComplete": "Markeer als voltooid",
       "markIncomplete": "Markeer als onvolledig"
@@ -201,8 +218,8 @@
       "entryIntoForce": "Inwerkingtreding",
       "prohibitions": "Verboden AI-praktijken",
       "gpaiObligations": "GPAI-verplichtingen",
-      "highRiskAnnexIII": "Hoog-risico (Annex III) verplichtingen",
-      "highRiskAnnexI": "Hoog-risico (Annex I) verplichtingen",
+      "highRiskAnnexIII": "Hoog-risico (Bijlage III) verplichtingen",
+      "highRiskAnnexI": "Hoog-risico (Bijlage I) verplichtingen",
       "fullEnforcement": "Volledige handhaving"
     }
   },
@@ -212,23 +229,23 @@
     "list": {
       "conformity": {
         "title": "EU-conformiteitsverklaring",
-        "description": "Vereiste verklaring voor hoog-risico AI-systemen conform Article 47 en Annex V."
+        "description": "Vereiste verklaring voor hoog-risico AI-systemen conform Artikel 47 en Bijlage V."
       },
       "riskAssessment": {
         "title": "Effectbeoordeling grondrechten",
-        "description": "Vereiste beoordeling voor hoog-risico AI-systemen ingezet door overheidsinstanties conform Article 27."
+        "description": "Vereiste beoordeling voor hoog-risico AI-systemen ingezet door overheidsinstanties conform Artikel 27."
       },
       "modelCard": {
         "title": "GPAI-modelkaart",
-        "description": "Technische documentatie voor GPAI-modellen conform Article 53 en Annex XI."
+        "description": "Technische documentatie voor GPAI-modellen conform Artikel 53 en Bijlage XI."
       },
       "impactAssessment": {
         "title": "Gegevensbeschermingseffectbeoordeling",
-        "description": "DPIA-sjabloon voor AI-systemen die persoonsgegevens verwerken, in lijn met GDPR Article 35."
+        "description": "DPIA-sjabloon voor AI-systemen die persoonsgegevens verwerken, in lijn met AVG Artikel 35."
       },
       "transparencyNotice": {
         "title": "Transparantiemededeling",
-        "description": "Gebruikersgerichte mededeling voor AI-systemen met transparantieverplichtingen conform Article 50."
+        "description": "Gebruikersgerichte mededeling voor AI-systemen met transparantieverplichtingen conform Artikel 50."
       }
     },
     "generate": "Document genereren",
@@ -260,7 +277,8 @@
     },
     "copyright": "EU AI Act Toolkit. Open source onder MIT-licentie.",
     "regulation": "Gebaseerd op Verordening (EU) 2024/1689 van het Europees Parlement en de Raad.",
-    "tagline": "Made with care for AI compliance teams worldwide"
+    "tagline": "Made with care for AI compliance teams worldwide",
+    "resources": "Bronnen"
   },
   "disclaimer": {
     "short": "Dit hulpmiddel vormt geen juridisch advies.",
@@ -280,7 +298,7 @@
     },
     "overview": {
       "title": "Sanctieniveaus van de EU AI Act",
-      "description": "Alle sanctiecategorieën zoals gedefinieerd in Article 99 van Verordening (EU) 2024/1689."
+      "description": "Alle sanctiecategorieën zoals gedefinieerd in Artikel 99 van Verordening (EU) 2024/1689."
     }
   },
   "gaps": {
@@ -326,6 +344,256 @@
       "reset": "Resetten",
       "copy": "Kopiëren",
       "share": "Delen"
+    }
+  },
+  "sdk": {
+    "steps": {
+      "prohibited": {
+        "title": "Verboden praktijken",
+        "description": "Artikel 5 verbiedt bepaalde AI-praktijken volledig. Indien van toepassing, mag uw systeem niet op de EU-markt worden gebracht."
+      },
+      "gpai": {
+        "title": "Algemeen inzetbare AI",
+        "description": "Algemeen inzetbare AI-modellen hebben specifieke verplichtingen op grond van de Artikelen 51-55. Bepaal of uw model kwalificeert en of het een systeemrisico vormt."
+      },
+      "high-risk-pathway-a": {
+        "title": "Hoog risico: Productveiligheid (Bijlage I)",
+        "description": "AI-systemen die veiligheidscomponenten zijn van producten die onder bestaande EU-harmonisatiewetgeving vallen (Bijlage I) worden als hoog risico geclassificeerd op grond van Artikel 6, lid 1."
+      },
+      "high-risk-pathway-b": {
+        "title": "Hoog risico: Zelfstandige systemen (Bijlage III)",
+        "description": "AI-systemen die worden gebruikt op de gebieden opgesomd in Bijlage III worden geclassificeerd als hoog risico op grond van Artikel 6, lid 2, tenzij zij geen significant risico op schade vormen."
+      },
+      "limited-risk": {
+        "title": "Beperkt risico: Transparantieverplichtingen",
+        "description": "Bepaalde AI-systemen hebben transparantieverplichtingen op grond van Artikel 50, ongeacht andere risicoclassificaties."
+      }
+    },
+    "questions": {
+      "subliminal-manipulation": {
+        "text": "Maakt uw AI-systeem gebruik van subliminale technieken buiten het bewustzijn van een persoon, of doelbewust manipulatieve of misleidende technieken, met als doel of gevolg het wezenlijk verstoren van gedrag en het veroorzaken van aanzienlijke schade?",
+        "help": "Omvat technieken die een persoon niet kan waarnemen of die psychologische patronen benutten om beslissingen te manipuleren, waardoor gedrag wezenlijk wordt verstoord op een manier die aanzienlijke schade veroorzaakt of redelijkerwijs kan veroorzaken."
+      },
+      "exploiting-vulnerabilities": {
+        "text": "Maakt uw AI-systeem misbruik van kwetsbaarheden van een specifieke groep personen vanwege hun leeftijd, handicap of een specifieke sociale of economische situatie, met als doel of gevolg het wezenlijk verstoren van hun gedrag en het veroorzaken van aanzienlijke schade?",
+        "help": "Richt zich op systemen die misbruik maken van kinderen, ouderen, personen met een handicap of personen in een precaire sociale of economische situatie om hun gedrag op schadelijke wijze te verstoren."
+      },
+      "social-scoring": {
+        "text": "Beoordeelt of classificeert uw AI-systeem natuurlijke personen op basis van hun sociaal gedrag of persoonlijke kenmerken, resulterend in nadelige of ongunstige behandeling in niet-gerelateerde contexten of behandeling die niet in verhouding staat tot het gedrag?",
+        "help": "Omvat sociale scoring door overheidsinstanties of private partijen die leidt tot ongunstige behandeling van personen in sociale contexten die geen verband houden met de context waarin de gegevens oorspronkelijk werden gegenereerd, of behandeling die ongerechtvaardigd of onevenredig is ten opzichte van hun sociaal gedrag."
+      },
+      "individual-predictive-policing": {
+        "text": "Maakt uw AI-systeem risicobeoordelingen van natuurlijke personen om de waarschijnlijkheid te voorspellen dat een persoon een strafbaar feit zal plegen, uitsluitend op basis van profilering of persoonlijkheidskenmerken?",
+        "help": "Verbiedt individuele voorspelling van crimineel risico uitsluitend op basis van profilering of persoonlijkheidskenmerken en -eigenschappen. Geldt niet voor systemen die menselijke beoordeling ondersteunen op basis van objectieve, verifieerbare feiten die rechtstreeks verband houden met criminele activiteiten."
+      },
+      "untargeted-facial-scraping": {
+        "text": "Creëert of breidt uw AI-systeem gezichtsherkenningsdatabases uit door ongericht schrapen van gezichtsbeelden van het internet of CCTV-beelden?",
+        "help": "Verbiedt het opbouwen van gezichtsherkenningsdatabases door het ongedifferentieerd schrapen van gezichtsbeelden van internetbronnen of videobewakingssystemen zonder gerichte selectie."
+      },
+      "emotion-inference-workplace-education": {
+        "text": "Leidt uw AI-systeem emoties af van natuurlijke personen op het gebied van de werkplek of onderwijsinstellingen, behalve wanneer het systeem bestemd is om in de handel te worden gebracht voor medische of veiligheidsredenen?",
+        "help": "Verbiedt emotieherkenning op de werkplek en in het onderwijs. Medische hulpmiddelen en veiligheidskritieke systemen (bijv. monitoring van slaperigheid bij bestuurders) zijn uitgezonderd."
+      },
+      "biometric-categorization-sensitive": {
+        "text": "Categoriseert uw AI-systeem natuurlijke personen individueel op basis van biometrische gegevens om hun ras, politieke opvattingen, vakbondslidmaatschap, religieuze of levensbeschouwelijke overtuigingen, seksleven of seksuele gerichtheid af te leiden of te veronderstellen?",
+        "help": "Verbiedt het gebruik van biometrische gegevens (gezicht, stem, looppatroon, enz.) om gevoelige of beschermde eigenschappen af te leiden. Labeling of filtering van rechtmatig verkregen biometrische datasets (bijv. voor rechtshandhaving) valt hier niet onder."
+      },
+      "realtime-biometric-public": {
+        "text": "Maakt uw AI-systeem gebruik van realtime biometrische identificatie op afstand in openbaar toegankelijke ruimten voor rechtshandhavingsdoeleinden?",
+        "help": "Verbiedt realtime biometrische identificatie op afstand in openbare ruimten voor rechtshandhaving, met beperkte uitzonderingen: het zoeken naar specifieke vermiste personen of slachtoffers van ontvoering, het voorkomen van een specifieke en onmiddellijke terroristische dreiging, of het lokaliseren of identificeren van een persoon die wordt verdacht van bepaalde ernstige strafbare feiten. Uitzonderingen vereisen voorafgaande rechterlijke machtiging en een strikte noodzakelijkheids-/evenredigheidstoets."
+      },
+      "is-gpai": {
+        "text": "Is uw AI-model een algemeen inzetbaar AI-model, wat betekent dat het aanzienlijke algemeenheid vertoont, in staat is om competent een breed scala aan verschillende taken uit te voeren, en kan worden geïntegreerd in diverse downstreamsystemen of -toepassingen?",
+        "help": "Een algemeen inzetbaar AI-model (bijv. grote taalmodellen, grote multimodale modellen) is getraind met een grote hoeveelheid data met behulp van zelfsupervisie op grote schaal, vertoont aanzienlijke algemeenheid en kan worden aangepast aan een breed scala van afzonderlijke downstreamtaken."
+      },
+      "gpai-flops": {
+        "text": "Is uw model getraind met een totale rekencapaciteit van meer dan 10^25 FLOP's?",
+        "help": "Modellen die zijn getraind met meer dan 10^25 floating-pointbewerkingen worden verondersteld hoge impactcapaciteiten te hebben en worden automatisch geclassificeerd als systemen met systeemrisico. De Commissie kan deze drempelwaarde bijwerken."
+      },
+      "is-open-source": {
+        "text": "Wordt uw model beschikbaar gesteld onder een vrije en open-sourcelicentie die toegang, gebruik, aanpassing en distributie mogelijk maakt, en waarvan de parameters, inclusief gewichten, architectuur en gebruiksinformatie, openbaar beschikbaar zijn?",
+        "help": "Open-source GPAI-modellen hoeven alleen te voldoen aan auteursrechtverplichtingen en een samenvatting van trainingsdata te publiceren, tenzij ze een systeemrisico vormen. De licentie moet werkelijk open zijn (OSI-compatibel of gelijkwaardig)."
+      },
+      "designated-systemic-risk": {
+        "text": "Is uw model door de Europese Commissie aangewezen als een model dat systeemrisico vormt op basis van de hoge impactcapaciteiten?",
+        "help": "Zelfs zonder de drempel van 10^25 FLOP's te bereiken, kan de Commissie een model aanwijzen als systeem met systeemrisico op basis van criteria waaronder het aantal geregistreerde eindgebruikers, grensoverschrijdend bereik of de mate van autonomie van handelen."
+      },
+      "annex-i-product": {
+        "text": "Is uw AI-systeem een veiligheidscomponent van een product, of is het zelf een product, dat valt onder de EU-harmonisatiewetgeving opgesomd in Bijlage I (bijv. machines, speelgoed, medische hulpmiddelen, voertuigen, luchtvaart, spoorwegen, scheepvaart, liften, drukapparatuur)?",
+        "help": "Bijlage I bevat meer dan 20 Europese productveiligheidswetten. Als uw AI-systeem is ingebed in of zelf een product is dat een conformiteitsbeoordeling door een derde partij moet ondergaan onder een van deze wetten, is het hoog risico."
+      },
+      "annex-i-requires-third-party": {
+        "text": "Vereist de betreffende wetgeving uit Bijlage I een conformiteitsbeoordeling door een derde partij voor het product om op de markt te worden gebracht?",
+        "help": "Hoog-risicoclassificatie onder Pathway A wordt alleen geactiveerd als de toepasselijke productwetgeving een conformiteitsbeoordeling door een derde partij vereist. Als zelfbeoordeling volstaat onder de productwetgeving, wordt de AI-component mogelijk niet automatisch als hoog risico geclassificeerd via dit traject."
+      },
+      "annex-iii-biometrics": {
+        "text": "Wordt uw AI-systeem gebruikt voor biometrie, inclusief biometrische identificatie op afstand, biometrische categorisering op gevoelige kenmerken of emotieherkenning?",
+        "help": "Bijlage III, gebied 1: Omvat biometrische identificatie op afstand (niet de verboden realtime-variant), biometrische categorisering op gevoelige of beschermde kenmerken, en emotieherkenningssystemen."
+      },
+      "annex-iii-critical-infrastructure": {
+        "text": "Wordt uw AI-systeem gebruikt als veiligheidscomponent bij het beheer en de exploitatie van kritieke infrastructuur (wegverkeer, water, gas, verwarming, elektriciteit)?",
+        "help": "Bijlage III, gebied 2: Omvat AI-systemen die dienen als veiligheidscomponenten in kritieke digitale of fysieke infrastructuur en die het leven, de gezondheid in gevaar kunnen brengen of grote milieu- of eigendomsschade kunnen veroorzaken."
+      },
+      "annex-iii-education": {
+        "text": "Wordt uw AI-systeem gebruikt in het onderwijs of de beroepsopleiding, bijvoorbeeld voor het bepalen van toegang/toelating, het beoordelen van leerresultaten, het vaststellen van opleidingsniveaus of het monitoren van studentengedrag tijdens toetsen?",
+        "help": "Bijlage III, gebied 3: Omvat AI-systemen die de toegang tot onderwijs bepalen, resultaten beoordelen die het leerproces sturen, passende opleidingsniveaus evalueren of verboden gedrag tijdens examens monitoren/detecteren."
+      },
+      "annex-iii-employment": {
+        "text": "Wordt uw AI-systeem gebruikt bij werkgelegenheid, personeelsbeheer of toegang tot zelfstandig beroep, bijvoorbeeld voor werving, screening van sollicitaties, beoordeling van kandidaten, beslissingen over arbeidsvoorwaarden, of het monitoren/beoordelen van werknemersprestaties?",
+        "help": "Bijlage III, gebied 4: Omvat AI-systemen voor werving, kandidaatbeoordeling, arbeidsbeslissingen (bevordering, ontslag), taaktoewijzing op basis van persoonlijke eigenschappen en monitoring van werknemersprestaties."
+      },
+      "annex-iii-essential-services": {
+        "text": "Wordt uw AI-systeem gebruikt voor de toegang tot of verlening van essentiële particuliere of openbare diensten (geschiktheid voor uitkeringen, kredietwaardigheidsbeoordeling, risicobeoordeling voor levens-/ziektekostenverzekering of classificatie van noodoproepen)?",
+        "help": "Bijlage III, gebied 5: Omvat AI-systemen die de geschiktheid voor overheidssteun beoordelen, kredietwaardigheid evalueren (behalve fraudedetectie), risico-prijsstelling bij levens-/ziektekostenverzekering en het beoordelen of classificeren van noodoproepen voor de prioritering van hulpdiensten."
+      },
+      "annex-iii-law-enforcement": {
+        "text": "Wordt uw AI-systeem gebruikt bij rechtshandhaving, bijvoorbeeld voor individuele risicobeoordeling, als leugendetector, beoordeling van de betrouwbaarheid van bewijs of profilering van personen tijdens strafrechtelijke onderzoeken?",
+        "help": "Bijlage III, gebied 6: Omvat AI-systemen voor individuele risicobeoordeling (waarschijnlijkheid van het (opnieuw) plegen van strafbare feiten of slachtofferschap), misleidingsdetectie, beoordeling van de betrouwbaarheid van bewijs en profilering bij strafrechtelijke onderzoeken."
+      },
+      "annex-iii-migration": {
+        "text": "Wordt uw AI-systeem gebruikt bij migratie, asiel of grensbeheer, bijvoorbeeld voor het beoordelen van het risico op irreguliere migratie, het onderzoeken van asiel-/visum-/verblijfsaanvragen of het identificeren van personen aan de grens?",
+        "help": "Bijlage III, gebied 7: Omvat AI-systemen die het risico op irreguliere migratie of gezondheidsrisico's beoordelen, aanvragen voor asiel/visa/verblijfsvergunningen en bijbehorende klachten onderzoeken, en personen detecteren/herkennen/identificeren (met uitzondering van verificatie van reisdocumenten)."
+      },
+      "annex-iii-justice-democracy": {
+        "text": "Wordt uw AI-systeem gebruikt bij de rechtsbedeling of democratische processen, bijvoorbeeld om rechterlijke instanties te ondersteunen bij het onderzoeken/interpreteren/toepassen van het recht, of om de uitkomst van verkiezingen of referenda te beïnvloeden?",
+        "help": "Bijlage III, gebied 8: Omvat AI-systemen die rechtbanken ondersteunen bij het onderzoeken, interpreteren en toepassen van feiten en recht op concrete zaken, en systemen die bedoeld zijn om de uitkomst van verkiezingen of referenda te beïnvloeden (met uitzondering van organisatorische hulpmiddelen die stemmen niet rechtstreeks beïnvloeden)."
+      },
+      "interacts-with-persons": {
+        "text": "Heeft uw AI-systeem rechtstreekse interactie met natuurlijke personen (bijv. chatbot, stemassistent, virtuele agent)?",
+        "help": "Systemen die zijn ontworpen om rechtstreeks met mensen te interageren moeten bekendmaken dat de persoon interactie heeft met een AI-systeem, tenzij dit duidelijk is uit de omstandigheden en de gebruikscontext."
+      },
+      "generates-synthetic-content": {
+        "text": "Genereert of manipuleert uw AI-systeem synthetische inhoud zoals afbeeldingen, audio, video of tekst (inclusief deepfakes)?",
+        "help": "Aanbieders van AI-systemen die synthetische audio, afbeeldingen, video of tekst genereren, moeten ervoor zorgen dat de output als kunstmatig gegenereerd of gemanipuleerd wordt gemarkeerd in een machineleesbaar formaat, waar technisch haalbaar."
+      },
+      "emotion-recognition": {
+        "text": "Voert uw AI-systeem emotieherkenning uit (het detecteren of afleiden van emoties of intenties van natuurlijke personen op basis van biometrische gegevens)?",
+        "help": "Gebruikers van emotieherkenningssystemen moeten blootgestelde personen informeren dat het systeem in werking is en persoonsgegevens verwerken in overeenstemming met de AVG."
+      },
+      "biometric-categorizing": {
+        "text": "Voert uw AI-systeem biometrische categorisering uit (het classificeren van natuurlijke personen op basis van biometrische gegevens in groepen op basis van specifieke kenmerken)?",
+        "help": "Gebruikers van biometrische categoriseringssystemen moeten blootgestelde personen informeren over de werking van het systeem. Let op: categorisering op gevoelige kenmerken kan verboden zijn op grond van Artikel 5."
+      }
+    },
+    "timeline": {
+      "0": {
+        "title": "EU AI Act treedt in werking",
+        "description": "Verordening (EU) 2024/1689 treedt in werking 20 dagen na publicatie in het Publicatieblad. De meeste bepalingen zijn van toepassing op een gefaseerde tijdlijn gedurende de daaropvolgende 36 maanden."
+      },
+      "1": {
+        "title": "Verboden praktijken zijn van toepassing",
+        "description": "Verboden op verboden AI-praktijken (Artikel 5) en vereisten voor AI-geletterdheid (Artikel 4) worden afdwingbaar. Systemen die verboden praktijken uitvoeren moeten de werking in de EU staken."
+      },
+      "2": {
+        "title": "GPAI-regels zijn van toepassing",
+        "description": "Verplichtingen voor aanbieders van algemeen inzetbare AI-modellen treden in werking, waaronder documentatie, naleving van auteursrecht, samenvattingen van trainingsdata en aanvullende verplichtingen voor modellen met systeemrisico."
+      },
+      "3": {
+        "title": "Hoog-risicovereisten zijn van toepassing",
+        "description": "Volledige vereisten voor hoog-risico AI-systemen (Artikelen 6-15, 26-27) en transparantieverplichtingen (Artikel 50) worden afdwingbaar. Aanbieders moeten voldoen aan vereisten voor risicobeheer, datagovernance, documentatie, registratie, transparantie, menselijk toezicht, nauwkeurigheid en robuustheid. Registratie in de EU-database en conformiteitsbeoordeling zijn vereist vóór het op de markt brengen."
+      },
+      "4": {
+        "title": "Bestaande GPAI en grootschalige IT-systemen",
+        "description": "Verplichtingen gelden voor GPAI-modellen die al vóór augustus 2025 op de markt waren, en voor hoog-risico AI-systemen die componenten zijn van grootschalige EU IT-systemen (bijv. Schengen-informatiesysteem, Visuminformatiesysteem, Eurodac) opgesomd in Bijlage X."
+      },
+      "5": {
+        "title": "Productveiligheidscomponenten",
+        "description": "Verplichtingen voor hoog-risico AI-systemen die veiligheidscomponenten zijn van producten die vallen onder de harmonisatiewetgeving van de Unie in Bijlage I (Pathway A op grond van Artikel 6, lid 1) worden volledig van kracht. Deze systemen moeten voldoen aan alle hoog-risicovereisten en de relevante conformiteitsbeoordelingsprocedures doorlopen."
+      }
+    },
+    "checklists": {
+      "prohibited-stop-deployment": "Stop de inzet van het verboden AI-systeem in de EU onmiddellijk",
+      "prohibited-document-and-assess": "Documenteer het verboden systeem en beoordeel alternatieven die hetzelfde doel bereiken zonder onder de verboden te vallen",
+      "hr-risk-lifecycle": "Stel een risicobeheersysteem in dat gedurende de gehele levenscyclus functioneert",
+      "hr-risk-identify": "Identificeer en analyseer bekende en redelijkerwijs voorzienbare risico's",
+      "hr-risk-estimate-intended": "Schat en evalueer risico's van beoogd gebruik en redelijkerwijs voorzienbaar misbruik",
+      "hr-risk-post-market": "Evalueer risico's op basis van gegevens uit monitoring na het op de markt brengen",
+      "hr-risk-measures": "Neem risicobeheermaatregelen om risico's te elimineren of te beperken",
+      "hr-risk-testing": "Test het systeem om de meest geschikte risicobeheermaatregelen te identificeren",
+      "hr-risk-combined-effects": "Overweeg de gecombineerde effecten wanneer het systeem wordt gebruikt met andere systemen",
+      "hr-risk-residual": "Documenteer restrisico's en communiceer deze aan gebruikers",
+      "hr-data-governance": "Zorg ervoor dat trainings-, validatie- en testdatasets onderworpen zijn aan passend databeheer",
+      "hr-data-collection-docs": "Documenteer dataverzamelingsprocessen en gegevensbronnen",
+      "hr-data-relevance": "Beoordeel data op relevantie, representativiteit, volledigheid en statistische eigenschappen",
+      "hr-data-bias-examination": "Onderzoek data op mogelijke vooroordelen die de gezondheid, veiligheid of grondrechten kunnen beïnvloeden",
+      "hr-data-gaps": "Identificeer en adresseer hiaten of tekortkomingen in data",
+      "hr-data-bias-mitigation": "Pas passende maatregelen toe voor het detecteren, corrigeren en beperken van vooroordelen",
+      "hr-data-quality": "Zorg ervoor dat trainingsdata vrij is van fouten en volledig is ten opzichte van het beoogde doel",
+      "hr-data-special-categories": "Documenteer bij verwerking van bijzondere categorieën persoonsgegevens de noodzaak en waarborgen",
+      "hr-docs-general": "Stel een algemene beschrijving van het AI-systeem op (beoogd doel, ontwikkelaar, versie)",
+      "hr-docs-development": "Stel een gedetailleerde beschrijving op van de elementen en het ontwikkelingsproces",
+      "hr-docs-monitoring": "Stel een gedetailleerde beschrijving op van de monitoring, werking en besturing van het systeem",
+      "hr-docs-risk-mgmt": "Voeg een beschrijving toe van het risicobeheersysteem (naleving Artikel 9)",
+      "hr-docs-lifecycle": "Documenteer alle wijzigingen die gedurende de levenscyclus van het systeem zijn aangebracht",
+      "hr-docs-standards": "Vermeld de toegepaste geharmoniseerde normen of andere technische specificaties",
+      "hr-docs-human-oversight": "Beschrijf hoe de maatregelen voor menselijk toezicht worden geïmplementeerd",
+      "hr-docs-lifetime": "Documenteer de verwachte levensduur en onderhoudsmaatregelen",
+      "hr-docs-accuracy-robustness": "Beschrijf de nauwkeurigheid, robuustheid en cyberbeveiligingsmaatregelen van het AI-systeem",
+      "hr-logs-automatic": "Zorg ervoor dat het systeem automatisch gebeurtenissen (logboeken) registreert gedurende de gehele levensduur",
+      "hr-logs-tracing": "Zorg ervoor dat logboekregistratie het traceren van de werking van het systeem mogelijk maakt",
+      "hr-logs-standards": "Zorg ervoor dat de logboekfunctionaliteit voldoet aan erkende normen of gemeenschappelijke specificaties",
+      "hr-logs-content": "Logboeken bevatten: gebruiksperiode, referentiedatabase, invoergegevens, identificatie van natuurlijke personen betrokken bij verificatie",
+      "hr-transparency-interpretable": "Ontwerp het systeem zodat gebruikers de output kunnen interpreteren en op passende wijze kunnen gebruiken",
+      "hr-transparency-identity": "De gebruiksinstructies bevatten de identiteit en contactgegevens van de aanbieder",
+      "hr-transparency-capabilities": "De gebruiksinstructies bevatten de mogelijkheden en beperkingen van het systeem",
+      "hr-transparency-purpose": "De gebruiksinstructies bevatten het beoogde doel en scenario's voor redelijkerwijs voorzienbaar misbruik",
+      "hr-transparency-changes": "De gebruiksinstructies bevatten door de aanbieder vooraf bepaalde wijzigingen",
+      "hr-transparency-oversight-info": "De gebruiksinstructies bevatten maatregelen voor menselijk toezicht",
+      "hr-transparency-accuracy-info": "De gebruiksinstructies bevatten het verwachte niveau van nauwkeurigheid, robuustheid en cyberbeveiliging (benchmarks)",
+      "hr-transparency-risks": "De gebruiksinstructies bevatten bekende risico's voor gezondheid, veiligheid of grondrechten",
+      "hr-transparency-input-specs": "De gebruiksinstructies bevatten technische specificaties voor invoergegevens",
+      "hr-transparency-logging-info": "De gebruiksinstructies bevatten een beschrijving van de logboekfunctionaliteit",
+      "hr-oversight-design": "Ontwerp het systeem zodat natuurlijke personen effectief toezicht kunnen uitoefenen tijdens het gebruik",
+      "hr-oversight-understand": "Toezicht stelt de mens in staat om de capaciteiten en beperkingen van het systeem volledig te begrijpen",
+      "hr-oversight-monitor": "Toezicht maakt het mogelijk anomalieën, storingen en onverwachte prestaties te detecteren",
+      "hr-oversight-bias-awareness": "Toezicht omvat bewustzijn van automatiseringsbias, met name bij beslissingen over personen",
+      "hr-oversight-interpret": "Toezicht maakt een correcte interpretatie van de systeemoutput mogelijk",
+      "hr-oversight-override": "Toezicht stelt de mens in staat om het systeem niet te gebruiken of de output te negeren/terug te draaien",
+      "hr-oversight-stop": "Toezicht stelt de mens in staat om het systeem te onderbreken via een stopknop of vergelijkbare procedure",
+      "hr-accuracy-level": "Ontwerp het systeem om een passend nauwkeurigheidsniveau te bereiken voor het beoogde doel",
+      "hr-accuracy-declared": "Vermeld nauwkeurigheidsniveaus en -maatstaven in de gebruiksinstructies",
+      "hr-robustness-errors": "Zorg ervoor dat het systeem bestand is tegen fouten, storingen of inconsistenties in de omgeving",
+      "hr-robustness-adversarial": "Zorg ervoor dat het systeem bestand is tegen adversariële pogingen van derden om het te manipuleren",
+      "hr-robustness-failsafe": "Ontwerp voor veilige afhandeling van onverwachte situaties (uitwijk-/noodplannen)",
+      "hr-cybersecurity": "Implementeer cyberbeveiligingsmaatregelen die evenredig zijn met het risico",
+      "hr-redundancy": "Implementeer waar passend technische redundantieoplossingen (back-upplannen, noodmechanismen)",
+      "hr-conformity-route": "Bepaal het traject voor conformiteitsbeoordeling: zelfbeoordeling of beoordeling door een derde partij",
+      "hr-register-eu-db": "Registreer in de EU-database vóór het op de markt brengen van het systeem",
+      "hr-ce-marking": "Breng het CE-markering aan na een succesvolle conformiteitsbeoordeling",
+      "hr-declaration-conformity": "Stel een EU-conformiteitsverklaring op",
+      "hr-authorised-rep": "Wijs een gemachtigde vertegenwoordiger in de EU aan (indien de aanbieder buiten de EU is gevestigd)",
+      "hr-post-market-monitoring": "Stel een systeem voor monitoring na het op de markt brengen in",
+      "hr-incident-reporting-procedure": "Stel een procedure in voor het melden van ernstige incidenten",
+      "hr-incident-reporting-timeline": "Meld ernstige incidenten aan markttoezichtautoriteiten onverwijld en binnen 15 dagen",
+      "gpai-tech-docs": "Stel technische documentatie van het model op en houd deze bij (Bijlage XI)",
+      "gpai-tech-docs-training": "Documenteer de trainingsmethodologie, -technieken, ontwerpkeuzes en aannames",
+      "gpai-tech-docs-data-sources": "Documenteer de bronnen van trainingsdata, inclusief een algemene beschrijving en gegevensherkomst",
+      "gpai-tech-docs-compute": "Documenteer de gebruikte rekenresources voor training",
+      "gpai-downstream-info": "Stel informatie en documentatie op en houd deze bij voor downstreamaanbieders",
+      "gpai-copyright": "Voldoe aan het EU-auteursrecht (Richtlijn 2019/790), inclusief de opt-out voor tekst- en datamining",
+      "gpai-training-data-summary": "Publiceer een voldoende gedetailleerde samenvatting van de inhoud van trainingsdata",
+      "gpai-open-source-exception": "Indien open source: verifieer dat alleen naleving van auteursrecht en samenvatting van trainingsdata vereist zijn",
+      "gpai-code-of-practice": "Overweeg te voldoen aan de gedragscode voor GPAI-aanbieders",
+      "gpai-sys-tech-docs": "Stel technische documentatie van het model op en houd deze bij (Bijlage XI)",
+      "gpai-sys-downstream-info": "Stel informatie en documentatie op en houd deze bij voor downstreamaanbieders",
+      "gpai-sys-copyright": "Voldoe aan het EU-auteursrecht (Richtlijn 2019/790), inclusief de opt-out voor tekst- en datamining",
+      "gpai-sys-training-data-summary": "Publiceer een voldoende gedetailleerde samenvatting van de inhoud van trainingsdata",
+      "gpai-sys-model-eval": "Voer modelevaluatie uit in overeenstemming met gestandaardiseerde protocollen en hulpmiddelen",
+      "gpai-sys-red-teaming": "Voer adversariële tests (red teaming) uit om systeemrisico's te identificeren en te beperken",
+      "gpai-sys-assess-mitigate": "Beoordeel en beperk mogelijke systeemrisico's, inclusief de bronnen ervan",
+      "gpai-sys-incident-tracking": "Registreer, documenteer en meld ernstige incidenten bij het AI-bureau en nationale autoriteiten",
+      "gpai-sys-cybersecurity": "Zorg voor adequate cyberbeveiligingsbescherming voor het model en de fysieke infrastructuur",
+      "gpai-sys-code-of-practice": "Overweeg te voldoen aan de gedragscode voor GPAI-aanbieders (inclusief bepalingen voor systeemrisico)",
+      "limited-ai-disclosure": "Informeer gebruikers dat zij interactie hebben met een AI-systeem (tenzij dit duidelijk is uit de context)",
+      "limited-disclosure-format": "Zorg ervoor dat de AI-vermelding duidelijk, tijdig en in een toegankelijk formaat is",
+      "limited-synthetic-marking": "Markeer synthetische inhoud (deepfakes, door AI gegenereerde tekst/afbeeldingen/audio/video) als kunstmatig gegenereerd of gemanipuleerd",
+      "limited-synthetic-machine-readable": "Zorg ervoor dat de markering van synthetische inhoud machineleesbaar is, waar technisch haalbaar",
+      "limited-emotion-inform": "Informeer blootgestelde personen dat het emotieherkenningssysteem in werking is",
+      "limited-biometric-inform": "Informeer blootgestelde personen dat het biometrische categoriseringssysteem in werking is",
+      "minimal-voluntary-codes": "Overweeg het aannemen van vrijwillige gedragscodes voor ecologische duurzaamheid, toegankelijkheid, participatie van belanghebbenden en diversiteit van ontwikkelteams",
+      "minimal-voluntary-high-risk-subset": "Overweeg het vrijwillig toepassen van de vereisten voor hoog-risicosystemen (of een subset daarvan)",
+      "minimal-ai-pact": "Overweeg het naleven van de AI Pact-toezeggingen (vrijwillige vroegtijdige adoptie van bepaalde bepalingen van de AI Act)",
+      "minimal-good-practices": "Documenteer de mogelijkheden en beperkingen van het systeem, monitor op onverwacht gedrag en handhaaf transparantie naar gebruikers over AI-betrokkenheid"
     }
   }
 }
