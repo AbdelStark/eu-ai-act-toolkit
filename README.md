@@ -1,61 +1,93 @@
 <p align="center">
   <h1 align="center">EU AI Act Toolkit</h1>
   <p align="center">
-    Open-source compliance toolkit for <a href="https://artificialintelligenceact.eu/">Regulation (EU) 2024/1689</a>
+    Classify AI systems, track obligations, and generate compliance docs for <a href="https://artificialintelligenceact.eu/">Regulation (EU) 2024/1689</a> — entirely open-source.
   </p>
 </p>
 
 <p align="center">
   <a href="https://github.com/AbdelStark/eu-ai-act-toolkit/actions"><img src="https://img.shields.io/github/actions/workflow/status/AbdelStark/eu-ai-act-toolkit/ci.yml?branch=main&style=flat-square" alt="CI"></a>
   <a href="https://www.npmjs.com/package/@eu-ai-act/sdk"><img src="https://img.shields.io/npm/v/@eu-ai-act/sdk?style=flat-square&label=sdk" alt="SDK version"></a>
-  <a href="https://github.com/AbdelStark/eu-ai-act-toolkit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/AbdelStark/eu-ai-act-toolkit?style=flat-square" alt="License"></a>
+  <a href="https://www.npmjs.com/package/@eu-ai-act/cli"><img src="https://img.shields.io/npm/v/@eu-ai-act/cli?style=flat-square&label=cli" alt="CLI version"></a>
+  <img src="https://img.shields.io/badge/runtime_deps-0-brightgreen?style=flat-square" alt="Zero runtime deps (SDK)">
+  <a href="https://github.com/AbdelStark/eu-ai-act-toolkit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/AbdelStark/eu-ai-act-toolkit?style=flat-square" alt="MIT License"></a>
 </p>
-
----
 
 <table>
   <tr>
-    <td align="center"><img src="docs/assets/img/webapp-1.png" width="400" alt="Web App — Classification Wizard" /><br /><sub>Classification wizard with step-by-step risk assessment</sub></td>
-    <td align="center"><img src="docs/assets/img/webapp-2.png" width="400" alt="Web App — Compliance Dashboard" /><br /><sub>Compliance dashboard with checklists and gap analysis</sub></td>
+    <td align="center"><img src="docs/assets/img/webapp-1.png" width="400" alt="Web App — Classification Wizard" /><br /><sub>Classification wizard</sub></td>
+    <td align="center"><img src="docs/assets/img/webapp-2.png" width="400" alt="Web App — Compliance Dashboard" /><br /><sub>Compliance dashboard</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="docs/assets/img/cli-1.png" width="400" alt="CLI — Interactive Classification" /><br /><sub>Interactive CLI classification with guided questions</sub></td>
-    <td align="center"><img src="docs/assets/img/cli-2.png" width="400" alt="CLI — Checklist Output" /><br /><sub>Compliance checklist with obligation tracking</sub></td>
+    <td align="center"><img src="docs/assets/img/cli-1.png" width="400" alt="CLI — Interactive Classification" /><br /><sub>Interactive CLI</sub></td>
+    <td align="center"><img src="docs/assets/img/cli-2.png" width="400" alt="CLI — Checklist Output" /><br /><sub>Checklist tracking</sub></td>
   </tr>
 </table>
 
-The EU AI Act is the first comprehensive AI regulation. Prohibitions are already enforceable. GPAI rules apply August 2025. Full high-risk requirements hit August 2026. Penalties go up to 35M EUR or 7% of global turnover.
+---
 
-This toolkit helps you figure out what applies to you and track your compliance. Three components, same data, no vendor lock-in.
+## How It Works
 
-| Component | What it does |
-|-----------|-------------|
-| **[`@eu-ai-act/sdk`](packages/sdk/)** | TypeScript library. Classify systems, generate checklists, render templates. |
-| **[`@eu-ai-act/cli`](packages/cli/)** | CLI tool. 12 commands: classify, checklist, timeline, templates, examples, articles, annexes, penalties, gaps, standards, reports. |
-| **[Web App](packages/web/)** | Visual dashboard. Classification wizard, checklists, timeline, templates, examples, articles browser, penalty calculator, gap analysis, standards mapping, compliance reports. 14 languages. |
+```mermaid
+flowchart LR
+    subgraph data["data/ &nbsp;(single source of truth)"]
+        Q[questions.json]
+        C[checklists.json]
+        T[timeline.json]
+        A[articles.json]
+        P[penalties.json]
+        S[standards.json]
+    end
 
-## Get Started
+    subgraph sdk["@eu-ai-act/sdk"]
+        CL["classify()"]
+        CH["getChecklist()"]
+        TL["getTimeline()"]
+        GN["generateTemplate()"]
+    end
 
-### CLI
+    data -- bundled at build time --> sdk
+
+    sdk --> CLI["@eu-ai-act/cli\n12 commands"]
+    sdk --> WEB["Web App\nNext.js · 14 languages"]
+    sdk --> YOU["Your Code\nnpm install @eu-ai-act/sdk"]
+```
+
+Three packages, one data layer. Updating the regulation means editing JSON, not code.
+
+| Package | What it does |
+|---------|-------------|
+| [`@eu-ai-act/sdk`](packages/sdk/) | Pure TypeScript library. Zero runtime deps. Classification engine, checklists, templates, timeline. |
+| [`@eu-ai-act/cli`](packages/cli/) | Interactive terminal tool. Classify, checklist, timeline, penalties, gaps, standards, reports. |
+| [Web App](packages/web/) | Static Next.js dashboard. Everything client-side — no backend, no accounts, no data leaves your browser. |
+
+## Quick Start
+
+### 1. Classify your AI system (no install)
 
 ```bash
 npx @eu-ai-act/cli classify
 ```
 
-Walks you through a step-by-step classification of your AI system. Outputs which risk tier applies, which articles you need to comply with, and what to do next.
+Walks you through the Act's decision tree and outputs your risk tier, applicable articles, and enforcement deadline.
+
+### 2. See what you need to do
 
 ```bash
-npx @eu-ai-act/cli checklist high-risk    # See all requirements for high-risk systems
-npx @eu-ai-act/cli timeline               # Enforcement dates and countdowns
-npx @eu-ai-act/cli penalties high-risk    # Calculate penalty exposure
-npx @eu-ai-act/cli gaps high-risk         # Analyze compliance gaps
-npx @eu-ai-act/cli standards --mapping    # View standards compliance matrix
-npx @eu-ai-act/cli report --format md     # Generate comprehensive compliance report
+npx @eu-ai-act/cli checklist high-risk
 ```
 
-See the full [CLI documentation](packages/cli/README.md).
+Returns all obligations for a given tier, each citing the specific EU AI Act article.
 
-### SDK
+### 3. Generate compliance docs
+
+```bash
+npx @eu-ai-act/cli generate --tier high-risk --system "My AI System" --provider "Acme Corp" --purpose "Hiring"
+```
+
+Outputs pre-structured Markdown templates (technical docs, risk management, data governance, human oversight, and more) with `[TODO]` placeholders.
+
+## SDK Usage
 
 ```bash
 npm install @eu-ai-act/sdk
@@ -64,6 +96,7 @@ npm install @eu-ai-act/sdk
 ```typescript
 import { classify, getChecklist, getTimeline } from '@eu-ai-act/sdk';
 
+// One function call → know your obligations
 const result = classify({
   subliminalManipulation: false,
   exploitsVulnerabilities: false,
@@ -73,188 +106,93 @@ const result = classify({
   emotionInferenceWorkplace: false,
   biometricCategorization: false,
   realtimeBiometrics: false,
-  isGPAI: true,
-  gpaiFlops: 1e24,
-  isOpenSource: true,
+  isGPAI: false,
   annexIProduct: false,
-  annexIIICategory: null,
+  annexIIICategory: 'employment',
   interactsWithPersons: true,
   generatesSyntheticContent: false,
   emotionRecognition: false,
   biometricCategorizing: false,
 });
 
-console.log(result.tier);        // 'gpai'
-console.log(result.articles);    // [51, 53] (Article 52 excluded for open-source)
-console.log(result.reasoning);   // Step-by-step explanation
+result.tier;                // 'high-risk'
+result.articles;            // [6, 9, 10, 11, 12, 13, 14, 15, 16, 17, 26, 27, 43, 49]
+result.conformityAssessment // 'self'
+result.enforcementDate;     // '2026-08-02'
+result.reasoning;           // Step-by-step explanation
+
+// Get the full checklist for that tier
+const checklist = getChecklist(result.tier);
+
+// Get enforcement timeline with countdowns
+const timeline = getTimeline();
 ```
 
-See the full [SDK documentation](packages/sdk/README.md).
+All functions are **pure and deterministic** — same input, same output, no side effects.
 
-### Web App
+### SDK API
+
+| Function | Signature | Description |
+|----------|-----------|-------------|
+| `classify` | `ClassificationInput → ClassificationResult` | Risk classification following Article 5 → GPAI → Annex I/III → limited → minimal precedence |
+| `getChecklist` | `RiskTier → ChecklistItem[]` | All obligations for a tier, each citing a specific Article |
+| `getTimeline` | `Date? → TimelineEvent[]` | Enforcement milestones with status relative to reference date |
+| `generateTemplate` | `(TemplateName, TemplateInput) → string` | Markdown compliance doc (8 templates: tech docs, risk mgmt, data governance, etc.) |
+| `getQuestions` | `() → QuestionStep[]` | Decision tree for building classification wizards |
+| `calculateScore` | `(ChecklistItem[], Progress) → number` | Compliance score (0–100) from checklist progress |
+| `buildReasoning` | `ClassificationResult → string` | Human-readable reasoning chain |
+
+## CLI Commands
 
 ```bash
-git clone https://github.com/AbdelStark/eu-ai-act-toolkit.git
-cd eu-ai-act-toolkit
-npm install
-npx turbo dev --filter=@eu-ai-act/web
+npx @eu-ai-act/cli <command>
 ```
 
-Opens at `localhost:3000`. Everything runs client-side. No backend, no accounts, no data leaves your browser.
+| Command | Description |
+|---------|-------------|
+| `classify` | Interactive risk classification wizard |
+| `checklist <tier>` | Compliance obligations for a risk tier |
+| `timeline` | Enforcement dates and countdowns |
+| `penalties <tier>` | Maximum fine exposure (Art. 99) |
+| `gaps <tier>` | Compliance gap analysis with priority scoring |
+| `standards` | Harmonised standards mapping (ISO, CEN/CENELEC) |
+| `report` | Full compliance report (`--format md` or `--format json`) |
+| `templates` | List available documentation templates |
+| `generate` | Generate compliance documentation |
+| `examples` | Worked classification walkthroughs (10 scenarios) |
+| `articles` | Browse EU AI Act articles |
+| `annexes` | Browse Annex III categories |
 
-## What's Covered
+All commands support `--json` for machine-readable output.
 
-### Risk Classification
+## Risk Tiers
 
-Interactive decision tree that walks through the Act's classification logic:
+The Act classifies AI systems into six tiers. Obligations scale with risk.
 
-1. **Prohibited practices** (Article 5) - social scoring, real-time biometrics, manipulative AI
-2. **GPAI assessment** - foundation models, training compute thresholds, open-source exemptions
-3. **High-risk** (Annex I + III) - safety components, biometrics, employment, critical infrastructure
-4. **Limited risk** - transparency obligations for chatbots, deepfakes, emotion recognition
-5. **Minimal risk** - voluntary codes only
+| Tier | Obligations | Key Articles | Enforcement |
+|------|-------------|-------------|-------------|
+| **Prohibited** | Must not be deployed | Art. 5 | Feb 2, 2025 |
+| **High-Risk** | 61 checklist items (risk mgmt, data governance, docs, human oversight, accuracy) | Art. 6–15, 43, 72–73 | Aug 2, 2026 |
+| **GPAI Systemic** | Evaluations, adversarial testing, incident reporting, cybersecurity | Art. 51–55 | Aug 2, 2025 |
+| **GPAI** | Technical docs, copyright compliance, training data summary | Art. 51–53 | Aug 2, 2025 |
+| **Limited** | Transparency: disclose AI interaction, label synthetic content | Art. 50 | Aug 2, 2026 |
+| **Minimal** | Voluntary codes only | — | Aug 2, 2026 |
 
-The classifier outputs the applicable tier, relevant articles, enforcement date, and a reasoning chain explaining why.
-
-### Compliance Checklists
-
-92 checklist items across 6 risk tiers, each linked to a specific Article:
-
-| Tier | Items | Key Articles |
-|------|-------|-------------|
-| High-Risk | 61 | Art. 9-15 (risk management, data governance, documentation, human oversight, accuracy) |
-| GPAI Systemic Risk | 10 | Art. 55 (evaluations, adversarial testing, incident reporting) |
-| GPAI | 9 | Art. 51-53 (technical docs, copyright, training data summary) |
-| Limited Risk | 6 | Art. 50 (transparency: disclose AI interaction, label synthetic content) |
-| Minimal Risk | 4 | Voluntary measures |
-| Prohibited | 2 | Art. 5 (stop deployment) |
-
-Checklists support evidence tracking, notes, and export to JSON/Markdown.
-
-### Documentation Templates
-
-8 pre-structured templates for compliance documentation:
-
-- **Technical Documentation** (Annex IV) - system description, architecture, data, validation
-- **Risk Management System** (Art. 9) - risk identification, evaluation, mitigation, residual risk
-- **Data Governance** (Art. 10) - data provenance, bias assessment, representativeness
-- **Human Oversight Plan** (Art. 14) - monitoring, interpretation, override, automation bias mitigation
-- **Post-Market Monitoring** (Art. 72) - performance tracking, incident reporting, continuous improvement
-- **Declaration of Conformity** (Art. 47) - EU declaration per Annex V
-- **GPAI Model Card** (Art. 53) - model information per Annex XI
-- **Fundamental Rights Impact Assessment** (Art. 27) - impact assessment for public-body deployments
-
-### Enforcement Timeline
-
-| Date | Milestone |
-|------|-----------|
-| **Feb 2, 2025** | Prohibited practices + AI literacy |
-| **Aug 2, 2025** | GPAI obligations + governance + penalties |
-| **Aug 2, 2026** | All high-risk requirements (Art. 6-43) |
-| **Aug 2, 2027** | Legacy GPAI models + large-scale IT systems |
-| **Aug 2, 2028** | Annex I product safety components |
-
-### Penalty Calculator
-
-Calculates maximum fine exposure based on:
-- Risk tier and infringement category (Article 99)
-- Organization type (large, SME, startup, EU institution)
-- Annual turnover for percentage-based fines
-- SME reductions (Art. 99(6)) and EU institution caps (Art. 99(7))
-
-### Gap Analysis
-
-Comprehensive compliance gap analysis combining:
-- Per-item gap detection with priority scoring (critical/high/medium/low)
-- Category-level completion tracking
-- Deadline urgency calculations
-- Fine exposure estimates for outstanding items
-- Prioritized remediation recommendations
-
-### Harmonised Standards Mapping
-
-Maps ISO, CEN/CENELEC JTC 21, and other relevant standards to EU AI Act requirements:
-- Standard list with status tracking (published, in development, draft)
-- Obligation-category-to-standards mapping matrix
-- Filterable by risk tier, status, and search
-
-### Worked Examples
-
-10 step-by-step classification walkthroughs covering all 6 risk tiers:
-
-- **Social scoring system** - Prohibited (Art. 5)
-- **AI hiring screening tool** - High-risk (Annex III, employment)
-- **Credit scoring AI** - High-risk (Annex III, creditworthiness)
-- **Autonomous vehicle** - High-risk + third-party conformity assessment
-- **Foundation model** - GPAI
-- **Frontier model** - GPAI with systemic risk
-- **Open-source LLM** - GPAI with open-source exemption
-- **Deepfake generator** - Limited risk (transparency)
-- **Customer service chatbot** - Limited risk
-- **Spam filter** - Minimal risk
-
-## Architecture
-
-```
-eu-ai-act-toolkit/
-├── packages/
-│   ├── sdk/              # @eu-ai-act/sdk - classification engine, checklists, templates
-│   ├── cli/              # @eu-ai-act/cli - interactive terminal tool
-│   └── web/              # Next.js web application
-├── data/                 # Structured JSON - single source of truth
-│   ├── questions.json    # Classification decision tree (26 questions, 5 steps)
-│   ├── checklists.json   # All checklist items with article references
-│   ├── timeline.json     # Enforcement dates
-│   ├── articles.json     # Article text and cross-references
-│   ├── annexes.json      # Annex III categories
-│   ├── examples.json     # 10 worked classification examples
-│   ├── penalties.json    # Article 99 penalty tiers
-│   ├── standards.json    # Harmonised standards mapping
-│   └── schema/           # JSON Schema validation
-├── locales/              # i18n strings
-└── docs/                 # Static compliance documents
-```
-
-All three components consume the same `data/` directory. Updating the Act means updating JSON files, not code.
-
-## Development
-
-```bash
-git clone https://github.com/AbdelStark/eu-ai-act-toolkit.git
-cd eu-ai-act-toolkit
-npm install
-npx turbo build          # Build all packages
-npx turbo dev            # Start dev servers
-npx turbo test           # Run tests
-```
-
-Monorepo managed with [Turborepo](https://turbo.build/). SDK builds with [tsup](https://tsup.egoist.dev/) (ESM + CJS). Web app is [Next.js 14](https://nextjs.org/).
+Penalties: up to **35M EUR** or **7% of global turnover**.
 
 ## Agent Integration
 
-This toolkit is designed to be used by AI agents. Three approaches, depending on your setup.
-
-### Agent Skills (recommended)
-
-Install skills into your AI coding agent using [`npx skills`](https://github.com/vercel-labs/skills):
+### Install as agent skills (recommended)
 
 ```bash
 npx skills add AbdelStark/eu-ai-act-toolkit
 ```
 
-This installs 3 skills into your agent's workspace:
+Installs 3 skills (`classify-ai-system`, `compliance-checklist`, `generate-compliance-docs`) compatible with Claude Code, Cursor, Copilot, Codex, Windsurf, and [40+ agents](https://github.com/vercel-labs/skills#supported-agents).
 
-| Skill | What it does |
-|-------|-------------|
-| `classify-ai-system` | Walk through EU AI Act risk classification for any AI system |
-| `compliance-checklist` | Retrieve and track compliance obligations by risk tier |
-| `generate-compliance-docs` | Generate documentation templates (technical docs, risk management, etc.) |
+### Claude Code slash commands
 
-Skills work with Claude Code, Cursor, Copilot, Codex, Windsurf, and [40+ other agents](https://github.com/vercel-labs/skills#supported-agents).
-
-### Claude Code Commands
-
-If you use [Claude Code](https://docs.anthropic.com/en/docs/claude-code), this repo includes slash commands in `.claude/commands/`:
+Clone this repo and these commands are available automatically:
 
 ```
 /classify          # Classify an AI system's risk tier
@@ -262,53 +200,55 @@ If you use [Claude Code](https://docs.anthropic.com/en/docs/claude-code), this r
 /generate-docs     # Generate compliance documentation
 ```
 
-Clone the repo and the commands are available automatically.
-
-### Agent Context Files
-
-For agents working on or with this codebase, we provide context files for all major AI coding tools:
-
-| File | Agent |
-|------|-------|
-| [`AGENTS.md`](AGENTS.md) | Claude Code, Codex, and any agent that reads AGENTS.md |
-| [`.cursorrules`](.cursorrules) | Cursor |
-| [`.github/copilot-instructions.md`](.github/copilot-instructions.md) | GitHub Copilot |
-
-### Programmatic Use by Agents
-
-Agents can use the SDK directly in code or shell out to the CLI:
+### Programmatic agent use
 
 ```bash
-# Quick classification via CLI (no install needed)
-npx @eu-ai-act/cli classify --annex-iii employment --json
-
-# Full checklist as JSON
-npx @eu-ai-act/cli checklist high-risk --json
-
-# Generate all docs for a tier
-npx @eu-ai-act/cli generate --tier high-risk --system "My AI" --provider "Acme" --purpose "Hiring" --output ./docs/
+npx @eu-ai-act/cli classify --annex-iii employment --json   # Quick classification
+npx @eu-ai-act/cli checklist high-risk --json                # Obligations as JSON
+npx @eu-ai-act/cli gaps high-risk --json                     # Gap analysis as JSON
 ```
 
-All CLI commands support `--json` for machine-readable output that agents can parse.
+## Development
+
+```bash
+git clone https://github.com/AbdelStark/eu-ai-act-toolkit.git
+cd eu-ai-act-toolkit
+npm install
+npx turbo build    # Build SDK → CLI → Web
+npx turbo test     # Vitest (SDK) + Playwright (Web)
+npx turbo dev      # Dev server on localhost:3000
+```
+
+Monorepo with [Turborepo](https://turbo.build/). SDK builds with [tsup](https://tsup.egoist.dev/) (ESM + CJS). Web app is [Next.js 14](https://nextjs.org/) with [Tailwind CSS](https://tailwindcss.com/).
+
+```
+eu-ai-act-toolkit/
+├── data/              # JSON source of truth + JSON Schema validation
+├── packages/
+│   ├── sdk/           # @eu-ai-act/sdk — pure TypeScript, zero deps
+│   ├── cli/           # @eu-ai-act/cli — Commander.js + Inquirer
+│   └── web/           # Next.js 14, next-intl (14 languages), Radix UI
+├── locales/           # i18n translation strings
+└── docs/              # Static compliance documents
+```
 
 ## Documentation
 
 | Document | Description |
 |----------|-------------|
-| [AGENTS.md](AGENTS.md) | Architecture, data model, conventions — guide for AI coding agents |
-| [SDK README](packages/sdk/README.md) | Integration guide for `@eu-ai-act/sdk` |
-| [CLI README](packages/cli/README.md) | Usage guide for the `@eu-ai-act/cli` CLI |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute, development setup |
+| [SDK README](packages/sdk/README.md) | Full API reference and integration guide |
+| [CLI README](packages/cli/README.md) | All commands, flags, and usage patterns |
+| [AGENTS.md](AGENTS.md) | Architecture and conventions for AI coding agents |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Development setup and contribution guidelines |
 
 ## Contributing
 
-Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Contributions welcome. See [CONTRIBUTING.md](CONTRIBUTING.md). High-impact areas:
 
-Things that would help most right now:
-- Corrections to legal interpretations (cite the Article)
-- Translation review (all 14 languages have machine translations that need native speaker review)
-- Updated standards mapping as CEN/CENELEC JTC 21 publishes new harmonised standards
-- Additional worked examples for edge cases
+- **Legal corrections** — cite the Article
+- **Translation review** — 14 languages need native speaker verification
+- **Standards mapping** — track CEN/CENELEC JTC 21 publications
+- **Edge case examples** — classification walkthroughs for ambiguous scenarios
 
 ## Disclaimer
 
@@ -316,11 +256,7 @@ This toolkit helps organize and track compliance work. It does not constitute le
 
 ## References
 
-- [EU AI Act Full Text](https://artificialintelligenceact.eu/ai-act-explorer/)
-- [Official Journal (EUR-Lex)](https://eur-lex.europa.eu/eli/reg/2024/1689/oj)
-- [EU AI Office](https://digital-strategy.ec.europa.eu/en/policies/ai-office)
-- [NIST AI RMF](https://airc.nist.gov/)
-- [ISO/IEC 42001](https://www.iso.org/standard/81230.html)
+- [EU AI Act Full Text](https://artificialintelligenceact.eu/ai-act-explorer/) · [EUR-Lex](https://eur-lex.europa.eu/eli/reg/2024/1689/oj) · [EU AI Office](https://digital-strategy.ec.europa.eu/en/policies/ai-office) · [NIST AI RMF](https://airc.nist.gov/) · [ISO/IEC 42001](https://www.iso.org/standard/81230.html)
 
 ## License
 
