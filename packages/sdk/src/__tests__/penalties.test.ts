@@ -229,7 +229,7 @@ describe('formatFineAmount', () => {
 
 describe('calculatePenaltyExposure — additional edge cases', () => {
   it('throws on non-string tier', () => {
-    expect(() => calculatePenaltyExposure({ tier: 42 as unknown as any })).toThrow(TypeError);
+    expect(() => calculatePenaltyExposure({ tier: 42 as unknown as any })).toThrow(RangeError);
   });
 
   it('throws on NaN turnover', () => {

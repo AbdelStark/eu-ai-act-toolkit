@@ -9,7 +9,7 @@ import { countProgress } from '../checklists/scoring.js';
 import { getArticlesByTier } from '../articles/lookup.js';
 import { calculatePenaltyExposure, formatFineAmount } from '../penalties/calculator.js';
 import type { OrganizationType } from '../penalties/calculator.js';
-import { analyzeGaps } from '../gap-analysis/analyzer.js';
+import { analyzeGaps, formatCategoryName } from '../gap-analysis/analyzer.js';
 
 /**
  * Options for compliance report generation.
@@ -112,11 +112,11 @@ export function generateReport(
 
   // Penalty exposure
   if (includePenalties) {
-    sections.push(renderPenaltyExposure(++sectionNum, classification, options));
+    sections.push(renderNumberedSection(++sectionNum, renderPenaltyTitle(classification), renderPenaltyBody(classification, options)));
   }
 
   // Enforcement timeline
-  sections.push(renderEnforcement(++sectionNum, classification));
+  sections.push(renderNumberedSection(++sectionNum, 'Enforcement Timeline', renderEnforcementBody(classification)));
 
   // Article reference appendix
   if (includeAppendix) {
@@ -240,7 +240,7 @@ function renderChecklistBody(
 `;
 
   for (const [category, items] of grouped) {
-    section += `### ${formatCategory(category)}\n\n`;
+    section += `### ${formatCategoryName(category)}\n\n`;
     for (const item of items) {
       const checked = prog[item.id]?.checked === true;
       const mark = checked ? 'x' : ' ';
@@ -257,17 +257,9 @@ function renderChecklistBody(
   return section;
 }
 
-function formatCategory(cat: string): string {
-  return cat
-    .split('-')
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ');
-}
 
-function renderEnforcement(sectionNum: number, classification: ClassificationResult): string {
-  return `## ${sectionNum}. Enforcement Timeline
-
-**Enforcement Date**: ${classification.enforcementDate}
+function renderEnforcementBody(classification: ClassificationResult): string {
+  return `**Enforcement Date**: ${classification.enforcementDate}
 
 The obligations for ${TIER_LABELS[classification.tier]} AI systems become enforceable on **${classification.enforcementDate}**. Providers and deployers must ensure full compliance by this date.
 
@@ -326,7 +318,7 @@ ${result.assessment}
 |----------|----------|-------|----------|
 `;
     for (const cat of result.categorySummary) {
-      section += `| ${formatCategory(cat.category)} | ${cat.completedItems} | ${cat.totalItems} | ${cat.completionPercent}% |\n`;
+      section += `| ${formatCategoryName(cat.category)} | ${cat.completedItems} | ${cat.totalItems} | ${cat.completionPercent}% |\n`;
     }
     section += '\n';
   }
@@ -342,8 +334,12 @@ ${result.assessment}
   return section;
 }
 
-function renderPenaltyExposure(
-  sectionNum: number,
+function renderPenaltyTitle(classification: ClassificationResult): string {
+  const exposure = calculatePenaltyExposure({ tier: classification.tier });
+  return exposure.penalties.length === 0 ? 'Penalty Exposure' : 'Penalty Exposure (Article 99)';
+}
+
+function renderPenaltyBody(
   classification: ClassificationResult,
   options: ReportOptions,
 ): string {
@@ -354,15 +350,11 @@ function renderPenaltyExposure(
   });
 
   if (exposure.penalties.length === 0) {
-    return `## ${sectionNum}. Penalty Exposure
-
-No specific penalty provisions apply for ${TIER_LABELS[classification.tier]} AI systems.
+    return `No specific penalty provisions apply for ${TIER_LABELS[classification.tier]} AI systems.
 `;
   }
 
-  let section = `## ${sectionNum}. Penalty Exposure (Article 99)
-
-**Maximum Exposure**: ${formatFineAmount(exposure.maxExposureEur)}
+  let section = `**Maximum Exposure**: ${formatFineAmount(exposure.maxExposureEur)}
 `;
 
   if (exposure.smeReductionApplied) {

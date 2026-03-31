@@ -270,7 +270,7 @@ describe('analyzeGaps', () => {
       analyzeGaps({
         classification: { enforcementDate: '2026-08-02' } as never,
       }),
-    ).toThrow(TypeError);
+    ).toThrow(RangeError);
   });
 
   it('throws on missing enforcementDate', () => {

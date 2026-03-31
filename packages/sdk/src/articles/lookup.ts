@@ -1,5 +1,5 @@
 import type { RiskTier } from '../data/types.js';
-import { RISK_TIERS } from '../data/types.js';
+import { RISK_TIERS, assertValidTier } from '../data/types.js';
 import { getArticlesData } from '../data/loader.js';
 import type { Article } from '../data/loader.js';
 
@@ -117,11 +117,7 @@ export function getArticle(articleNumber: number): ArticleReference | null {
  * ```
  */
 export function getArticlesByTier(tier: RiskTier): ArticleReference[] {
-  if (typeof tier !== 'string' || !RISK_TIERS.includes(tier as RiskTier)) {
-    throw new RangeError(
-      `Invalid risk tier: '${String(tier)}'. Must be one of: ${RISK_TIERS.join(', ')}`,
-    );
-  }
+  assertValidTier(tier, 'getArticlesByTier() tier');
 
   return getArticles().filter((a) => a.applicableTiers.includes(tier));
 }

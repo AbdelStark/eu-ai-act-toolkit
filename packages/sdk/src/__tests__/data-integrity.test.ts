@@ -343,77 +343,41 @@ describe('cross-module data integrity', () => {
   // Report section numbering (dynamic)
   // -----------------------------------------------------------------------
   describe('report section numbering', () => {
-    it('report sections are sequentially numbered when all sections included', () => {
-      const input = {
-        socialScoring: false, realtimeBiometrics: false,
-        subliminalManipulation: false, exploitsVulnerabilities: false,
-        untargetedFacialScraping: false, emotionInferenceWorkplace: false,
-        biometricCategorization: false, predictivePolicing: false,
-        isGPAI: false, annexIProduct: false, annexIIICategory: 'employment' as const,
-        interactsWithPersons: false, generatesSyntheticContent: false,
-        emotionRecognition: false, biometricCategorizing: false,
-      };
-      const result = classify(input);
+    const classifyInput = {
+      socialScoring: false, realtimeBiometrics: false,
+      subliminalManipulation: false, exploitsVulnerabilities: false,
+      untargetedFacialScraping: false, emotionInferenceWorkplace: false,
+      biometricCategorization: false, predictivePolicing: false,
+      isGPAI: false, annexIProduct: false, annexIIICategory: 'employment' as const,
+      interactsWithPersons: false, generatesSyntheticContent: false,
+      emotionRecognition: false, biometricCategorizing: false,
+    };
+
+    function assertSequentialSections(reportOptions?: Record<string, unknown>) {
+      const result = classify(classifyInput);
       const checklist = getChecklist(result.tier);
       const report = generateReport(result, checklist, {
         systemName: 'Test', provider: 'Test Corp', intendedPurpose: 'Testing',
+        ...reportOptions,
       });
-      // Extract section numbers
       const sectionHeaders = report.match(/^## (\d+)\./gm);
       expect(sectionHeaders).not.toBeNull();
       const numbers = sectionHeaders!.map(h => parseInt(h.replace('## ', '').replace('.', '')));
-      // Should be sequential: 1, 2, 3, 4, 5, 6, 7
       for (let i = 0; i < numbers.length; i++) {
         expect(numbers[i]).toBe(i + 1);
       }
+    }
+
+    it('report sections are sequentially numbered when all sections included', () => {
+      assertSequentialSections();
     });
 
     it('report sections remain sequential when gap analysis is excluded', () => {
-      const input = {
-        socialScoring: false, realtimeBiometrics: false,
-        subliminalManipulation: false, exploitsVulnerabilities: false,
-        untargetedFacialScraping: false, emotionInferenceWorkplace: false,
-        biometricCategorization: false, predictivePolicing: false,
-        isGPAI: false, annexIProduct: false, annexIIICategory: 'employment' as const,
-        interactsWithPersons: false, generatesSyntheticContent: false,
-        emotionRecognition: false, biometricCategorizing: false,
-      };
-      const result = classify(input);
-      const checklist = getChecklist(result.tier);
-      const report = generateReport(result, checklist, {
-        systemName: 'Test', provider: 'Test Corp', intendedPurpose: 'Testing',
-        includeGapAnalysis: false,
-      });
-      const sectionHeaders = report.match(/^## (\d+)\./gm);
-      expect(sectionHeaders).not.toBeNull();
-      const numbers = sectionHeaders!.map(h => parseInt(h.replace('## ', '').replace('.', '')));
-      for (let i = 0; i < numbers.length; i++) {
-        expect(numbers[i]).toBe(i + 1);
-      }
+      assertSequentialSections({ includeGapAnalysis: false });
     });
 
     it('report sections remain sequential when penalties are excluded', () => {
-      const input = {
-        socialScoring: false, realtimeBiometrics: false,
-        subliminalManipulation: false, exploitsVulnerabilities: false,
-        untargetedFacialScraping: false, emotionInferenceWorkplace: false,
-        biometricCategorization: false, predictivePolicing: false,
-        isGPAI: false, annexIProduct: false, annexIIICategory: 'employment' as const,
-        interactsWithPersons: false, generatesSyntheticContent: false,
-        emotionRecognition: false, biometricCategorizing: false,
-      };
-      const result = classify(input);
-      const checklist = getChecklist(result.tier);
-      const report = generateReport(result, checklist, {
-        systemName: 'Test', provider: 'Test Corp', intendedPurpose: 'Testing',
-        includePenalties: false,
-      });
-      const sectionHeaders = report.match(/^## (\d+)\./gm);
-      expect(sectionHeaders).not.toBeNull();
-      const numbers = sectionHeaders!.map(h => parseInt(h.replace('## ', '').replace('.', '')));
-      for (let i = 0; i < numbers.length; i++) {
-        expect(numbers[i]).toBe(i + 1);
-      }
+      assertSequentialSections({ includePenalties: false });
     });
   });
 });

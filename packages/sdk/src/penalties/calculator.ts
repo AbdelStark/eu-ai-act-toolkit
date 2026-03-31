@@ -1,5 +1,5 @@
 import type { RiskTier } from '../data/types.js';
-import { RISK_TIERS } from '../data/types.js';
+import { assertValidTier } from '../data/types.js';
 import { getPenaltiesData } from '../data/loader.js';
 
 /**
@@ -288,14 +288,7 @@ function validatePenaltyInput(input: PenaltyInput): void {
   if (input == null || typeof input !== 'object') {
     throw new TypeError('calculatePenaltyExposure() requires a PenaltyInput object');
   }
-  if (typeof input.tier !== 'string') {
-    throw new TypeError('PenaltyInput.tier is required and must be a valid RiskTier string');
-  }
-  if (!RISK_TIERS.includes(input.tier as RiskTier)) {
-    throw new RangeError(
-      `PenaltyInput.tier must be one of: ${RISK_TIERS.join(', ')}. Got: '${input.tier}'`,
-    );
-  }
+  assertValidTier(input.tier, 'PenaltyInput.tier');
   if (input.annualTurnoverEur != null) {
     if (typeof input.annualTurnoverEur !== 'number' || !isFinite(input.annualTurnoverEur) || input.annualTurnoverEur < 0) {
       throw new TypeError('PenaltyInput.annualTurnoverEur must be a non-negative finite number');

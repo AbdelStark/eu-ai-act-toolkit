@@ -1,5 +1,5 @@
 import type { RiskTier } from '../data/types.js';
-import { RISK_TIERS } from '../data/types.js';
+import { assertValidTier } from '../data/types.js';
 import { getStandardsData } from '../data/loader.js';
 
 /**
@@ -108,11 +108,7 @@ export function getStandard(id: string): Standard | null {
  * @throws {RangeError} If tier is not a valid RiskTier
  */
 export function getStandardsByTier(tier: RiskTier): Standard[] {
-  if (typeof tier !== 'string' || !RISK_TIERS.includes(tier as RiskTier)) {
-    throw new RangeError(
-      `Invalid risk tier: '${String(tier)}'. Must be one of: ${RISK_TIERS.join(', ')}`,
-    );
-  }
+  assertValidTier(tier, 'getStandardsByTier() tier');
   return getStandards().filter((s) => s.applicableTiers.includes(tier));
 }
 

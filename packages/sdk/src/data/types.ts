@@ -149,6 +149,18 @@ export const OBLIGATION_CATEGORIES: readonly ObligationCategory[] = [
   'training-data-summary',
 ] as const;
 
+/**
+ * Asserts that a value is a valid RiskTier.
+ * @throws {RangeError} if the value is not a known tier.
+ */
+export function assertValidTier(tier: unknown, context: string): asserts tier is RiskTier {
+  if (typeof tier !== 'string' || !RISK_TIERS.includes(tier as RiskTier)) {
+    throw new RangeError(
+      `Invalid risk tier: '${String(tier)}'. ${context} must be one of: ${RISK_TIERS.join(', ')}`,
+    );
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Classification
 // ---------------------------------------------------------------------------

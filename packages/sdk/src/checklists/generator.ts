@@ -1,5 +1,5 @@
 import type { Checklist, ChecklistItem, RiskTier } from '../data/types.js';
-import { RISK_TIERS } from '../data/types.js';
+import { assertValidTier } from '../data/types.js';
 import { getChecklistsData } from '../data/loader.js';
 
 /**
@@ -27,11 +27,7 @@ export function getChecklist(tier: RiskTier): Checklist {
     );
   }
 
-  if (typeof tier !== 'string' || !RISK_TIERS.includes(tier as RiskTier)) {
-    throw new RangeError(
-      `Invalid risk tier: '${String(tier)}'. Must be one of: ${RISK_TIERS.join(', ')}`,
-    );
-  }
+  assertValidTier(tier, 'getChecklist() tier');
 
   const data = getChecklistsData();
   const tierData = data[tier];

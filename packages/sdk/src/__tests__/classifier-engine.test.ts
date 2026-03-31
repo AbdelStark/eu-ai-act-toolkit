@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { classify } from '../classifier/engine.js';
 import type { ClassificationInput } from '../data/types.js';
+import { OBLIGATION_CATEGORIES } from '../data/types.js';
 
 /** Helper: returns a full ClassificationInput with all booleans false and no flags set. */
 function baseInput(overrides: Partial<ClassificationInput> = {}): ClassificationInput {
@@ -469,15 +470,10 @@ describe('classify — obligation structure', () => {
 
   it('all obligation articles are positive integers with valid categories', () => {
     const result = classify(baseInput({ annexIIICategory: 'employment' }));
-    const validCategories = [
-      'risk-management', 'data-governance', 'documentation', 'record-keeping',
-      'transparency', 'human-oversight', 'accuracy-robustness', 'monitoring',
-      'incident-reporting', 'copyright', 'training-data-summary',
-    ];
     for (const obligation of result.obligations) {
       expect(Number.isInteger(obligation.article)).toBe(true);
       expect(obligation.article).toBeGreaterThan(0);
-      expect(validCategories).toContain(obligation.category);
+      expect(OBLIGATION_CATEGORIES).toContain(obligation.category);
     }
   });
 });
