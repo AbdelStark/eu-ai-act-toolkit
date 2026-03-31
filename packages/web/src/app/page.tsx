@@ -93,8 +93,8 @@ const features = [
 const stats = [
   { value: '113', labelKey: 'articles' as const },
   { value: '45+', labelKey: 'checklists' as const },
-  { value: '6', labelKey: 'templates' as const },
-  { value: '5', labelKey: 'examples' as const },
+  { value: '8', labelKey: 'templates' as const },
+  { value: '10', labelKey: 'examples' as const },
 ];
 
 export default function HomePage() {

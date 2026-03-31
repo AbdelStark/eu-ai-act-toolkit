@@ -6,10 +6,12 @@
     "timeline": "Timeline",
     "templates": "Templates",
     "examples": "Examples",
+    "articles": "Articles",
     "penalties": "Penalties",
     "gaps": "Gap Analysis",
     "standards": "Standards",
-    "reports": "Reports"
+    "reports": "Reports",
+    "more": "More"
   },
   "landing": {
     "hero": {
@@ -264,6 +266,10 @@
     "short": "This tool does not constitute legal advice.",
     "full": "This tool does not constitute legal advice. Consult qualified legal counsel for compliance decisions. The EU AI Act Toolkit is an open-source project and is not affiliated with the European Union or any EU institution.",
     "dismiss": "I understand"
+  },
+  "articles": {
+    "title": "EU AI Act Articles",
+    "subtitle": "Browse and search all articles of Regulation (EU) 2024/1689"
   },
   "penalties": {
     "title": "Penalty Exposure",
