@@ -33,6 +33,23 @@ describe('getExamples', () => {
     expect(slugs).toContain('chatbot');
     expect(slugs).toContain('hiring-tool');
     expect(slugs).toContain('autonomous-vehicle');
+    expect(slugs).toContain('social-scoring-system');
+    expect(slugs).toContain('foundation-model');
+    expect(slugs).toContain('frontier-model');
+    expect(slugs).toContain('open-source-llm');
+    expect(slugs).toContain('spam-filter');
+    expect(slugs).toContain('deepfake-generator');
+    expect(slugs).toContain('credit-scoring');
+  });
+
+  it('covers all six risk tiers', () => {
+    const tiers = new Set(getExamples().map((e) => e.expectedTier));
+    expect(tiers.has('prohibited')).toBe(true);
+    expect(tiers.has('high-risk')).toBe(true);
+    expect(tiers.has('gpai')).toBe(true);
+    expect(tiers.has('gpai-systemic')).toBe(true);
+    expect(tiers.has('limited')).toBe(true);
+    expect(tiers.has('minimal')).toBe(true);
   });
 });
 
@@ -108,5 +125,53 @@ describe('example classificationInput validity', () => {
     expect(result.tier).toBe('high-risk');
     expect(result.subTier).toContain('annex-i');
     expect(result.conformityAssessment).toBe('third-party');
+  });
+
+  it('social-scoring-system classifies as prohibited', () => {
+    const ss = getExampleBySlug('social-scoring-system')!;
+    const result = classify(ss.classificationInput);
+    expect(result.tier).toBe('prohibited');
+    expect(result.articles).toContain(5);
+  });
+
+  it('foundation-model classifies as gpai', () => {
+    const fm = getExampleBySlug('foundation-model')!;
+    const result = classify(fm.classificationInput);
+    expect(result.tier).toBe('gpai');
+    expect(result.openSourceExemption).toBe(false);
+  });
+
+  it('frontier-model classifies as gpai-systemic', () => {
+    const fm = getExampleBySlug('frontier-model')!;
+    const result = classify(fm.classificationInput);
+    expect(result.tier).toBe('gpai-systemic');
+    expect(result.articles).toContain(55);
+  });
+
+  it('open-source-llm classifies as gpai with exemption', () => {
+    const os = getExampleBySlug('open-source-llm')!;
+    const result = classify(os.classificationInput);
+    expect(result.tier).toBe('gpai');
+    expect(result.openSourceExemption).toBe(true);
+    expect(result.subTier).toBe('gpai-open-source');
+  });
+
+  it('spam-filter classifies as minimal', () => {
+    const sf = getExampleBySlug('spam-filter')!;
+    const result = classify(sf.classificationInput);
+    expect(result.tier).toBe('minimal');
+  });
+
+  it('deepfake-generator classifies as limited with multiple triggers', () => {
+    const df = getExampleBySlug('deepfake-generator')!;
+    const result = classify(df.classificationInput);
+    expect(result.tier).toBe('limited');
+  });
+
+  it('credit-scoring classifies as high-risk essential-services', () => {
+    const cs = getExampleBySlug('credit-scoring')!;
+    const result = classify(cs.classificationInput);
+    expect(result.tier).toBe('high-risk');
+    expect(result.subTier).toContain('essential-services');
   });
 });

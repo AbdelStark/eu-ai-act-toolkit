@@ -92,6 +92,222 @@
         "Step 4 — Conformity assessment: Third-party conformity assessment by a notified body is required because the underlying product legislation (vehicle type-approval) mandates it.",
         "Result: HIGH-RISK — The perception system must comply with Articles 9-15 and undergo third-party conformity assessment before the vehicle can be placed on the EU market. Enforcement date: August 2, 2028 (Annex I product safety components)."
       ]
+    },
+    {
+      "slug": "social-scoring-system",
+      "title": "Government Social Scoring System",
+      "description": "A system used by a public authority that evaluates citizens' trustworthiness based on social behaviour, assigning scores that affect access to public services.",
+      "classificationInput": {
+        "socialScoring": true,
+        "realtimeBiometrics": false,
+        "subliminalManipulation": false,
+        "exploitsVulnerabilities": false,
+        "untargetedFacialScraping": false,
+        "emotionInferenceWorkplace": false,
+        "biometricCategorization": false,
+        "predictivePolicing": false,
+        "isGPAI": false,
+        "annexIProduct": false,
+        "annexIIICategory": null,
+        "interactsWithPersons": true,
+        "generatesSyntheticContent": false,
+        "emotionRecognition": false,
+        "biometricCategorizing": false
+      },
+      "expectedTier": "prohibited",
+      "walkthrough": [
+        "Step 1 — Prohibited practices (Article 5): The system performs social scoring by a public authority, evaluating natural persons based on social behaviour and leading to detrimental treatment. This is explicitly prohibited under Article 5(1)(c). ✓ PROHIBITED.",
+        "Step 2-5 — All subsequent classification steps are skipped because prohibited takes absolute precedence over all other classifications.",
+        "Result: PROHIBITED — This AI system must not be placed on the market, put into service, or used within the European Union. Social scoring by public authorities that leads to detrimental treatment is banned under Article 5(1)(c). Enforcement date: February 2, 2025."
+      ]
+    },
+    {
+      "slug": "foundation-model",
+      "title": "Large Language Model (Foundation Model)",
+      "description": "A general-purpose AI model with 70 billion parameters, trained on large-scale internet data. Designed to be integrated into downstream applications by third-party providers.",
+      "classificationInput": {
+        "socialScoring": false,
+        "realtimeBiometrics": false,
+        "subliminalManipulation": false,
+        "exploitsVulnerabilities": false,
+        "untargetedFacialScraping": false,
+        "emotionInferenceWorkplace": false,
+        "biometricCategorization": false,
+        "predictivePolicing": false,
+        "isGPAI": true,
+        "gpaiFlops": 1e23,
+        "isOpenSource": false,
+        "annexIProduct": false,
+        "annexIIICategory": null,
+        "interactsWithPersons": false,
+        "generatesSyntheticContent": false,
+        "emotionRecognition": false,
+        "biometricCategorizing": false
+      },
+      "expectedTier": "gpai",
+      "walkthrough": [
+        "Step 1 — Prohibited practices (Article 5): The model itself does not perform any prohibited practice. ✗ Not prohibited.",
+        "Step 2 — GPAI: The model is a general-purpose AI model as defined in Article 3(63) — it displays significant generality, is capable of competently performing a wide range of distinct tasks, and can be integrated into a variety of downstream systems. ✓ GPAI detected.",
+        "Step 2a — Systemic risk: Training compute of 10^23 FLOPs is below the 10^25 threshold, and the model has not been designated as posing systemic risk by the AI Office. ✗ Not systemic.",
+        "Step 2b — Open source: The model is not released under an open-source licence. Standard GPAI obligations apply in full.",
+        "Result: GPAI (Standard) — The model provider must comply with Articles 51-53: prepare technical documentation, provide information to downstream providers, establish a copyright compliance policy, and publish a training data summary. Enforcement date: August 2, 2025."
+      ]
+    },
+    {
+      "slug": "frontier-model",
+      "title": "Frontier AI Model with Systemic Risk",
+      "description": "A state-of-the-art general-purpose AI model trained with over 10^26 FLOPs of compute, capable of generating text, code, and reasoning across domains. Made available via API to millions of users worldwide.",
+      "classificationInput": {
+        "socialScoring": false,
+        "realtimeBiometrics": false,
+        "subliminalManipulation": false,
+        "exploitsVulnerabilities": false,
+        "untargetedFacialScraping": false,
+        "emotionInferenceWorkplace": false,
+        "biometricCategorization": false,
+        "predictivePolicing": false,
+        "isGPAI": true,
+        "gpaiFlops": 1e26,
+        "isOpenSource": false,
+        "annexIProduct": false,
+        "annexIIICategory": null,
+        "interactsWithPersons": false,
+        "generatesSyntheticContent": false,
+        "emotionRecognition": false,
+        "biometricCategorizing": false
+      },
+      "expectedTier": "gpai-systemic",
+      "walkthrough": [
+        "Step 1 — Prohibited practices (Article 5): The model does not perform any prohibited practice. ✗ Not prohibited.",
+        "Step 2 — GPAI: The model is a general-purpose AI model. ✓ GPAI detected.",
+        "Step 2a — Systemic risk: Training compute of 10^26 FLOPs exceeds the 10^25 threshold defined in Article 51. The model is automatically classified as posing systemic risk. ✓ Systemic risk.",
+        "Result: GPAI WITH SYSTEMIC RISK — In addition to standard GPAI obligations (Articles 51-53), the provider must comply with Article 55: perform model evaluation including adversarial testing, assess and mitigate systemic risks, track and report serious incidents to the AI Office, and ensure adequate cybersecurity. Enforcement date: August 2, 2025."
+      ]
+    },
+    {
+      "slug": "open-source-llm",
+      "title": "Open-Source Language Model",
+      "description": "A 7-billion parameter language model released under the Apache 2.0 licence with publicly available model weights, training methodology, and evaluation results.",
+      "classificationInput": {
+        "socialScoring": false,
+        "realtimeBiometrics": false,
+        "subliminalManipulation": false,
+        "exploitsVulnerabilities": false,
+        "untargetedFacialScraping": false,
+        "emotionInferenceWorkplace": false,
+        "biometricCategorization": false,
+        "predictivePolicing": false,
+        "isGPAI": true,
+        "gpaiFlops": 5e22,
+        "isOpenSource": true,
+        "annexIProduct": false,
+        "annexIIICategory": null,
+        "interactsWithPersons": false,
+        "generatesSyntheticContent": false,
+        "emotionRecognition": false,
+        "biometricCategorizing": false
+      },
+      "expectedTier": "gpai",
+      "walkthrough": [
+        "Step 1 — Prohibited practices (Article 5): The model does not perform any prohibited practice. ✗ Not prohibited.",
+        "Step 2 — GPAI: The model is a general-purpose AI model. ✓ GPAI detected.",
+        "Step 2a — Systemic risk: Training compute of 5×10^22 FLOPs is well below the 10^25 threshold. ✗ Not systemic.",
+        "Step 2b — Open source: The model is released under an open-source licence (Apache 2.0) with publicly available weights. Under Article 53, open-source GPAI models have reduced obligations — only copyright compliance and training data summary are required. ✓ Open-source exemption applies.",
+        "Result: GPAI (Open Source, Reduced Obligations) — The provider must comply with copyright law and publish a training data summary. Technical documentation and downstream provider information obligations are waived. Enforcement date: August 2, 2025."
+      ]
+    },
+    {
+      "slug": "spam-filter",
+      "title": "Email Spam Filter",
+      "description": "A machine learning system that classifies incoming emails as spam or legitimate. Operates entirely server-side with no direct user interaction.",
+      "classificationInput": {
+        "socialScoring": false,
+        "realtimeBiometrics": false,
+        "subliminalManipulation": false,
+        "exploitsVulnerabilities": false,
+        "untargetedFacialScraping": false,
+        "emotionInferenceWorkplace": false,
+        "biometricCategorization": false,
+        "predictivePolicing": false,
+        "isGPAI": false,
+        "annexIProduct": false,
+        "annexIIICategory": null,
+        "interactsWithPersons": false,
+        "generatesSyntheticContent": false,
+        "emotionRecognition": false,
+        "biometricCategorizing": false
+      },
+      "expectedTier": "minimal",
+      "walkthrough": [
+        "Step 1 — Prohibited practices (Article 5): A spam filter does not perform any prohibited practice. ✗ Not prohibited.",
+        "Step 2 — GPAI: A spam filter is a narrow, task-specific system, not a general-purpose AI model. ✗ Not GPAI.",
+        "Step 3 — High-risk Pathway A: Not a safety component of any Annex I regulated product. ✗ Not Annex I.",
+        "Step 4 — High-risk Pathway B: Email filtering does not fall under any Annex III high-risk category. ✗ Not Annex III.",
+        "Step 5 — Limited risk: The spam filter operates server-side and does not directly interact with natural persons, generate synthetic content, perform emotion recognition, or perform biometric categorization. ✗ No transparency triggers.",
+        "Result: MINIMAL RISK — No specific obligations under the EU AI Act. The provider may voluntarily adopt codes of conduct (Article 69). Enforcement date: August 2, 2026."
+      ]
+    },
+    {
+      "slug": "deepfake-generator",
+      "title": "AI Video Generation Tool",
+      "description": "A consumer-facing application that generates realistic synthetic video content from text prompts, capable of producing AI-generated content depicting real or fictional persons.",
+      "classificationInput": {
+        "socialScoring": false,
+        "realtimeBiometrics": false,
+        "subliminalManipulation": false,
+        "exploitsVulnerabilities": false,
+        "untargetedFacialScraping": false,
+        "emotionInferenceWorkplace": false,
+        "biometricCategorization": false,
+        "predictivePolicing": false,
+        "isGPAI": false,
+        "annexIProduct": false,
+        "annexIIICategory": null,
+        "interactsWithPersons": true,
+        "generatesSyntheticContent": true,
+        "emotionRecognition": false,
+        "biometricCategorizing": false
+      },
+      "expectedTier": "limited",
+      "walkthrough": [
+        "Step 1 — Prohibited practices (Article 5): The video generation tool does not perform any prohibited practice. ✗ Not prohibited.",
+        "Step 2 — GPAI: The application itself is not a general-purpose AI model (though it may use one internally). ✗ Not GPAI.",
+        "Step 3 — High-risk Pathway A: Not a safety component of a regulated product. ✗ Not Annex I.",
+        "Step 4 — High-risk Pathway B: Video generation does not fall under any Annex III category. ✗ Not Annex III.",
+        "Step 5 — Limited risk: The tool both interacts with natural persons AND generates synthetic content. Under Article 50, users must be informed they are interacting with AI, and all generated content must be clearly labelled as AI-generated in a machine-readable format. ✓ Multiple transparency triggers.",
+        "Result: LIMITED RISK — The tool must disclose AI interaction and label all generated content as AI-produced. Content must be marked in a machine-readable way to enable downstream detection. Enforcement date: August 2, 2026."
+      ]
+    },
+    {
+      "slug": "credit-scoring",
+      "title": "AI Credit Scoring System",
+      "description": "An AI system used by a bank to evaluate the creditworthiness of natural persons applying for consumer loans, using alternative data sources including transaction history and behavioural signals.",
+      "classificationInput": {
+        "socialScoring": false,
+        "realtimeBiometrics": false,
+        "subliminalManipulation": false,
+        "exploitsVulnerabilities": false,
+        "untargetedFacialScraping": false,
+        "emotionInferenceWorkplace": false,
+        "biometricCategorization": false,
+        "predictivePolicing": false,
+        "isGPAI": false,
+        "annexIProduct": false,
+        "annexIIICategory": "essential-services",
+        "interactsWithPersons": false,
+        "generatesSyntheticContent": false,
+        "emotionRecognition": false,
+        "biometricCategorizing": false
+      },
+      "expectedTier": "high-risk",
+      "walkthrough": [
+        "Step 1 — Prohibited practices (Article 5): Credit scoring for loan decisions is not a prohibited practice (it differs from social scoring by public authorities). ✗ Not prohibited.",
+        "Step 2 — GPAI: The system is a task-specific application, not a general-purpose AI model. ✗ Not GPAI.",
+        "Step 3 — High-risk Pathway A: Not a safety component of an Annex I product. ✗ Not Annex I.",
+        "Step 4 — High-risk Pathway B: Evaluating creditworthiness of natural persons falls under Annex III Category 5 (Access to and enjoyment of essential private and public services and benefits). ✓ Annex III Category 5.",
+        "Step 5 — Conformity assessment: Self-assessment applies for essential services AI systems.",
+        "Result: HIGH-RISK — The credit scoring system must comply with Articles 9-15 including risk management, data governance (with particular attention to bias in alternative data sources), technical documentation, transparency to deployers, and human oversight. Enforcement date: August 2, 2026."
+      ]
     }
   ]
 }
