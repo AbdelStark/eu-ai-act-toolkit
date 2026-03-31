@@ -26,34 +26,29 @@
 
 ---
 
-## How It Works
+## Architecture
 
-```mermaid
-flowchart LR
-    subgraph data["data/ &nbsp;(single source of truth)"]
-        Q[questions.json]
-        C[checklists.json]
-        T[timeline.json]
-        A[articles.json]
-        P[penalties.json]
-        S[standards.json]
-    end
-
-    subgraph sdk["@eu-ai-act/sdk"]
-        CL["classify()"]
-        CH["getChecklist()"]
-        TL["getTimeline()"]
-        GN["generateTemplate()"]
-    end
-
-    data -- bundled at build time --> sdk
-
-    sdk --> CLI["@eu-ai-act/cli\n12 commands"]
-    sdk --> WEB["Web App\nNext.js · 14 languages"]
-    sdk --> YOU["Your Code\nnpm install @eu-ai-act/sdk"]
+```
+eu-ai-act-toolkit/
+├── data/                 ← Single source of truth (JSON + JSON Schema)
+│   ├── questions.json    ← Classification decision tree (26 questions, 5 steps)
+│   ├── checklists.json   ← All checklist items with article references
+│   ├── timeline.json     ← Enforcement dates
+│   ├── articles.json     ← Article text and cross-references
+│   ├── annexes.json      ← Annex III categories
+│   ├── examples.json     ← 10 worked classification examples
+│   ├── penalties.json    ← Article 99 penalty tiers
+│   ├── standards.json    ← Harmonised standards mapping
+│   └── schema/           ← JSON Schema validation
+├── packages/
+│   ├── sdk/              ← @eu-ai-act/sdk — pure TypeScript, zero deps
+│   ├── cli/              ← @eu-ai-act/cli — Commander.js + Inquirer
+│   └── web/              ← Next.js 14, next-intl (14 languages), Radix UI
+├── locales/              ← i18n translation strings
+└── docs/                 ← Static compliance documents
 ```
 
-Three packages, one data layer. Updating the regulation means editing JSON, not code.
+Three packages, one data layer. All components consume the same `data/` directory — updating the regulation means editing JSON, not code.
 
 | Package | What it does |
 |---------|-------------|
@@ -220,17 +215,6 @@ npx turbo dev      # Dev server on localhost:3000
 ```
 
 Monorepo with [Turborepo](https://turbo.build/). SDK builds with [tsup](https://tsup.egoist.dev/) (ESM + CJS). Web app is [Next.js 14](https://nextjs.org/) with [Tailwind CSS](https://tailwindcss.com/).
-
-```
-eu-ai-act-toolkit/
-├── data/              # JSON source of truth + JSON Schema validation
-├── packages/
-│   ├── sdk/           # @eu-ai-act/sdk — pure TypeScript, zero deps
-│   ├── cli/           # @eu-ai-act/cli — Commander.js + Inquirer
-│   └── web/           # Next.js 14, next-intl (14 languages), Radix UI
-├── locales/           # i18n translation strings
-└── docs/              # Static compliance documents
-```
 
 ## Documentation
 
