@@ -76,7 +76,7 @@ export function I18nProvider({ defaultMessages, children }: I18nProviderProps) {
 
   return (
     <I18nContext.Provider value={{ locale, setLocale }}>
-      <NextIntlClientProvider locale={locale} messages={messages as any}>
+      <NextIntlClientProvider locale={locale} messages={messages as any} timeZone="Europe/Brussels">
         {children}
       </NextIntlClientProvider>
     </I18nContext.Provider>
