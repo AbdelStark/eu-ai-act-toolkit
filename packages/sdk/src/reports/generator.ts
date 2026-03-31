@@ -91,31 +91,32 @@ export function generateReport(
   const includeGapAnalysis = options.includeGapAnalysis !== false;
 
   const sections: string[] = [];
+  let sectionNum = 0;
 
   // Title and metadata
   sections.push(renderHeader(classification, options, date));
 
   // Classification summary
-  sections.push(renderClassification(classification));
+  sections.push(renderNumberedSection(++sectionNum, 'Risk Classification', renderClassificationBody(classification)));
 
   // Obligations overview
-  sections.push(renderObligations(classification));
+  sections.push(renderNumberedSection(++sectionNum, 'Applicable Obligations', renderObligationsBody(classification)));
 
   // Checklist status
-  sections.push(renderChecklist(checklist, options.progress));
+  sections.push(renderNumberedSection(++sectionNum, 'Compliance Checklist', renderChecklistBody(checklist, options.progress)));
 
   // Gap analysis
   if (includeGapAnalysis) {
-    sections.push(renderGapAnalysis(classification, options));
+    sections.push(renderNumberedSection(++sectionNum, 'Compliance Gap Analysis', renderGapAnalysisBody(classification, options)));
   }
 
   // Penalty exposure
   if (includePenalties) {
-    sections.push(renderPenaltyExposure(classification, options));
+    sections.push(renderPenaltyExposure(++sectionNum, classification, options));
   }
 
   // Enforcement timeline
-  sections.push(renderEnforcement(classification));
+  sections.push(renderEnforcement(++sectionNum, classification));
 
   // Article reference appendix
   if (includeAppendix) {
@@ -161,13 +162,15 @@ function renderHeader(
 `;
 }
 
-function renderClassification(classification: ClassificationResult): string {
+function renderNumberedSection(num: number, title: string, body: string): string {
+  return `## ${num}. ${title}\n\n${body}`;
+}
+
+function renderClassificationBody(classification: ClassificationResult): string {
   const summary = formatTierSummary(classification);
   const reasoning = buildReasoning(classification);
 
-  let section = `## 1. Risk Classification
-
-**Result**: ${summary}
+  let section = `**Result**: ${summary}
 
 **Conformity Assessment**: ${formatConformity(classification.conformityAssessment)}
 `;
@@ -194,11 +197,9 @@ function formatConformity(assessment: string): string {
   }
 }
 
-function renderObligations(classification: ClassificationResult): string {
+function renderObligationsBody(classification: ClassificationResult): string {
   if (classification.obligations.length === 0) {
-    return `## 2. Applicable Obligations
-
-No specific obligations apply for this risk tier under the EU AI Act.
+    return `No specific obligations apply for this risk tier under the EU AI Act.
 `;
   }
 
@@ -206,9 +207,7 @@ No specific obligations apply for this risk tier under the EU AI Act.
     `${i + 1}. **${o.title}** (Article ${o.article})\n   ${o.description}`,
   );
 
-  return `## 2. Applicable Obligations
-
-The following obligations apply under Regulation (EU) 2024/1689:
+  return `The following obligations apply under Regulation (EU) 2024/1689:
 
 ${lines.join('\n\n')}
 
@@ -216,14 +215,12 @@ ${lines.join('\n\n')}
 `;
 }
 
-function renderChecklist(
+function renderChecklistBody(
   checklist: Checklist,
   progress?: Record<string, ChecklistProgress>,
 ): string {
   if (checklist.items.length === 0) {
-    return `## 3. Compliance Checklist
-
-No checklist items for this risk tier.
+    return `No checklist items for this risk tier.
 `;
   }
 
@@ -238,9 +235,7 @@ No checklist items for this risk tier.
     grouped.set(item.category, existing);
   }
 
-  let section = `## 3. Compliance Checklist
-
-**Progress**: ${completed}/${total} items complete (${percent}%)
+  let section = `**Progress**: ${completed}/${total} items complete (${percent}%)
 
 `;
 
@@ -269,8 +264,8 @@ function formatCategory(cat: string): string {
     .join(' ');
 }
 
-function renderEnforcement(classification: ClassificationResult): string {
-  return `## 7. Enforcement Timeline
+function renderEnforcement(sectionNum: number, classification: ClassificationResult): string {
+  return `## ${sectionNum}. Enforcement Timeline
 
 **Enforcement Date**: ${classification.enforcementDate}
 
@@ -303,7 +298,7 @@ function renderArticleAppendix(tier: RiskTier): string {
   return section;
 }
 
-function renderGapAnalysis(
+function renderGapAnalysisBody(
   classification: ClassificationResult,
   options: ReportOptions,
 ): string {
@@ -314,9 +309,7 @@ function renderGapAnalysis(
     annualTurnoverEur: options.annualTurnoverEur,
   });
 
-  let section = `## 5. Compliance Gap Analysis
-
-**Readiness**: ${result.readinessPercent}% (${result.completedItems}/${result.totalItems} items complete)
+  let section = `**Readiness**: ${result.readinessPercent}% (${result.completedItems}/${result.totalItems} items complete)
 **Outstanding Gaps**: ${result.outstandingGaps}${result.criticalGaps > 0 ? ` (${result.criticalGaps} critical)` : ''}
 **Deadline**: ${result.enforcementDate} (${result.daysUntilDeadline} days ${result.daysUntilDeadline < 0 ? 'overdue' : 'remaining'})
 
@@ -350,6 +343,7 @@ ${result.assessment}
 }
 
 function renderPenaltyExposure(
+  sectionNum: number,
   classification: ClassificationResult,
   options: ReportOptions,
 ): string {
@@ -360,13 +354,13 @@ function renderPenaltyExposure(
   });
 
   if (exposure.penalties.length === 0) {
-    return `## 6. Penalty Exposure
+    return `## ${sectionNum}. Penalty Exposure
 
 No specific penalty provisions apply for ${TIER_LABELS[classification.tier]} AI systems.
 `;
   }
 
-  let section = `## 6. Penalty Exposure (Article 99)
+  let section = `## ${sectionNum}. Penalty Exposure (Article 99)
 
 **Maximum Exposure**: ${formatFineAmount(exposure.maxExposureEur)}
 `;

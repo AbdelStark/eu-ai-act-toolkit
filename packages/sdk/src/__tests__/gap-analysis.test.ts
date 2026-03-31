@@ -348,3 +348,72 @@ describe('getReadinessScore', () => {
     expect(() => getReadinessScore('invalid' as any)).toThrow(RangeError);
   });
 });
+
+// ---------------------------------------------------------------------------
+// Tier validation hardening
+// ---------------------------------------------------------------------------
+describe('analyzeGaps — tier validation', () => {
+  it('throws RangeError on invalid tier string in classification', () => {
+    expect(() =>
+      analyzeGaps({
+        classification: {
+          tier: 'not-a-tier' as any,
+          subTier: null,
+          articles: [],
+          obligations: [],
+          openSourceExemption: false,
+          conformityAssessment: 'none',
+          enforcementDate: '2026-08-02',
+          reasoning: [],
+        },
+      }),
+    ).toThrow(RangeError);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Priority score verification
+// ---------------------------------------------------------------------------
+describe('analyzeGaps — priority scoring accuracy', () => {
+  it('overdue items have higher priority score than imminent items', () => {
+    // Use a reference date where high-risk deadline (2026-08-02) has passed
+    const pastDeadline = new Date('2027-01-01');
+    const result = analyzeGaps({
+      classification: classify(highRiskInput),
+      referenceDate: pastDeadline,
+    });
+    const requiredGaps = result.gaps.filter(g => g.required);
+    expect(requiredGaps.length).toBeGreaterThan(0);
+    // All required gaps should be critical since deadline passed
+    for (const gap of requiredGaps) {
+      expect(gap.priority).toBe('critical');
+      expect(gap.priorityScore).toBeGreaterThanOrEqual(100);
+    }
+  });
+
+  it('optional items always have low priority regardless of deadline', () => {
+    const pastDeadline = new Date('2027-01-01');
+    const result = analyzeGaps({
+      classification: classify(highRiskInput),
+      referenceDate: pastDeadline,
+    });
+    const optionalGaps = result.gaps.filter(g => !g.required);
+    for (const gap of optionalGaps) {
+      expect(gap.priority).toBe('low');
+      expect(gap.priorityScore).toBe(10);
+    }
+  });
+
+  it('urgency label for deadline today says TODAY', () => {
+    const deadlineDay = new Date('2026-08-02');
+    const result = analyzeGaps({
+      classification: classify(highRiskInput),
+      referenceDate: deadlineDay,
+    });
+    const requiredGaps = result.gaps.filter(g => g.required);
+    expect(requiredGaps.length).toBeGreaterThan(0);
+    for (const gap of requiredGaps) {
+      expect(gap.urgencyLabel).toContain('TODAY');
+    }
+  });
+});
