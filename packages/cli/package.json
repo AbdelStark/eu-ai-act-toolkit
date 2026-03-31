@@ -7,6 +7,16 @@
   "bin": {
     "eu-ai-act": "./dist/index.js"
   },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AbdelStark/eu-ai-act-toolkit",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/AbdelStark/eu-ai-act-toolkit#readme",
+  "keywords": ["eu-ai-act", "ai-regulation", "compliance", "cli", "regulation-2024-1689"],
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",

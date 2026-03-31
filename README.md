@@ -299,20 +299,6 @@ Things that would help most right now:
 - Updated standards mapping as CEN/CENELEC JTC 21 publishes new harmonised standards
 - Additional worked examples for edge cases
 
-## Project Status
-
-This project is in **beta** (v0.1.0). The SDK includes classification engine, checklists, templates, timeline, gap analysis, penalty calculations, standards mapping, article/annex lookup, and compliance report generation — all tested (344+ tests). The CLI has 12 commands. The web app has 10 pages covering all SDK features in 14 languages.
-
-**Suitable for**: Evaluating AI system risk tiers, generating initial compliance documentation, tracking obligations during pre-enforcement planning, estimating penalty exposure, analyzing compliance gaps.
-
-**Not yet suitable for**: Production compliance auditing without legal counsel review. The legal interpretations have not been independently validated by EU AI Act specialists.
-
-**Known limitations**:
-- Web app requires network access at build time (Google Fonts)
-- SDK is not yet published to npm
-- Non-English translations are machine-generated and should be reviewed
-- Harmonised standards mapping is preliminary (CEN/CENELEC JTC 21 standards are in development)
-
 ## Disclaimer
 
 This toolkit helps organize and track compliance work. It does not constitute legal advice. Consult qualified legal counsel for compliance decisions. Not affiliated with the European Union or any EU institution.

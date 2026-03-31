@@ -17,6 +17,16 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AbdelStark/eu-ai-act-toolkit",
+    "directory": "packages/sdk"
+  },
+  "homepage": "https://github.com/AbdelStark/eu-ai-act-toolkit#readme",
+  "keywords": ["eu-ai-act", "ai-regulation", "compliance", "risk-classification", "regulation-2024-1689", "gpai", "high-risk-ai"],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
