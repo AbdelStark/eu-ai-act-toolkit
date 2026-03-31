@@ -16,7 +16,7 @@
   "landing": {
     "hero": {
       "title": "EU AI Act Compliance Toolkit",
-      "subtitle": "Narzędzia open-source do nawigacji po Regulation (EU) 2024/1689",
+      "subtitle": "Narzędzia open-source do nawigacji po Rozporządzenie (UE) 2024/1689",
       "description": "Sklasyfikuj poziom ryzyka swojego systemu AI, śledź obowiązki zgodności, generuj dokumentację i wyprzedzaj terminy egzekwowania.",
       "ctaClassify": "Sklasyfikuj swój system AI",
       "ctaLearnMore": "Dowiedz się więcej"
@@ -259,7 +259,7 @@
       "privacy": "Prywatność"
     },
     "copyright": "EU AI Act Toolkit. Open source na licencji MIT.",
-    "regulation": "Na podstawie Regulation (EU) 2024/1689 Parlamentu Europejskiego i Rady.",
+    "regulation": "Na podstawie Rozporządzenie (UE) 2024/1689 Parlamentu Europejskiego i Rady.",
     "tagline": "Made with care for AI compliance teams worldwide"
   },
   "disclaimer": {
@@ -269,7 +269,7 @@
   },
   "articles": {
     "title": "Artykuły EU AI Act",
-    "subtitle": "Przeglądaj i wyszukuj wszystkie artykuły Regulation (EU) 2024/1689"
+    "subtitle": "Przeglądaj i wyszukuj wszystkie artykuły Rozporządzenie (UE) 2024/1689"
   },
   "penalties": {
     "title": "Ekspozycja na kary",
@@ -280,7 +280,7 @@
     },
     "overview": {
       "title": "Poziomy kar EU AI Act",
-      "description": "Wszystkie kategorie kar zdefiniowane w Article 99 Regulation (EU) 2024/1689."
+      "description": "Wszystkie kategorie kar zdefiniowane w Article 99 Rozporządzenie (UE) 2024/1689."
     }
   },
   "gaps": {

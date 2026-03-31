@@ -16,7 +16,7 @@
   "landing": {
     "hero": {
       "title": "EU AI Act Compliance-Toolkit",
-      "subtitle": "Open-Source-Tools zur Navigation der Regulation (EU) 2024/1689",
+      "subtitle": "Open-Source-Tools zur Navigation der Verordnung (EU) 2024/1689",
       "description": "Klassifizieren Sie die Risikostufe Ihres KI-Systems, verfolgen Sie Compliance-Pflichten, erstellen Sie Dokumentation und bereiten Sie sich auf Durchsetzungsfristen vor.",
       "ctaClassify": "Ihr KI-System klassifizieren",
       "ctaLearnMore": "Mehr erfahren"
@@ -45,7 +45,7 @@
       },
       "penalties": {
         "title": "Sanktionsrechner",
-        "description": "Berechnen Sie die maximale Bußgeldexposition basierend auf Ihrer Risikostufe, Ihrem Organisationstyp und Ihrem Jahresumsatz gemäß Article 99."
+        "description": "Berechnen Sie die maximale Bußgeldexposition basierend auf Ihrer Risikostufe, Ihrem Organisationstyp und Ihrem Jahresumsatz gemäß Artikel 99."
       },
       "gaps": {
         "title": "Lückenanalyse",
@@ -259,7 +259,7 @@
       "privacy": "Datenschutz"
     },
     "copyright": "EU AI Act Toolkit. Open Source unter MIT-Lizenz.",
-    "regulation": "Basierend auf Regulation (EU) 2024/1689 des Europäischen Parlaments und des Rates.",
+    "regulation": "Basierend auf Verordnung (EU) 2024/1689 des Europäischen Parlaments und des Rates.",
     "tagline": "Made with care for AI compliance teams worldwide"
   },
   "disclaimer": {
@@ -269,7 +269,7 @@
   },
   "articles": {
     "title": "Artikel des EU AI Act",
-    "subtitle": "Durchsuchen Sie alle Artikel der Regulation (EU) 2024/1689"
+    "subtitle": "Durchsuchen Sie alle Artikel der Verordnung (EU) 2024/1689"
   },
   "penalties": {
     "title": "Sanktionsexposition",
@@ -280,7 +280,7 @@
     },
     "overview": {
       "title": "Sanktionsstufen des EU AI Act",
-      "description": "Alle in Article 99 der Regulation (EU) 2024/1689 definierten Sanktionskategorien."
+      "description": "Alle in Artikel 99 der Verordnung (EU) 2024/1689 definierten Sanktionskategorien."
     }
   },
   "gaps": {

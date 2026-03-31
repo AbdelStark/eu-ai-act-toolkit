@@ -16,7 +16,7 @@
   "landing": {
     "hero": {
       "title": "EU AI Act Compliance Toolkit",
-      "subtitle": "Open-source tools voor het navigeren van Regulation (EU) 2024/1689",
+      "subtitle": "Open-source tools voor het navigeren van Verordening (EU) 2024/1689",
       "description": "Classificeer de risicocategorie van uw AI-systeem, volg nalevingsverplichtingen, genereer documentatie en blijf vooroplopen op handhavingsdeadlines.",
       "ctaClassify": "Classificeer uw AI-systeem",
       "ctaLearnMore": "Meer informatie"
@@ -259,7 +259,7 @@
       "privacy": "Privacy"
     },
     "copyright": "EU AI Act Toolkit. Open source onder MIT-licentie.",
-    "regulation": "Gebaseerd op Regulation (EU) 2024/1689 van het Europees Parlement en de Raad.",
+    "regulation": "Gebaseerd op Verordening (EU) 2024/1689 van het Europees Parlement en de Raad.",
     "tagline": "Made with care for AI compliance teams worldwide"
   },
   "disclaimer": {
@@ -269,7 +269,7 @@
   },
   "articles": {
     "title": "Artikelen van de EU AI Act",
-    "subtitle": "Blader door en zoek alle artikelen van Regulation (EU) 2024/1689"
+    "subtitle": "Blader door en zoek alle artikelen van Verordening (EU) 2024/1689"
   },
   "penalties": {
     "title": "Sanctie-exposure",
@@ -280,7 +280,7 @@
     },
     "overview": {
       "title": "Sanctieniveaus van de EU AI Act",
-      "description": "Alle sanctiecategorieën zoals gedefinieerd in Article 99 van Regulation (EU) 2024/1689."
+      "description": "Alle sanctiecategorieën zoals gedefinieerd in Article 99 van Verordening (EU) 2024/1689."
     }
   },
   "gaps": {

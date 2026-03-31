@@ -1,7 +1,7 @@
 {
   "nav": {
     "home": "EU AI Act Toolkit",
-    "classify": "Classifier",
+    "classify": "Classification",
     "checklist": "Conformité",
     "timeline": "Calendrier",
     "templates": "Modèles",
@@ -16,9 +16,9 @@
   "landing": {
     "hero": {
       "title": "Boîte à outils de conformité EU AI Act",
-      "subtitle": "Outils open source pour naviguer le Regulation (EU) 2024/1689",
+      "subtitle": "Outils open source pour appliquer le Règlement (UE) 2024/1689",
       "description": "Classifiez le niveau de risque de votre système d'IA, suivez vos obligations de conformité, générez la documentation et anticipez les échéances d'application.",
-      "ctaClassify": "Classifier votre système d'IA",
+      "ctaClassify": "Classez votre système d'IA",
       "ctaLearnMore": "En savoir plus"
     },
     "features": {
@@ -259,7 +259,7 @@
       "privacy": "Confidentialité"
     },
     "copyright": "EU AI Act Toolkit. Open source sous licence MIT.",
-    "regulation": "Basé sur le Regulation (EU) 2024/1689 du Parlement européen et du Conseil.",
+    "regulation": "Basé sur le Règlement (UE) 2024/1689 du Parlement européen et du Conseil.",
     "tagline": "Made with care for AI compliance teams worldwide"
   },
   "disclaimer": {
@@ -269,7 +269,7 @@
   },
   "articles": {
     "title": "Articles du EU AI Act",
-    "subtitle": "Parcourez et recherchez tous les articles du Regulation (EU) 2024/1689"
+    "subtitle": "Parcourez et recherchez tous les articles du Règlement (UE) 2024/1689"
   },
   "penalties": {
     "title": "Exposition aux sanctions",
@@ -280,7 +280,7 @@
     },
     "overview": {
       "title": "Niveaux de sanctions du EU AI Act",
-      "description": "Toutes les catégories de sanctions définies à l'Article 99 du Regulation (EU) 2024/1689."
+      "description": "Toutes les catégories de sanctions définies à l'Article 99 du Règlement (UE) 2024/1689."
     }
   },
   "gaps": {

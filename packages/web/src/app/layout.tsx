@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { DM_Sans, DM_Serif_Display } from 'next/font/google';
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale, getMessages } from 'next-intl/server';
+import { I18nProvider } from '@/components/shared/I18nProvider';
+import defaultMessages from '../../messages/en.json';
 import './globals.css';
 
 const dmSans = DM_Sans({
@@ -60,23 +60,20 @@ export const metadata: Metadata = {
   ),
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const locale = await getLocale();
-  const messages = await getMessages();
-
   return (
-    <html lang={locale} dir={locale === 'ar' ? 'rtl' : 'ltr'} className={`${dmSans.variable} ${dmSerif.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${dmSerif.variable}`}>
       <body className="min-h-screen font-sans antialiased">
         <a href="#main-content" className="skip-to-content">
           Skip to main content
         </a>
-        <NextIntlClientProvider messages={messages}>
+        <I18nProvider defaultMessages={defaultMessages}>
           {children}
-        </NextIntlClientProvider>
+        </I18nProvider>
       </body>
     </html>
   );

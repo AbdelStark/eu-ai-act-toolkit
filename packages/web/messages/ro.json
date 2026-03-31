@@ -16,7 +16,7 @@
   "landing": {
     "hero": {
       "title": "EU AI Act Compliance Toolkit",
-      "subtitle": "Instrumente open-source pentru navigarea Regulation (EU) 2024/1689",
+      "subtitle": "Instrumente open-source pentru navigarea Regulamentul (UE) 2024/1689",
       "description": "Clasificați nivelul de risc al sistemului dvs. de AI, urmăriți obligațiile de conformitate, generați documentație și rămâneți în avans față de termenele de aplicare.",
       "ctaClassify": "Clasificați sistemul dvs. de AI",
       "ctaLearnMore": "Aflați mai multe"
@@ -259,7 +259,7 @@
       "privacy": "Confidențialitate"
     },
     "copyright": "EU AI Act Toolkit. Open source sub licența MIT.",
-    "regulation": "Bazat pe Regulation (EU) 2024/1689 al Parlamentului European și al Consiliului.",
+    "regulation": "Bazat pe Regulamentul (UE) 2024/1689 al Parlamentului European și al Consiliului.",
     "tagline": "Made with care for AI compliance teams worldwide"
   },
   "disclaimer": {
@@ -269,7 +269,7 @@
   },
   "articles": {
     "title": "Articolele EU AI Act",
-    "subtitle": "Căutați și consultați toate articolele Regulation (EU) 2024/1689"
+    "subtitle": "Căutați și consultați toate articolele Regulamentul (UE) 2024/1689"
   },
   "penalties": {
     "title": "Expunere la penalități",
@@ -280,7 +280,7 @@
     },
     "overview": {
       "title": "Nivelurile de penalități EU AI Act",
-      "description": "Toate categoriile de penalități definite în Article 99 din Regulation (EU) 2024/1689."
+      "description": "Toate categoriile de penalități definite în Article 99 din Regulamentul (UE) 2024/1689."
     }
   },
   "gaps": {
