@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Harmonised Standards Mapping",
+  "type": "object",
+  "required": ["standards"],
+  "properties": {
+    "standards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "title", "organization", "status", "description", "applicableArticles", "applicableTiers", "applicableCategories"],
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "title": { "type": "string" },
+          "organization": { "type": "string" },
+          "status": {
+            "enum": ["published", "in-development", "draft", "withdrawn"]
+          },
+          "publicationDate": {
+            "type": ["string", "null"],
+            "format": "date"
+          },
+          "description": { "type": "string" },
+          "applicableArticles": {
+            "type": "array",
+            "items": { "type": "integer", "minimum": 1 }
+          },
+          "applicableTiers": {
+            "type": "array",
+            "items": {
+              "enum": ["prohibited", "high-risk", "gpai", "gpai-systemic", "limited", "minimal"]
+            }
+          },
+          "applicableCategories": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "url": {
+            "type": ["string", "null"]
+          }
+        }
+      }
+    }
+  }
+}

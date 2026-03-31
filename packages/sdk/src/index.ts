@@ -195,6 +195,46 @@ export { analyzeGaps } from './gap-analysis/analyzer.js';
  */
 export { getReadinessScore } from './gap-analysis/analyzer.js';
 
+/**
+ * Get all harmonised and relevant standards mapped to EU AI Act requirements.
+ */
+export { getStandards } from './standards/lookup.js';
+
+/**
+ * Get a specific standard by its ID.
+ */
+export { getStandard } from './standards/lookup.js';
+
+/**
+ * Get standards applicable to a specific risk tier.
+ */
+export { getStandardsByTier } from './standards/lookup.js';
+
+/**
+ * Get standards that map to a specific EU AI Act article.
+ */
+export { getStandardsByArticle } from './standards/lookup.js';
+
+/**
+ * Get standards that cover a specific obligation category.
+ */
+export { getStandardsByCategory } from './standards/lookup.js';
+
+/**
+ * Get a complete mapping of obligation categories to applicable standards.
+ */
+export { getStandardsMapping } from './standards/lookup.js';
+
+/**
+ * Get only published standards (excluding in-development/draft).
+ */
+export { getPublishedStandards } from './standards/lookup.js';
+
+/**
+ * Get standards currently under development by CEN/CENELEC JTC 21.
+ */
+export { getInDevelopmentStandards } from './standards/lookup.js';
+
 // -- Public Types --
 export type {
   RiskTier,
@@ -235,6 +275,10 @@ export type {
   GapAnalysisInput,
   GapAnalysisResult,
 } from './gap-analysis/analyzer.js';
+export type {
+  Standard,
+  StandardsMapping,
+} from './standards/lookup.js';
 
 // -- Constants --
 

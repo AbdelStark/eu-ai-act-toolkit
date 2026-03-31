@@ -251,6 +251,39 @@ interface PenaltiesFile {
   euInstitutionCap: RawEuInstitutionCap;
 }
 
+/**
+ * A harmonised standard entry as stored in `data/standards.json`.
+ */
+export interface RawStandard {
+  /** Unique identifier. */
+  id: string;
+  /** Standard designation (e.g., "ISO/IEC 42001:2023"). */
+  name: string;
+  /** Full title of the standard. */
+  title: string;
+  /** Standards organization. */
+  organization: string;
+  /** Publication status. */
+  status: 'published' | 'in-development' | 'draft' | 'withdrawn';
+  /** Publication date (ISO 8601), or null if not yet published. */
+  publicationDate: string | null;
+  /** Description of the standard's scope and relevance. */
+  description: string;
+  /** EU AI Act articles this standard maps to. */
+  applicableArticles: number[];
+  /** Risk tiers this standard is relevant to. */
+  applicableTiers: RiskTier[];
+  /** Obligation categories this standard covers. */
+  applicableCategories: string[];
+  /** URL to the standard's page, or null if not available. */
+  url: string | null;
+}
+
+/** Top-level shape of `data/standards.json`. */
+interface StandardsFile {
+  standards: RawStandard[];
+}
+
 /** A raw example as stored in `data/examples.json`. */
 export interface RawExample {
   slug: string;
@@ -289,6 +322,8 @@ import annexesData from '@data/annexes.json';
 import examplesData from '@data/examples.json';
 // @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import penaltiesData from '@data/penalties.json';
+// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
+import standardsData from '@data/standards.json';
 
 // ---------------------------------------------------------------------------
 // Typed Accessors
@@ -412,4 +447,17 @@ export function getExamplesData(): RawExample[] {
  */
 export function getPenaltiesData(): PenaltiesFile {
   return penaltiesData as PenaltiesFile;
+}
+
+/**
+ * Returns harmonised standards mapping data.
+ *
+ * Each standard includes its designation, status, applicable articles,
+ * risk tiers, and obligation categories it covers.
+ *
+ * @returns Array of standard entries.
+ */
+export function getStandardsData(): RawStandard[] {
+  const file = standardsData as StandardsFile;
+  return file.standards;
 }
