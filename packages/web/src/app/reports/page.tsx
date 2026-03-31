@@ -5,26 +5,13 @@ import { useTranslations } from 'next-intl';
 import { Layout } from '@/components/shared/Layout';
 import { RiskBadge, type RiskTier } from '@/components/shared/RiskBadge';
 import {
-  classify,
   getChecklist,
   generateReport,
   RISK_TIERS,
   type RiskTier as SdkRiskTier,
   type OrganizationType,
 } from '@eu-ai-act/sdk';
-
-/** Build a minimal ClassificationResult for a given tier. */
-function classificationForTier(tier: SdkRiskTier) {
-  const inputs: Record<string, Record<string, unknown>> = {
-    prohibited: { socialScoring: true },
-    'high-risk': { annexIIISafetyComponent: true, annexIIICategory: 'employment' },
-    gpai: { isGpai: true, gpaiSystemicRisk: false },
-    'gpai-systemic': { isGpai: true, gpaiSystemicRisk: true },
-    limited: { interactsWithHumans: true },
-    minimal: {},
-  };
-  return classify(inputs[tier] as never);
-}
+import { classificationForTier } from '@/lib/classification-helpers';
 
 const orgTypes: { value: OrganizationType; label: string }[] = [
   { value: 'large', label: 'Large enterprise' },
@@ -135,8 +122,8 @@ export default function ReportsPage() {
                   onChange={(e) => setTier(e.target.value as SdkRiskTier)}
                   className="mt-1 block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm shadow-sm focus:border-eu-blue focus:outline-none focus:ring-1 focus:ring-eu-blue"
                 >
-                  {RISK_TIERS.map((t) => (
-                    <option key={t} value={t}>{t}</option>
+                  {RISK_TIERS.map((tier) => (
+                    <option key={tier} value={tier}>{tier}</option>
                   ))}
                 </select>
               </div>

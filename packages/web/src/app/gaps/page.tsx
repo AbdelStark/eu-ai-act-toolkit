@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { Layout } from '@/components/shared/Layout';
 import { RiskBadge, type RiskTier } from '@/components/shared/RiskBadge';
 import {
-  classify,
   getReadinessScore,
   analyzeGaps,
   formatFineAmount,
@@ -17,6 +16,7 @@ import {
   type CategoryGapSummary,
   type GapAnalysisResult,
 } from '@eu-ai-act/sdk';
+import { classificationForTier } from '@/lib/classification-helpers';
 
 const priorityColors: Record<GapPriority, string> = {
   critical: 'bg-red-100 text-red-800 border-red-300',
@@ -24,19 +24,6 @@ const priorityColors: Record<GapPriority, string> = {
   medium: 'bg-yellow-100 text-yellow-800 border-yellow-300',
   low: 'bg-green-100 text-green-800 border-green-300',
 };
-
-/** Build a minimal ClassificationResult for a given tier. */
-function classificationForTier(tier: SdkRiskTier) {
-  const inputs: Record<string, Record<string, unknown>> = {
-    prohibited: { socialScoring: true },
-    'high-risk': { annexIIISafetyComponent: true, annexIIICategory: 'employment' },
-    gpai: { isGpai: true, gpaiSystemicRisk: false },
-    'gpai-systemic': { isGpai: true, gpaiSystemicRisk: true },
-    limited: { interactsWithHumans: true },
-    minimal: {},
-  };
-  return classify(inputs[tier] as never);
-}
 
 export default function GapsPage() {
   const t = useTranslations('gaps');

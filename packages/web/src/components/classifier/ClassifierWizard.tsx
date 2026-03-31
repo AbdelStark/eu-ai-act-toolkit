@@ -86,12 +86,12 @@ export function ClassifierWizard({ initialInput }: ClassifierWizardProps) {
     [answers, currentStep, currentQuestionIndex, currentStepIndex, steps],
   );
 
-  const handleRestart = () => {
+  const handleRestart = useCallback(() => {
     setCurrentStepIndex(0);
     setCurrentQuestionIndex(0);
     setAnswers(DEFAULT_INPUT);
     setResult(null);
-  };
+  }, []);
 
   const shareUrl = useMemo(() => {
     if (typeof window === 'undefined') return '';

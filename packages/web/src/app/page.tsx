@@ -1,5 +1,6 @@
 'use client';
 
+import { useMemo } from 'react';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { Layout } from '@/components/shared/Layout';
@@ -74,8 +75,11 @@ export default function HomePage() {
   const t = useTranslations('landing');
   const tFeatures = useTranslations('landing.features');
   const tStats = useTranslations('landing.stats');
-  const events = getTimeline();
-  const nextEvent = events.find((e) => e.status === 'upcoming') ?? events.find((e) => e.status === 'future') ?? null;
+  const events = useMemo(() => getTimeline(), []);
+  const nextEvent = useMemo(
+    () => events.find((e) => e.status === 'upcoming') ?? events.find((e) => e.status === 'future') ?? null,
+    [events],
+  );
 
   return (
     <Layout>

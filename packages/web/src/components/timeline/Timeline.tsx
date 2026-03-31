@@ -68,7 +68,6 @@ export function Timeline({ events }: TimelineProps) {
       {/* Vertical line */}
       <div className="absolute left-[19px] top-0 bottom-0 w-px sm:left-8" style={{
         background: 'linear-gradient(to bottom, #22c55e 0%, #22c55e var(--past-pct), #e2e4ec var(--past-pct), #e2e4ec 100%)',
-        // @ts-ignore
         '--past-pct': `${todayIndex >= 0 ? (todayIndex / events.length) * 100 : 100}%`,
       } as React.CSSProperties} />
 

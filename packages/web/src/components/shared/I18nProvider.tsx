@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback, createContext, useContext } from 'react';
+import { useState, useEffect, useCallback, useMemo, createContext, useContext } from 'react';
 import { NextIntlClientProvider } from 'next-intl';
+import type { AbstractIntlMessages } from 'use-intl';
 import { loadMessages, SUPPORTED_LOCALES, type SupportedLocale } from '@/lib/messages';
 
 export type { SupportedLocale };
@@ -44,13 +45,13 @@ function saveLocale(locale: string) {
 
 
 interface I18nProviderProps {
-  defaultMessages: Record<string, unknown>;
+  defaultMessages: AbstractIntlMessages;
   children: React.ReactNode;
 }
 
 export function I18nProvider({ defaultMessages, children }: I18nProviderProps) {
   const [locale, setLocaleState] = useState<SupportedLocale>('en');
-  const [messages, setMessages] = useState<Record<string, unknown>>(defaultMessages);
+  const [messages, setMessages] = useState<AbstractIntlMessages>(defaultMessages);
   // On mount, load the saved locale's messages
   useEffect(() => {
     const saved = getSavedLocale();
@@ -74,9 +75,11 @@ export function I18nProvider({ defaultMessages, children }: I18nProviderProps) {
     });
   }, []);
 
+  const contextValue = useMemo(() => ({ locale, setLocale }), [locale, setLocale]);
+
   return (
-    <I18nContext.Provider value={{ locale, setLocale }}>
-      <NextIntlClientProvider locale={locale} messages={messages as any} timeZone="Europe/Brussels">
+    <I18nContext.Provider value={contextValue}>
+      <NextIntlClientProvider locale={locale} messages={messages} timeZone="Europe/Brussels">
         {children}
       </NextIntlClientProvider>
     </I18nContext.Provider>
