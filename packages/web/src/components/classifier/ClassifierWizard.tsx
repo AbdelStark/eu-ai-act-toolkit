@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useCallback, useMemo } from 'react';
+import { useTranslations } from 'next-intl';
 import { getQuestions, classify, type ClassificationInput, type ClassificationResult, type QuestionStep } from '@eu-ai-act/sdk';
 import { encodeClassificationInput } from '@/lib/url-state';
 import { ProgressBar } from './ProgressBar';
@@ -31,6 +32,8 @@ interface ClassifierWizardProps {
 }
 
 export function ClassifierWizard({ initialInput }: ClassifierWizardProps) {
+  const t = useTranslations('classifier');
+  const sdkT = useTranslations('sdk');
   const steps = useMemo(() => getQuestions(), []);
   const [currentStepIndex, setCurrentStepIndex] = useState(0);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -109,7 +112,7 @@ export function ClassifierWizard({ initialInput }: ClassifierWizardProps) {
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182" />
           </svg>
-          Start Over
+          {t('wizard.startOver')}
         </button>
       </div>
     );
@@ -139,7 +142,7 @@ export function ClassifierWizard({ initialInput }: ClassifierWizardProps) {
               ) : (
                 <span>{i + 1}</span>
               )}
-              <span className="hidden sm:inline">{step.title}</span>
+              <span className="hidden sm:inline">{sdkT.has(`steps.${step.id}.title`) ? sdkT(`steps.${step.id}.title`) : step.title}</span>
             </div>
             {i < steps.length - 1 && (
               <div className={`mx-1 h-px w-4 ${i < currentStepIndex ? 'bg-green-300' : 'bg-gray-200'}`} />
@@ -151,8 +154,8 @@ export function ClassifierWizard({ initialInput }: ClassifierWizardProps) {
       <ProgressBar current={questionsBeforeCurrent + 1} total={totalQuestions} />
 
       <div className="mb-2">
-        <h2 className="text-lg font-bold text-navy">{currentStep.title}</h2>
-        <p className="text-sm text-slate-500">{currentStep.description}</p>
+        <h2 className="text-lg font-bold text-navy">{sdkT.has(`steps.${currentStep.id}.title`) ? sdkT(`steps.${currentStep.id}.title`) : currentStep.title}</h2>
+        <p className="text-sm text-slate-500">{sdkT.has(`steps.${currentStep.id}.description`) ? sdkT(`steps.${currentStep.id}.description`) : currentStep.description}</p>
       </div>
 
       <div className={`transition-all duration-200 ${transitioning ? 'opacity-0 translate-x-4' : 'opacity-100 translate-x-0'}`}>
@@ -176,7 +179,7 @@ export function ClassifierWizard({ initialInput }: ClassifierWizardProps) {
           <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
           </svg>
-          Previous question
+          {t('wizard.previousQuestion')}
         </button>
       )}
     </div>

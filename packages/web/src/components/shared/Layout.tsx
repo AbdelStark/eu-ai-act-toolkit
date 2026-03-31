@@ -190,7 +190,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
               </ul>
             </div>
             <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400">Resources</h4>
+              <h4 className="text-xs font-semibold uppercase tracking-wider text-slate-400">{tFooter('resources')}</h4>
               <ul className="mt-4 space-y-2.5">
                 <li><a href="https://github.com/AbdelStark/eu-ai-act-toolkit" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 hover:text-navy transition-colors">{tFooter('links.github')}</a></li>
                 <li><a href="#" className="text-sm text-slate-500 hover:text-navy transition-colors">{tFooter('links.docs')}</a></li>

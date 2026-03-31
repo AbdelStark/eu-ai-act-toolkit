@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import type { ClassificationResult } from '@eu-ai-act/sdk';
 import { RiskBadge } from '@/components/shared/RiskBadge';
 import { ArticleReference } from '@/components/shared/ArticleReference';
@@ -21,6 +22,7 @@ const tierGradients: Record<string, string> = {
 };
 
 export function ResultCard({ result, shareUrl }: ResultCardProps) {
+  const t = useTranslations('classifier');
   const [copied, setCopied] = useState(false);
 
   const handleCopyUrl = async () => {
@@ -44,7 +46,7 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
     <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-soft-lg">
       {/* Colored header */}
       <div className={`bg-gradient-to-r ${tierGradients[result.tier] ?? 'from-eu-blue to-eu-blue-700'} px-6 py-8 text-center text-white`}>
-        <p className="text-sm font-medium uppercase tracking-wider opacity-80">Classification Result</p>
+        <p className="text-sm font-medium uppercase tracking-wider opacity-80">{t('results.label')}</p>
         <div className="mt-3 flex items-center justify-center">
           <RiskBadge tier={result.tier} size="lg" />
         </div>
@@ -57,7 +59,7 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
             <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
           </svg>
           <div>
-            <p className="text-xs font-medium text-slate-500">Enforcement Date</p>
+            <p className="text-xs font-medium text-slate-500">{t('results.enforcementDate')}</p>
             <p className="font-semibold text-navy">{result.enforcementDate}</p>
           </div>
         </div>
@@ -65,7 +67,7 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
         {/* Applicable articles */}
         <div>
           <h3 className="mb-3 text-sm font-semibold text-navy">
-            Applicable Articles
+            {t('results.applicableArticles')}
           </h3>
           <div className="flex flex-wrap gap-2">
             {result.articles.map((article) => (
@@ -77,7 +79,7 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
         {/* Reasoning chain */}
         <div>
           <h3 className="mb-3 text-sm font-semibold text-navy">
-            Reasoning
+            {t('results.reasoning')}
           </h3>
           <ol className="space-y-2">
             {result.reasoning.map((step, i) => (
@@ -101,7 +103,7 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
               </svg>
-              View Compliance Checklist
+              {t('results.viewChecklist')}
             </Link>
           )}
 
@@ -123,7 +125,7 @@ export function ResultCard({ result, shareUrl }: ResultCardProps) {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
               </svg>
             )}
-            {copied ? 'Copied!' : 'Share Result'}
+            {copied ? t('results.copied') : t('results.shareResult')}
           </button>
         </div>
       </div>

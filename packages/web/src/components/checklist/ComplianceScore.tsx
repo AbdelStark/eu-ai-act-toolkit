@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import * as Progress from '@radix-ui/react-progress';
 
 interface ComplianceScoreProps {
@@ -25,6 +26,8 @@ export function ComplianceScore({
   total,
   percent,
 }: ComplianceScoreProps) {
+  const t = useTranslations('checklists');
+
   return (
     <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-soft-sm">
       <div className="flex items-center gap-6">
@@ -48,7 +51,7 @@ export function ComplianceScore({
 
         <div className="flex-1">
           <h2 className="text-lg font-bold text-navy">
-            Compliance Score
+            {t('score.title')}
           </h2>
           <p className="mt-0.5 text-sm text-slate-500">
             {completed} of {total} items complete
@@ -70,12 +73,12 @@ export function ComplianceScore({
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5" />
               </svg>
-              All items complete
+              {t('score.complete')}
             </p>
           )}
           {percent < 100 && total - completed > 0 && (
             <p className="mt-2 text-sm text-slate-500">
-              {total - completed} items remaining
+              {t('score.remaining', { count: total - completed })}
             </p>
           )}
         </div>

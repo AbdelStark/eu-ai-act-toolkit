@@ -105,7 +105,8 @@
     },
     "progress": {
       "step": "Step {current} of {total}",
-      "complete": "Classification Complete"
+      "complete": "Classification Complete",
+      "question": "Question {current} of {total}"
     },
     "results": {
       "prohibited": {
@@ -137,7 +138,23 @@
         "title": "Minimal Risk AI System",
         "description": "No mandatory obligations beyond existing law. Voluntary codes of conduct encouraged.",
         "action": "Consider adopting voluntary codes of conduct for trustworthy AI."
-      }
+      },
+      "label": "Classification Result",
+      "enforcementDate": "Enforcement Date",
+      "applicableArticles": "Applicable Articles",
+      "reasoning": "Reasoning",
+      "viewChecklist": "View Compliance Checklist",
+      "shareResult": "Share Result",
+      "copied": "Copied!"
+    },
+    "answers": {
+      "yes": "Yes",
+      "no": "No"
+    },
+    "wizard": {
+      "interactiveWizard": "Interactive Wizard",
+      "startOver": "Start Over",
+      "previousQuestion": "Previous question"
     }
   },
   "checklists": {
@@ -260,7 +277,8 @@
     },
     "copyright": "EU AI Act Toolkit. Open source under MIT License.",
     "regulation": "Based on Regulation (EU) 2024/1689 of the European Parliament and of the Council.",
-    "tagline": "Made with care for AI compliance teams worldwide"
+    "tagline": "Made with care for AI compliance teams worldwide",
+    "resources": "Resources"
   },
   "disclaimer": {
     "short": "This tool does not constitute legal advice.",
@@ -326,6 +344,256 @@
       "reset": "Reset",
       "copy": "Copy",
       "share": "Share"
+    }
+  },
+  "sdk": {
+    "steps": {
+      "prohibited": {
+        "title": "Prohibited Practices",
+        "description": "Article 5 prohibits certain AI practices entirely. If any apply, your system cannot be placed on the EU market."
+      },
+      "gpai": {
+        "title": "General-Purpose AI",
+        "description": "General-purpose AI models have specific obligations under Articles 51-55. Determine if your model qualifies and whether it poses systemic risk."
+      },
+      "high-risk-pathway-a": {
+        "title": "High-Risk: Product Safety (Annex I)",
+        "description": "AI systems that are safety components of products covered by existing EU harmonisation legislation (Annex I) are high-risk under Article 6(1)."
+      },
+      "high-risk-pathway-b": {
+        "title": "High-Risk: Annex III Stand-Alone Systems",
+        "description": "AI systems used in the areas listed in Annex III are classified as high-risk under Article 6(2), unless they do not pose a significant risk of harm."
+      },
+      "limited-risk": {
+        "title": "Limited Risk: Transparency Obligations",
+        "description": "Certain AI systems carry transparency obligations under Article 50, regardless of other risk classifications."
+      }
+    },
+    "questions": {
+      "subliminal-manipulation": {
+        "text": "Does your AI system deploy subliminal techniques beyond a person's consciousness, or purposefully manipulative or deceptive techniques, with the objective or effect of materially distorting behaviour and causing significant harm?",
+        "help": "Covers techniques that a person cannot perceive or that exploit psychological patterns to manipulate decisions, materially distorting behaviour in a way that causes or is reasonably likely to cause significant harm."
+      },
+      "exploiting-vulnerabilities": {
+        "text": "Does your AI system exploit vulnerabilities of a specific group of persons due to their age, disability, or a specific social or economic situation, with the objective or effect of materially distorting their behaviour and causing significant harm?",
+        "help": "Targets systems that take advantage of children, elderly, disabled persons, or those in precarious social or economic situations to distort their behaviour in harmful ways."
+      },
+      "social-scoring": {
+        "text": "Does your AI system evaluate or classify natural persons based on their social behaviour or personal characteristics, leading to detrimental or unfavourable treatment in unrelated contexts or disproportionate to the behaviour?",
+        "help": "Covers social scoring by public authorities or private actors leading to unfavourable treatment of persons in social contexts unrelated to the context in which the data was originally generated, or treatment that is unjustified or disproportionate to their social behaviour."
+      },
+      "individual-predictive-policing": {
+        "text": "Does your AI system make risk assessments of natural persons to predict the likelihood of a person committing a criminal offence, based solely on profiling or personality traits?",
+        "help": "Prohibits individual criminal risk prediction based solely on profiling or personality traits and characteristics. Does not cover systems that augment human assessment based on objective, verifiable facts directly linked to criminal activity."
+      },
+      "untargeted-facial-scraping": {
+        "text": "Does your AI system create or expand facial recognition databases through untargeted scraping of facial images from the internet or CCTV footage?",
+        "help": "Prohibits building facial recognition databases by indiscriminately scraping facial images from internet sources or video surveillance systems without targeted selection."
+      },
+      "emotion-inference-workplace-education": {
+        "text": "Does your AI system infer emotions of natural persons in the areas of workplace or educational institutions, except where the system is intended to be put in place or on the market for medical or safety reasons?",
+        "help": "Prohibits emotion recognition in workplace and education settings. Medical devices and safety-critical systems (e.g., monitoring driver drowsiness) are excepted."
+      },
+      "biometric-categorization-sensitive": {
+        "text": "Does your AI system categorize natural persons individually based on biometric data to deduce or infer their race, political opinions, trade union membership, religious or philosophical beliefs, sex life, or sexual orientation?",
+        "help": "Prohibits using biometric data (face, voice, gait, etc.) to infer sensitive or protected attributes. Labelling or filtering of lawfully acquired biometric datasets (e.g., for law enforcement) is not covered."
+      },
+      "realtime-biometric-public": {
+        "text": "Does your AI system use real-time remote biometric identification in publicly accessible spaces for law enforcement purposes?",
+        "help": "Prohibits real-time remote biometric identification in public spaces for law enforcement, with narrow exceptions: searching for specific missing persons or abduction victims, preventing a specific and imminent terrorist threat, or locating or identifying a person suspected of certain serious criminal offences. Exceptions require prior judicial authorization and strict necessity/proportionality assessment."
+      },
+      "is-gpai": {
+        "text": "Is your AI model a general-purpose AI model, meaning it displays significant generality, is capable of competently performing a wide range of distinct tasks, and can be integrated into a variety of downstream systems or applications?",
+        "help": "A general-purpose AI model (e.g., large language models, large multimodal models) is trained with a large amount of data using self-supervision at scale, displays significant generality, and can be adapted to a wide range of distinct downstream tasks."
+      },
+      "gpai-flops": {
+        "text": "Was your model trained using total compute greater than 10^25 FLOPs?",
+        "help": "Models trained with more than 10^25 floating point operations are presumed to have high impact capabilities and are automatically classified as posing systemic risk. The Commission may update this threshold."
+      },
+      "is-open-source": {
+        "text": "Is your model made available under a free and open-source licence that allows access, usage, modification, and distribution, and whose parameters, including weights, architecture, and usage information are made publicly available?",
+        "help": "Open-source GPAI models only need to comply with copyright obligations and publish a training data summary, unless they pose systemic risk. The licence must be truly open (OSI-compatible or equivalent)."
+      },
+      "designated-systemic-risk": {
+        "text": "Has your model been designated by the European Commission as posing systemic risk based on its high-impact capabilities?",
+        "help": "Even without meeting the 10^25 FLOPs threshold, the Commission can designate a model as posing systemic risk based on criteria including the number of registered end users, cross-border reach, or the degree of autonomy of action."
+      },
+      "annex-i-product": {
+        "text": "Is your AI system a safety component of a product, or is it itself a product, covered by Union harmonisation legislation listed in Annex I (e.g., machinery, toys, medical devices, vehicles, aviation, rail, marine, lifts, pressure equipment)?",
+        "help": "Annex I lists over 20 pieces of EU product safety legislation. If your AI system is embedded in or is itself a product that must undergo a third-party conformity assessment under any of these, it is high-risk."
+      },
+      "annex-i-requires-third-party": {
+        "text": "Does the relevant Annex I legislation require a third-party conformity assessment for the product to be placed on the market?",
+        "help": "High-risk classification under Pathway A only triggers if the applicable product legislation requires a third-party conformity assessment. If self-assessment suffices under the product legislation, the AI component may not be automatically classified high-risk under this pathway."
+      },
+      "annex-iii-biometrics": {
+        "text": "Is your AI system used for biometrics, including remote biometric identification, biometric categorization by sensitive attributes, or emotion recognition?",
+        "help": "Annex III, area 1: Covers remote biometric identification (not the prohibited real-time variant), biometric categorization by sensitive or protected attributes, and emotion recognition systems."
+      },
+      "annex-iii-critical-infrastructure": {
+        "text": "Is your AI system used as a safety component in the management and operation of critical infrastructure (road traffic, water, gas, heating, electricity)?",
+        "help": "Annex III, area 2: Covers AI systems serving as safety components in critical digital or physical infrastructure that could endanger life, health, or cause major environmental or property damage."
+      },
+      "annex-iii-education": {
+        "text": "Is your AI system used in education or vocational training, for example determining access/admission, evaluating learning outcomes, determining educational levels, or monitoring student behaviour during tests?",
+        "help": "Annex III, area 3: Covers AI systems that determine access to education, evaluate outcomes that steer learning, assess appropriate educational levels, or monitor/detect prohibited behaviour during examinations."
+      },
+      "annex-iii-employment": {
+        "text": "Is your AI system used in employment, workers management, or access to self-employment, for example for recruitment, screening applications, evaluating candidates, making decisions on employment terms, or monitoring/evaluating worker performance?",
+        "help": "Annex III, area 4: Covers AI systems for recruitment, candidate evaluation, employment decisions (promotion, termination), task allocation based on personal traits, and worker performance monitoring."
+      },
+      "annex-iii-essential-services": {
+        "text": "Is your AI system used for access to or provision of essential private or public services (eligibility for public benefits, creditworthiness assessment, risk assessment for life/health insurance, or classifying emergency calls)?",
+        "help": "Annex III, area 5: Covers AI systems evaluating eligibility for public assistance, assessing creditworthiness (except fraud detection), risk-pricing in life/health insurance, and evaluating or classifying emergency calls for dispatch priority."
+      },
+      "annex-iii-law-enforcement": {
+        "text": "Is your AI system used in law enforcement, for example for individual risk assessment, as a polygraph, evaluating evidence reliability, or profiling persons during criminal investigations?",
+        "help": "Annex III, area 6: Covers AI systems for individual risk assessment (likelihood of offending/re-offending or victimhood), deception detection, evidence reliability evaluation, and profiling in criminal investigations."
+      },
+      "annex-iii-migration": {
+        "text": "Is your AI system used in migration, asylum, or border control management, for example assessing irregular migration risk, examining asylum/visa/residence applications, or identifying persons at borders?",
+        "help": "Annex III, area 7: Covers AI systems assessing irregular migration or health risks, examining applications for asylum/visa/residence permits and associated complaints, and detecting/recognizing/identifying persons (except travel document verification)."
+      },
+      "annex-iii-justice-democracy": {
+        "text": "Is your AI system used in the administration of justice or democratic processes, for example assisting judicial authorities in researching/interpreting/applying law, or influencing the outcome of elections or referenda?",
+        "help": "Annex III, area 8: Covers AI systems assisting courts in researching, interpreting, and applying facts and law to concrete cases, and systems intended to influence election or referendum outcomes (excluding organisational tools that do not directly influence votes)."
+      },
+      "interacts-with-persons": {
+        "text": "Does your AI system interact directly with natural persons (e.g., chatbot, voice assistant, virtual agent)?",
+        "help": "Systems designed to directly interact with people must disclose that the person is interacting with an AI system, unless this is obvious from the circumstances and context of use."
+      },
+      "generates-synthetic-content": {
+        "text": "Does your AI system generate or manipulate synthetic content such as images, audio, video, or text (including deepfakes)?",
+        "help": "Providers of AI systems generating synthetic audio, image, video, or text must ensure outputs are marked as artificially generated or manipulated in a machine-readable format where technically feasible."
+      },
+      "emotion-recognition": {
+        "text": "Does your AI system perform emotion recognition (detecting or inferring emotions or intentions of natural persons based on biometric data)?",
+        "help": "Deployers of emotion recognition systems must inform persons exposed to the system that it is in operation and process personal data in accordance with GDPR."
+      },
+      "biometric-categorizing": {
+        "text": "Does your AI system perform biometric categorization (classifying natural persons based on biometric data into groups based on specific attributes)?",
+        "help": "Deployers of biometric categorization systems must inform exposed persons of the system's operation. Note: categorization by sensitive attributes may be prohibited under Article 5."
+      }
+    },
+    "timeline": {
+      "0": {
+        "title": "EU AI Act enters into force",
+        "description": "Regulation (EU) 2024/1689 enters into force 20 days after publication in the Official Journal. Most provisions apply on a staggered timeline over the following 36 months."
+      },
+      "1": {
+        "title": "Prohibited practices apply",
+        "description": "Prohibitions on banned AI practices (Article 5) and AI literacy requirements (Article 4) become enforceable. Systems performing prohibited practices must cease operation in the EU."
+      },
+      "2": {
+        "title": "GPAI rules apply",
+        "description": "Obligations for providers of general-purpose AI models take effect, including documentation, copyright compliance, training data summaries, and additional obligations for models with systemic risk."
+      },
+      "3": {
+        "title": "High-risk requirements apply",
+        "description": "Full requirements for high-risk AI systems (Articles 6-15, 26-27) and transparency obligations (Article 50) become enforceable. Providers must meet risk management, data governance, documentation, record-keeping, transparency, human oversight, accuracy, and robustness requirements. Registration in the EU database and conformity assessment required before market placement."
+      },
+      "4": {
+        "title": "Legacy GPAI and large-scale IT systems",
+        "description": "Obligations apply to GPAI models already on the market before August 2025, and to high-risk AI systems that are components of large-scale EU IT systems (e.g., Schengen Information System, Visa Information System, Eurodac) listed in Annex X."
+      },
+      "5": {
+        "title": "Product safety components",
+        "description": "Obligations for high-risk AI systems that are safety components of products covered by Annex I Union harmonisation legislation (Pathway A under Article 6(1)) take full effect. These systems must comply with all high-risk requirements and undergo relevant conformity assessment procedures."
+      }
+    },
+    "checklists": {
+      "prohibited-stop-deployment": "Stop deployment of the prohibited AI system in the EU immediately",
+      "prohibited-document-and-assess": "Document the prohibited system and assess alternatives that achieve the same goal without falling under prohibitions",
+      "hr-risk-lifecycle": "Establish a risk management system that operates throughout the entire lifecycle",
+      "hr-risk-identify": "Identify and analyze known and reasonably foreseeable risks",
+      "hr-risk-estimate-intended": "Estimate and evaluate risks from intended use and reasonably foreseeable misuse",
+      "hr-risk-post-market": "Evaluate risks based on post-market monitoring data",
+      "hr-risk-measures": "Adopt risk management measures to eliminate or reduce risks",
+      "hr-risk-testing": "Test the system to identify the most appropriate risk management measures",
+      "hr-risk-combined-effects": "Consider the combined effects when the system is used with other systems",
+      "hr-risk-residual": "Document residual risks and communicate them to deployers",
+      "hr-data-governance": "Ensure training, validation, and testing datasets are subject to appropriate data governance",
+      "hr-data-collection-docs": "Document data collection processes and data sources",
+      "hr-data-relevance": "Assess data for relevance, representativeness, completeness, and statistical properties",
+      "hr-data-bias-examination": "Examine data for possible biases likely to affect health, safety, or fundamental rights",
+      "hr-data-gaps": "Identify and address data gaps or shortcomings",
+      "hr-data-bias-mitigation": "Apply appropriate measures for bias detection, correction, and mitigation",
+      "hr-data-quality": "Ensure training data is free from errors and complete relative to the intended purpose",
+      "hr-data-special-categories": "If processing special categories of personal data: document the necessity and safeguards",
+      "hr-docs-general": "Prepare general description of the AI system (intended purpose, developer, version)",
+      "hr-docs-development": "Prepare detailed description of elements and development process",
+      "hr-docs-monitoring": "Prepare detailed description of monitoring, functioning, and control of the system",
+      "hr-docs-risk-mgmt": "Include description of the risk management system (Article 9 compliance)",
+      "hr-docs-lifecycle": "Document all changes made through the system's lifecycle",
+      "hr-docs-standards": "List harmonised standards or other technical specifications applied",
+      "hr-docs-human-oversight": "Describe how human oversight measures are implemented",
+      "hr-docs-lifetime": "Document expected lifetime and maintenance/care measures",
+      "hr-docs-accuracy-robustness": "Describe the AI system's accuracy, robustness, and cybersecurity measures",
+      "hr-logs-automatic": "Ensure the system automatically records events (logs) throughout its lifetime",
+      "hr-logs-tracing": "Ensure logging enables tracing of the system's operation",
+      "hr-logs-standards": "Ensure logging capabilities conform to recognized standards or common specifications",
+      "hr-logs-content": "Logs include: period of use, reference database, input data, identification of natural persons involved in verification",
+      "hr-transparency-interpretable": "Design the system to enable deployers to interpret output and use it appropriately",
+      "hr-transparency-identity": "Instructions for use include identity and contact details of the provider",
+      "hr-transparency-capabilities": "Instructions for use include system capabilities and limitations",
+      "hr-transparency-purpose": "Instructions for use include intended purpose and foreseeable misuse scenarios",
+      "hr-transparency-changes": "Instructions for use include changes pre-determined by the provider",
+      "hr-transparency-oversight-info": "Instructions for use include human oversight measures",
+      "hr-transparency-accuracy-info": "Instructions for use include expected level of accuracy, robustness, cybersecurity (benchmarks)",
+      "hr-transparency-risks": "Instructions for use include known risks to health, safety, or fundamental rights",
+      "hr-transparency-input-specs": "Instructions for use include technical specifications for input data",
+      "hr-transparency-logging-info": "Instructions for use include description of logging functionality",
+      "hr-oversight-design": "Design the system to allow effective oversight by natural persons during use",
+      "hr-oversight-understand": "Oversight enables the human to fully understand the system's capacities and limitations",
+      "hr-oversight-monitor": "Oversight enables detection of anomalies, dysfunctions, and unexpected performance",
+      "hr-oversight-bias-awareness": "Oversight includes awareness of automation bias, especially for decisions about persons",
+      "hr-oversight-interpret": "Oversight enables correct interpretation of the system's output",
+      "hr-oversight-override": "Oversight enables the human to decide not to use the system or override/reverse the output",
+      "hr-oversight-stop": "Oversight enables the human to interrupt the system through a stop button or similar procedure",
+      "hr-accuracy-level": "Design the system to achieve an appropriate level of accuracy for its intended purpose",
+      "hr-accuracy-declared": "Declare accuracy levels and metrics in instructions for use",
+      "hr-robustness-errors": "Ensure the system is resilient to errors, faults, or inconsistencies in the environment",
+      "hr-robustness-adversarial": "Ensure the system is resilient to adversarial attempts by third parties to manipulate it",
+      "hr-robustness-failsafe": "Design for safe handling of unexpected situations (fallback/fail-safe plans)",
+      "hr-cybersecurity": "Implement cybersecurity measures proportionate to the risk",
+      "hr-redundancy": "Implement technical redundancy solutions where appropriate (backup plans, fail-safe mechanisms)",
+      "hr-conformity-route": "Determine conformity assessment route: self-assessment or third-party assessment",
+      "hr-register-eu-db": "Register in the EU database before placing the system on the market",
+      "hr-ce-marking": "Affix CE marking upon successful conformity assessment",
+      "hr-declaration-conformity": "Prepare EU Declaration of Conformity",
+      "hr-authorised-rep": "Designate an authorised representative in the EU (if provider is outside the EU)",
+      "hr-post-market-monitoring": "Establish a post-market monitoring system",
+      "hr-incident-reporting-procedure": "Establish a serious incident reporting procedure",
+      "hr-incident-reporting-timeline": "Report serious incidents to market surveillance authorities without undue delay and within 15 days",
+      "gpai-tech-docs": "Prepare and maintain technical documentation of the model (Annex XI)",
+      "gpai-tech-docs-training": "Document training methodology, techniques, design choices, and assumptions",
+      "gpai-tech-docs-data-sources": "Document training data sources, including general description and data provenance",
+      "gpai-tech-docs-compute": "Document computational resources used for training",
+      "gpai-downstream-info": "Prepare and maintain information and documentation for downstream providers",
+      "gpai-copyright": "Comply with EU copyright law (Directive 2019/790), including text and data mining opt-out",
+      "gpai-training-data-summary": "Publish a sufficiently detailed summary of training data content",
+      "gpai-open-source-exception": "If open-source: verify only copyright compliance and training data summary are required",
+      "gpai-code-of-practice": "Consider adhering to the Code of Practice for GPAI providers",
+      "gpai-sys-tech-docs": "Prepare and maintain technical documentation of the model (Annex XI)",
+      "gpai-sys-downstream-info": "Prepare and maintain information and documentation for downstream providers",
+      "gpai-sys-copyright": "Comply with EU copyright law (Directive 2019/790), including text and data mining opt-out",
+      "gpai-sys-training-data-summary": "Publish a sufficiently detailed summary of training data content",
+      "gpai-sys-model-eval": "Perform model evaluation in accordance with standardised protocols and tools",
+      "gpai-sys-red-teaming": "Conduct adversarial testing (red teaming) to identify and mitigate systemic risks",
+      "gpai-sys-assess-mitigate": "Assess and mitigate possible systemic risks, including their sources",
+      "gpai-sys-incident-tracking": "Track, document, and report serious incidents to the AI Office and national authorities",
+      "gpai-sys-cybersecurity": "Ensure adequate cybersecurity protection for the model and its physical infrastructure",
+      "gpai-sys-code-of-practice": "Consider adhering to the Code of Practice for GPAI providers (including systemic risk provisions)",
+      "limited-ai-disclosure": "Inform users they are interacting with an AI system (unless obvious from context)",
+      "limited-disclosure-format": "Ensure AI disclosure is clear, timely, and in an accessible format",
+      "limited-synthetic-marking": "Mark synthetic content (deepfakes, AI-generated text/images/audio/video) as artificially generated or manipulated",
+      "limited-synthetic-machine-readable": "Ensure synthetic content marking is machine-readable where technically feasible",
+      "limited-emotion-inform": "Inform persons exposed to emotion recognition systems that the system is in operation",
+      "limited-biometric-inform": "Inform persons exposed to biometric categorization systems that the system is in operation",
+      "minimal-voluntary-codes": "Consider adopting voluntary codes of conduct covering environmental sustainability, accessibility, stakeholder participation, and diversity of development teams",
+      "minimal-voluntary-high-risk-subset": "Consider voluntarily applying the requirements for high-risk systems (or a subset)",
+      "minimal-ai-pact": "Consider following the AI Pact commitments (voluntary early adoption of certain AI Act provisions)",
+      "minimal-good-practices": "Document system capabilities and limitations, monitor for unexpected behaviours, and maintain transparency with users about AI involvement"
     }
   }
 }

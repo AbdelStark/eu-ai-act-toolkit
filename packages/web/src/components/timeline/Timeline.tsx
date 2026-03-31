@@ -27,7 +27,7 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
   return isVisible;
 }
 
-function AnimatedEvent({ event, index, isTodayMarker }: { event: TimelineEventType; index: number; isTodayMarker: boolean }) {
+function AnimatedEvent({ event, index, isTodayMarker, eventIndex }: { event: TimelineEventType; index: number; isTodayMarker: boolean; eventIndex: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useInView(ref);
 
@@ -65,7 +65,7 @@ function AnimatedEvent({ event, index, isTodayMarker }: { event: TimelineEventTy
 
         {/* Event card */}
         <div className="ml-10 sm:ml-0 sm:w-1/2 sm:px-6">
-          <TimelineEvent event={event} />
+          <TimelineEvent event={event} eventIndex={eventIndex} />
         </div>
       </div>
     </div>
@@ -101,6 +101,7 @@ export function Timeline({ events }: TimelineProps) {
             key={event.date + event.title}
             event={event}
             index={index}
+            eventIndex={index}
             isTodayMarker={index === todayIndex}
           />
         ))}

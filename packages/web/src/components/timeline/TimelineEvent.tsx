@@ -1,10 +1,12 @@
 'use client';
 
+import { useTranslations } from 'next-intl';
 import type { TimelineEvent as TimelineEventType } from '@eu-ai-act/sdk';
 import { ArticleReference } from '@/components/shared/ArticleReference';
 
 interface TimelineEventProps {
   event: TimelineEventType;
+  eventIndex?: number;
 }
 
 const statusStyles: Record<TimelineEventType['status'], string> = {
@@ -19,13 +21,16 @@ const statusBadgeStyles: Record<TimelineEventType['status'], string> = {
   future: 'bg-gray-100 text-gray-500',
 };
 
-const statusLabels: Record<TimelineEventType['status'], string> = {
-  past: 'In Effect',
-  upcoming: 'Upcoming',
-  future: 'Future',
+const statusFilterKeys: Record<TimelineEventType['status'], string> = {
+  past: 'past',
+  upcoming: 'upcoming',
+  future: 'future',
 };
 
-export function TimelineEvent({ event }: TimelineEventProps) {
+export function TimelineEvent({ event, eventIndex }: TimelineEventProps) {
+  const tTimeline = useTranslations('timeline');
+  const sdkT = useTranslations('sdk');
+
   const formattedDate = new Date(event.date).toLocaleDateString('en-GB', {
     day: 'numeric',
     month: 'long',
@@ -34,22 +39,31 @@ export function TimelineEvent({ event }: TimelineEventProps) {
 
   const daysLabel =
     event.daysUntil > 0
-      ? `${event.daysUntil} days remaining`
+      ? tTimeline('daysUntil', { days: event.daysUntil })
       : event.daysUntil < 0
-        ? `${Math.abs(event.daysUntil)} days ago`
-        : 'Today';
+        ? tTimeline('daysPast', { days: Math.abs(event.daysUntil) })
+        : tTimeline('today');
+
+  const statusLabel = tTimeline(`filters.${statusFilterKeys[event.status]}`);
+
+  const eventTitle = eventIndex !== undefined && sdkT.has(`timeline.${eventIndex}.title`)
+    ? sdkT(`timeline.${eventIndex}.title`)
+    : event.title;
+  const eventDescription = eventIndex !== undefined && sdkT.has(`timeline.${eventIndex}.description`)
+    ? sdkT(`timeline.${eventIndex}.description`)
+    : event.description;
 
   return (
     <div className={`rounded-2xl border p-5 transition-all duration-150 hover:shadow-soft ${statusStyles[event.status]}`}>
       <div className="mb-3 flex items-center justify-between">
         <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${statusBadgeStyles[event.status]}`}>
-          {statusLabels[event.status]}
+          {statusLabel}
         </span>
         <time className="text-xs font-medium text-slate-400">{formattedDate}</time>
       </div>
 
-      <h3 className="text-base font-bold text-navy">{event.title}</h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{event.description}</p>
+      <h3 className="text-base font-bold text-navy">{eventTitle}</h3>
+      <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{eventDescription}</p>
 
       <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3">
         <div className="flex flex-wrap gap-1">

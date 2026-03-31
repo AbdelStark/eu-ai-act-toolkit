@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 import * as Checkbox from '@radix-ui/react-checkbox';
 import type { ChecklistItem as ChecklistItemType, ChecklistProgress } from '@eu-ai-act/sdk';
 import { ArticleReference } from '@/components/shared/ArticleReference';
@@ -18,6 +19,8 @@ export function ChecklistItem({
   onToggle,
   onEvidenceChange,
 }: ChecklistItemProps) {
+  const t = useTranslations('checklists');
+  const sdkT = useTranslations('sdk');
   const [expanded, setExpanded] = useState(false);
   const [justChecked, setJustChecked] = useState(false);
   const isChecked = progress?.checked ?? false;
@@ -70,7 +73,7 @@ export function ChecklistItem({
                 isChecked ? 'text-slate-400 line-through' : 'text-navy'
               }`}
             >
-              {item.text}
+              {sdkT.has(`checklists.${item.id}`) ? sdkT(`checklists.${item.id}`) : item.text}
             </label>
             <div className="flex items-center gap-2 flex-shrink-0">
               <span
@@ -80,7 +83,7 @@ export function ChecklistItem({
                     : 'bg-gray-100 text-gray-600'
                 }`}
               >
-                {item.required ? 'Required' : 'Recommended'}
+                {item.required ? t('item.required') : t('item.recommended')}
               </span>
               <ArticleReference
                 article={item.article}
