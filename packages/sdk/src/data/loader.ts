@@ -19,6 +19,7 @@ import type {
   RiskTier,
   AnnexIIICategory,
   ObligationCategory,
+  ClassificationInput,
   QuestionStep,
   Question,
 } from './types.js';
@@ -199,9 +200,24 @@ interface ArticlesFile {
   articles: Article[];
 }
 
-/** Top-level shape of `data/annexes.json`. */
+/** Top-level shape of `data/annexes.json`. Key is `annexIII` in the JSON. */
 interface AnnexesFile {
-  annexes: AnnexIIIEntry[];
+  annexIII: AnnexIIIEntry[];
+}
+
+/** A raw example as stored in `data/examples.json`. */
+export interface RawExample {
+  slug: string;
+  title: string;
+  description: string;
+  classificationInput: ClassificationInput;
+  expectedTier: string;
+  walkthrough: string[];
+}
+
+/** Top-level shape of `data/examples.json`. */
+interface ExamplesFile {
+  examples: RawExample[];
 }
 
 // ---------------------------------------------------------------------------
@@ -223,6 +239,8 @@ import timelineData from '@data/timeline.json';
 import articlesData from '@data/articles.json';
 // @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import annexesData from '@data/annexes.json';
+// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
+import examplesData from '@data/examples.json';
 
 // ---------------------------------------------------------------------------
 // Typed Accessors
@@ -319,5 +337,19 @@ export function getArticlesData(): Article[] {
  */
 export function getAnnexesData(): AnnexIIIEntry[] {
   const file = annexesData as AnnexesFile;
-  return file.annexes;
+  return file.annexIII;
+}
+
+/**
+ * Returns worked classification examples.
+ *
+ * Each example includes pre-filled classification inputs, the expected
+ * tier, and a step-by-step walkthrough. Used for demos, docs, and
+ * regression testing of the classification engine.
+ *
+ * @returns Array of raw example entries.
+ */
+export function getExamplesData(): RawExample[] {
+  const file = examplesData as ExamplesFile;
+  return file.examples;
 }

@@ -63,6 +63,39 @@ describe('generateTemplate', () => {
     expect(doc).toContain('declare under our sole responsibility');
     expect(doc).toContain('Acme Corp');
   });
+
+  it('GPAI model card includes training data and copyright sections', () => {
+    const doc = generateTemplate('gpai-model-card', validInput);
+    expect(doc).toContain('# GPAI Model Card');
+    expect(doc).toContain('Training Data');
+    expect(doc).toContain('Copyright Compliance');
+    expect(doc).toContain('Downstream Provider Information');
+    expect(doc).toContain('Article 53');
+    expect(doc).toContain('Annex XI');
+  });
+
+  it('GPAI model card references Directive 2019/790', () => {
+    const doc = generateTemplate('gpai-model-card', validInput);
+    expect(doc).toContain('Directive 2019/790');
+  });
+
+  it('fundamental rights impact assessment covers key rights', () => {
+    const doc = generateTemplate('fundamental-rights-impact', validInput);
+    expect(doc).toContain('# Fundamental Rights Impact Assessment');
+    expect(doc).toContain('Non-Discrimination');
+    expect(doc).toContain('Privacy');
+    expect(doc).toContain('Effective Remedy');
+    expect(doc).toContain('Rights of the Child');
+    expect(doc).toContain('Article 27');
+  });
+
+  it('fundamental rights impact assessment includes mitigation and monitoring', () => {
+    const doc = generateTemplate('fundamental-rights-impact', validInput);
+    expect(doc).toContain('Mitigation Measures');
+    expect(doc).toContain('Monitoring and Review');
+    expect(doc).toContain('Stakeholder Consultation');
+    expect(doc).toContain('Redress Mechanisms');
+  });
 });
 
 // ---------------------------------------------------------------------------

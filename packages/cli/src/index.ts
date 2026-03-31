@@ -6,6 +6,9 @@ import { timelineCommand } from './commands/timeline.js';
 import { generateCommand } from './commands/generate.js';
 import { statusCommand } from './commands/status.js';
 import { reportCommand } from './commands/report.js';
+import { examplesCommand } from './commands/examples.js';
+import { articlesCommand } from './commands/articles.js';
+import { annexesCommand } from './commands/annexes.js';
 import { readFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -66,6 +69,8 @@ ${chalk.bold('Examples:')}
   ${chalk.dim('$')} eu-ai-act status                 ${chalk.dim('Show compliance progress')}
   ${chalk.dim('$')} eu-ai-act generate conformity    ${chalk.dim('Generate conformity declaration')}
   ${chalk.dim('$')} eu-ai-act report --format md     ${chalk.dim('Export compliance report')}
+  ${chalk.dim('$')} eu-ai-act examples               ${chalk.dim('Browse worked classification examples')}
+  ${chalk.dim('$')} eu-ai-act articles 9              ${chalk.dim('Look up Article 9 details')}
 
 ${chalk.bold('Getting started:')}
   Run ${chalk.cyan('eu-ai-act classify')} to classify your AI system, then
@@ -80,6 +85,9 @@ program.addCommand(timelineCommand);
 program.addCommand(generateCommand);
 program.addCommand(statusCommand);
 program.addCommand(reportCommand);
+program.addCommand(examplesCommand);
+program.addCommand(articlesCommand);
+program.addCommand(annexesCommand);
 
 // Global error handler — no stack traces in production
 program.exitOverride();

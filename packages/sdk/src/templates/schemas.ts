@@ -11,6 +11,8 @@ const TEMPLATE_SCHEMAS: Record<TemplateName, string[]> = {
   'human-oversight-plan': [],
   'monitoring-plan': [],
   'declaration-of-conformity': [],
+  'gpai-model-card': [],
+  'fundamental-rights-impact': [],
 };
 
 /**
