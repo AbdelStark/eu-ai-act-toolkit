@@ -2,7 +2,7 @@
 
 /**
  * Validate all data/*.json files against their JSON Schema definitions.
- * Run: node scripts/validate-data.js
+ * Run: node scripts/validate-data.mjs
  */
 
 import { readFileSync, readdirSync } from 'node:fs';

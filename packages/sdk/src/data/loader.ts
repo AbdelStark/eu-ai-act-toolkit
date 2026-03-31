@@ -308,21 +308,13 @@ interface ExamplesFile {
 // they are created by separate agents working on the data layer.
 // ---------------------------------------------------------------------------
 
-// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import questionsData from '@data/questions.json';
-// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import checklistsData from '@data/checklists.json';
-// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import timelineData from '@data/timeline.json';
-// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import articlesData from '@data/articles.json';
-// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import annexesData from '@data/annexes.json';
-// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import examplesData from '@data/examples.json';
-// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import penaltiesData from '@data/penalties.json';
-// @ts-expect-error -- resolved by tsup alias @data -> ../../data at build time
 import standardsData from '@data/standards.json';
 
 // ---------------------------------------------------------------------------
@@ -405,7 +397,7 @@ export function getTimelineData(): RawTimelineEvent[] {
  * @returns Array of article entries.
  */
 export function getArticlesData(): Article[] {
-  const file = articlesData as ArticlesFile;
+  const file = articlesData as unknown as ArticlesFile;
   return file.articles;
 }
 
@@ -419,7 +411,7 @@ export function getArticlesData(): Article[] {
  * @returns Array of Annex III category entries.
  */
 export function getAnnexesData(): AnnexIIIEntry[] {
-  const file = annexesData as AnnexesFile;
+  const file = annexesData as unknown as AnnexesFile;
   return file.annexIII;
 }
 

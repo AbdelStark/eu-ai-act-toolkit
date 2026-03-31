@@ -9,7 +9,7 @@
     "dev": "turbo dev",
     "test": "turbo test",
     "lint": "turbo lint",
-    "validate:data": "node scripts/validate-data.js"
+    "validate:data": "node scripts/validate-data.mjs"
   },
   "devDependencies": {
     "turbo": "^2.0.0",

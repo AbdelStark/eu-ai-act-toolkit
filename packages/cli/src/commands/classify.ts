@@ -3,7 +3,6 @@ import chalk from 'chalk';
 import { confirm, select } from '@inquirer/prompts';
 import {
   classify,
-  getQuestions,
   formatTierSummary,
   ANNEX_III_CATEGORIES,
 } from '@eu-ai-act/sdk';
@@ -209,11 +208,11 @@ async function runInteractiveWizard(): Promise<ClassificationInput> {
   ];
 
   for (const q of prohibitedQuestions) {
-    (input as Record<string, boolean>)[q.field] = await confirm({
+    (input as unknown as Record<string, boolean>)[q.field] = await confirm({
       message: q.text,
       default: false,
     });
-    if ((input as Record<string, boolean>)[q.field]) {
+    if ((input as unknown as Record<string, boolean>)[q.field]) {
       console.log(chalk.red('\n  🚫 This practice is prohibited under Article 5.\n'));
       return input;
     }

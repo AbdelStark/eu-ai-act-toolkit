@@ -35,7 +35,7 @@ Valid classifications: `prohibited`, `high-risk`, `gpai`, `gpai-systemic`, `limi
 
 - All data lives in `data/*.json` with JSON Schema validation (`data/schemas/`)
 - Every compliance item **must** cite a specific EU AI Act Article (e.g., "Article 6")
-- Validate with: `node scripts/validate-data.js`
+- Validate with: `node scripts/validate-data.mjs`
 
 ## Architecture Rules
 
@@ -49,7 +49,7 @@ Valid classifications: `prohibited`, `high-risk`, `gpai`, `gpai-systemic`, `limi
 npm install                      # Install dependencies
 npx turbo build                  # Build all packages
 npx turbo test                   # Run all tests
-node scripts/validate-data.js    # Validate compliance data
+node scripts/validate-data.mjs    # Validate compliance data
 ```
 
 ## Important Constraints

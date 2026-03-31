@@ -52,14 +52,14 @@ describe('classify — input validation', () => {
 
   it('throws TypeError when a boolean field has wrong type', () => {
     const bad = baseInput();
-    (bad as Record<string, unknown>).socialScoring = 'yes';
+    (bad as unknown as Record<string, unknown>).socialScoring = 'yes';
     expect(() => classify(bad)).toThrow(TypeError);
     expect(() => classify(bad)).toThrow(/invalid field type/i);
   });
 
   it('throws TypeError when annexIIICategory is missing entirely', () => {
     const input = baseInput();
-    delete (input as Record<string, unknown>).annexIIICategory;
+    delete (input as unknown as Record<string, unknown>).annexIIICategory;
     expect(() => classify(input)).toThrow(TypeError);
     expect(() => classify(input)).toThrow(/annexIIICategory/);
   });

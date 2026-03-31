@@ -2,7 +2,6 @@ import { Command } from 'commander';
 import chalk from 'chalk';
 import {
   getPenalties,
-  getPenaltiesByTier,
   calculatePenaltyExposure,
   formatFineAmount,
 } from '@eu-ai-act/sdk';

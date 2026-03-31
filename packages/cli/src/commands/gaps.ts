@@ -2,8 +2,6 @@ import { Command } from 'commander';
 import chalk from 'chalk';
 import {
   analyzeGaps,
-  classify,
-  getReadinessScore,
   formatFineAmount,
 } from '@eu-ai-act/sdk';
 import type { RiskTier, ClassificationResult } from '@eu-ai-act/sdk';

@@ -186,7 +186,7 @@ describe('getStandardsMapping', () => {
   });
 
   it('returns filtered mapping for specific tier', () => {
-    const allMapping = getStandardsMapping();
+    getStandardsMapping();
     const highRiskMapping = getStandardsMapping('high-risk');
 
     // High-risk should have categories but possibly fewer than all tiers combined

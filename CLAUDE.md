@@ -15,7 +15,7 @@ npm install                          # Install all workspace deps
 npx turbo build                      # Build SDK → CLI → Web (order matters)
 npx turbo test                       # Run vitest across SDK
 npx turbo dev                        # Dev mode (web on localhost:3000)
-node scripts/validate-data.js        # Validate data/*.json against schemas — MUST pass
+node scripts/validate-data.mjs        # Validate data/*.json against schemas — MUST pass
 ```
 
 ## Architecture
@@ -71,7 +71,7 @@ Classification precedence (strict): prohibited → GPAI → high-risk → limite
 1. **Every compliance item MUST cite a specific EU AI Act Article.** Exception: `minimal` tier voluntary items.
 2. **Classification is deterministic.** Same input → same output. No randomness, no LLM calls.
 3. **SDK has zero runtime dependencies.** Only devDependencies in packages/sdk/package.json.
-4. **Data changes require validation.** Run `node scripts/validate-data.js` after any data/ edit.
+4. **Data changes require validation.** Run `node scripts/validate-data.mjs` after any data/ edit.
 5. **Web app is fully static.** No API routes, no server-side rendering. All state in localStorage.
 6. **TypeScript strict mode.** `tsconfig.base.json` has `strict: true`, `noUncheckedIndexedAccess: true`.
 7. **Templates use `[TODO]` placeholders** — literal strings the user fills in.

@@ -4,7 +4,6 @@ import { writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import {
   generateTemplate,
-  getChecklist,
   TEMPLATE_NAMES,
   RISK_TIERS,
 } from '@eu-ai-act/sdk';

@@ -29,7 +29,7 @@ COMPLIANCE DATA
 - All compliance data lives in data/*.json files
 - Data is validated against JSON Schema (data/schemas/)
 - Every compliance item MUST cite a specific EU AI Act Article (e.g., "Article 6")
-- Run: node scripts/validate-data.js to validate all data files
+- Run: node scripts/validate-data.mjs to validate all data files
 
 ARCHITECTURE RULES
 - Classification is deterministic: pure functions, no side effects
@@ -40,7 +40,7 @@ KEY COMMANDS
 - npm install - Install all dependencies
 - npx turbo build - Build all packages
 - npx turbo test - Run all tests
-- node scripts/validate-data.js - Validate compliance data
+- node scripts/validate-data.mjs - Validate compliance data
 
 IMPORTANT CONSTRAINTS
 - Do NOT provide legal advice in any generated content

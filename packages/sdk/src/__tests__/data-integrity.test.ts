@@ -7,7 +7,7 @@
  * article that doesn't exist, or an example uses an invalid category.
  */
 import { describe, it, expect } from 'vitest';
-import { classify, getChecklist, getTimeline, getArticles, getArticle, getArticlesByTier, getAnnexes, getAnnex, getExamples, validateExamples, getQuestions, RISK_TIERS, ANNEX_III_CATEGORIES, TEMPLATE_NAMES, generateTemplate, getPenalties, getPenaltiesByTier, calculatePenaltyExposure, analyzeGaps, generateReport } from '../index.js';
+import { classify, getChecklist, getTimeline, getArticles, getArticle, getAnnexes, getAnnex, getExamples, validateExamples, getQuestions, RISK_TIERS, ANNEX_III_CATEGORIES, TEMPLATE_NAMES, generateTemplate, getPenalties, getPenaltiesByTier, calculatePenaltyExposure, analyzeGaps, generateReport } from '../index.js';
 
 describe('cross-module data integrity', () => {
   // -----------------------------------------------------------------------

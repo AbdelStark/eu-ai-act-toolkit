@@ -33,7 +33,7 @@ packages/web/messages/ → Web dashboard translations (14 languages)
 npx turbo dev          # Start dev servers
 npx turbo test         # Run tests (vitest)
 npx turbo build        # Verify production builds
-node scripts/validate-data.js   # Validate data files after changes
+node scripts/validate-data.mjs   # Validate data files after changes
 ```
 
 Always run validation after editing anything in `data/` and run tests before submitting a PR.
@@ -57,14 +57,14 @@ Always run validation after editing anything in `data/` and run tests before sub
 1. **Cite the Article.** Every compliance item must reference a specific Article of the EU AI Act.
 2. **Plain language.** No legal jargon. Write so a developer can understand it.
 3. **Be actionable.** Tell the reader what to DO, not just what the law says.
-4. **Validate data.** Run `node scripts/validate-data.js` after any changes to `data/`.
+4. **Validate data.** Run `node scripts/validate-data.mjs` after any changes to `data/`.
 5. **Run tests.** Run `npx turbo test` before submitting.
 
 ## PR Process
 
 1. Fork the repo and create a branch (`git checkout -b my-change`)
 2. Make your changes
-3. Run `node scripts/validate-data.js` (if you touched data files)
+3. Run `node scripts/validate-data.mjs` (if you touched data files)
 4. Run `npx turbo test`
 5. Submit a PR with a clear description of what you changed and why
 

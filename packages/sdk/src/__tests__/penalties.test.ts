@@ -5,7 +5,6 @@ import {
   calculatePenaltyExposure,
   formatFineAmount,
 } from '../penalties/calculator.js';
-import type { RiskTier } from '../data/types.js';
 
 describe('getPenalties', () => {
   it('returns all penalty tiers sorted by severity', () => {

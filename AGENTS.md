@@ -17,7 +17,7 @@ npm install              # Install all deps from repo root
 npx turbo build          # Build all packages (SDK → CLI → Web)
 npx turbo test           # Run Vitest across all packages
 npx turbo dev            # Dev mode (web on localhost:3000)
-node scripts/validate-data.js   # Validate all data/ JSON against schemas (MUST pass before commit)
+node scripts/validate-data.mjs   # Validate all data/ JSON against schemas (MUST pass before commit)
 ```
 
 Build order matters: SDK must build before CLI and Web (configured in turbo.json).
@@ -136,7 +136,7 @@ Enforcement dates and milestones.
 ### Schema Validation
 Every data file has a matching schema in `data/schema/`. Run:
 ```bash
-node scripts/validate-data.js
+node scripts/validate-data.mjs
 ```
 This MUST pass. CI will reject invalid data.
 
@@ -148,7 +148,7 @@ This MUST pass. CI will reject invalid data.
 
 3. **SDK has zero runtime dependencies.** Check packages/sdk/package.json — only devDependencies allowed.
 
-4. **All data changes require schema validation.** Edit data/*.json → run `node scripts/validate-data.js` → fix errors before committing.
+4. **All data changes require schema validation.** Edit data/*.json → run `node scripts/validate-data.mjs` → fix errors before committing.
 
 5. **Web app is fully static.** No backend, no API routes, no server-side rendering at request time. All user state lives in localStorage.
 
@@ -172,7 +172,7 @@ This MUST pass. CI will reject invalid data.
 
 1. Edit `data/checklists.json` — add item to the appropriate tier's array
 2. Required fields: `id` (unique), `text`, `article` (integer), `category`
-3. Run `node scripts/validate-data.js`
+3. Run `node scripts/validate-data.mjs`
 4. Run `npx turbo build` (SDK must rebuild to pick up data change)
 5. Run `npx turbo test`
 
@@ -181,7 +181,7 @@ This MUST pass. CI will reject invalid data.
 1. Edit `data/questions.json` — add to the appropriate step's `questions` array
 2. Required fields: `id`, `text`, `article` (integer), `type` (`boolean`/`select`/`number`)
 3. Update `packages/sdk/src/classifier/engine.ts` to handle the new question's answer in classification logic
-4. Run `node scripts/validate-data.js`
+4. Run `node scripts/validate-data.mjs`
 5. Add/update tests, run `npx turbo test`
 6. Update `locales/en/classifier.json` if CLI displays question text from i18n
 7. Update `packages/web/messages/*.json` (all 14 languages) if the web app displays it
@@ -197,7 +197,7 @@ This MUST pass. CI will reject invalid data.
 ### Updating enforcement dates
 
 1. Edit `data/timeline.json` — update the relevant milestone's date
-2. Run `node scripts/validate-data.js`
+2. Run `node scripts/validate-data.mjs`
 3. Run `npx turbo build && npx turbo test`
 4. Check `packages/web/src/components/timeline/CountdownBanner.tsx` if display logic depends on specific dates
 
@@ -209,7 +209,7 @@ eu-ai-act-toolkit/
 ├── turbo.json                             # Turborepo pipeline config
 ├── tsconfig.base.json                     # Shared TS config (strict)
 ├── vitest.workspace.ts                    # Vitest workspace config
-├── scripts/validate-data.js               # Data schema validator
+├── scripts/validate-data.mjs               # Data schema validator
 ├── data/
 │   ├── schema/*.schema.json               # JSON Schema definitions
 │   ├── questions.json                     # Classification questions
