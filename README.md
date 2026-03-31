@@ -6,7 +6,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/AbdelStark/eu-ai-act-toolkit/actions"><img src="https://img.shields.io/github/actions/workflow/status/AbdelStark/eu-ai-act-toolkit/ci.yml?branch=main&style=flat-square" alt="Build"></a>
+  <a href="https://github.com/AbdelStark/eu-ai-act-toolkit/actions"><img src="https://img.shields.io/github/actions/workflow/status/AbdelStark/eu-ai-act-toolkit/ci.yml?branch=main&style=flat-square" alt="CI"></a>
   <a href="https://www.npmjs.com/package/@eu-ai-act/sdk"><img src="https://img.shields.io/npm/v/@eu-ai-act/sdk?style=flat-square&label=sdk" alt="SDK version"></a>
   <a href="https://github.com/AbdelStark/eu-ai-act-toolkit/blob/main/LICENSE"><img src="https://img.shields.io/github/license/AbdelStark/eu-ai-act-toolkit?style=flat-square" alt="License"></a>
 </p>
@@ -51,7 +51,13 @@ npm install @eu-ai-act/sdk
 import { classify, getChecklist, getTimeline } from '@eu-ai-act/sdk';
 
 const result = classify({
+  subliminalManipulation: false,
+  exploitsVulnerabilities: false,
   socialScoring: false,
+  predictivePolicing: false,
+  untargetedFacialScraping: false,
+  emotionInferenceWorkplace: false,
+  biometricCategorization: false,
   realtimeBiometrics: false,
   isGPAI: true,
   gpaiFlops: 1e24,
@@ -237,11 +243,10 @@ All CLI commands support `--json` for machine-readable output that agents can pa
 
 | Document | Description |
 |----------|-------------|
-| [Architecture](docs/architecture.md) | Monorepo structure, data flow, build pipeline |
-| [Data Model](docs/data-model.md) | JSON data format, risk tiers, schema validation |
-| [SDK Guide](docs/sdk-guide.md) | Integration guide for `@eu-ai-act/sdk` |
-| [CLI Guide](docs/cli-guide.md) | Usage guide for the `eu-ai-act` CLI |
-| [AGENTS.md](AGENTS.md) | Guide for AI coding agents working on this codebase |
+| [AGENTS.md](AGENTS.md) | Architecture, data model, conventions — guide for AI coding agents |
+| [SDK README](packages/sdk/README.md) | Integration guide for `@eu-ai-act/sdk` |
+| [CLI README](packages/cli/README.md) | Usage guide for the `eu-ai-act` CLI |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute, development setup |
 
 ## Contributing
 

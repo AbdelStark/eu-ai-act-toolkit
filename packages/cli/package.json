@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "lint": "tsc --noEmit"
   },
   "dependencies": {

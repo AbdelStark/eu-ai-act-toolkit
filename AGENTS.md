@@ -62,7 +62,7 @@ data/*.json → SDK (tsup bundles at build time) → CLI / Web consume SDK expor
 
 ## SDK Exports
 
-Key functions from `@eu-ai-act-toolkit/sdk`:
+Key functions from `@eu-ai-act/sdk`:
 
 | Function | Purpose |
 |---|---|

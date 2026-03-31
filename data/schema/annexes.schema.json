@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Annex III High-Risk Categories",
+  "type": "object",
+  "required": ["annexIII"],
+  "properties": {
+    "annexIII": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "id", "title", "items"],
+        "properties": {
+          "category": { "type": "integer", "minimum": 1, "maximum": 8 },
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "items": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
