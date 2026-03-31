@@ -19,11 +19,17 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/AbdelStark/eu-ai-act-toolkit",
+    "url": "git+https://github.com/AbdelStark/eu-ai-act-toolkit.git",
     "directory": "packages/sdk"
   },
   "homepage": "https://github.com/AbdelStark/eu-ai-act-toolkit#readme",
-  "keywords": ["eu-ai-act", "ai-regulation", "compliance", "risk-classification", "regulation-2024-1689", "gpai", "high-risk-ai"],
+  "keywords": [
+    "eu-ai-act",
+    "ai-regulation",
+    "compliance",
+    "risk-classification",
+    "2024-1689"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -33,13 +39,6 @@
     "test": "vitest run",
     "lint": "tsc --noEmit"
   },
-  "keywords": [
-    "eu-ai-act",
-    "ai-regulation",
-    "compliance",
-    "risk-classification",
-    "2024-1689"
-  ],
   "devDependencies": {
     "tsup": "^8.0.0",
     "vitest": "^2.0.0"

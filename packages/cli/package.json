@@ -1,22 +1,31 @@
 {
-  "name": "eu-ai-act",
+  "name": "@eu-ai-act/cli",
   "version": "0.1.0",
   "description": "CLI tool for EU AI Act compliance — classify AI systems, track checklists, generate documentation. This tool does not constitute legal advice.",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "eu-ai-act": "./dist/index.js"
+    "eu-ai-act": "dist/index.js"
   },
   "files": [
     "dist"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/AbdelStark/eu-ai-act-toolkit",
+    "url": "git+https://github.com/AbdelStark/eu-ai-act-toolkit.git",
     "directory": "packages/cli"
   },
   "homepage": "https://github.com/AbdelStark/eu-ai-act-toolkit#readme",
-  "keywords": ["eu-ai-act", "ai-regulation", "compliance", "cli", "regulation-2024-1689"],
+  "keywords": [
+    "eu-ai-act",
+    "ai-regulation",
+    "compliance",
+    "cli",
+    "regulation-2024-1689"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
