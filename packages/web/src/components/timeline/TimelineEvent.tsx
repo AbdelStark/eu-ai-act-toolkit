@@ -8,9 +8,9 @@ interface TimelineEventProps {
 }
 
 const statusStyles: Record<TimelineEventType['status'], string> = {
-  past: 'border-green-200 bg-green-50/80 shadow-layered-sm',
-  upcoming: 'border-amber-200 bg-amber-50/80 shadow-layered ring-1 ring-amber-200/50',
-  future: 'border-slate-200 bg-slate-50 shadow-layered-sm',
+  past: 'border-green-200 bg-green-50/80 shadow-soft-sm',
+  upcoming: 'border-amber-200 bg-amber-50/80 shadow-soft ring-1 ring-amber-200/50',
+  future: 'border-slate-200 bg-slate-50 shadow-soft-sm',
 };
 
 const statusBadgeStyles: Record<TimelineEventType['status'], string> = {
@@ -40,7 +40,7 @@ export function TimelineEvent({ event }: TimelineEventProps) {
         : 'Today';
 
   return (
-    <div className={`rounded-xl border p-5 transition-all duration-150 hover:shadow-layered ${statusStyles[event.status]}`}>
+    <div className={`rounded-2xl border p-5 transition-all duration-150 hover:shadow-soft ${statusStyles[event.status]}`}>
       <div className="mb-3 flex items-center justify-between">
         <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${statusBadgeStyles[event.status]}`}>
           {statusLabels[event.status]}

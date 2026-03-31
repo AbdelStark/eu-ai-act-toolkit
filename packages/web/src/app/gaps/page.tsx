@@ -68,7 +68,7 @@ export default function GapsPage() {
   if (!analysis) {
     return (
       <Layout>
-        <div className="container-page py-12">
+        <div className="container-page py-12 sm:py-16">
           <div className="empty-state">
             <p className="empty-state-title">No gap analysis available for this tier.</p>
           </div>
@@ -79,9 +79,12 @@ export default function GapsPage() {
 
   return (
     <Layout>
-      <div className="container-page py-12">
+      <div className="container-page py-12 sm:py-16">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl font-bold text-navy sm:text-4xl">{t('title')}</h1>
+          <div className="page-header pb-8 pt-0">
+            <h1>{t('title')}</h1>
+            <div className="mt-2 h-[2px] w-12 bg-gradient-to-r from-eu-gold-400 to-eu-gold-200" />
+          </div>
           <p className="mt-2 text-lg text-slate-500">{t('subtitle')}</p>
 
           {/* Controls */}
@@ -112,19 +115,19 @@ export default function GapsPage() {
 
           {/* Dashboard */}
           <div className="mt-8 grid gap-4 sm:grid-cols-4">
-            <div className="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-layered-sm">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 text-center shadow-soft">
               <p className="text-3xl font-bold text-navy">{analysis.readinessPercent}%</p>
               <p className="mt-1 text-sm text-slate-500">Readiness</p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-layered-sm">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 text-center shadow-soft">
               <p className="text-3xl font-bold text-red-600">{analysis.criticalGaps}</p>
               <p className="mt-1 text-sm text-slate-500">Critical Gaps</p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-layered-sm">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 text-center shadow-soft">
               <p className="text-3xl font-bold text-orange-600">{analysis.outstandingGaps}</p>
               <p className="mt-1 text-sm text-slate-500">Outstanding</p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-layered-sm">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 text-center shadow-soft">
               <p className="text-3xl font-bold text-navy">{formatFineAmount(analysis.maxFineExposureEur)}</p>
               <p className="mt-1 text-sm text-slate-500">Max Fine Exposure</p>
             </div>
@@ -147,7 +150,7 @@ export default function GapsPage() {
             <h2 className="text-xl font-bold text-navy">{t('categories.title')}</h2>
             <div className="mt-4 space-y-3">
               {analysis.categorySummary.map((cat: CategoryGapSummary) => (
-                <div key={cat.category} className="rounded-xl border border-slate-200 bg-white p-4 shadow-layered-sm">
+                <div key={cat.category} className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-soft">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-sm font-semibold text-navy">{cat.category}</h3>
@@ -179,7 +182,7 @@ export default function GapsPage() {
               <h2 className="text-xl font-bold text-navy">{t('recommendations.title')}</h2>
               <ol className="mt-4 space-y-2">
                 {analysis.recommendations.map((rec, i) => (
-                  <li key={i} className="flex items-start gap-3 rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-700 shadow-layered-sm">
+                  <li key={i} className="flex items-start gap-3 rounded-2xl border border-slate-200/80 bg-white p-4 text-sm text-slate-700 shadow-soft">
                     <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-eu-blue text-xs font-bold text-white">
                       {i + 1}
                     </span>
@@ -195,7 +198,7 @@ export default function GapsPage() {
             <h2 className="text-xl font-bold text-navy">{t('topGaps.title')}</h2>
             <div className="mt-4 space-y-3">
               {analysis.gaps.slice(0, 10).map((gap: ComplianceGap, i: number) => (
-                <div key={i} className="rounded-xl border border-slate-200 bg-white p-4 shadow-layered-sm">
+                <div key={i} className="rounded-2xl border border-slate-200/80 bg-white p-4 shadow-soft">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1">
                       <p className="text-sm font-medium text-navy">{gap.item.description}</p>

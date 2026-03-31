@@ -45,13 +45,16 @@ export default function PenaltiesPage() {
 
   return (
     <Layout>
-      <div className="container-page py-12">
+      <div className="container-page py-12 sm:py-16">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl font-bold text-navy sm:text-4xl">{t('title')}</h1>
+          <div className="page-header pb-8 pt-0">
+            <h1>{t('title')}</h1>
+            <div className="mt-2 h-[2px] w-12 bg-gradient-to-r from-eu-gold-400 to-eu-gold-200" />
+          </div>
           <p className="mt-2 text-lg text-slate-500">{t('subtitle')}</p>
 
           {/* Penalty calculator */}
-          <div className="mt-10 rounded-xl border border-slate-200 bg-white p-6 shadow-layered-sm">
+          <div className="mt-10 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-soft">
             <h2 className="text-xl font-bold text-navy">{t('calculator.title')}</h2>
             <p className="mt-1 text-sm text-slate-500">{t('calculator.description')}</p>
 
@@ -136,7 +139,7 @@ export default function PenaltiesPage() {
               {allPenalties.map((penalty: PenaltySummary) => (
                 <div
                   key={penalty.id}
-                  className="rounded-xl border border-slate-200 bg-white p-5 shadow-layered-sm"
+                  className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-soft"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">

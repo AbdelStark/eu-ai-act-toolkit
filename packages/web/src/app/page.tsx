@@ -10,83 +10,56 @@ const features = [
   {
     href: '/classify',
     labelKey: 'classifier' as const,
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714a2.25 2.25 0 0 0 .659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 0 1-1.591.659H9.061a2.25 2.25 0 0 1-1.591-.659L5 14.5m14 0V17a2.25 2.25 0 0 1-2.25 2.25H7.25A2.25 2.25 0 0 1 5 17v-2.5" />
-      </svg>
-    ),
+    accent: 'from-eu-blue to-eu-blue-300',
+    size: 'large' as const,
   },
   {
     href: '/checklist/high-risk',
     labelKey: 'checklists' as const,
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-    ),
+    accent: 'from-emerald-500 to-teal-400',
+    size: 'medium' as const,
   },
   {
     href: '/timeline',
     labelKey: 'timeline' as const,
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
-      </svg>
-    ),
+    accent: 'from-amber-500 to-orange-400',
+    size: 'medium' as const,
   },
   {
     href: '/templates',
     labelKey: 'templates' as const,
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-      </svg>
-    ),
+    accent: 'from-violet-500 to-purple-400',
+    size: 'medium' as const,
   },
   {
     href: '/examples',
     labelKey: 'examples' as const,
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
-      </svg>
-    ),
+    accent: 'from-rose-500 to-pink-400',
+    size: 'medium' as const,
   },
   {
     href: '/penalties',
     labelKey: 'penalties' as const,
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-      </svg>
-    ),
+    accent: 'from-red-500 to-orange-400',
+    size: 'small' as const,
   },
   {
     href: '/gaps',
     labelKey: 'gaps' as const,
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5m.75-9 3-3 2.148 2.148A12.061 12.061 0 0 1 16.5 7.605" />
-      </svg>
-    ),
+    accent: 'from-cyan-500 to-blue-400',
+    size: 'small' as const,
   },
   {
     href: '/standards',
     labelKey: 'standards' as const,
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-      </svg>
-    ),
+    accent: 'from-slate-500 to-slate-400',
+    size: 'small' as const,
   },
   {
     href: '/reports',
     labelKey: 'reports' as const,
-    icon: (
-      <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-      </svg>
-    ),
+    accent: 'from-indigo-500 to-blue-400',
+    size: 'small' as const,
   },
 ] as const;
 
@@ -108,103 +81,182 @@ export default function HomePage() {
     <Layout>
       {/* Hero */}
       <section className="relative overflow-hidden bg-navy">
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-navy via-navy-800 to-eu-blue-800 opacity-90" />
-        {/* Grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #f0f1f5 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        {/* Subtle grid */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
+            backgroundSize: '60px 60px',
+          }}
+        />
+        {/* Radial glow */}
+        <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[600px] w-[800px] rounded-full bg-eu-blue/8 blur-[120px]" />
 
-        <div className="container-page relative py-16 sm:py-24 lg:py-32">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-sm font-medium backdrop-blur-sm" style={{ color: '#d9dce4' }}>
-              <span className="inline-block h-2 w-2 rounded-full bg-green-400 animate-pulse" />
-              Regulation (EU) 2024/1689
+        <div className="container-page relative">
+          <div className="pb-16 pt-20 sm:pb-24 sm:pt-28 lg:pb-32 lg:pt-36">
+            {/* Reg badge */}
+            <div className="mb-8 animate-fade-in">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-[13px] font-medium text-slate-300 backdrop-blur-sm">
+                <span className="h-1.5 w-1.5 rounded-full bg-eu-gold-400" />
+                Regulation (EU) 2024/1689
+              </span>
             </div>
-            <h1 className="font-bold tracking-tight" style={{ color: '#f0f1f5' }}>
-              {t('hero.title')}
-            </h1>
-            <p className="mt-5 text-lg sm:text-xl" style={{ color: '#b3b8c9' }}>
-              {t('hero.subtitle')}
-            </p>
-            <p className="mt-4 text-base leading-relaxed" style={{ color: '#8d94ae' }}>
-              {t('hero.description')}
-            </p>
-            <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+
+            {/* Headline — left-aligned, editorial */}
+            <div className="max-w-3xl">
+              <h1 className="animate-fade-in-up font-display text-white" style={{ fontSize: 'clamp(2.25rem, 1.5rem + 3.5vw, 4.25rem)', lineHeight: 1.05, letterSpacing: '-0.03em' }}>
+                {t('hero.title')}
+              </h1>
+              <div className="mt-2 h-[2px] w-16 bg-gradient-to-r from-eu-gold-400 to-eu-gold-200 animate-fade-in animation-delay-200" />
+              <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-400 animate-fade-in animation-delay-200">
+                {t('hero.subtitle')}
+              </p>
+            </div>
+
+            {/* CTAs */}
+            <div className="mt-10 flex flex-wrap items-center gap-4 animate-fade-in-up animation-delay-300">
               <Link
                 href="/classify"
-                className="group inline-flex items-center gap-2 rounded-xl bg-eu-blue px-7 py-3.5 text-base font-semibold shadow-layered-lg transition-all duration-150 hover:bg-eu-blue/90 hover:shadow-layered-xl hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-eu-blue-200 focus:ring-offset-2 focus:ring-offset-navy"
-                style={{ color: '#f0f1f5' }}
+                className="group inline-flex items-center gap-2.5 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-navy shadow-soft-lg transition-all duration-200 hover:shadow-soft-xl hover:-translate-y-0.5"
               >
                 {t('hero.ctaClassify')}
-                <svg className="h-4 w-4 transition-transform duration-150 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <svg className="h-4 w-4 text-slate-400 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
                 </svg>
               </Link>
               <Link
                 href="/timeline"
-                className="inline-flex items-center rounded-xl border border-white/30 px-7 py-3.5 text-base font-semibold transition-all duration-150 hover:bg-white/10 hover:border-white/50 focus:outline-none focus:ring-2 focus:ring-eu-blue-200 focus:ring-offset-2 focus:ring-offset-navy"
-                style={{ color: '#f0f1f5' }}
+                className="inline-flex items-center rounded-xl border border-white/15 px-6 py-3 text-sm font-medium text-slate-300 transition-all duration-200 hover:bg-white/[0.06] hover:text-white hover:border-white/25"
               >
                 {t('hero.ctaLearnMore')}
               </Link>
+            </div>
+
+            {/* Stats — inline, understated */}
+            <div className="mt-16 flex flex-wrap items-center gap-8 border-t border-white/[0.06] pt-8 animate-fade-in animation-delay-400">
+              {stats.map((stat) => (
+                <div key={stat.labelKey} className="flex items-baseline gap-2">
+                  <span className="text-2xl font-bold tabular-nums text-white">{stat.value}</span>
+                  <span className="text-sm text-slate-500">{tStats(stat.labelKey)}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats bar */}
-      <section className="border-b border-slate-200 bg-slate-50">
-        <div className="container-page py-8">
-          <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
-            {stats.map((stat) => (
-              <div key={stat.labelKey} className="text-center">
-                <p className="text-3xl font-bold tabular-nums text-navy">{stat.value}</p>
-                <p className="mt-1 text-sm font-medium text-slate-500">{tStats(stat.labelKey)}</p>
+      {/* Countdown */}
+      <CountdownBanner event={nextEvent} />
+
+      {/* Features — bento grid */}
+      <section className="py-24 sm:py-32">
+        <div className="container-page">
+          <div className="max-w-xl">
+            <h2 className="font-display text-navy">
+              {tFeatures('title')}
+            </h2>
+            <div className="mt-2 h-[2px] w-12 bg-gradient-to-r from-eu-gold-400 to-eu-gold-200" />
+            <p className="mt-5 text-base leading-relaxed text-slate-500">
+              Everything you need to navigate EU AI Act compliance — from initial classification through full documentation.
+            </p>
+          </div>
+
+          {/* Bento layout: 2 rows with asymmetric sizing */}
+          <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {/* Primary feature — spans 2 cols on lg */}
+            <Link
+              href={features[0].href}
+              className="group relative overflow-hidden rounded-2xl bg-navy p-8 sm:p-10 lg:col-span-2 lg:row-span-2 transition-all duration-300 hover:shadow-soft-xl"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-eu-blue/20 via-transparent to-transparent" />
+              <div className="absolute right-0 top-0 h-64 w-64 rounded-full bg-eu-blue/10 blur-[80px] transition-all duration-500 group-hover:bg-eu-blue/15" />
+              <div className="relative">
+                <span className="chip-blue mb-4 inline-flex text-white/80 border-white/10 bg-white/10">{tFeatures('classifier.title')}</span>
+                <h3 className="mt-2 text-display-sm font-display text-white">
+                  {t('hero.ctaClassify')}
+                </h3>
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-400">
+                  {tFeatures('classifier.description')}
+                </p>
+                <div className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-eu-blue-300 transition-all duration-200 group-hover:gap-3">
+                  Start classification
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
               </div>
+            </Link>
+
+            {/* Medium features */}
+            {features.slice(1, 5).map((feature) => (
+              <Link
+                key={feature.href}
+                href={feature.href}
+                className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-7 transition-all duration-300 hover:border-slate-300 hover:shadow-soft-lg hover:-translate-y-0.5"
+              >
+                <div className={`absolute right-0 top-0 h-24 w-24 rounded-full bg-gradient-to-br ${feature.accent} opacity-[0.06] blur-[40px] transition-opacity duration-300 group-hover:opacity-[0.12]`} />
+                <div className="relative">
+                  <h3 className="text-base font-semibold text-navy group-hover:text-eu-blue transition-colors duration-150">
+                    {tFeatures(`${feature.labelKey}.title`)}
+                  </h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-500">
+                    {tFeatures(`${feature.labelKey}.description`)}
+                  </p>
+                  <div className="mt-5 flex items-center gap-1.5 text-[13px] font-medium text-slate-400 transition-colors duration-150 group-hover:text-eu-blue">
+                    Explore
+                    <svg className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                    </svg>
+                  </div>
+                </div>
+              </Link>
+            ))}
+
+            {/* Small features — bottom row */}
+            {features.slice(5).map((feature) => (
+              <Link
+                key={feature.href}
+                href={feature.href}
+                className="group flex items-center gap-4 rounded-xl border border-slate-200/80 bg-white px-5 py-4 transition-all duration-200 hover:border-slate-300 hover:shadow-soft"
+              >
+                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${feature.accent} opacity-80`}>
+                  <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                  </svg>
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-sm font-semibold text-navy group-hover:text-eu-blue transition-colors">
+                    {tFeatures(`${feature.labelKey}.title`)}
+                  </h3>
+                  <p className="mt-0.5 text-xs text-slate-400 truncate">
+                    {tFeatures(`${feature.labelKey}.description`)}
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Countdown Banner */}
-      <CountdownBanner event={nextEvent} />
-
-      {/* Features */}
-      <section className="py-20 sm:py-28">
-        <div className="container-page">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-bold text-navy">
-              {tFeatures('title')}
-            </h2>
-            <p className="mt-4 text-lg text-slate-500">
-              Everything you need to navigate EU AI Act compliance
-            </p>
-          </div>
-          <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, index) => (
-              <Link
-                key={feature.href}
-                href={feature.href}
-                className={`group relative rounded-xl border border-slate-200 bg-slate-50 p-8 shadow-layered-sm transition-all duration-300 hover:border-eu-blue/30 hover:shadow-layered-lg hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
-                  index >= 3 ? 'sm:col-span-1 lg:col-span-1' : ''
-                }`}
-              >
-                <div className="inline-flex rounded-xl bg-eu-blue/5 p-3 text-eu-blue transition-colors duration-150 group-hover:bg-eu-blue/10">
-                  {feature.icon}
-                </div>
-                <h3 className="mt-5 text-lg font-semibold text-navy group-hover:text-eu-blue transition-colors duration-150">
-                  {tFeatures(`${feature.labelKey}.title`)}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-500">
-                  {tFeatures(`${feature.labelKey}.description`)}
-                </p>
-                <div className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-eu-blue opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-                  Explore
-                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-                  </svg>
-                </div>
-              </Link>
-            ))}
+      {/* Open source callout */}
+      <section className="border-t border-slate-200">
+        <div className="container-page py-16 sm:py-20">
+          <div className="flex flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h3 className="text-lg font-semibold text-navy">Open source & community-driven</h3>
+              <p className="mt-1.5 text-sm text-slate-500 max-w-lg">
+                Built in the open. Contribute, report issues, or use the SDK in your own compliance tools.
+              </p>
+            </div>
+            <a
+              href="https://github.com/AbdelStark/eu-ai-act-toolkit"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-navy shadow-soft-sm transition-all duration-200 hover:shadow-soft hover:border-slate-300 hover:-translate-y-0.5 shrink-0"
+            >
+              <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
+              View on GitHub
+            </a>
           </div>
         </div>
       </section>

@@ -61,22 +61,25 @@ export default function StandardsPage() {
 
   return (
     <Layout>
-      <div className="container-page py-12">
+      <div className="container-page py-12 sm:py-16">
         <div className="mx-auto max-w-5xl">
-          <h1 className="text-3xl font-bold text-navy sm:text-4xl">{t('title')}</h1>
+          <div className="page-header pb-8 pt-0">
+            <h1>{t('title')}</h1>
+            <div className="mt-2 h-[2px] w-12 bg-gradient-to-r from-eu-gold-400 to-eu-gold-200" />
+          </div>
           <p className="mt-2 text-lg text-slate-500">{t('subtitle')}</p>
 
           {/* Stats */}
           <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-layered-sm">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 text-center shadow-soft">
               <p className="text-3xl font-bold text-navy">{allStandards.length}</p>
               <p className="mt-1 text-sm text-slate-500">Total Standards</p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-layered-sm">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 text-center shadow-soft">
               <p className="text-3xl font-bold text-green-600">{publishedCount}</p>
               <p className="mt-1 text-sm text-slate-500">Published</p>
             </div>
-            <div className="rounded-xl border border-slate-200 bg-white p-5 text-center shadow-layered-sm">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-5 text-center shadow-soft">
               <p className="text-3xl font-bold text-yellow-600">{inDevCount}</p>
               <p className="mt-1 text-sm text-slate-500">In Development</p>
             </div>
@@ -149,7 +152,7 @@ export default function StandardsPage() {
                 <div className="text-center py-10 text-slate-500">No standards match your filters.</div>
               )}
               {filteredStandards.map((standard: Standard) => (
-                <div key={standard.id} className="rounded-xl border border-slate-200 bg-white p-5 shadow-layered-sm">
+                <div key={standard.id} className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-soft">
                   <div className="flex items-start justify-between gap-3">
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
@@ -201,7 +204,7 @@ export default function StandardsPage() {
           {viewMode === 'mapping' && (
             <div className="mt-6 space-y-6">
               {mapping.map((m: StandardsMapping) => (
-                <div key={m.category} className="rounded-xl border border-slate-200 bg-white shadow-layered-sm overflow-hidden">
+                <div key={m.category} className="rounded-2xl border border-slate-200/80 bg-white shadow-soft overflow-hidden">
                   <div className="bg-slate-50 px-5 py-3 border-b border-slate-200">
                     <div className="flex items-center justify-between">
                       <h3 className="text-base font-semibold text-navy">{m.category}</h3>

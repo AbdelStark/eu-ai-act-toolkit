@@ -15,7 +15,6 @@ export default function TimelinePage() {
     events.find((e) => e.status === 'future') ??
     null;
 
-  // Calculate progress through the overall timeline (2024-2027)
   const timelineProgress = useMemo(() => {
     const start = new Date('2024-08-01').getTime();
     const end = new Date('2027-08-02').getTime();
@@ -36,39 +35,40 @@ export default function TimelinePage() {
     <Layout>
       <CountdownBanner event={nextEvent} />
 
-      <div className="container-page py-12">
+      <div className="container-page py-12 sm:py-16">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl font-bold text-navy sm:text-4xl">{t('title')}</h1>
-          <p className="mt-2 text-lg text-slate-500">{t('subtitle')}</p>
+          <div className="page-header pb-8 pt-0">
+            <h1>{t('title')}</h1>
+            <div className="mt-2 h-[2px] w-12 bg-gradient-to-r from-eu-gold-400 to-eu-gold-200" />
+            <p>{t('subtitle')}</p>
+          </div>
 
-          {/* Horizontal progress bar */}
-          <div className="mt-10 rounded-xl border border-slate-200 bg-slate-50 p-6 shadow-layered-sm">
+          {/* Progress bar */}
+          <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-soft">
             <div className="mb-3 flex items-center justify-between">
               <h3 className="text-sm font-semibold text-navy">Implementation Progress</h3>
-              <span className="text-sm font-bold text-eu-blue">{timelineProgress}%</span>
+              <span className="text-sm font-bold tabular-nums text-eu-blue">{timelineProgress}%</span>
             </div>
             <div className="relative">
-              <div className="h-3 w-full overflow-hidden rounded-full bg-gray-100">
+              <div className="h-2.5 w-full overflow-hidden rounded-full bg-slate-100">
                 <div
                   className="h-full rounded-full bg-gradient-to-r from-eu-blue to-eu-blue-400 transition-all duration-700"
                   style={{ width: `${timelineProgress}%` }}
                 />
               </div>
-              {/* Milestone markers */}
-              <div className="relative mt-3 hidden sm:block">
+              <div className="relative mt-4 hidden sm:block">
                 {milestones.map((m) => (
                   <div
                     key={m.label}
                     className="absolute -translate-x-1/2 text-center"
                     style={{ left: `${m.position}%` }}
                   >
-                    <div className={`mx-auto mb-1 h-2 w-0.5 ${m.position <= timelineProgress ? 'bg-eu-blue' : 'bg-gray-300'}`} />
+                    <div className={`mx-auto mb-1 h-2 w-0.5 ${m.position <= timelineProgress ? 'bg-eu-blue' : 'bg-slate-200'}`} />
                     <p className="text-xs font-medium text-slate-600 whitespace-nowrap">{m.label}</p>
-                    <p className="text-xs text-slate-400">{m.year}</p>
+                    <p className="text-[11px] text-slate-400">{m.year}</p>
                   </div>
                 ))}
               </div>
-              {/* Mobile milestone list */}
               <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 sm:hidden">
                 {milestones.map((m) => (
                   <span key={m.label} className={`text-xs ${m.position <= timelineProgress ? 'text-eu-blue font-medium' : 'text-slate-400'}`}>

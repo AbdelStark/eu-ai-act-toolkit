@@ -19,9 +19,12 @@ export default function ExamplesIndexPage() {
 
   return (
     <Layout>
-      <div className="container-page py-12">
+      <div className="container-page py-12 sm:py-16">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl font-bold text-navy sm:text-4xl">{t('title')}</h1>
+          <div className="page-header pb-8 pt-0">
+            <h1>{t('title')}</h1>
+            <div className="mt-2 h-[2px] w-12 bg-gradient-to-r from-eu-gold-400 to-eu-gold-200" />
+          </div>
           <p className="mt-2 text-lg text-slate-500">{t('subtitle')}</p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -29,7 +32,7 @@ export default function ExamplesIndexPage() {
               <Link
                 key={example.slug}
                 href={`/examples/${example.slug}`}
-                className="group rounded-xl border border-slate-200 bg-white p-6 shadow-layered-sm transition-all duration-300 hover:border-eu-blue/30 hover:shadow-layered-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
+                className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-soft transition-all duration-300 hover:border-slate-300 hover:shadow-soft-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
               >
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="text-lg font-semibold text-navy group-hover:text-eu-blue transition-colors duration-150">

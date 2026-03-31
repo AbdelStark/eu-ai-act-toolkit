@@ -106,7 +106,7 @@ export default function ChecklistPage() {
         <div className="container-page py-12">
           <div className="mx-auto max-w-3xl space-y-6">
             {/* Skeleton: score card */}
-            <div className="rounded-xl border border-slate-200 bg-slate-50 p-6">
+            <div className="rounded-2xl border border-slate-200/80 bg-white p-6 shadow-soft">
               <div className="flex items-center gap-6">
                 <div className="skeleton-circle h-20 w-20 flex-shrink-0" />
                 <div className="flex-1 space-y-3">
@@ -124,7 +124,7 @@ export default function ChecklistPage() {
             </div>
             {/* Skeleton: checklist items */}
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+              <div key={i} className="rounded-2xl border border-slate-200/80 bg-white p-4">
                 <div className="flex items-start gap-3">
                   <div className="skeleton h-5 w-5 rounded-lg flex-shrink-0 mt-0.5" />
                   <div className="flex-1 space-y-2">
@@ -142,7 +142,7 @@ export default function ChecklistPage() {
 
   return (
     <Layout>
-      <div className="container-page py-12">
+      <div className="container-page py-12 sm:py-16">
         <div className="mx-auto max-w-3xl">
           {/* Tier selector */}
           <div className="mb-8 flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:flex-wrap sm:overflow-x-visible sm:pb-0">
@@ -153,8 +153,8 @@ export default function ChecklistPage() {
                 onClick={() => router.push(`/checklist/${t.value}`)}
                 className={`rounded-lg px-4 py-2.5 text-sm font-medium transition-all whitespace-nowrap min-h-[44px] focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2 ${
                   tier === t.value
-                    ? 'bg-navy text-white shadow-sm'
-                    : 'bg-white text-slate-600 border border-gray-200 hover:border-gray-300 hover:bg-gray-50'
+                    ? 'bg-navy text-white shadow-soft-sm'
+                    : 'bg-white text-slate-500 border border-slate-200 hover:border-slate-300 hover:bg-slate-50'
                 }`}
               >
                 {t.label}
@@ -165,7 +165,7 @@ export default function ChecklistPage() {
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <div className="flex items-center gap-3">
-                <h1 className="text-3xl font-bold text-navy">{t('title')}</h1>
+                <h1 className="text-display font-display text-navy">{t('title')}</h1>
                 <RiskBadge tier={tier as RiskTier} />
               </div>
               <p className="mt-2 text-slate-500">{t('subtitle')}</p>
@@ -174,7 +174,7 @@ export default function ChecklistPage() {
               <button
                 type="button"
                 onClick={exportState}
-                className="inline-flex items-center gap-2 rounded-lg bg-eu-blue px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all hover:bg-eu-blue/90 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
+                className="inline-flex items-center gap-2 rounded-xl bg-navy px-4 py-2.5 text-sm font-medium text-white shadow-soft-sm transition-all hover:bg-navy/90 hover:shadow-soft focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -184,7 +184,7 @@ export default function ChecklistPage() {
               <button
                 type="button"
                 onClick={handleImport}
-                className="inline-flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-navy transition-colors hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
+                className="inline-flex items-center gap-2 rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-medium text-navy transition-colors hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
               >
                 <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />

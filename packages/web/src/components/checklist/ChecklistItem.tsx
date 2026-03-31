@@ -34,7 +34,7 @@ export function ChecklistItem({
     <div className={`rounded-xl border p-4 transition-all duration-150 ${
       isChecked
         ? 'border-green-200 bg-green-50/50'
-        : 'border-slate-200 bg-slate-50 hover:border-slate-300 hover:shadow-layered-sm'
+        : 'border-slate-200 bg-white hover:border-slate-300 hover:shadow-soft-sm'
     }`}>
       <div className="flex items-start gap-3">
         <div className={justChecked ? 'animate-check-bounce' : ''}>

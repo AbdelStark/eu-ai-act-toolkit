@@ -92,13 +92,16 @@ export default function ReportsPage() {
 
   return (
     <Layout>
-      <div className="container-page py-12">
+      <div className="container-page py-12 sm:py-16">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl font-bold text-navy sm:text-4xl">{t('title')}</h1>
+          <div className="page-header pb-8 pt-0">
+            <h1>{t('title')}</h1>
+            <div className="mt-2 h-[2px] w-12 bg-gradient-to-r from-eu-gold-400 to-eu-gold-200" />
+          </div>
           <p className="mt-2 text-lg text-slate-500">{t('subtitle')}</p>
 
           {/* Form */}
-          <div className="mt-10 rounded-xl border border-slate-200 bg-white p-6 shadow-layered-sm">
+          <div className="mt-10 rounded-2xl border border-slate-200/80 bg-white p-6 shadow-soft">
             <h2 className="text-xl font-bold text-navy">{t('form.title')}</h2>
             <p className="mt-1 text-sm text-slate-500">{t('form.description')}</p>
 
@@ -184,7 +187,7 @@ export default function ReportsPage() {
             <div className="mt-6">
               <button
                 onClick={handleGenerate}
-                className="inline-flex items-center gap-2 rounded-xl bg-eu-blue px-6 py-3 text-sm font-semibold text-white shadow-layered-sm transition-all duration-150 hover:bg-eu-blue/90 hover:shadow-layered-lg focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
+                className="inline-flex items-center gap-2 rounded-xl bg-eu-blue px-6 py-3 text-sm font-semibold text-white shadow-soft transition-all duration-150 hover:bg-eu-blue/90 hover:shadow-soft-lg focus:outline-none focus:ring-2 focus:ring-eu-blue focus:ring-offset-2"
               >
                 <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
@@ -220,7 +223,7 @@ export default function ReportsPage() {
                   </button>
                 </div>
               </div>
-              <div className="mt-4 rounded-xl border border-slate-200 bg-white shadow-layered-sm overflow-hidden">
+              <div className="mt-4 rounded-2xl border border-slate-200/80 bg-white shadow-soft overflow-hidden">
                 <pre className="max-h-[600px] overflow-auto p-6 text-sm text-slate-700 whitespace-pre-wrap font-mono leading-relaxed">
                   {report}
                 </pre>

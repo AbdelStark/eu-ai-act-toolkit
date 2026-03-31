@@ -36,13 +36,16 @@ export default function ArticlesPage() {
 
   return (
     <Layout>
-      <div className="container-page py-12">
+      <div className="container-page py-12 sm:py-16">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-3xl font-bold text-navy sm:text-4xl">{t('title')}</h1>
+          <div className="page-header pb-8 pt-0">
+            <h1>{t('title')}</h1>
+            <div className="mt-2 h-[2px] w-12 bg-gradient-to-r from-eu-gold-400 to-eu-gold-200" />
+          </div>
           <p className="mt-2 text-lg text-slate-500">{t('subtitle')}</p>
 
           {/* Stats */}
-          <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-eu-blue/5 px-3 py-1 text-xs font-medium text-eu-blue">
+          <div className="mt-6 inline-flex items-center gap-2 chip-blue">
             {allArticles.length} articles indexed
           </div>
 
@@ -86,7 +89,7 @@ export default function ArticlesPage() {
             {filteredArticles.map((article: ArticleReference) => (
               <div
                 key={article.number}
-                className="rounded-xl border border-slate-200 bg-white p-5 shadow-layered-sm transition-colors hover:border-eu-blue/20"
+                className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-soft transition-colors hover:border-slate-300"
               >
                 <div className="flex items-start gap-4">
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-eu-blue/5 text-sm font-bold text-eu-blue">
