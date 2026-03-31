@@ -28,18 +28,18 @@ This toolkit helps you figure out what applies to you and track your compliance.
 ### CLI
 
 ```bash
-npx eu-ai-act classify
+npx @eu-ai-act/cli classify
 ```
 
 Walks you through a step-by-step classification of your AI system. Outputs which risk tier applies, which articles you need to comply with, and what to do next.
 
 ```bash
-npx eu-ai-act checklist high-risk    # See all requirements for high-risk systems
-npx eu-ai-act timeline               # Enforcement dates and countdowns
-npx eu-ai-act penalties high-risk    # Calculate penalty exposure
-npx eu-ai-act gaps high-risk         # Analyze compliance gaps
-npx eu-ai-act standards --mapping    # View standards compliance matrix
-npx eu-ai-act report --format md     # Generate comprehensive compliance report
+npx @eu-ai-act/cli checklist high-risk    # See all requirements for high-risk systems
+npx @eu-ai-act/cli timeline               # Enforcement dates and countdowns
+npx @eu-ai-act/cli penalties high-risk    # Calculate penalty exposure
+npx @eu-ai-act/cli gaps high-risk         # Analyze compliance gaps
+npx @eu-ai-act/cli standards --mapping    # View standards compliance matrix
+npx @eu-ai-act/cli report --format md     # Generate comprehensive compliance report
 ```
 
 See the full [CLI documentation](packages/cli/README.md).
@@ -188,7 +188,7 @@ Maps ISO, CEN/CENELEC JTC 21, and other relevant standards to EU AI Act requirem
 eu-ai-act-toolkit/
 ├── packages/
 │   ├── sdk/              # @eu-ai-act/sdk - classification engine, checklists, templates
-│   ├── cli/              # eu-ai-act CLI - interactive terminal tool
+│   ├── cli/              # @eu-ai-act/cli - interactive terminal tool
 │   └── web/              # Next.js web application
 ├── data/                 # Structured JSON - single source of truth
 │   ├── questions.json    # Classification decision tree (26 questions, 5 steps)
@@ -269,13 +269,13 @@ Agents can use the SDK directly in code or shell out to the CLI:
 
 ```bash
 # Quick classification via CLI (no install needed)
-npx eu-ai-act classify --annex-iii employment --json
+npx @eu-ai-act/cli classify --annex-iii employment --json
 
 # Full checklist as JSON
-npx eu-ai-act checklist high-risk --json
+npx @eu-ai-act/cli checklist high-risk --json
 
 # Generate all docs for a tier
-npx eu-ai-act generate --tier high-risk --system "My AI" --provider "Acme" --purpose "Hiring" --output ./docs/
+npx @eu-ai-act/cli generate --tier high-risk --system "My AI" --provider "Acme" --purpose "Hiring" --output ./docs/
 ```
 
 All CLI commands support `--json` for machine-readable output that agents can parse.
