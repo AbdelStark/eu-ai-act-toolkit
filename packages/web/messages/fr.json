@@ -5,7 +5,13 @@
     "checklist": "Conformité",
     "timeline": "Calendrier",
     "templates": "Modèles",
-    "examples": "Exemples"
+    "examples": "Exemples",
+    "articles": "Articles",
+    "penalties": "Sanctions",
+    "gaps": "Analyse des écarts",
+    "standards": "Normes",
+    "reports": "Rapports",
+    "more": "Plus"
   },
   "landing": {
     "hero": {
@@ -36,6 +42,22 @@
       "examples": {
         "title": "Exemples pratiques",
         "description": "Scénarios concrets illustrant le fonctionnement du processus de classification et de conformité pour différents systèmes d'IA."
+      },
+      "penalties": {
+        "title": "Calculateur de sanctions",
+        "description": "Calculez l'exposition maximale aux amendes selon votre niveau de risque, le type d'organisation et le chiffre d'affaires annuel en vertu de l'Article 99."
+      },
+      "gaps": {
+        "title": "Analyse des écarts",
+        "description": "Identifiez les écarts de conformité, priorisez les actions correctives et suivez la préparation par rapport aux échéances d'application."
+      },
+      "standards": {
+        "title": "Cartographie des normes",
+        "description": "Parcourez les normes ISO, CEN/CENELEC et autres normes harmonisées associées aux exigences du EU AI Act."
+      },
+      "reports": {
+        "title": "Rapports de conformité",
+        "description": "Générez des rapports de conformité complets combinant classification, listes de contrôle, analyse des écarts et exposition aux sanctions."
       }
     },
     "stats": {
@@ -244,6 +266,47 @@
     "short": "Cet outil ne constitue pas un avis juridique.",
     "full": "Cet outil ne constitue pas un avis juridique. Consultez un conseiller juridique qualifié pour les décisions de conformité. Le EU AI Act Toolkit est un projet open source et n'est pas affilié à l'Union européenne ni à aucune institution de l'UE.",
     "dismiss": "Je comprends"
+  },
+  "articles": {
+    "title": "Articles du EU AI Act",
+    "subtitle": "Parcourez et recherchez tous les articles du Regulation (EU) 2024/1689"
+  },
+  "penalties": {
+    "title": "Exposition aux sanctions",
+    "subtitle": "Comprenez les conséquences financières du non-respect du EU AI Act",
+    "calculator": {
+      "title": "Calculateur de sanctions",
+      "description": "Calculez l'exposition maximale de votre organisation aux sanctions selon le niveau de risque, le type d'organisation et le chiffre d'affaires annuel."
+    },
+    "overview": {
+      "title": "Niveaux de sanctions du EU AI Act",
+      "description": "Toutes les catégories de sanctions définies à l'Article 99 du Regulation (EU) 2024/1689."
+    }
+  },
+  "gaps": {
+    "title": "Analyse des écarts de conformité",
+    "subtitle": "Identifiez et priorisez les écarts de conformité pour votre système d'IA",
+    "categories": {
+      "title": "Répartition par catégorie"
+    },
+    "recommendations": {
+      "title": "Recommandations prioritaires"
+    },
+    "topGaps": {
+      "title": "Écarts prioritaires"
+    }
+  },
+  "standards": {
+    "title": "Normes harmonisées",
+    "subtitle": "Normes ISO, CEN/CENELEC et autres associées aux exigences du EU AI Act"
+  },
+  "reports": {
+    "title": "Générateur de rapports de conformité",
+    "subtitle": "Générez un rapport de conformité complet combinant classification, listes de contrôle, analyse des écarts et exposition aux sanctions",
+    "form": {
+      "title": "Configuration du rapport",
+      "description": "Fournissez les détails de votre système d'IA pour générer un rapport de conformité personnalisé."
+    }
   },
   "common": {
     "tiers": {

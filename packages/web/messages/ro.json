@@ -5,7 +5,13 @@
     "checklist": "Listă de verificare",
     "timeline": "Cronologie",
     "templates": "Șabloane",
-    "examples": "Exemple"
+    "examples": "Exemple",
+    "articles": "Articole",
+    "more": "Mai mult",
+    "penalties": "Sancțiuni",
+    "gaps": "Analiza lacunelor",
+    "standards": "Standarde",
+    "reports": "Rapoarte"
   },
   "landing": {
     "hero": {
@@ -36,6 +42,22 @@
       "examples": {
         "title": "Exemple elaborate",
         "description": "Scenarii din practică care arată cum funcționează procesul de clasificare și conformitate pentru diferite sisteme de AI."
+      },
+      "penalties": {
+        "title": "Calculator de penalități",
+        "description": "Calculați expunerea maximă la amenzi pe baza nivelului de risc, tipului de organizație și cifrei de afaceri anuale conform Article 99."
+      },
+      "gaps": {
+        "title": "Analiza lacunelor",
+        "description": "Identificați lacunele de conformitate, priorizați acțiunile corective și urmăriți pregătirea față de termenele de aplicare."
+      },
+      "standards": {
+        "title": "Cartografierea standardelor",
+        "description": "Consultați standardele ISO, CEN/CENELEC și alte standarde armonizate mapate la cerințele EU AI Act."
+      },
+      "reports": {
+        "title": "Rapoarte de conformitate",
+        "description": "Generați rapoarte complete de conformitate care combină clasificarea, listele de verificare, analiza lacunelor și expunerea la penalități."
       }
     },
     "stats": {
@@ -244,6 +266,47 @@
     "short": "Acest instrument nu constituie consiliere juridică.",
     "full": "Acest instrument nu constituie consiliere juridică. Consultați un consilier juridic calificat pentru deciziile de conformitate. EU AI Act Toolkit este un proiect open-source și nu este afiliat Uniunii Europene sau vreunei instituții UE.",
     "dismiss": "Am înțeles"
+  },
+  "articles": {
+    "title": "Articolele EU AI Act",
+    "subtitle": "Căutați și consultați toate articolele Regulation (EU) 2024/1689"
+  },
+  "penalties": {
+    "title": "Expunere la penalități",
+    "subtitle": "Înțelegeți consecințele financiare ale neconformității cu EU AI Act",
+    "calculator": {
+      "title": "Calculator de penalități",
+      "description": "Calculați expunerea maximă la penalități a organizației dvs. pe baza nivelului de risc, tipului de organizație și cifrei de afaceri anuale."
+    },
+    "overview": {
+      "title": "Nivelurile de penalități EU AI Act",
+      "description": "Toate categoriile de penalități definite în Article 99 din Regulation (EU) 2024/1689."
+    }
+  },
+  "gaps": {
+    "title": "Analiza lacunelor de conformitate",
+    "subtitle": "Identificați și priorizați lacunele de conformitate pentru sistemul dvs. de IA",
+    "categories": {
+      "title": "Defalcare pe categorii"
+    },
+    "recommendations": {
+      "title": "Recomandări prioritizate"
+    },
+    "topGaps": {
+      "title": "Lacune prioritare"
+    }
+  },
+  "standards": {
+    "title": "Standarde armonizate",
+    "subtitle": "Standarde ISO, CEN/CENELEC și altele mapate la cerințele EU AI Act"
+  },
+  "reports": {
+    "title": "Generator de rapoarte de conformitate",
+    "subtitle": "Generați un raport complet de conformitate care combină clasificarea, listele de verificare, analiza lacunelor și expunerea la penalități",
+    "form": {
+      "title": "Configurarea raportului",
+      "description": "Furnizați detalii despre sistemul dvs. de IA pentru a genera un raport de conformitate personalizat."
+    }
   },
   "common": {
     "tiers": {
