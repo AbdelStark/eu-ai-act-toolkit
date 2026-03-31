@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useTranslations } from 'next-intl';
 import type { TimelineEvent as TimelineEventType } from '@eu-ai-act/sdk';
 import { TimelineEvent } from './TimelineEvent';
 
@@ -19,7 +20,7 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
     observer.observe(ref.current);
     return () => observer.disconnect();
@@ -27,52 +28,26 @@ function useInView(ref: React.RefObject<HTMLElement | null>) {
   return isVisible;
 }
 
-function AnimatedEvent({ event, index, isTodayMarker, eventIndex }: { event: TimelineEventType; index: number; isTodayMarker: boolean; eventIndex: number }) {
+function AnimatedEvent({ event, index, eventIndex }: { event: TimelineEventType; index: number; eventIndex: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useInView(ref);
 
   return (
-    <div ref={ref}>
-      {/* Today marker */}
-      {isTodayMarker && (
-        <div className="relative mb-10 flex items-center justify-center">
-          <div className="absolute left-4 right-4 h-px bg-eu-blue/20 sm:left-0 sm:right-0" />
-          <div className="relative z-10 flex items-center gap-2 rounded-full bg-eu-blue px-5 py-2 text-xs font-bold uppercase tracking-widest text-white shadow-lg animate-pulse-ring">
-            <span className="inline-block h-2 w-2 rounded-full bg-white animate-pulse" />
-            Today
-          </div>
-        </div>
-      )}
-
-      <div
-        className={`relative flex flex-col sm:flex-row ${
-          index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'
-        } transition-all duration-700 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}
-      >
-        {/* Dot on the line - mobile */}
-        <div className={`absolute left-4 top-5 z-10 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-white shadow-md sm:hidden ${
-          event.status === 'past' ? 'bg-green-500' : event.status === 'upcoming' ? 'bg-amber-500' : 'bg-gray-300'
-        }`} />
-        {/* Dot on the line - desktop */}
-        <div className={`absolute left-1/2 top-4 z-10 hidden h-4 w-4 -translate-x-1/2 rounded-full border-[3px] border-white shadow-md sm:block ${
-          event.status === 'past' ? 'bg-green-500' : event.status === 'upcoming' ? 'bg-amber-500' : 'bg-gray-300'
-        }`} />
-
-        {/* Spacer for alternating layout */}
-        <div className="hidden sm:block sm:w-1/2" />
-
-        {/* Event card */}
-        <div className="ml-10 sm:ml-0 sm:w-1/2 sm:px-6">
-          <TimelineEvent event={event} eventIndex={eventIndex} />
-        </div>
-      </div>
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ease-out-expo ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+      }`}
+      style={{ transitionDelay: `${Math.min(index * 80, 400)}ms` }}
+    >
+      <TimelineEvent event={event} eventIndex={eventIndex} />
     </div>
   );
 }
 
 export function Timeline({ events }: TimelineProps) {
+  const t = useTranslations('timeline');
+
   if (events.length === 0) {
     return (
       <div className="empty-state">
@@ -82,28 +57,43 @@ export function Timeline({ events }: TimelineProps) {
           </svg>
         </div>
         <p className="empty-state-title">No timeline events</p>
-        <p className="empty-state-description">No enforcement timeline events to display yet.</p>
       </div>
     );
   }
 
-  // Find the index of the "today" marker (first non-past event)
   const todayIndex = events.findIndex((e) => e.status !== 'past');
 
   return (
     <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-green-300 via-eu-blue/30 to-gray-200 sm:left-1/2 sm:-translate-x-px" />
+      <div className="absolute left-[19px] top-0 bottom-0 w-px sm:left-8" style={{
+        background: 'linear-gradient(to bottom, #22c55e 0%, #22c55e var(--past-pct), #e2e4ec var(--past-pct), #e2e4ec 100%)',
+        // @ts-ignore
+        '--past-pct': `${todayIndex >= 0 ? (todayIndex / events.length) * 100 : 100}%`,
+      } as React.CSSProperties} />
 
-      <div className="space-y-10">
+      <div className="space-y-0">
         {events.map((event, index) => (
-          <AnimatedEvent
-            key={event.date + event.title}
-            event={event}
-            index={index}
-            eventIndex={index}
-            isTodayMarker={index === todayIndex}
-          />
+          <div key={event.date + event.title}>
+            {/* Today marker */}
+            {index === todayIndex && (
+              <div className="relative flex items-center py-6 pl-0 sm:pl-3">
+                <div className="absolute left-[15px] z-10 flex h-[9px] w-[9px] items-center justify-center rounded-full bg-eu-blue ring-4 ring-eu-blue/20 sm:left-[28px]" />
+                <div className="ml-12 flex items-center gap-2 sm:ml-16">
+                  <span className="text-xs font-bold uppercase tracking-widest text-eu-blue">
+                    {t('today')}
+                  </span>
+                  <div className="h-px flex-1 bg-eu-blue/10" />
+                </div>
+              </div>
+            )}
+
+            <AnimatedEvent
+              event={event}
+              index={index}
+              eventIndex={index}
+            />
+          </div>
         ))}
       </div>
     </div>

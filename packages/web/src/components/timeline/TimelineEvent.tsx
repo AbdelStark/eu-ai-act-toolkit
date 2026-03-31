@@ -2,23 +2,22 @@
 
 import { useTranslations } from 'next-intl';
 import type { TimelineEvent as TimelineEventType } from '@eu-ai-act/sdk';
-import { ArticleReference } from '@/components/shared/ArticleReference';
 
 interface TimelineEventProps {
   event: TimelineEventType;
   eventIndex?: number;
 }
 
-const statusStyles: Record<TimelineEventType['status'], string> = {
-  past: 'border-green-200 bg-green-50/80 shadow-soft-sm',
-  upcoming: 'border-amber-200 bg-amber-50/80 shadow-soft ring-1 ring-amber-200/50',
-  future: 'border-slate-200 bg-slate-50 shadow-soft-sm',
+const statusDot: Record<TimelineEventType['status'], string> = {
+  past: 'bg-green-500 ring-green-500/20',
+  upcoming: 'bg-amber-500 ring-amber-500/20',
+  future: 'bg-slate-300 ring-slate-300/20',
 };
 
-const statusBadgeStyles: Record<TimelineEventType['status'], string> = {
-  past: 'bg-green-100 text-green-700',
-  upcoming: 'bg-amber-100 text-amber-700',
-  future: 'bg-gray-100 text-gray-500',
+const statusBadge: Record<TimelineEventType['status'], string> = {
+  past: 'bg-green-50 text-green-700 border-green-200',
+  upcoming: 'bg-amber-50 text-amber-700 border-amber-200',
+  future: 'bg-slate-50 text-slate-500 border-slate-200',
 };
 
 const statusFilterKeys: Record<TimelineEventType['status'], string> = {
@@ -33,7 +32,7 @@ export function TimelineEvent({ event, eventIndex }: TimelineEventProps) {
 
   const formattedDate = new Date(event.date).toLocaleDateString('en-GB', {
     day: 'numeric',
-    month: 'long',
+    month: 'short',
     year: 'numeric',
   });
 
@@ -53,32 +52,57 @@ export function TimelineEvent({ event, eventIndex }: TimelineEventProps) {
     ? sdkT(`timeline.${eventIndex}.description`)
     : event.description;
 
+  const isUpcoming = event.status === 'upcoming';
+
   return (
-    <div className={`rounded-2xl border p-5 transition-all duration-150 hover:shadow-soft ${statusStyles[event.status]}`}>
-      <div className="mb-3 flex items-center justify-between">
-        <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold ${statusBadgeStyles[event.status]}`}>
-          {statusLabel}
-        </span>
-        <time className="text-xs font-medium text-slate-400">{formattedDate}</time>
+    <div className="relative flex gap-4 py-4 pl-0 sm:gap-5 sm:pl-3">
+      {/* Dot */}
+      <div className="relative z-10 mt-1.5 flex-shrink-0">
+        <div className={`h-[9px] w-[9px] rounded-full ring-4 ${statusDot[event.status]}`} />
       </div>
 
-      <h3 className="text-base font-bold text-navy">{eventTitle}</h3>
-      <p className="mt-1.5 text-sm leading-relaxed text-slate-600">{eventDescription}</p>
-
-      <div className="mt-4 flex items-center justify-between border-t border-gray-100 pt-3">
-        <div className="flex flex-wrap gap-1">
-          {event.articles.slice(0, 4).map((article) => (
-            <ArticleReference key={article} article={article} />
-          ))}
-          {event.articles.length > 4 && (
-            <span className="text-xs text-gray-400">
-              +{event.articles.length - 4} more
-            </span>
-          )}
+      {/* Content */}
+      <div className={`group flex-1 rounded-xl border p-4 transition-all duration-200 sm:p-5 ${
+        isUpcoming
+          ? 'border-amber-200/80 bg-amber-50/30 shadow-soft-sm hover:shadow-soft'
+          : event.status === 'past'
+            ? 'border-slate-200/60 bg-white hover:border-slate-200 hover:shadow-soft-sm'
+            : 'border-slate-200/60 bg-slate-50/50 hover:border-slate-200 hover:shadow-soft-sm'
+      }`}>
+        {/* Top row: badge + date */}
+        <div className="flex items-center justify-between gap-3">
+          <span className={`inline-flex items-center rounded-md border px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wider ${statusBadge[event.status]}`}>
+            {statusLabel}
+          </span>
+          <time className="text-xs tabular-nums text-slate-400">{formattedDate}</time>
         </div>
-        <span className={`text-xs font-medium ${
-          event.daysUntil > 0 ? 'text-amber-600' : event.daysUntil < 0 ? 'text-green-600' : 'text-eu-blue'
-        }`}>{daysLabel}</span>
+
+        {/* Title */}
+        <h3 className={`mt-3 text-[15px] font-semibold leading-snug ${isUpcoming ? 'text-amber-900' : 'text-navy'}`}>
+          {eventTitle}
+        </h3>
+
+        {/* Description */}
+        <p className="mt-1.5 text-[13px] leading-relaxed text-slate-500">
+          {eventDescription}
+        </p>
+
+        {/* Bottom row: articles + days */}
+        <div className="mt-3 flex items-center justify-between pt-3 border-t border-slate-100">
+          <div className="flex items-center gap-1.5">
+            {event.articles.length > 0 && (
+              <span className="text-[11px] text-slate-400">
+                Art. {event.articles.slice(0, 5).join(', ')}
+                {event.articles.length > 5 && ` +${event.articles.length - 5}`}
+              </span>
+            )}
+          </div>
+          <span className={`text-xs font-medium tabular-nums ${
+            event.daysUntil > 0 ? 'text-amber-600' : event.daysUntil < 0 ? 'text-green-600' : 'text-eu-blue'
+          }`}>
+            {daysLabel}
+          </span>
+        </div>
       </div>
     </div>
   );
