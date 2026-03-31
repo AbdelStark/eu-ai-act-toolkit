@@ -264,4 +264,33 @@ describe('calculatePenaltyExposure — additional edge cases', () => {
     expect(exposure.maxExposureEur).toBe(0);
     expect(exposure.smeReductionApplied).toBe(true);
   });
+
+  it('throws RangeError on invalid tier string', () => {
+    expect(() =>
+      calculatePenaltyExposure({ tier: 'invalid-tier' as any }),
+    ).toThrow(RangeError);
+    expect(() =>
+      calculatePenaltyExposure({ tier: 'invalid-tier' as any }),
+    ).toThrow(/must be one of/);
+  });
+
+  it('turnover-based fine beats fixed fine for large org with high turnover', () => {
+    const exposure = calculatePenaltyExposure({
+      tier: 'prohibited',
+      annualTurnoverEur: 1_000_000_000, // EUR 1B
+      organizationType: 'large',
+    });
+    // 7% of 1B = 70M, which exceeds 35M fixed
+    expect(exposure.maxExposureEur).toBe(70_000_000);
+  });
+
+  it('fixed fine wins for large org with low turnover', () => {
+    const exposure = calculatePenaltyExposure({
+      tier: 'prohibited',
+      annualTurnoverEur: 100_000_000, // EUR 100M
+      organizationType: 'large',
+    });
+    // 7% of 100M = 7M, but fixed is 35M which is higher
+    expect(exposure.maxExposureEur).toBe(35_000_000);
+  });
 });

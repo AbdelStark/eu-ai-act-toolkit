@@ -4,6 +4,7 @@ import type {
   ChecklistItem,
   ChecklistProgress,
 } from '../data/types.js';
+import { RISK_TIERS } from '../data/types.js';
 import { getChecklist } from '../checklists/generator.js';
 import { countProgress } from '../checklists/scoring.js';
 import { calculatePenaltyExposure } from '../penalties/calculator.js';
@@ -503,6 +504,11 @@ function validateGapInput(input: GapAnalysisInput): void {
   }
   if (typeof input.classification.tier !== 'string') {
     throw new TypeError('GapAnalysisInput.classification.tier must be a valid RiskTier');
+  }
+  if (!RISK_TIERS.includes(input.classification.tier as RiskTier)) {
+    throw new RangeError(
+      `GapAnalysisInput.classification.tier must be one of: ${RISK_TIERS.join(', ')}. Got: '${input.classification.tier}'`,
+    );
   }
   if (typeof input.classification.enforcementDate !== 'string') {
     throw new TypeError('GapAnalysisInput.classification.enforcementDate must be a date string');

@@ -7,7 +7,7 @@
  * article that doesn't exist, or an example uses an invalid category.
  */
 import { describe, it, expect } from 'vitest';
-import { classify, getChecklist, getTimeline, getArticles, getArticle, getAnnexes, getAnnex, getExamples, validateExamples, getQuestions, RISK_TIERS, ANNEX_III_CATEGORIES, TEMPLATE_NAMES, generateTemplate, getPenalties, getPenaltiesByTier, calculatePenaltyExposure, analyzeGaps } from '../index.js';
+import { classify, getChecklist, getTimeline, getArticles, getArticle, getArticlesByTier, getAnnexes, getAnnex, getExamples, validateExamples, getQuestions, RISK_TIERS, ANNEX_III_CATEGORIES, TEMPLATE_NAMES, generateTemplate, getPenalties, getPenaltiesByTier, calculatePenaltyExposure, analyzeGaps, generateReport } from '../index.js';
 
 describe('cross-module data integrity', () => {
   // -----------------------------------------------------------------------
@@ -283,6 +283,136 @@ describe('cross-module data integrity', () => {
         };
         const result = classify(input);
         expect(result.enforcementDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+      }
+    });
+  });
+
+  // -----------------------------------------------------------------------
+  // Cross-module article consistency
+  // -----------------------------------------------------------------------
+  describe('cross-module article consistency', () => {
+    it('all articles referenced in checklist items exist in articles data', () => {
+      const articles = getArticles();
+      const articleNumbers = new Set(articles.map(a => a.number));
+      const tiers: Array<import('../data/types.js').RiskTier> = [
+        'prohibited', 'high-risk', 'gpai', 'gpai-systemic', 'limited', 'minimal',
+      ];
+      for (const tier of tiers) {
+        const checklist = getChecklist(tier);
+        for (const item of checklist.items) {
+          if (item.article != null && item.article > 0) {
+            expect(
+              articleNumbers.has(item.article),
+              `Checklist item '${item.id}' in tier '${tier}' references Article ${item.article} which is not in articles.json`,
+            ).toBe(true);
+          }
+        }
+      }
+    });
+
+    it('Article 99 exists in articles data (referenced by penalties)', () => {
+      const article99 = getArticle(99);
+      expect(article99).not.toBeNull();
+      expect(article99!.title).toContain('Penalties');
+    });
+
+    it('Article 69 exists in articles data (referenced by minimal tier)', () => {
+      const article69 = getArticle(69);
+      expect(article69).not.toBeNull();
+    });
+
+    it('Articles 72 and 73 exist (referenced by monitoring obligations)', () => {
+      expect(getArticle(72)).not.toBeNull();
+      expect(getArticle(73)).not.toBeNull();
+    });
+
+    it('penalty article references exist in articles data', () => {
+      const penalties = getPenalties();
+      const articles = getArticles();
+      const articleNumbers = new Set(articles.map(a => a.number));
+      for (const penalty of penalties) {
+        expect(
+          articleNumbers.has(penalty.article),
+          `Penalty '${penalty.id}' references Article ${penalty.article} which is not in articles.json`,
+        ).toBe(true);
+      }
+    });
+  });
+
+  // -----------------------------------------------------------------------
+  // Report section numbering (dynamic)
+  // -----------------------------------------------------------------------
+  describe('report section numbering', () => {
+    it('report sections are sequentially numbered when all sections included', () => {
+      const input = {
+        socialScoring: false, realtimeBiometrics: false,
+        subliminalManipulation: false, exploitsVulnerabilities: false,
+        untargetedFacialScraping: false, emotionInferenceWorkplace: false,
+        biometricCategorization: false, predictivePolicing: false,
+        isGPAI: false, annexIProduct: false, annexIIICategory: 'employment' as const,
+        interactsWithPersons: false, generatesSyntheticContent: false,
+        emotionRecognition: false, biometricCategorizing: false,
+      };
+      const result = classify(input);
+      const checklist = getChecklist(result.tier);
+      const report = generateReport(result, checklist, {
+        systemName: 'Test', provider: 'Test Corp', intendedPurpose: 'Testing',
+      });
+      // Extract section numbers
+      const sectionHeaders = report.match(/^## (\d+)\./gm);
+      expect(sectionHeaders).not.toBeNull();
+      const numbers = sectionHeaders!.map(h => parseInt(h.replace('## ', '').replace('.', '')));
+      // Should be sequential: 1, 2, 3, 4, 5, 6, 7
+      for (let i = 0; i < numbers.length; i++) {
+        expect(numbers[i]).toBe(i + 1);
+      }
+    });
+
+    it('report sections remain sequential when gap analysis is excluded', () => {
+      const input = {
+        socialScoring: false, realtimeBiometrics: false,
+        subliminalManipulation: false, exploitsVulnerabilities: false,
+        untargetedFacialScraping: false, emotionInferenceWorkplace: false,
+        biometricCategorization: false, predictivePolicing: false,
+        isGPAI: false, annexIProduct: false, annexIIICategory: 'employment' as const,
+        interactsWithPersons: false, generatesSyntheticContent: false,
+        emotionRecognition: false, biometricCategorizing: false,
+      };
+      const result = classify(input);
+      const checklist = getChecklist(result.tier);
+      const report = generateReport(result, checklist, {
+        systemName: 'Test', provider: 'Test Corp', intendedPurpose: 'Testing',
+        includeGapAnalysis: false,
+      });
+      const sectionHeaders = report.match(/^## (\d+)\./gm);
+      expect(sectionHeaders).not.toBeNull();
+      const numbers = sectionHeaders!.map(h => parseInt(h.replace('## ', '').replace('.', '')));
+      for (let i = 0; i < numbers.length; i++) {
+        expect(numbers[i]).toBe(i + 1);
+      }
+    });
+
+    it('report sections remain sequential when penalties are excluded', () => {
+      const input = {
+        socialScoring: false, realtimeBiometrics: false,
+        subliminalManipulation: false, exploitsVulnerabilities: false,
+        untargetedFacialScraping: false, emotionInferenceWorkplace: false,
+        biometricCategorization: false, predictivePolicing: false,
+        isGPAI: false, annexIProduct: false, annexIIICategory: 'employment' as const,
+        interactsWithPersons: false, generatesSyntheticContent: false,
+        emotionRecognition: false, biometricCategorizing: false,
+      };
+      const result = classify(input);
+      const checklist = getChecklist(result.tier);
+      const report = generateReport(result, checklist, {
+        systemName: 'Test', provider: 'Test Corp', intendedPurpose: 'Testing',
+        includePenalties: false,
+      });
+      const sectionHeaders = report.match(/^## (\d+)\./gm);
+      expect(sectionHeaders).not.toBeNull();
+      const numbers = sectionHeaders!.map(h => parseInt(h.replace('## ', '').replace('.', '')));
+      for (let i = 0; i < numbers.length; i++) {
+        expect(numbers[i]).toBe(i + 1);
       }
     });
   });

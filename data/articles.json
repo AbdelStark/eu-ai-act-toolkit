@@ -71,6 +71,27 @@
       "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
     },
     {
+      "number": 16,
+      "title": "Obligations of providers of high-risk AI systems",
+      "summary": "Providers of high-risk AI systems shall ensure that their systems are compliant with the requirements set out in this Section, have a quality management system in place, draw up technical documentation, keep logs, ensure conformity assessment is carried out, affix the CE marking, and comply with registration obligations.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 17,
+      "title": "Quality management system",
+      "summary": "Providers of high-risk AI systems shall put a quality management system in place that ensures compliance with this Regulation. The system shall be documented in a systematic and orderly manner in the form of written policies, procedures, and instructions, and shall include strategies for regulatory compliance, design control, and post-market monitoring.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 22,
+      "title": "Authorised representatives of providers of high-risk AI systems",
+      "summary": "Prior to making their high-risk AI systems available on the Union market, providers established in third countries shall, by written mandate, appoint an authorised representative which is established in the Union. The authorised representative shall perform the tasks specified in the mandate received from the provider.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
       "number": 26,
       "title": "Obligations of deployers of high-risk AI systems",
       "summary": "Deployers must use systems in accordance with instructions, ensure human oversight by competent persons, monitor operation, keep logs, perform data protection impact assessments where required, and inform affected persons and workers representatives about their use of high-risk AI systems.",
@@ -134,10 +155,59 @@
       "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
     },
     {
+      "number": 54,
+      "title": "Authorised representatives of providers of general-purpose AI models",
+      "summary": "Providers of GPAI models established outside the Union shall appoint an authorised representative in the Union before making the model available on the Union market.",
+      "tiers": ["gpai", "gpai-systemic"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
       "number": 55,
       "title": "Obligations for providers of general-purpose AI models with systemic risk",
       "summary": "In addition to standard GPAI obligations, providers of models with systemic risk must perform model evaluation including adversarial testing (red teaming), assess and mitigate systemic risks, track and report serious incidents to the AI Office and national authorities, and ensure adequate cybersecurity for the model and its physical infrastructure.",
       "tiers": ["gpai-systemic"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 56,
+      "title": "Codes of practice",
+      "summary": "The AI Office shall encourage and facilitate the drawing up of codes of practice at Union level as a means of contributing to the proper application of this Regulation, taking into account international approaches. GPAI model providers may rely on adherence to a code of practice to demonstrate compliance with obligations.",
+      "tiers": ["gpai", "gpai-systemic"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 69,
+      "title": "Codes of conduct for voluntary application of specific requirements",
+      "summary": "The AI Office and Member States shall encourage and facilitate the drawing up of codes of conduct intended to foster the voluntary application of requirements set out in Title III, Chapter 2 to AI systems other than high-risk AI systems, taking into account available technical solutions and industry best practices.",
+      "tiers": ["minimal"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 72,
+      "title": "Post-market monitoring by providers and post-market monitoring plan for high-risk AI systems",
+      "summary": "Providers shall establish and document a post-market monitoring system in a manner that is proportionate to the nature of the AI technology and the risks of the high-risk AI system. The system shall actively and systematically collect, document, and analyse relevant data which may be provided by deployers or collected through other sources.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 73,
+      "title": "Reporting of serious incidents",
+      "summary": "Providers of high-risk AI systems placed on the Union market shall report any serious incident to the market surveillance authorities of the Member States where that incident occurred. The report shall be made immediately after the provider has established a causal link or reasonable likelihood of a causal link between the AI system and the serious incident.",
+      "tiers": ["high-risk"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 95,
+      "title": "Voluntary codes of conduct for non-high-risk AI systems",
+      "summary": "Providers and deployers of AI systems that are not high-risk are encouraged to create codes of conduct intended to foster the voluntary application of some or all of the requirements applicable to high-risk AI systems, adapted to the intended purpose of the systems and the lower risk involved.",
+      "tiers": ["minimal"],
+      "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
+    },
+    {
+      "number": 99,
+      "title": "Penalties",
+      "summary": "Establishes the penalty framework for infringements of the Regulation. Maximum fines range from EUR 35 million or 7% of global annual turnover for prohibited practices, EUR 15 million or 3% for non-compliance with other obligations, to EUR 7.5 million or 1% for supplying incorrect information. SMEs and startups benefit from proportionate fines (lower of fixed or turnover-based), and EU institutions are capped at EUR 1.5 million.",
+      "tiers": ["all"],
       "eurLexUrl": "https://eur-lex.europa.eu/eli/reg/2024/1689/oj"
     }
   ]

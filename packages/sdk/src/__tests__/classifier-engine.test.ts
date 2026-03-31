@@ -359,3 +359,125 @@ describe('classify — precedence', () => {
     expect(classify(baseInput()).tier).toBe('minimal');
   });
 });
+
+// ---------------------------------------------------------------------------
+// Boundary values & edge cases
+// ---------------------------------------------------------------------------
+describe('classify — boundary values', () => {
+  it('gpaiFlops exactly at 1e25 threshold triggers systemic risk', () => {
+    const result = classify(baseInput({ isGPAI: true, gpaiFlops: 1e25 }));
+    expect(result.tier).toBe('gpai-systemic');
+  });
+
+  it('gpaiFlops at 9.999999999999999e24 does NOT trigger systemic risk', () => {
+    const result = classify(baseInput({ isGPAI: true, gpaiFlops: 9.999999999999999e24 }));
+    expect(result.tier).toBe('gpai');
+  });
+
+  it('gpaiFlops at 0 is valid and non-systemic', () => {
+    const result = classify(baseInput({ isGPAI: true, gpaiFlops: 0 }));
+    expect(result.tier).toBe('gpai');
+  });
+
+  it('gpaiFlops ignored when isGPAI is false', () => {
+    const result = classify(baseInput({ isGPAI: false, gpaiFlops: 1e30 }));
+    expect(result.tier).toBe('minimal');
+  });
+
+  it('designatedSystemicRisk with open-source still yields systemic (no exemption)', () => {
+    const result = classify(baseInput({
+      isGPAI: true,
+      isOpenSource: true,
+      designatedSystemicRisk: true,
+    }));
+    expect(result.tier).toBe('gpai-systemic');
+    expect(result.openSourceExemption).toBe(false);
+  });
+});
+
+// ---------------------------------------------------------------------------
+// Obligation structure verification
+// ---------------------------------------------------------------------------
+describe('classify — obligation structure', () => {
+  it('high-risk obligations have correct article numbers and categories', () => {
+    const result = classify(baseInput({ annexIIICategory: 'employment' }));
+    for (const obligation of result.obligations) {
+      expect(obligation).toHaveProperty('article');
+      expect(obligation).toHaveProperty('title');
+      expect(obligation).toHaveProperty('description');
+      expect(obligation).toHaveProperty('category');
+      expect(typeof obligation.article).toBe('number');
+      expect(obligation.article).toBeGreaterThan(0);
+      expect(obligation.title.length).toBeGreaterThan(0);
+      expect(obligation.description.length).toBeGreaterThan(0);
+    }
+  });
+
+  it('GPAI standard obligations reference Article 53', () => {
+    const result = classify(baseInput({ isGPAI: true }));
+    const art53Obligations = result.obligations.filter(o => o.article === 53);
+    expect(art53Obligations.length).toBeGreaterThanOrEqual(2);
+    // Must include copyright and training data summary
+    const categories = art53Obligations.map(o => o.category);
+    expect(categories).toContain('copyright');
+    expect(categories).toContain('training-data-summary');
+  });
+
+  it('GPAI systemic obligations include Article 55 items', () => {
+    const result = classify(baseInput({ isGPAI: true, gpaiFlops: 1e26 }));
+    const art55Obligations = result.obligations.filter(o => o.article === 55);
+    expect(art55Obligations.length).toBeGreaterThanOrEqual(2);
+    const categories = art55Obligations.map(o => o.category);
+    expect(categories).toContain('risk-management');
+    expect(categories).toContain('incident-reporting');
+  });
+
+  it('open-source GPAI has fewer obligations than standard GPAI', () => {
+    const standard = classify(baseInput({ isGPAI: true }));
+    const openSource = classify(baseInput({ isGPAI: true, isOpenSource: true }));
+    expect(openSource.obligations.length).toBeLessThan(standard.obligations.length);
+  });
+
+  it('prohibited tier has exactly one obligation referencing Article 5', () => {
+    const result = classify(baseInput({ socialScoring: true }));
+    expect(result.obligations).toHaveLength(1);
+    expect(result.obligations[0]!.article).toBe(5);
+  });
+
+  it('limited risk obligation references Article 50 transparency', () => {
+    const result = classify(baseInput({ interactsWithPersons: true }));
+    expect(result.obligations).toHaveLength(1);
+    expect(result.obligations[0]!.article).toBe(50);
+    expect(result.obligations[0]!.category).toBe('transparency');
+  });
+
+  it('minimal risk has zero obligations', () => {
+    const result = classify(baseInput());
+    expect(result.obligations).toHaveLength(0);
+    expect(result.articles).toHaveLength(0);
+  });
+
+  it('high-risk result.articles contains core high-risk articles', () => {
+    const result = classify(baseInput({ annexIIICategory: 'employment' }));
+    // Articles 6, 9-17 (Chapter 2), 26, 27, 43, 49 per classification engine
+    expect(result.articles).toContain(6);
+    expect(result.articles).toContain(9);
+    expect(result.articles).toContain(15);
+    expect(result.articles).toContain(43);
+    expect(result.articles).toContain(49);
+  });
+
+  it('all obligation articles are positive integers with valid categories', () => {
+    const result = classify(baseInput({ annexIIICategory: 'employment' }));
+    const validCategories = [
+      'risk-management', 'data-governance', 'documentation', 'record-keeping',
+      'transparency', 'human-oversight', 'accuracy-robustness', 'monitoring',
+      'incident-reporting', 'copyright', 'training-data-summary',
+    ];
+    for (const obligation of result.obligations) {
+      expect(Number.isInteger(obligation.article)).toBe(true);
+      expect(obligation.article).toBeGreaterThan(0);
+      expect(validCategories).toContain(obligation.category);
+    }
+  });
+});
