@@ -105,7 +105,8 @@
     },
     "progress": {
       "step": "第 {current} 步，共 {total} 步",
-      "complete": "分类完成"
+      "complete": "分类完成",
+      "question": "第 {current} 题，共 {total} 题"
     },
     "results": {
       "prohibited": {
@@ -137,7 +138,23 @@
         "title": "最低风险AI系统",
         "description": "除现行法律外无强制性义务。鼓励采用自愿行为准则。",
         "action": "考虑采用可信AI的自愿行为准则。"
-      }
+      },
+      "label": "分类结果",
+      "enforcementDate": "执行日期",
+      "applicableArticles": "适用条款",
+      "reasoning": "推理依据",
+      "viewChecklist": "查看合规检查清单",
+      "shareResult": "分享结果",
+      "copied": "已复制！"
+    },
+    "answers": {
+      "yes": "是",
+      "no": "否"
+    },
+    "wizard": {
+      "interactiveWizard": "交互式向导",
+      "startOver": "重新开始",
+      "previousQuestion": "上一题"
     }
   },
   "checklists": {
@@ -260,7 +277,8 @@
     },
     "copyright": "欧盟人工智能法案工具包。基于 MIT 许可证的开源项目。",
     "regulation": "基于欧洲议会和理事会《欧盟第2024/1689号条例》。",
-    "tagline": "用心服务全球AI合规团队"
+    "tagline": "用心服务全球AI合规团队",
+    "resources": "资源"
   },
   "disclaimer": {
     "short": "本工具不构成法律建议。",
@@ -326,6 +344,256 @@
       "reset": "重置",
       "copy": "复制",
       "share": "分享"
+    }
+  },
+  "sdk": {
+    "steps": {
+      "prohibited": {
+        "title": "禁止行为",
+        "description": "第5条完全禁止某些AI行为。如果任何条款适用，您的系统不得在欧盟市场上市。"
+      },
+      "gpai": {
+        "title": "通用人工智能",
+        "description": "通用人工智能模型根据第51至55条承担特定义务。确定您的模型是否符合条件以及是否构成系统性风险。"
+      },
+      "high-risk-pathway-a": {
+        "title": "高风险：产品安全（附件一）",
+        "description": "属于现有欧盟协调立法（附件一）所涵盖产品的安全组件的AI系统，根据第6条第1款属于高风险。"
+      },
+      "high-risk-pathway-b": {
+        "title": "高风险：附件三独立系统",
+        "description": "用于附件三所列领域的AI系统，根据第6条第2款被归类为高风险，除非不构成重大伤害风险。"
+      },
+      "limited-risk": {
+        "title": "有限风险：透明度义务",
+        "description": "某些AI系统根据第50条承担透明度义务，不论其他风险分类如何。"
+      }
+    },
+    "questions": {
+      "subliminal-manipulation": {
+        "text": "您的AI系统是否使用超出个人意识的潜意识技术，或有目的的操纵性或欺骗性技术，以实质性扭曲行为并造成重大伤害为目的或效果？",
+        "help": "涵盖个人无法感知的技术，或利用心理模式操纵决策、以造成或合理可能造成重大伤害的方式实质性扭曲行为的技术。"
+      },
+      "exploiting-vulnerabilities": {
+        "text": "您的AI系统是否利用特定群体因年龄、残疾或特定社会或经济状况而产生的脆弱性，以实质性扭曲其行为并造成重大伤害为目的或效果？",
+        "help": "针对利用儿童、老年人、残疾人或处于不稳定社会或经济状况中的人以有害方式扭曲其行为的系统。"
+      },
+      "social-scoring": {
+        "text": "您的AI系统是否基于自然人的社会行为或个人特征对其进行评估或分类，导致在无关背景下的不利待遇或与行为不成比例的待遇？",
+        "help": "涵盖公共机构或私人主体实施的社会评分，导致在与数据最初产生的背景无关的社会背景下对个人的不利待遇，或不合理或与其社会行为不成比例的待遇。"
+      },
+      "individual-predictive-policing": {
+        "text": "您的AI系统是否仅基于画像或人格特征对自然人进行风险评估，以预测其实施犯罪行为的可能性？",
+        "help": "禁止仅基于画像或人格特征和特点进行个人犯罪风险预测。不包括基于与犯罪活动直接相关的客观、可验证事实来辅助人工评估的系统。"
+      },
+      "untargeted-facial-scraping": {
+        "text": "您的AI系统是否通过从互联网或闭路电视录像中无定向抓取面部图像来创建或扩展面部识别数据库？",
+        "help": "禁止从互联网来源或视频监控系统中不加选择地抓取面部图像以构建面部识别数据库。"
+      },
+      "emotion-inference-workplace-education": {
+        "text": "您的AI系统是否在工作场所或教育机构领域推断自然人的情绪，除非该系统旨在出于医疗或安全原因投入使用或上市？",
+        "help": "禁止在工作场所和教育环境中进行情绪识别。医疗设备和安全关键系统（例如监测驾驶员困倦状态）除外。"
+      },
+      "biometric-categorization-sensitive": {
+        "text": "您的AI系统是否基于生物识别数据对自然人进行个体分类，以推断其种族、政治观点、工会成员身份、宗教或哲学信仰、性生活或性取向？",
+        "help": "禁止使用生物识别数据（面部、声音、步态等）推断敏感或受保护属性。合法获取的生物识别数据集的标注或筛选（例如用于执法目的）不在此列。"
+      },
+      "realtime-biometric-public": {
+        "text": "您的AI系统是否在公共场所出于执法目的使用实时远程生物识别？",
+        "help": "禁止在公共场所出于执法目的进行实时远程生物识别，有少数例外情况：搜寻特定失踪人员或绑架受害者、预防特定且迫在眉睫的恐怖主义威胁、或定位或识别涉嫌某些严重犯罪的人。例外情况需事先获得司法授权并经过严格的必要性/比例性评估。"
+      },
+      "is-gpai": {
+        "text": "您的AI模型是否属于通用人工智能模型，即具有显著通用性，能够胜任执行广泛的不同任务，并可集成到各种下游系统或应用中？",
+        "help": "通用人工智能模型（如大型语言模型、大型多模态模型）通过大量数据的大规模自监督训练，具有显著的通用性，可适应广泛的不同下游任务。"
+      },
+      "gpai-flops": {
+        "text": "您的模型训练总计算量是否超过 10^25 次浮点运算（FLOPs）？",
+        "help": "使用超过 10^25 次浮点运算训练的模型被推定为具有高影响力能力，并自动被归类为构成系统性风险。欧盟委员会可能会更新此阈值。"
+      },
+      "is-open-source": {
+        "text": "您的模型是否基于允许访问、使用、修改和分发的自由和开源许可证提供，且其参数（包括权重、架构和使用信息）已公开可用？",
+        "help": "开源 GPAI 模型仅需遵守版权义务并发布训练数据摘要，除非构成系统性风险。许可证必须是真正开放的（OSI 兼容或同等标准）。"
+      },
+      "designated-systemic-risk": {
+        "text": "您的模型是否已被欧盟委员会基于其高影响力能力认定为构成系统性风险？",
+        "help": "即使未达到 10^25 FLOPs 的阈值，欧盟委员会也可根据注册终端用户数量、跨境覆盖范围或行动自主程度等标准将模型认定为构成系统性风险。"
+      },
+      "annex-i-product": {
+        "text": "您的AI系统是否是附件一所列欧盟协调立法（如机械、玩具、医疗器械、车辆、航空、铁路、航海、电梯、压力设备）所涵盖产品的安全组件，或本身就是此类产品？",
+        "help": "附件一列出了20多部欧盟产品安全立法。如果您的AI系统嵌入于或本身就是需要根据其中任何立法进行第三方合格评定的产品，则属于高风险。"
+      },
+      "annex-i-requires-third-party": {
+        "text": "相关附件一立法是否要求对该产品进行第三方合格评定才能投放市场？",
+        "help": "通过途径A的高风险分类仅在适用的产品立法要求第三方合格评定时触发。如果产品立法允许自我评估，则AI组件可能不会自动根据此途径被归类为高风险。"
+      },
+      "annex-iii-biometrics": {
+        "text": "您的AI系统是否用于生物识别，包括远程生物识别、基于敏感属性的生物识别分类或情绪识别？",
+        "help": "附件三，领域1：涵盖远程生物识别（非被禁止的实时变体）、基于敏感或受保护属性的生物识别分类以及情绪识别系统。"
+      },
+      "annex-iii-critical-infrastructure": {
+        "text": "您的AI系统是否作为关键基础设施（道路交通、供水、燃气、供暖、电力）管理和运营中的安全组件使用？",
+        "help": "附件三，领域2：涵盖在关键数字或实体基础设施中用作安全组件的AI系统，这些系统可能危及生命、健康或造成重大环境或财产损害。"
+      },
+      "annex-iii-education": {
+        "text": "您的AI系统是否用于教育或职业培训，例如确定入学资格、评估学习成果、确定教育水平或在考试期间监控学生行为？",
+        "help": "附件三，领域3：涵盖决定教育准入、评估学习成果、评定适当教育水平或在考试期间监控/检测违规行为的AI系统。"
+      },
+      "annex-iii-employment": {
+        "text": "您的AI系统是否用于就业、劳动者管理或自雇准入，例如招聘、筛选申请、评估候选人、就雇佣条件作出决定或监控/评估劳动者绩效？",
+        "help": "附件三，领域4：涵盖用于招聘、候选人评估、雇佣决策（晋升、解雇）、基于个人特征的任务分配以及劳动者绩效监控的AI系统。"
+      },
+      "annex-iii-essential-services": {
+        "text": "您的AI系统是否用于获取或提供基本私人或公共服务（公共福利资格、信用评估、人寿/健康保险风险评估或紧急呼叫分类）？",
+        "help": "附件三，领域5：涵盖评估公共援助资格、信用评估（欺诈检测除外）、人寿/健康保险风险定价以及评估或分类紧急呼叫调度优先级的AI系统。"
+      },
+      "annex-iii-law-enforcement": {
+        "text": "您的AI系统是否用于执法，例如个人风险评估、作为测谎仪使用、评估证据可靠性或在刑事调查中对人进行画像？",
+        "help": "附件三，领域6：涵盖用于个人风险评估（犯罪/再犯可能性或受害可能性）、欺骗检测、证据可靠性评估以及在刑事调查中进行画像的AI系统。"
+      },
+      "annex-iii-migration": {
+        "text": "您的AI系统是否用于移民、庇护或边境管控，例如评估非法移民风险、审查庇护/签证/居留申请或在边境识别人员身份？",
+        "help": "附件三，领域7：涵盖评估非法移民或健康风险、审查庇护/签证/居留许可申请及相关投诉以及检测/识别/辨认人员（旅行证件验证除外）的AI系统。"
+      },
+      "annex-iii-justice-democracy": {
+        "text": "您的AI系统是否用于司法行政或民主进程，例如协助司法机关研究/解释/适用法律，或影响选举或公投结果？",
+        "help": "附件三，领域8：涵盖协助法院研究、解释和将事实和法律适用于具体案件的AI系统，以及旨在影响选举或公投结果的系统（不包括不直接影响投票的组织性工具）。"
+      },
+      "interacts-with-persons": {
+        "text": "您的AI系统是否与自然人直接交互（例如聊天机器人、语音助手、虚拟代理）？",
+        "help": "旨在直接与人交互的系统必须披露该人正在与AI系统进行交互，除非这从使用的情形和背景来看是显而易见的。"
+      },
+      "generates-synthetic-content": {
+        "text": "您的AI系统是否生成或处理合成内容，如图像、音频、视频或文本（包括深度伪造）？",
+        "help": "生成合成音频、图像、视频或文本的AI系统的提供者必须确保输出在技术上可行的情况下以机器可读的格式标记为人工生成或处理。"
+      },
+      "emotion-recognition": {
+        "text": "您的AI系统是否执行情绪识别（基于生物识别数据检测或推断自然人的情绪或意图）？",
+        "help": "情绪识别系统的部署者必须告知暴露于该系统的人员该系统正在运行，并按照《通用数据保护条例》处理个人数据。"
+      },
+      "biometric-categorizing": {
+        "text": "您的AI系统是否执行生物识别分类（基于生物识别数据根据特定属性将自然人分类到不同群组）？",
+        "help": "生物识别分类系统的部署者必须告知暴露于该系统的人员该系统正在运行。注意：基于敏感属性的分类可能根据第5条被禁止。"
+      }
+    },
+    "timeline": {
+      "0": {
+        "title": "欧盟人工智能法案生效",
+        "description": "《欧盟第2024/1689号条例》在《官方公报》发布后20天生效。大多数条款在随后的36个月内分阶段适用。"
+      },
+      "1": {
+        "title": "禁止行为生效",
+        "description": "关于禁止AI行为（第5条）和AI素养要求（第4条）的禁令开始执行。执行被禁止行为的系统必须在欧盟停止运营。"
+      },
+      "2": {
+        "title": "GPAI 规则生效",
+        "description": "通用人工智能模型提供者的义务生效，包括文档编制、版权合规、训练数据摘要以及具有系统性风险的模型的额外义务。"
+      },
+      "3": {
+        "title": "高风险要求生效",
+        "description": "高风险AI系统（第6至15条、第26至27条）的全部要求和透明度义务（第50条）开始执行。提供者必须满足风险管理、数据治理、文档编制、记录保存、透明度、人工监督、准确性和稳健性要求。投放市场前需在欧盟数据库注册并完成合格评定。"
+      },
+      "4": {
+        "title": "历史遗留 GPAI 和大规模IT系统",
+        "description": "义务适用于2025年8月之前已投放市场的GPAI模型，以及作为附件十所列大规模欧盟IT系统（如申根信息系统、签证信息系统、Eurodac）组件的高风险AI系统。"
+      },
+      "5": {
+        "title": "产品安全组件",
+        "description": "属于附件一欧盟协调立法所涵盖产品安全组件的高风险AI系统（第6条第1款途径A）的义务全面生效。这些系统必须符合所有高风险要求并接受相关合格评定程序。"
+      }
+    },
+    "checklists": {
+      "prohibited-stop-deployment": "立即停止在欧盟部署被禁止的AI系统",
+      "prohibited-document-and-assess": "记录被禁止的系统并评估在不违反禁令的情况下实现相同目标的替代方案",
+      "hr-risk-lifecycle": "建立贯穿整个生命周期的风险管理体系",
+      "hr-risk-identify": "识别和分析已知及合理可预见的风险",
+      "hr-risk-estimate-intended": "评估预期用途和合理可预见的误用所带来的风险",
+      "hr-risk-post-market": "基于上市后监控数据评估风险",
+      "hr-risk-measures": "采取风险管理措施以消除或降低风险",
+      "hr-risk-testing": "对系统进行测试以确定最适当的风险管理措施",
+      "hr-risk-combined-effects": "考虑系统与其他系统结合使用时的综合影响",
+      "hr-risk-residual": "记录残余风险并向部署者传达",
+      "hr-data-governance": "确保训练、验证和测试数据集受到适当的数据治理",
+      "hr-data-collection-docs": "记录数据收集流程和数据来源",
+      "hr-data-relevance": "评估数据的相关性、代表性、完整性和统计特性",
+      "hr-data-bias-examination": "检查数据中可能影响健康、安全或基本权利的偏见",
+      "hr-data-gaps": "识别和弥补数据缺口或不足",
+      "hr-data-bias-mitigation": "采取适当措施进行偏见检测、纠正和缓解",
+      "hr-data-quality": "确保训练数据相对于预期目的无错误且完整",
+      "hr-data-special-categories": "如处理特殊类别的个人数据：记录其必要性和保障措施",
+      "hr-docs-general": "编写AI系统的一般说明（预期用途、开发者、版本）",
+      "hr-docs-development": "编写系统要素和开发过程的详细说明",
+      "hr-docs-monitoring": "编写系统监控、运行和控制的详细说明",
+      "hr-docs-risk-mgmt": "包含风险管理体系的说明（第9条合规情况）",
+      "hr-docs-lifecycle": "记录系统整个生命周期中的所有变更",
+      "hr-docs-standards": "列出所采用的协调标准或其他技术规范",
+      "hr-docs-human-oversight": "描述人工监督措施的实施方式",
+      "hr-docs-lifetime": "记录预期使用寿命及维护保养措施",
+      "hr-docs-accuracy-robustness": "描述AI系统的准确性、稳健性和网络安全措施",
+      "hr-logs-automatic": "确保系统在整个使用寿命内自动记录事件（日志）",
+      "hr-logs-tracing": "确保日志记录能够追溯系统的运行情况",
+      "hr-logs-standards": "确保日志记录能力符合公认的标准或通用规范",
+      "hr-logs-content": "日志应包括：使用期间、参考数据库、输入数据、参与核验的自然人身份信息",
+      "hr-transparency-interpretable": "设计系统使部署者能够解读输出并适当使用",
+      "hr-transparency-identity": "使用说明应包含提供者的身份和联系方式",
+      "hr-transparency-capabilities": "使用说明应包含系统的能力和局限性",
+      "hr-transparency-purpose": "使用说明应包含预期用途和可预见的误用场景",
+      "hr-transparency-changes": "使用说明应包含提供者预先确定的变更",
+      "hr-transparency-oversight-info": "使用说明应包含人工监督措施",
+      "hr-transparency-accuracy-info": "使用说明应包含预期的准确性、稳健性和网络安全水平（基准指标）",
+      "hr-transparency-risks": "使用说明应包含对健康、安全或基本权利的已知风险",
+      "hr-transparency-input-specs": "使用说明应包含输入数据的技术规格",
+      "hr-transparency-logging-info": "使用说明应包含日志记录功能的描述",
+      "hr-oversight-design": "设计系统使自然人能够在使用过程中进行有效监督",
+      "hr-oversight-understand": "监督使人能够充分了解系统的能力和局限性",
+      "hr-oversight-monitor": "监督使人能够检测异常、故障和意外性能",
+      "hr-oversight-bias-awareness": "监督应包括对自动化偏见的认识，特别是涉及个人决策时",
+      "hr-oversight-interpret": "监督使人能够正确解读系统的输出",
+      "hr-oversight-override": "监督使人能够决定不使用系统或否决/撤销系统输出",
+      "hr-oversight-stop": "监督使人能够通过停止按钮或类似程序中断系统",
+      "hr-accuracy-level": "设计系统以达到适合其预期用途的准确性水平",
+      "hr-accuracy-declared": "在使用说明中声明准确性水平和指标",
+      "hr-robustness-errors": "确保系统对环境中的错误、故障或不一致具有弹性",
+      "hr-robustness-adversarial": "确保系统对第三方的对抗性操纵尝试具有弹性",
+      "hr-robustness-failsafe": "设计应对意外情况的安全处理方案（后备/故障安全计划）",
+      "hr-cybersecurity": "实施与风险相称的网络安全措施",
+      "hr-redundancy": "在适当情况下实施技术冗余解决方案（备份计划、故障安全机制）",
+      "hr-conformity-route": "确定合格评定路径：自我评估或第三方评估",
+      "hr-register-eu-db": "在将系统投放市场之前在欧盟数据库中注册",
+      "hr-ce-marking": "合格评定通过后加贴 CE 标志",
+      "hr-declaration-conformity": "编写欧盟符合性声明",
+      "hr-authorised-rep": "在欧盟指定授权代表（如提供者位于欧盟境外）",
+      "hr-post-market-monitoring": "建立上市后监控体系",
+      "hr-incident-reporting-procedure": "建立严重事件报告程序",
+      "hr-incident-reporting-timeline": "在不当延迟的情况下向市场监管机构报告严重事件，且不超过15天",
+      "gpai-tech-docs": "编写并维护模型的技术文档（附件十一）",
+      "gpai-tech-docs-training": "记录训练方法、技术、设计选择和假设",
+      "gpai-tech-docs-data-sources": "记录训练数据来源，包括一般说明和数据溯源",
+      "gpai-tech-docs-compute": "记录用于训练的计算资源",
+      "gpai-downstream-info": "编写并维护供下游提供者使用的信息和文档",
+      "gpai-copyright": "遵守欧盟版权法（第2019/790号指令），包括文本和数据挖掘的退出选择",
+      "gpai-training-data-summary": "发布训练数据内容的充分详细摘要",
+      "gpai-open-source-exception": "如为开源模型：验证是否仅需遵守版权合规和训练数据摘要要求",
+      "gpai-code-of-practice": "考虑遵循 GPAI 提供者行为准则",
+      "gpai-sys-tech-docs": "编写并维护模型的技术文档（附件十一）",
+      "gpai-sys-downstream-info": "编写并维护供下游提供者使用的信息和文档",
+      "gpai-sys-copyright": "遵守欧盟版权法（第2019/790号指令），包括文本和数据挖掘的退出选择",
+      "gpai-sys-training-data-summary": "发布训练数据内容的充分详细摘要",
+      "gpai-sys-model-eval": "按照标准化协议和工具进行模型评估",
+      "gpai-sys-red-teaming": "实施对抗性测试（红队测试）以识别和缓解系统性风险",
+      "gpai-sys-assess-mitigate": "评估和缓解可能的系统性风险，包括其来源",
+      "gpai-sys-incident-tracking": "跟踪、记录并向AI办公室和国家主管机构报告严重事件",
+      "gpai-sys-cybersecurity": "确保模型及其物理基础设施具有充分的网络安全保护",
+      "gpai-sys-code-of-practice": "考虑遵循 GPAI 提供者行为准则（包括系统性风险条款）",
+      "limited-ai-disclosure": "告知用户其正在与AI系统进行交互（除非从上下文来看显而易见）",
+      "limited-disclosure-format": "确保AI披露信息清晰、及时且以可获取的格式提供",
+      "limited-synthetic-marking": "将合成内容（深度伪造、AI生成的文本/图像/音频/视频）标记为人工生成或处理",
+      "limited-synthetic-machine-readable": "在技术上可行的情况下确保合成内容标记为机器可读格式",
+      "limited-emotion-inform": "告知暴露于情绪识别系统的人员该系统正在运行",
+      "limited-biometric-inform": "告知暴露于生物识别分类系统的人员该系统正在运行",
+      "minimal-voluntary-codes": "考虑采用涵盖环境可持续性、可及性、利益相关方参与和开发团队多样性的自愿行为准则",
+      "minimal-voluntary-high-risk-subset": "考虑自愿适用高风险系统的要求（或其子集）",
+      "minimal-ai-pact": "考虑遵循AI公约承诺（自愿提前采用某些人工智能法案条款）",
+      "minimal-good-practices": "记录系统能力和局限性，监控意外行为，并就AI的参与向用户保持透明"
     }
   }
 }
